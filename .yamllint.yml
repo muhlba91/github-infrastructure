@@ -1,0 +1,25 @@
+---
+extends: default
+
+ignore: |
+  node_modules/
+  Pulumi.*.yaml
+  .pre-commit-config.yaml
+
+rules:
+  comments-indentation: false
+  line-length: false
+  empty-lines:
+    max: 2
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 1
+  braces:
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 1
+  brackets:
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 1
+  truthy:
+    ignore: |
+      .github/

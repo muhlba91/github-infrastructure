@@ -1,0 +1,26 @@
+---
+name: pulumi-gcp-aws-ignored-test
+description: test repository
+visibility: private
+topics:
+  - topic
+
+createProject: true
+
+rulesets:
+  branch:
+    enabled: true
+
+accessPermissions:
+  pulumi: false
+  google:
+    region: europe-west4
+    project: tuxnet-385112
+    hmacKey: true
+    iamPermissions:
+      - storage.buckets.get
+  aws:
+    region: eu-west-1
+    account: 126125163971
+    iamPermissions:
+      - "s3:*"

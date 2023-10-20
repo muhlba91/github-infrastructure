@@ -1,0 +1,7 @@
+---
+name: muehlbachler-github-infrastructure
+description: "GitHub Infrastructure"
+runtime:
+  name: nodejs
+  options:
+    typescript: false

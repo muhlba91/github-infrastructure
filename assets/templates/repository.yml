@@ -1,0 +1,63 @@
+---
+# required repository settings
+name: repository
+description: description
+
+# optional repository settings
+visibility: public
+protected: false # protection ensures this repository cannot be deleted; if it were, it will be archived
+topics: []
+homepage: ''
+
+# optional repository features
+enableDiscussions: false
+enableWiki: false
+createProject: false
+
+# optional branch protections/rulesets
+rulesets:
+  branch:
+    enabled: false # required value!
+    patterns: [] # github/index/DEFAULT_BRANCH_RULESET_PATTERNS are always protected
+    restrictCreation: true
+    allowForcePush: false
+    requireConversationResolution: true
+    requireSignedCommits: false
+    requireCodeOwnerReview: false
+    approvingReviewCount: 0
+    requireLastPushApproval: false
+    requireUpdatedBranchBeforeMerge: false
+    requiredChecks: [] # list of check names
+    allowBypass: false
+    allowBypassIntegrations: [] # list of integration ids
+  tag:
+    enabled: false # required value!
+    patterns: [] # github/index/DEFAULT_TAG_RULESET_PATTERNS are always protected
+    restrictCreation: true
+    allowForcePush: false
+    requireConversationResolution: true
+    requireSignedCommits: false
+    requireCodeOwnerReview: false
+    approvingReviewCount: 0
+    requireLastPushApproval: false
+    requireUpdatedBranchBeforeMerge: false
+    requiredChecks: [] # list of check names
+    allowBypass: false
+    allowBypassIntegrations: [] # list of integration ids
+
+# optional cloud access permissions to setup
+# secrets are stored in the Doppler project
+# attention: the Doppler project must be linked manually to the GitHub repository
+accessPermissions:
+  pulumi: true
+  google:
+    region: europe-west4 # if not set, google.defaultRegion is used
+    project: '' # the default project
+    hmacKey: false # create Cloud Storage HMAC keys in the default project
+    linkedProjects: [] # list of linked project ids to which the service account has access
+    iamPermissions: [] # list of additional permissions for the service account; google/index/DEFAULT_PERMISSIONS are default permissions
+    enabledServices: [] # list of additional services to enable in the project(s); google/index/DEFAULT_SERVICES are the default services
+  aws:
+    region: eu-west-1 # if not set, aws.defaultRegion is used
+    account: 0 # the default account id
+    iamPermissions: [] # list of additional permission for the service account; aws/index/DEFAULT_PERMISSIONS are the default permissions

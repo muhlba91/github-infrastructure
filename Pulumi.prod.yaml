@@ -1,0 +1,31 @@
+secretsprovider: gcpkms://projects/root-muehlbachler/locations/europe/keyRings/infrastructure-encryption/cryptoKeys/infrastructure-encryption
+encryptedkey: CiQAu9jGBkBVwALkk06+47gYBca+0DbiMxeCJRaU79HfyKlfd5kSSQCKBr5/TvF2eCwcSlizM5AXV3M+aDf3QKPFpRnbPCSbM7Pg4ANfThl0xfMvJz2f6g1EJTMxK3QOWE39ltzCN/e0Zld+gSoWsl4=
+config:
+  muehlbachler-github-infrastructure:aws:
+    account:
+      "126125163971":
+        externalId:
+          secure: v1:HBoV3tVgo28CxhpK:rWlZYbAqkMXVULn6dMxZ+lnNtqY9StRJOHsCkBJo4AZZyhcfRGYocU6nUsEd6mb1IA4ATg==
+        roleArn:
+          secure: v1:UGphp/uvXHpT7gbL:Uz+Rj2fxyGfR9wZHqNNMSQs+SIF05p48YmT343OyXsYXox3/hgOFtKa1wxJHqaIVmyyoKP/p4zfTh4Y1dnA+
+      "215622641987":
+        externalId:
+          secure: v1:RgRkRpgm+O0S9zwV:Jehxe83rYewOdjBKyQcqsYRXKrqdp/HKZ0JrA/DTafZ7jpBFC1AW7613833orA1AkrIAjg==
+        roleArn:
+          secure: v1:D7669M4V96lLWHt2:5F3gLu8up2H5PitNuJOPkhQ5P94mYahUoZz8apsac0fDfzk2zsiZt/w0XKVGAzrsBfdsSuGpgP1nNlqVwtCP
+      "454228071914":
+        externalId:
+          secure: v1:Pf+36pF6UwvaVpj/:V9B6Sidvq1n9VwGdYt8kJFL93Bo66zY4e0HjTQnrKqFjPnkgl3gSzlOl6mrKnTCdAtYxRQ==
+        roleArn:
+          secure: v1:cMd9wvo7sEMZRkdw:FD7/+87XNzJekzB0HFxpFi6cg+29+uk3LnGe8nMNiJXMObgXLQlBKRCxyxGo1e+mkg35t+rd7Bpk9jMHFMb3
+    defaultRegion: eu-west-1
+  muehlbachler-github-infrastructure:google:
+    allowHmacKeys: true
+    defaultRegion: europe-west4
+    projects:
+      - root-muehlbachler
+      - tuxnet-385112
+      - muehlbachler-mail-397612
+  muehlbachler-github-infrastructure:repositories:
+    owner: muhlba91
+    subscription: none

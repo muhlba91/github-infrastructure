@@ -1,0 +1,143 @@
+---
+name: Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  conform:
+    runs-on: ubuntu-latest
+    name: Conform
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: siderolabs/conform@v0.1.0-alpha.27
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  yamllint:
+    runs-on: ubuntu-latest
+    name: YAMLLint
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - run: yamllint .
+
+  lint:
+    runs-on: ubuntu-latest
+    name: ESLint
+    strategy:
+      max-parallel: 12
+      matrix:
+        node-version: ["16"]
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: |
+          yarn install
+          yarn lint
+
+  audit:
+    runs-on: ubuntu-latest
+    name: Node Audit
+    strategy:
+      max-parallel: 12
+      matrix:
+        node-version: ["16"]
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: |
+          yarn audit
+        continue-on-error: true
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build IaC code
+    strategy:
+      max-parallel: 12
+      matrix:
+        node-version: ["16"]
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: |
+          yarn install
+          yarn build
+
+  preview:
+    runs-on: ubuntu-latest
+    name: Pulumi Preview
+    needs:
+      - conform
+      - yamllint
+      - lint
+      - audit
+      - build
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    strategy:
+      max-parallel: 12
+      matrix:
+        node-version: ["16"]
+
+    steps:
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - run: |
+          npm install -g yarn
+
+      - run: |
+          yarn install
+          yarn build
+
+      - uses: pulumi/actions@v4
+        with:
+          command: preview
+          stack-name: prod
+          comment-on-pr: true
+          refresh: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+        env:
+          CLOUDSDK_COMPUTE_REGION: "${{ secrets.CLOUDSDK_COMPUTE_REGION }}"
+          GOOGLE_CREDENTIALS: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
+          AWS_REGION: "${{ secrets.AWS_REGION }}"
+          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+          DOPPLER_TOKEN: "${{ secrets.DOPPLER_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.GH_PAT_TOKEN }}"
+          PULUMI_ACCESS_TOKEN: "${{ secrets.PULUMI_ACCESS_TOKEN }}"

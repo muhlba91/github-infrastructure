@@ -1,0 +1,30 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":dependencyDashboard",
+        ":semanticCommitTypeAll(chore)"
+    ],
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 0,
+    "baseBranches": [
+        "main"
+    ],
+    "enabledManagers": [
+        "github-actions",
+        "npm"
+    ],
+    "github-actions": {
+        "fileMatch": [
+            "^(workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$",
+            "(^|/)action\\.ya?ml$"
+        ]
+    },
+    "npm": {
+        "fileMatch": [
+            "(^|/)package\\.json$"
+        ],
+        "rollbackPrs": true,
+        "versioning": "npm"
+    }
+}
