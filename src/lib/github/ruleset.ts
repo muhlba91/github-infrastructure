@@ -97,16 +97,18 @@ const createRepositoryRuleset = (
         },
         requiredLinearHistory: true,
         requiredSignatures: getOrDefault(config.requireSignedCommits, false),
-        requiredStatusChecks: {
-          requiredChecks:
-            config.requiredChecks?.map((check) => ({
-              context: check,
-            })) ?? [],
-          strictRequiredStatusChecksPolicy: getOrDefault(
-            config.requireUpdatedBranchBeforeMerge,
-            false,
-          ),
-        },
+        requiredStatusChecks: config.requiredChecks
+          ? {
+              requiredChecks:
+                config.requiredChecks?.map((check) => ({
+                  context: check,
+                })) ?? [],
+              strictRequiredStatusChecksPolicy: getOrDefault(
+                config.requireUpdatedBranchBeforeMerge,
+                false,
+              ),
+            }
+          : undefined,
         update: true,
         updateAllowsFetchAndMerge: true,
       },
