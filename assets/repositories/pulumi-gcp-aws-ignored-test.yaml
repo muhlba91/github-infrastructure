@@ -12,7 +12,7 @@ rulesets:
     enabled: true
 
 accessPermissions:
-  pulumi: false
+  pulumi: true
   google:
     region: europe-west4
     project: tuxnet-385112

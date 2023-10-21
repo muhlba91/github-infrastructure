@@ -15,7 +15,7 @@ export const writeToDoppler = (
   value: Output<string>,
   project: string,
 ) => {
-  new doppler.Secret('doppler-' + project + '-' + key, {
+  new doppler.Secret(`doppler-${project}-${key}`, {
     name: key,
     value: value,
     project: project,

@@ -16,7 +16,7 @@ export const createRandomString = (
   }: { readonly length?: number; readonly special?: boolean },
 ): RandomString =>
   new RandomString(
-    'random-string-' + name,
+    `random-string-${name}`,
     {
       length: length,
       special: special,
