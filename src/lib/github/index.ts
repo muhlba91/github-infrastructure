@@ -1,7 +1,11 @@
 import * as github from '@pulumi/github';
 
 import { RepositoryConfig } from '../../model/config/repository';
-import { repositories, repositoriesConfig } from '../configuration';
+import {
+  allowRepositoryDeletion,
+  repositories,
+  repositoriesConfig,
+} from '../configuration';
 import { getOrDefault } from '../util/get_or_default';
 import { isPrivate } from '../util/github/repository';
 import { hasSubscription } from '../util/github/subscription';
@@ -64,7 +68,8 @@ const createRepository = (config: RepositoryConfig): string => {
       vulnerabilityAlerts: true,
     },
     {
-      protect: config.protected,
+      protect: !allowRepositoryDeletion,
+      retainOnDelete: !allowRepositoryDeletion,
     },
   );
 
