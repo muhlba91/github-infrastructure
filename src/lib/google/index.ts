@@ -16,7 +16,7 @@ import { createProjectIam } from './iam';
 import { createProjectGitHubOidc } from './oidc';
 import { enableProjectServices } from './services';
 
-const DEFAULT_PERMISSIONS = [
+export const DEFAULT_PERMISSIONS = [
   'cloudkms.cryptoKeyVersions.useToDecrypt',
   'cloudkms.cryptoKeyVersions.useToEncrypt',
   'cloudkms.cryptoKeys.getIamPolicy',
@@ -80,6 +80,7 @@ const DEFAULT_SERVICES = [
   'cloudkms.googleapis.com',
   'storage.googleapis.com',
   'storage-component.googleapis.com',
+  'compute.googleapis.com',
 ];
 
 /**
@@ -124,7 +125,13 @@ export const configureGoogleProjects = (
         .filter((repositoryProject) =>
           filterGoogleProjectByProject(repositoryProject, project),
         )
-        .flatMap((repositoryProject) => repositoryProject.enabledServices)
+        .flatMap((repositoryProject) =>
+          repositoryProject.name == project ||
+          (repositoryProject.linkedProjects ?? {})[project]?.accessLevel ==
+            'full'
+            ? repositoryProject.enabledServices
+            : DEFAULT_SERVICES,
+        )
         .filter(uniqueFilter),
       providers,
     ),
@@ -156,7 +163,7 @@ export const configureGoogleProjects = (
   return googleRepositoryProjects
     .flatMap((repostoryProject) =>
       [repostoryProject.name]
-        .concat(repostoryProject.linkedProjects ?? [])
+        .concat(Object.keys(repostoryProject.linkedProjects ?? {}))
         .map((project) => ({
           name: project,
           repository: repostoryProject.repository,
@@ -222,16 +229,17 @@ const filterRepositoryByAllowedProjects = (
     return false;
   }
 
-  const linkedProjects =
-    repository.accessPermissions?.google?.linkedProjects?.every((project) => {
-      if (project == undefined || !gcpConfig.projects.includes(project)) {
-        console.error(
-          `[google][${repository.name}][${project}] the repository references an unconfigured project`,
-        );
-        return false;
-      }
-      return true;
-    });
+  const linkedProjects = Object.keys(
+    repository.accessPermissions?.google?.linkedProjects ?? {},
+  ).every((project) => {
+    if (project == undefined || !gcpConfig.projects.includes(project)) {
+      console.error(
+        `[google][${repository.name}][${project}] the repository references an unconfigured project`,
+      );
+      return false;
+    }
+    return true;
+  });
 
   return linkedProjects == undefined ? true : linkedProjects;
 };
@@ -248,5 +256,5 @@ const filterGoogleProjectByProject = (
   project: string,
 ): boolean =>
   (googleProject.name == project ||
-    googleProject.linkedProjects?.includes(project)) ??
+    Object.keys(googleProject.linkedProjects ?? {}).includes(project)) ??
   false;

@@ -46,6 +46,6 @@ const configureRepository = (
   writeToDoppler(
     'PULUMI_ACCESS_TOKEN',
     accessToken.value.apply((token) => token ?? ''),
-    dopplerEnvironments[repository].project,
+    dopplerEnvironments[repository],
   );
 };

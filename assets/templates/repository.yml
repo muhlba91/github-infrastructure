@@ -55,7 +55,9 @@ accessPermissions:
     region: europe-west4 # if not set, google.defaultRegion is used
     project: '' # the default project
     hmacKey: false # create Cloud Storage HMAC keys in the default project
-    linkedProjects: [] # list of linked project ids to which the service account has access
+    linkedProjects: # a map of linked project ids with the access configuration
+      project-id:
+        accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set
     iamPermissions: [] # list of additional permissions for the service account; google/index/DEFAULT_PERMISSIONS are default permissions
     enabledServices: [] # list of additional services to enable in the project(s); google/index/DEFAULT_SERVICES are the default services
   aws:

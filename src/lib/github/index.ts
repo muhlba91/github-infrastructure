@@ -37,7 +37,7 @@ const createRepository = (config: RepositoryConfig): string => {
       hasDiscussions: config.enableDiscussions,
       hasWiki: config.enableWiki,
       homepageUrl: config.homepage,
-      topics: config.topics?.map((topic) => topic),
+      topics: config.topics?.map((topic) => topic).sort(),
       visibility: getOrDefault(config.visibility, 'public'),
       allowAutoMerge: false,
       allowMergeCommit: false,

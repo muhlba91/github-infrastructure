@@ -11,6 +11,8 @@ import { repositoriesConfig } from '../configuration';
 import { writeToDoppler } from '../util/doppler/secret';
 import { createRandomString } from '../util/random';
 
+import { DEFAULT_PERMISSIONS } from '.';
+
 /**
  * Creates IAM for a Google project.
  *
@@ -34,7 +36,9 @@ export const createProjectIam = (
   ).result.apply((id) => id.toLowerCase());
   const truncatedRepository = project.repository.substring(0, 18);
 
-  const projects = [project.name].concat(project.linkedProjects ?? []);
+  const projects = [project.name].concat(
+    Object.keys(project.linkedProjects ?? {}),
+  );
 
   const ciRoles = Object.fromEntries(
     projects.map((name) => [
@@ -49,8 +53,12 @@ export const createProjectIam = (
           title: `GitHub Repository: ${project.repository}`,
           description: `Continuous Integration role for the GitHub repository: ${project.repository}`,
           stage: 'GA',
-          permissions: project.iamPermissions.map((permission) => permission),
-          project: project.name,
+          permissions:
+            name == project.name ||
+            (project.linkedProjects ?? {})[name]?.accessLevel == 'full'
+              ? project.iamPermissions.map((permission) => permission)
+              : DEFAULT_PERMISSIONS,
+          project: name,
         },
         {
           provider: providers[name],
@@ -108,17 +116,17 @@ export const createProjectIam = (
   writeToDoppler(
     'GOOGLE_WORKLOAD_IDENTITY_PROVIDER',
     workloadIdentityPool.workloadIdentityProvider.name,
-    dopplerEnvironments[project.repository].project,
+    dopplerEnvironments[project.repository],
   );
   writeToDoppler(
     'GOOGLE_WORKLOAD_IDENTITY_SERVICE_ACCOUNT',
     ciServiceAccount.email,
-    dopplerEnvironments[project.repository].project,
+    dopplerEnvironments[project.repository],
   );
   writeToDoppler(
     'CLOUDSDK_COMPUTE_REGION',
     Output.create(project.region),
-    dopplerEnvironments[project.repository].project,
+    dopplerEnvironments[project.repository],
   );
 
   return ciServiceAccount;

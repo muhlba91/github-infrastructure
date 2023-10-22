@@ -1,3 +1,5 @@
+import { StringMap } from '../map';
+
 /**
  * Defines repositories config.
  */
@@ -73,9 +75,16 @@ export type RepositoryCommonCloudAccessConfig = {
  */
 export type RepositoryGoogleAccessConfig = RepositoryCommonCloudAccessConfig & {
   readonly project: string;
-  readonly linkedProjects?: readonly string[];
+  readonly linkedProjects?: StringMap<RepositoryGoogleLinkedAccessConfig>;
   readonly enabledServices?: readonly string[];
   readonly hmacKey?: boolean;
+};
+
+/**
+ * Defines repository linked Google access config.
+ */
+export type RepositoryGoogleLinkedAccessConfig = {
+  readonly accessLevel: string;
 };
 
 /**

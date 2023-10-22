@@ -13,15 +13,21 @@ import { environment } from '../../configuration';
 export const writeToDoppler = (
   key: string,
   value: Output<string>,
-  project: Output<string>,
+  dopplerEnvironment: doppler.Environment,
 ) => {
-  project.apply(
+  dopplerEnvironment.project.apply(
     (dopplerProject) =>
-      new doppler.Secret(`doppler-${dopplerProject}-${key}`, {
-        name: key,
-        value: value,
-        project: dopplerProject,
-        config: environment,
-      }),
+      new doppler.Secret(
+        `doppler-${dopplerProject}-${key}`,
+        {
+          name: key,
+          value: value,
+          project: dopplerProject,
+          config: environment,
+        },
+        {
+          dependsOn: [dopplerEnvironment],
+        },
+      ),
   );
 };

@@ -26,6 +26,7 @@ config:
       - root-muehlbachler
       - tuxnet-385112
       - muehlbachler-dns
+      - public-services-402810
   muehlbachler-github-infrastructure:repositories:
     owner: muhlba91
     subscription: none

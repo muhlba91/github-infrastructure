@@ -1,0 +1,14 @@
+---
+name: muehlbachler-public-services-cluster-applications
+description: "Personal Public Services: Applications running on the Kubernetes public-services-cluster."
+visibility: public
+protected: true
+topics:
+  - services
+  - kubernetes
+  - gitops
+  - argocd-applications
+
+rulesets:
+  branch:
+    enabled: false

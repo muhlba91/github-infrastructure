@@ -107,11 +107,11 @@ export const createAccountIam = (
   writeToDoppler(
     'AWS_IDENTITY_ROLE_ARN',
     ciRole.arn,
-    dopplerEnvironments[account.repository].project,
+    dopplerEnvironments[account.repository],
   );
   writeToDoppler(
     'AWS_REGION',
     Output.create(account.region),
-    dopplerEnvironments[account.repository].project,
+    dopplerEnvironments[account.repository],
   );
 };

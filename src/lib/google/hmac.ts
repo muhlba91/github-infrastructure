@@ -37,11 +37,11 @@ export const createHmacKey = (
   writeToDoppler(
     'GCS_ACCESS_KEY_ID',
     key.accessId,
-    dopplerEnvironments[project.repository].project,
+    dopplerEnvironments[project.repository],
   );
   writeToDoppler(
     'GCS_SECRET_ACCESS_KEY',
     key.secret,
-    dopplerEnvironments[project.repository].project,
+    dopplerEnvironments[project.repository],
   );
 };
