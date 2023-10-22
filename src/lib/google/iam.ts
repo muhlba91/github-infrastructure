@@ -1,5 +1,6 @@
 import * as gcp from '@pulumi/gcp';
 import { interpolate, Output, Resource } from '@pulumi/pulumi';
+import * as doppler from '@pulumiverse/doppler';
 
 import {
   GoogleRepositoryProjectData,
@@ -16,6 +17,7 @@ import { createRandomString } from '../util/random';
  * @param {GoogleRepositoryProjectData} project the Google project
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
  * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool
+ * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {Resource[]} dependencies the Pulumi dependencies
  * @returns {gcp.serviceaccount.Account} the created service account
  */
@@ -23,6 +25,7 @@ export const createProjectIam = (
   project: GoogleRepositoryProjectData,
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
+  dopplerEnvironments: StringMap<doppler.Environment>,
   dependencies: Resource[],
 ): gcp.serviceaccount.Account => {
   const ciPostfix = createRandomString(
@@ -105,17 +108,17 @@ export const createProjectIam = (
   writeToDoppler(
     'GOOGLE_WORKLOAD_IDENTITY_PROVIDER',
     workloadIdentityPool.workloadIdentityProvider.name,
-    project.repository,
+    dopplerEnvironments[project.repository].project,
   );
   writeToDoppler(
     'GOOGLE_WORKLOAD_IDENTITY_SERVICE_ACCOUNT',
     ciServiceAccount.email,
-    project.repository,
+    dopplerEnvironments[project.repository].project,
   );
   writeToDoppler(
     'CLOUDSDK_COMPUTE_REGION',
     Output.create(project.region),
-    project.repository,
+    dopplerEnvironments[project.repository].project,
   );
 
   return ciServiceAccount;

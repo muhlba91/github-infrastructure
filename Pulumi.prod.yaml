@@ -25,7 +25,7 @@ config:
     projects:
       - root-muehlbachler
       - tuxnet-385112
-      - muehlbachler-mail-397612
+      - muehlbachler-dns
   muehlbachler-github-infrastructure:repositories:
     owner: muhlba91
     subscription: none

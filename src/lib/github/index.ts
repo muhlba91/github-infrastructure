@@ -58,18 +58,26 @@ const createRepository = (config: RepositoryConfig): string => {
         : {
             buildType: 'workflow',
             source: {
-              branch: 'gh-pages',
+              branch: config.pagesBranch ?? 'main',
               path: '/',
             },
           },
-      securityAndAnalysis: {},
       squashMergeCommitMessage: 'COMMIT_MESSAGES',
       squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
       vulnerabilityAlerts: true,
+      securityAndAnalysis: {
+        secretScanning: {
+          status: 'enabled',
+        },
+        secretScanningPushProtection: {
+          status: 'enabled',
+        },
+      },
     },
     {
       protect: !allowRepositoryDeletion,
       retainOnDelete: !allowRepositoryDeletion,
+      ignoreChanges: ['securityAndAnalysis'],
     },
   );
 

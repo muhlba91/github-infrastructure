@@ -8,17 +8,20 @@ import { environment } from '../../configuration';
  *
  * @param {string} key the key
  * @param {Output<string>} value the value
- * @param {string} project the project name
+ * @param {Output<string>} project the project name
  */
 export const writeToDoppler = (
   key: string,
   value: Output<string>,
-  project: string,
+  project: Output<string>,
 ) => {
-  new doppler.Secret(`doppler-${project}-${key}`, {
-    name: key,
-    value: value,
-    project: project,
-    config: environment,
-  });
+  project.apply(
+    (dopplerProject) =>
+      new doppler.Secret(`doppler-${dopplerProject}-${key}`, {
+        name: key,
+        value: value,
+        project: dopplerProject,
+        config: environment,
+      }),
+  );
 };

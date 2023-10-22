@@ -1,0 +1,29 @@
+---
+name: muehlbachler-io-global-dns
+description: "muehlbachler.io: Global DNS entries"
+visibility: public
+protected: true
+topics:
+  - dns
+  - infrastructure
+  - pulumi
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  pulumi: true
+  google:
+    region: europe-west4
+    project: muehlbachler-dns
+    iamPermissions:
+      - dns.managedZones.get
+      - dns.managedZones.list
+      - dns.managedZones.update
+      - dns.projects.get
+      - dns.resourceRecordSets.create
+      - dns.resourceRecordSets.delete
+      - dns.resourceRecordSets.get
+      - dns.resourceRecordSets.list
+      - dns.resourceRecordSets.update

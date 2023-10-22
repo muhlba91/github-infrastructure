@@ -19,6 +19,7 @@ export type RepositoryConfig = {
   readonly enableWiki?: boolean;
   readonly enableDiscussions?: boolean;
   readonly createProject?: boolean;
+  readonly pagesBranch?: string;
   readonly rulesets?: RepositoryRulesetsConfig;
   readonly accessPermissions?: RepositoryAccessPermissionsConfig;
 };

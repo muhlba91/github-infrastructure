@@ -7,8 +7,11 @@ import { repositoriesConfig } from '../configuration';
  * Creates a Doppler project.
  *
  * @param {RepositoryConfig} repository the repository
+ * @returns {doppler.Environment} the environment
  */
-export const createProject = (repository: RepositoryConfig) => {
+export const createProject = (
+  repository: RepositoryConfig,
+): doppler.Environment => {
   const project = new doppler.Project(
     `doppler-project-${repository.name}`,
     {
@@ -18,7 +21,7 @@ export const createProject = (repository: RepositoryConfig) => {
     {},
   );
 
-  new doppler.Environment(
+  const dopplerEnvironment = new doppler.Environment(
     `doppler-environment-prod-${repository.name}`,
     {
       project: project.name,
@@ -31,4 +34,6 @@ export const createProject = (repository: RepositoryConfig) => {
   console.log(
     `[doppler][manual-action][${repository.name}] link the Doppler project to the GitHub repository`,
   );
+
+  return dopplerEnvironment;
 };

@@ -1,5 +1,6 @@
 import * as gcp from '@pulumi/gcp';
 import { Resource } from '@pulumi/pulumi';
+import * as doppler from '@pulumiverse/doppler';
 
 import { RepositoryConfig } from '../../model/config/repository';
 import {
@@ -8,6 +9,7 @@ import {
 } from '../../model/data/google';
 import { StringMap } from '../../model/map';
 import { gcpConfig, repositories } from '../configuration';
+import { uniqueFilter } from '../util/filter';
 
 import { createHmacKey } from './hmac';
 import { createProjectIam } from './iam';
@@ -83,9 +85,12 @@ const DEFAULT_SERVICES = [
 /**
  * Creates all Google related infrastructure.
  *
+ * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @returns {StringMap<string[]>} the configured Google projects
  */
-export const configureGoogleProjects = (): StringMap<string[]> => {
+export const configureGoogleProjects = (
+  dopplerEnvironments: StringMap<doppler.Environment>,
+): StringMap<string[]> => {
   const providers = Object.fromEntries(
     gcpConfig.projects.map((project) => [
       project,
@@ -119,26 +124,31 @@ export const configureGoogleProjects = (): StringMap<string[]> => {
         .filter((repositoryProject) =>
           filterGoogleProjectByProject(repositoryProject, project),
         )
-        .flatMap((repositoryProject) => repositoryProject.enabledServices),
+        .flatMap((repositoryProject) => repositoryProject.enabledServices)
+        .filter(uniqueFilter),
       providers,
     ),
   );
 
   const workloadIdentityPools = Object.fromEntries(
-    googleRepositoryProjects.map((repositoryProject) => [
-      repositoryProject.name,
-      createProjectGitHubOidc(
-        repositoryProject.name,
-        providers[repositoryProject.name],
-        enabledServices,
-      ),
-    ]),
+    googleRepositoryProjects
+      .map((repositoryProject) => repositoryProject.name)
+      .filter(uniqueFilter)
+      .map((repositoryProject) => [
+        repositoryProject,
+        createProjectGitHubOidc(
+          repositoryProject,
+          providers[repositoryProject],
+          enabledServices,
+        ),
+      ]),
   );
   googleRepositoryProjects.forEach((repositoryProject) =>
     configureProject(
       repositoryProject,
       providers,
       workloadIdentityPools[repositoryProject.name],
+      dopplerEnvironments,
       enabledServices,
     ),
   );
@@ -166,23 +176,32 @@ export const configureGoogleProjects = (): StringMap<string[]> => {
  *
  * @param {GoogleRepositoryProjectData} project the Google project
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
- * @param {workloadIdentityPool} workloadIdentityPool the workload identity pool to assign permissions for
+ * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool to assign permissions for
+ * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {Resource[]} dependencies the Pulumi dependencies
  */
 const configureProject = (
   project: GoogleRepositoryProjectData,
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
+  dopplerEnvironments: StringMap<doppler.Environment>,
   dependencies: Resource[],
 ) => {
   const serviceAccount = createProjectIam(
     project,
     providers,
     workloadIdentityPool,
+    dopplerEnvironments,
     dependencies,
   );
   if (gcpConfig.allowHmacKeys && project.hmacKey) {
-    createHmacKey(project, serviceAccount, providers, dependencies);
+    createHmacKey(
+      project,
+      serviceAccount,
+      providers,
+      dopplerEnvironments,
+      dependencies,
+    );
   }
 };
 

@@ -1,7 +1,7 @@
 import * as github from '@pulumi/github';
 
 /**
- * Creates GitHub repository rulesets.
+ * Creates GitHub repository projects.
  *
  * @param {string} owner the repository owner
  * @param {string} name the repository name

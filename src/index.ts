@@ -8,11 +8,11 @@ import { getOrDefault } from './lib/util/get_or_default';
 
 export = async () => {
   createRepositories();
-  configureDoppler();
 
-  const pulumis = configurePulumi();
-  const projects = configureGoogleProjects();
-  const accounts = configureAwsAccounts();
+  const dopplerEnvironments = configureDoppler();
+  const pulumis = configurePulumi(dopplerEnvironments);
+  const projects = configureGoogleProjects(dopplerEnvironments);
+  const accounts = configureAwsAccounts(dopplerEnvironments);
 
   return {
     google: {

@@ -1,5 +1,6 @@
 import * as aws from '@pulumi/aws';
 import { interpolate, Output } from '@pulumi/pulumi';
+import * as doppler from '@pulumiverse/doppler';
 
 import { AwsRepositoryAccountData } from '../../model/data/aws';
 import { StringMap } from '../../model/map';
@@ -13,11 +14,13 @@ import { createRandomString } from '../util/random';
  * @param {AwsRepositoryAccountData} account the AWS account
  * @param {Output<string | undefined>} identityProviderArn the identity provider ARN if created
  * @param {StringMap<aws.Provider>} providers the providers for all projects
+ * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  */
 export const createAccountIam = (
   account: AwsRepositoryAccountData,
   identityProviderArn: Output<string | undefined>,
   providers: StringMap<aws.Provider>,
+  dopplerEnvironments: StringMap<doppler.Environment>,
 ) => {
   const labels = {
     ...commonLabels,
@@ -101,10 +104,14 @@ export const createAccountIam = (
     },
   );
 
-  writeToDoppler('AWS_IDENTITY_ROLE_ARN', ciRole.arn, account.repository);
+  writeToDoppler(
+    'AWS_IDENTITY_ROLE_ARN',
+    ciRole.arn,
+    dopplerEnvironments[account.repository].project,
+  );
   writeToDoppler(
     'AWS_REGION',
     Output.create(account.region),
-    account.repository,
+    dopplerEnvironments[account.repository].project,
   );
 };
