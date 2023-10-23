@@ -1,23 +1,23 @@
 secretsprovider: gcpkms://projects/root-muehlbachler/locations/europe/keyRings/infrastructure-encryption/cryptoKeys/infrastructure-encryption
-encryptedkey: CiQAu9jGBkBVwALkk06+47gYBca+0DbiMxeCJRaU79HfyKlfd5kSSQCKBr5/TvF2eCwcSlizM5AXV3M+aDf3QKPFpRnbPCSbM7Pg4ANfThl0xfMvJz2f6g1EJTMxK3QOWE39ltzCN/e0Zld+gSoWsl4=
+encryptedkey: CiQAu9jGBnemGLIHZTiOWOZS7QKrQajASMeCzGlMKKda7vCvayISSQCKBr5/n4bBxdyp+dOBNyWKyoEJ+PscdSSlOxrqDAO020Auqk5nDE634lT7+SHv5mJ4lwqDuqbgqUxSxjHTDoOhSaV1ZxB5xy4=
 config:
   muehlbachler-github-infrastructure:aws:
     account:
       "126125163971":
         externalId:
-          secure: v1:HBoV3tVgo28CxhpK:rWlZYbAqkMXVULn6dMxZ+lnNtqY9StRJOHsCkBJo4AZZyhcfRGYocU6nUsEd6mb1IA4ATg==
+          secure: v1:cj67N4KedOPg+BUi:e7cribj0FtB5EbAEVGlpmBiMAi9jvvgAkBg2ZKvxdNMaZbjrH1CHZr+aL5Y1QPQlg39F7g==
         roleArn:
-          secure: v1:UGphp/uvXHpT7gbL:Uz+Rj2fxyGfR9wZHqNNMSQs+SIF05p48YmT343OyXsYXox3/hgOFtKa1wxJHqaIVmyyoKP/p4zfTh4Y1dnA+
+          secure: v1:SeIy0qBBZ06Czj2p:vqN3jYBsgOAq27ODxgQr9LzLxCa/r5Tmvsz9KKXlcIpZ9wq3lrXppGMQoaLlKL/7PEOh96Ima2Xp0w+gJoq9
       "215622641987":
         externalId:
-          secure: v1:RgRkRpgm+O0S9zwV:Jehxe83rYewOdjBKyQcqsYRXKrqdp/HKZ0JrA/DTafZ7jpBFC1AW7613833orA1AkrIAjg==
+          secure: v1:4xafBxfK/blmaA6m:iVvyVuER1+nYXk+2F78ElchzM5mohZzE1/3yoMBDV57w1f0TJq3H9bGaXonSJfCBKEEbmQ==
         roleArn:
-          secure: v1:D7669M4V96lLWHt2:5F3gLu8up2H5PitNuJOPkhQ5P94mYahUoZz8apsac0fDfzk2zsiZt/w0XKVGAzrsBfdsSuGpgP1nNlqVwtCP
+          secure: v1:KCnBKkE+VvmeQ7Gd:WmaK0Oc6G3biSFPOij/1GhyJs3m2T/axKX+DvUI6/mh6irWgrx7p0nDXssOIfpijdJtV1vEZvusygjwVYvoF
       "454228071914":
         externalId:
-          secure: v1:Pf+36pF6UwvaVpj/:V9B6Sidvq1n9VwGdYt8kJFL93Bo66zY4e0HjTQnrKqFjPnkgl3gSzlOl6mrKnTCdAtYxRQ==
+          secure: v1:gSKc6oNq5ngxtdMh:jIWHvYZ/NFBla8WE7YQ6nxnvrizqrtLoU2CaU/snv2mwDrSMyBS6tgRwzZvXo14/3jOjuw==
         roleArn:
-          secure: v1:cMd9wvo7sEMZRkdw:FD7/+87XNzJekzB0HFxpFi6cg+29+uk3LnGe8nMNiJXMObgXLQlBKRCxyxGo1e+mkg35t+rd7Bpk9jMHFMb3
+          secure: v1:Jdi8ALQOapWMMkXU:pdganYJR+wzpjp2LRj4oU3zOo+qgsCe2xqsRSNY75R9VrVDOgLr3vX5MVYud8p/Ih5O0D4Eg+84gHcKB6C/b
     defaultRegion: eu-west-1
   muehlbachler-github-infrastructure:google:
     allowHmacKeys: true
@@ -30,3 +30,8 @@ config:
   muehlbachler-github-infrastructure:repositories:
     owner: muhlba91
     subscription: none
+  muehlbachler-github-infrastructure:tailscale:
+    oauth:
+      id: kGsogi3CNTRL
+      secret:
+        secure: v1:s2Lw0DJpYtmYOaso:uPg3xGV1/YBcTMl2q5r0nwpTar4w5L0rygPhckELDJQKgnWwjg2p7tS2noH8SPPB8QDAIoGm6pfYctlUsX3y24CMVt0Fh/XdwWdY

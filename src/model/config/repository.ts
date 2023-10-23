@@ -60,6 +60,7 @@ export type RepositoryAccessPermissionsConfig = {
   readonly google?: RepositoryGoogleAccessConfig;
   readonly aws?: RepositoryAwsAccessConfig;
   readonly pulumi?: boolean;
+  readonly tailscale?: boolean;
 };
 
 /**

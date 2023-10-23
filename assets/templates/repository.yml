@@ -51,6 +51,7 @@ rulesets:
 # attention: the Doppler project must be linked manually to the GitHub repository
 accessPermissions:
   pulumi: true
+  tailscale: true
   google:
     region: europe-west4 # if not set, google.defaultRegion is used
     project: '' # the default project

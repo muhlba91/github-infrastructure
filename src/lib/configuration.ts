@@ -3,6 +3,7 @@ import { Config, getStack } from '@pulumi/pulumi';
 import { AwsConfig } from '../model/config/aws';
 import { GcpConfig } from '../model/config/google';
 import { RepositoriesConfig } from '../model/config/repository';
+import { TailscaleConfig } from '../model/config/tailscale';
 
 import { getOrDefault } from './util/get_or_default';
 import { parseRepositoriesFromFiles } from './util/repository';
@@ -14,6 +15,8 @@ export const repositoriesConfig =
   config.requireObject<RepositoriesConfig>('repositories');
 export const awsConfig = config.requireObject<AwsConfig>('aws');
 export const gcpConfig = config.requireObject<GcpConfig>('google');
+export const tailscaleConfig =
+  config.requireObject<TailscaleConfig>('tailscale');
 
 export const allowRepositoryDeletion =
   getOrDefault(process.env.ALLOW_REPOSITORY_DELETION?.toLowerCase(), 'false') ==

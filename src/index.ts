@@ -4,6 +4,7 @@ import { configureDoppler } from './lib/doppler';
 import { createRepositories } from './lib/github';
 import { configureGoogleProjects } from './lib/google';
 import { configurePulumi } from './lib/pulumi';
+import { configureTailscale } from './lib/tailscale';
 import { getOrDefault } from './lib/util/get_or_default';
 
 export = async () => {
@@ -11,6 +12,7 @@ export = async () => {
 
   const dopplerEnvironments = configureDoppler();
   const pulumis = configurePulumi(dopplerEnvironments);
+  const tailscales = configureTailscale(dopplerEnvironments);
   const projects = configureGoogleProjects(dopplerEnvironments);
   const accounts = configureAwsAccounts(dopplerEnvironments);
 
@@ -26,6 +28,9 @@ export = async () => {
     pulumi: {
       accessTokens: pulumis,
     },
+    tailscale: {
+      clients: tailscales,
+    },
     repositories: Object.fromEntries(
       repositories.map((repository) => [
         repository.name,
@@ -37,6 +42,10 @@ export = async () => {
           ),
           aws: repository.accessPermissions?.aws?.account != undefined,
           pulumi: getOrDefault(repository.accessPermissions?.pulumi, false),
+          tailscale: getOrDefault(
+            repository.accessPermissions?.tailscale,
+            false,
+          ),
         },
       ]),
     ),
