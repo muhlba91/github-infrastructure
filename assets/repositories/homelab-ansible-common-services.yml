@@ -1,0 +1,20 @@
+---
+name: homelab-ansible-common-services
+description: "Homelab: Ansible Playbook for Common Services deployed on servers"
+visibility: public
+protected: true
+topics:
+  - ansible
+  - ansible-playbook
+  - homelab
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  tailscale: true
+  google:
+    region: europe-west4
+    project: tuxnet-385112
+    hmacKey: true

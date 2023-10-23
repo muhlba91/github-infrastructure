@@ -31,6 +31,9 @@ export = async () => {
     tailscale: {
       clients: tailscales,
     },
+    doppler: {
+      projects: Object.keys(dopplerEnvironments),
+    },
     repositories: Object.fromEntries(
       repositories.map((repository) => [
         repository.name,
@@ -42,6 +45,7 @@ export = async () => {
           ),
           aws: repository.accessPermissions?.aws?.account != undefined,
           pulumi: getOrDefault(repository.accessPermissions?.pulumi, false),
+          doppler: getOrDefault(repository.accessPermissions?.doppler, true),
           tailscale: getOrDefault(
             repository.accessPermissions?.tailscale,
             false,

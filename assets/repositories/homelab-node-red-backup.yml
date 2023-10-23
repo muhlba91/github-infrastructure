@@ -1,0 +1,12 @@
+---
+name: homelab-node-red-backup
+description: "Homelab: Python application for backing up and restoring Node-RED via its API"
+visibility: public
+protected: true
+topics:
+  - node-red
+  - homelab
+
+rulesets:
+  branch:
+    enabled: false

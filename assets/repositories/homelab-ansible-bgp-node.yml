@@ -1,0 +1,21 @@
+---
+name: homelab-ansible-bgp-node
+description: "Homelab: Ansible Playbook for installing and configuring BGP nodes"
+visibility: private
+protected: true
+topics:
+  - ansible
+  - ansible-playbook
+  - homelab
+  - bgp
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  tailscale: true
+  google:
+    region: europe-west4
+    project: tuxnet-385112
+    hmacKey: true

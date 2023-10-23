@@ -57,10 +57,11 @@ export type RepositoryRulesetConfig = {
  * Defines repository access permissions config.
  */
 export type RepositoryAccessPermissionsConfig = {
-  readonly google?: RepositoryGoogleAccessConfig;
-  readonly aws?: RepositoryAwsAccessConfig;
   readonly pulumi?: boolean;
   readonly tailscale?: boolean;
+  readonly doppler?: boolean;
+  readonly google?: RepositoryGoogleAccessConfig;
+  readonly aws?: RepositoryAwsAccessConfig;
 };
 
 /**

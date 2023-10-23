@@ -1,0 +1,28 @@
+---
+name: muehlbachler-shared-services
+description: "Personal Shared Services"
+visibility: public
+protected: true
+topics:
+  - shared-services
+  - pulumi
+  - homelab
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  pulumi: true
+  aws:
+    region: eu-west-1
+    account: 215622641987
+    iamPermissions:
+      - "rds:*"
+      - "ec2:*"
+  google:
+    region: europe-west4
+    project: root-muehlbachler # FIXME:
+    linkedProjects:
+      muehlbachler-dns:
+        accessLevel: default

@@ -1,11 +1,11 @@
 ---
-name: muehlbachler-public-services-cluster-applications
-description: "Personal Public Services: Applications running on the Kubernetes public-services-cluster"
+name: homelab-kubernetes-home-applications
+description: "Homelab: Applications running on the Kubernetes home-cluster"
 visibility: public
 protected: true
 topics:
-  - services
   - kubernetes
+  - homelab
   - gitops
   - argocd-applications
 

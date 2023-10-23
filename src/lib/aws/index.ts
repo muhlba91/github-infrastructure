@@ -6,11 +6,12 @@ import { RepositoryConfig } from '../../model/config/repository';
 import { AwsRepositoryAccountData } from '../../model/data/aws';
 import { StringMap } from '../../model/map';
 import { awsConfig, repositories } from '../configuration';
+import { uniqueFilter } from '../util/filter';
 
 import { createAccountIam } from './iam';
 import { createAccountGitHubOidc } from './oidc';
 
-const DEFAULT_PERMISSIONS = ['iam:*', 's3:*'];
+const DEFAULT_PERMISSIONS = ['iam:*', 's3:*', 'kms:*'];
 
 /**
  * Creates all AWS related infrastructure.
@@ -46,13 +47,16 @@ export const configureAwsAccounts = (
     }));
 
   const identityProviderArns = Object.fromEntries(
-    awsRepositoryAccounts.map((repositoryAccount) => [
-      repositoryAccount.id,
-      createAccountGitHubOidc(
-        repositoryAccount.id,
-        providers[repositoryAccount.id],
-      ),
-    ]),
+    awsRepositoryAccounts
+      .map((repositoryAccount) => repositoryAccount.id)
+      .filter(uniqueFilter)
+      .map((repositoryAccount) => [
+        repositoryAccount,
+        createAccountGitHubOidc(
+          repositoryAccount,
+          providers[repositoryAccount],
+        ),
+      ]),
   );
   awsRepositoryAccounts.forEach((repositoryAccount) =>
     configureAccount(

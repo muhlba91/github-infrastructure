@@ -1,0 +1,34 @@
+---
+name: homelab-kubernetes-home-infrastructure
+description: "Homelab: Infrastructure for the Kubernetes home-cluster"
+visibility: public
+protected: true
+topics:
+  - kubernetes
+  - infrastructure
+  - pulumi
+  - homelab
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  pulumi: true
+  tailscale: true
+  aws:
+    region: eu-west-1
+    account: 126125163971
+    iamPermissions:
+      - "glue:*"
+      - "lambda:*"
+      - "firehose:*"
+      - "athena:*"
+  google:
+    region: europe-west4
+    project: tuxnet-385112
+    linkedProjects:
+      root-muehlbachler: # FIXME:
+        accessLevel: default
+      muehlbachler-dns:
+        accessLevel: default
