@@ -28,7 +28,5 @@ accessPermissions:
     region: europe-west4
     project: tuxnet-385112
     linkedProjects:
-      root-muehlbachler: # FIXME:
-        accessLevel: default
       muehlbachler-dns:
         accessLevel: default

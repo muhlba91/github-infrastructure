@@ -22,7 +22,7 @@ accessPermissions:
       - "ec2:*"
   google:
     region: europe-west4
-    project: root-muehlbachler # FIXME:
+    project: root-muehlbachler
     linkedProjects:
       muehlbachler-dns:
         accessLevel: default
