@@ -1,0 +1,13 @@
+---
+name: telegraf-output-kinesis-data-firehose
+description: "Telegraf Output Plugin for Amazon Kinesis Data Firehose"
+visibility: public
+protected: true
+topics:
+  - telegraf
+  - kinesis-firehose
+  - telegraf-plugin
+
+rulesets:
+  branch:
+    enabled: false

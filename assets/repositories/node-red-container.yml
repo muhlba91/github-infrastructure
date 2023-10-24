@@ -1,0 +1,15 @@
+---
+name: node-red-container
+description: "An opinionated Node-RED container"
+visibility: public
+protected: true
+topics:
+  - node-red
+  - container
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  doppler: false

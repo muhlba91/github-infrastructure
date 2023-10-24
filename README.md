@@ -32,6 +32,8 @@ yarn install
 yarn build; pulumi destroy
 ```
 
+**Attention**: you must set `ALLOW_REPOSITORY_DELETION="true"` as an environment variable to be able to delete repositories!
+
 ## Environment Variables
 
 To successfully run, and configure the Pulumi plugins, you need to set a list of environment variables. Alternatively, refer to the used Pulumi provider's configuration documentation.

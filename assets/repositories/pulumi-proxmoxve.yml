@@ -1,0 +1,13 @@
+---
+name: pulumi-proxmoxve
+description: "A Pulumi provider for creating and managing Proxmox VE resources"
+visibility: public
+protected: true
+topics:
+  - proxmox
+  - proxmox-ve
+  - pulumi
+
+rulesets:
+  branch:
+    enabled: false

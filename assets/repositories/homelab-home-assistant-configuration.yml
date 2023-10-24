@@ -6,8 +6,8 @@ protected: true
 topics:
   - configuration
   - homelab
-  - home-assistant
-  - home-assistant-configuration
+  - homeassistant
+  - homeassistant-configuration
 
 rulesets:
   branch:

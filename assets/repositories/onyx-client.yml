@@ -1,0 +1,12 @@
+---
+name: onyx-client
+description: "Python Client for Hella's ONYX.CENTER API"
+visibility: public
+protected: true
+topics:
+  - onyx
+  - hella
+
+rulesets:
+  branch:
+    enabled: false
