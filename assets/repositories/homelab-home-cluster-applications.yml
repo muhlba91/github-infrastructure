@@ -1,5 +1,5 @@
 ---
-name: homelab-kubernetes-home-applications
+name: homelab-home-cluster-applications
 description: "Homelab: Applications running on the Kubernetes home-cluster"
 visibility: public
 protected: true

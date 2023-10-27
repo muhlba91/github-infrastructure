@@ -77,7 +77,7 @@ const createRepository = (config: RepositoryConfig): string => {
     {
       protect: !allowRepositoryDeletion,
       retainOnDelete: !allowRepositoryDeletion,
-      ignoreChanges: ['securityAndAnalysis'],
+      ignoreChanges: ['securityAndAnalysis', 'template'],
     },
   );
 
