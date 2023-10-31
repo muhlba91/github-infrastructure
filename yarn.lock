@@ -307,9 +307,9 @@
     read-package-json "^2.0.13"
 
 "@pulumi/github@^5.20.0":
-  version "5.21.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-5.21.0.tgz#1061b1c9bf1fb0314d1a3e0c622b353739341c36"
-  integrity sha512-GKXNllOaoyYgZrvWZ4D3VPOvZXL0Y9WPsHK6Gc2bxzjnPg9XvtYzai4TMO2nmy3jZiFN2YyWauvScqvhD5yQbQ==
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-5.22.0.tgz#156d6ec887b49a916056a33701aeb8fa3bec32d2"
+  integrity sha512-weKR7MbMbi7srdW1XrNLYg1SoI1zPwitzWIlfIYAWx80afzZTBRlnJ9es8HbXPnf7q5h1QB5zuMN4h33nfawVA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
