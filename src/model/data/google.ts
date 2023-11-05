@@ -20,6 +20,7 @@ export type GoogleRepositoryProjectData = {
  */
 export type GoogleRepositoryLinkedProjectData = {
   readonly accessLevel: string;
+  readonly iamPermissions?: readonly string[];
 };
 
 /**

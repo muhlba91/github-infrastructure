@@ -26,6 +26,16 @@ accessPermissions:
         accessLevel: default
       muehlbachler-dns:
         accessLevel: default
+        iamPermissions:
+          - dns.managedZones.get
+          - dns.managedZones.list
+          - dns.managedZones.update
+          - dns.projects.get
+          - dns.resourceRecordSets.create
+          - dns.resourceRecordSets.delete
+          - dns.resourceRecordSets.get
+          - dns.resourceRecordSets.list
+          - dns.resourceRecordSets.update
     enabledServices:
       - container.googleapis.com
       - containersecurity.googleapis.com

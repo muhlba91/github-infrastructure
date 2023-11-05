@@ -87,6 +87,7 @@ export type RepositoryGoogleAccessConfig = RepositoryCommonCloudAccessConfig & {
  */
 export type RepositoryGoogleLinkedAccessConfig = {
   readonly accessLevel: string;
+  readonly iamPermissions?: readonly string[];
 };
 
 /**

@@ -57,7 +57,9 @@ export const createProjectIam = (
             name == project.name ||
             (project.linkedProjects ?? {})[name]?.accessLevel == 'full'
               ? project.iamPermissions.map((permission) => permission)
-              : DEFAULT_PERMISSIONS,
+              : DEFAULT_PERMISSIONS.concat(
+                  (project.linkedProjects ?? {})[name].iamPermissions ?? [],
+                ),
           project: name,
         },
         {
