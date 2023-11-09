@@ -297,10 +297,10 @@
     read-package-tree "^5.2.1"
     resolve "^1.7.1"
 
-"@pulumi/gcp@^6.57.0":
-  version "6.67.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-6.67.1.tgz#6a80a445add3d9255c1b0ff2e01ac07dd05d1963"
-  integrity sha512-/4BQ4j0Yz5VobPRe96o34SZoV1JlJSRlChI0uNx36uq17GHpzSFnQkKTb+nNvK7ujqSoQFIVuy5Ez9pY5uyFiA==
+"@pulumi/gcp@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.0.0.tgz#c2a85a2f9ce6b47143203f24a6dcd51c1d35a437"
+  integrity sha512-ygyyN1YgYj2+D3NAb/gsMCA4mI3noAtZEHmb80mVUWbPHMjyKkigHZfkUsbRTGHIc4qvTiIpL7kBRCE+SdAA8Q==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
