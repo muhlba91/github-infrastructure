@@ -287,9 +287,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.9.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.9.0.tgz#1f65cd5843d22aa477f97468b3d5b8d6311b538c"
-  integrity sha512-c0ivz01YEuZesfroFSQJdjXivyltdvXBW8hcOhGCwAycjmHpDnXI0HSXk9aIkwxVrUBAW0MQYEa+QRHb5W2V1Q==
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.10.0.tgz#ba27fa0ab347f80258419adefa26050562aed1cc"
+  integrity sha512-dUgI1yIx32COdX7Ql/J07DGrkah+LPt3dwnCRl+45jf4jpcXz1d+5ccmO/zEwgoZP/fAgWW7zzZ9R+8JN+mtfw==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     builtin-modules "3.0.0"
