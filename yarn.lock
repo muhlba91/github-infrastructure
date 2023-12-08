@@ -314,9 +314,9 @@
     "@pulumi/pulumi" "^3.0.0"
 
 "@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
-  version "3.95.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.95.0.tgz#dcfcfb69444917d2eef2b6df6f41abe22b672521"
-  integrity sha512-6yRqzYl+jxFeC0nuRNNDzWGsSdJF+VgZfAcmoXPGYLS5XGsXQDPitH0WmgA0sfAVfXyx1dImleQCiCY7LUV15A==
+  version "3.96.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.96.1.tgz#9a1342adb76d1b7159345ccff6c4f4e6ef60b72f"
+  integrity sha512-/aHAYT1jWzJA6DNVsFuinSJ+b1w1jLpFBq1KlNKz1rszeSqreP6w4dylXKCZSTdtX1JM/1iEghFGo/rB5ygI6w==
   dependencies:
     "@grpc/grpc-js" "1.9.6"
     "@logdna/tail-file" "^2.0.6"
@@ -329,6 +329,7 @@
     "@opentelemetry/sdk-trace-node" "^1.6.0"
     "@opentelemetry/semantic-conventions" "^1.6.0"
     "@pulumi/query" "^0.3.0"
+    "@types/google-protobuf" "^3.15.5"
     execa "^5.1.0"
     google-protobuf "^3.5.0"
     ini "^2.0.0"
@@ -432,6 +433,11 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/google-protobuf@^3.15.5":
+  version "3.15.12"
+  resolved "https://registry.yarnpkg.com/@types/google-protobuf/-/google-protobuf-3.15.12.tgz#eb2ba0eddd65712211a2b455dc6071d665ccf49b"
+  integrity sha512-40um9QqwHjRS92qnOaDpL7RmDK15NuZYo9HihiJRbYkMQZlWnuH8AdvbMy8/o6lgLmKbDUKa+OALCltHdbOTpQ==
+
 "@types/http-errors@*":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@types/http-errors/-/http-errors-2.0.4.tgz#7eb47726c391b7345a6ec35ad7f4de469cf5ba4f"
@@ -465,9 +471,9 @@
     undici-types "~5.26.4"
 
 "@types/node@>=12.12.47", "@types/node@>=13.7.0":
-  version "20.10.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.3.tgz#4900adcc7fc189d5af5bb41da8f543cea6962030"
-  integrity sha512-XJavIpZqiXID5Yxnxv3RUDKTN5b81ddNC3ecsA0SoFXz/QU8OGBwZGMomiq0zw+uuqbL/krztv/DINAQ/EV4gg==
+  version "20.10.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.4.tgz#b246fd84d55d5b1b71bf51f964bd514409347198"
+  integrity sha512-D08YG6rr8X90YB56tSIuBaddy/UXAA9RKJoFvrsnogAum/0pmjkgi4+2nx96A330FmioegBWmEYQ+syqCFaveg==
   dependencies:
     undici-types "~5.26.4"
 
