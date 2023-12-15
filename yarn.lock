@@ -298,9 +298,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.2.2.tgz#87760430b72f36257679b947c08f6caab37ce1fd"
-  integrity sha512-QAucaXMr2h/PNbWWYrgI/Wa6jq4pbM0Szhaz+sda0Ee08C+SGScHXuQn0nMelSu7aeqM/IKI+YgB/NSnZBEYuA==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.3.0.tgz#472d92d0dad3886afdde88c94fc8a48c28f4cbae"
+  integrity sha512-i2j3GDBDDE3zz5UzrzQ0X6XYJoKi72aqAmqdNlr9rmMDFYa0OlwboZNbp49N+hZxeVnc2ljTUAZuXeqC1xGG7A==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -313,39 +313,7 @@
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumi/pulumi@^3.0.0":
-  version "3.96.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.96.2.tgz#fdf91dbf167b391a8a9864b33cde4d271992bc5c"
-  integrity sha512-zYKCArkjF8YbdrJd4Ka6uCiHq+m3uDp2whA0jIQs/SgTT6m37z1v9sM7sOsdw8qK9N9hayqbLsrtqGdTYP65eg==
-  dependencies:
-    "@grpc/grpc-js" "1.9.6"
-    "@logdna/tail-file" "^2.0.6"
-    "@opentelemetry/api" "^1.2.0"
-    "@opentelemetry/exporter-zipkin" "^1.6.0"
-    "@opentelemetry/instrumentation" "^0.32.0"
-    "@opentelemetry/instrumentation-grpc" "^0.32.0"
-    "@opentelemetry/resources" "^1.6.0"
-    "@opentelemetry/sdk-trace-base" "^1.6.0"
-    "@opentelemetry/sdk-trace-node" "^1.6.0"
-    "@opentelemetry/semantic-conventions" "^1.6.0"
-    "@pulumi/query" "^0.3.0"
-    "@types/google-protobuf" "^3.15.5"
-    execa "^5.1.0"
-    google-protobuf "^3.5.0"
-    ini "^2.0.0"
-    js-yaml "^3.14.0"
-    minimist "^1.2.6"
-    normalize-package-data "^3.0.0"
-    pkg-dir "^7.0.0"
-    read-package-tree "^5.3.1"
-    require-from-string "^2.0.1"
-    semver "^7.5.2"
-    source-map-support "^0.5.6"
-    ts-node "^7.0.1"
-    typescript "~3.8.3"
-    upath "^1.1.0"
-
-"@pulumi/pulumi@^3.69.0":
+"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
   version "3.97.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.97.0.tgz#3fa8f56fee6c529e89cb66cd664a2ee962818df0"
   integrity sha512-yPtC/RUHHV8FgcRmq/l05ZyVwcIjLIA+7F+sCceKSNga0NOno6D/VD3PRU/TkApTseKRce4NQgdshXDumh+mdA==
