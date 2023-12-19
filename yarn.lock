@@ -345,10 +345,10 @@
     typescript "~3.8.3"
     upath "^1.1.0"
 
-"@pulumi/pulumiservice@^0.16.0":
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.16.0.tgz#c8580dc701aa8fab3c83f17cf5157a152a71f2c8"
-  integrity sha512-U2YpiPFMLcBz5r2+M7UQK5XafBkjarfsGQHkXgP7L+ZL7N1q7oLNMsZz8FOnHdEKEICFmDVPilWOzmaQh9QMEA==
+"@pulumi/pulumiservice@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.17.0.tgz#f99bfb349ae30a7e8c1dedc77131c8953dd35556"
+  integrity sha512-gwvbu5mt+nqGk6AL4s8deGNvo4WYXk7o3g90xhZjg5ie1xvhKqcKxxWFb24CZwxE1kpciEWjU6soP3kUa4d42g==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
