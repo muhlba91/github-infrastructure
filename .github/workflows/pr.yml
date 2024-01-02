@@ -126,7 +126,7 @@ jobs:
           yarn install
           yarn build
 
-      - uses: pulumi/actions@v4
+      - uses: pulumi/actions@v5
         with:
           command: preview
           stack-name: prod
