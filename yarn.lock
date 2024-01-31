@@ -68,10 +68,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
   integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
 
-"@grpc/grpc-js@1.9.6":
-  version "1.9.6"
-  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.9.6.tgz#c64a2db3cb1c73939d3d666fb1339775813c1cd8"
-  integrity sha512-yq3qTy23u++8zdvf+h4mz4ohDFi681JAkMZZPTKh8zmUVh0AKLisFlgxcn22FMNowXz15oJ6pqgwT7DJ+PdJvg==
+"@grpc/grpc-js@^1.9.14":
+  version "1.9.14"
+  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.9.14.tgz#236378822876cbf7903f9d61a0330410e8dcc5a1"
+  integrity sha512-nOpuzZ2G3IuMFN+UPPpKrC6NsLmWsTqSsm66IRfnBt1D4pwTqE27lmbpcPM+l2Ua4gE7PfjRHI6uedAy7hoXUw==
   dependencies:
     "@grpc/proto-loader" "^0.7.8"
     "@types/node" ">=12.12.47"
@@ -335,11 +335,11 @@
     "@pulumi/pulumi" "^3.0.0"
 
 "@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
-  version "3.103.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.103.1.tgz#a71d00aacfc2602d89b6cdf721957c6850a0508f"
-  integrity sha512-bv87x4vcjHs09Yss8WWJkbWxf4sABVXPbLPrHn5SOhng4TaGtFejDaDzgTaevOHCchJJNyXpPqTYzKqc2WmeEQ==
+  version "3.104.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.104.0.tgz#1404411270acebf61d76ada84aeb607444c7b67b"
+  integrity sha512-NyorZreOu0yime/MAgaj4ISy74sViDBJhrSHoLCnRyRfDe2PICXkH8y3KAye8XndNrAeHAoxUthsdOGhlATHZw==
   dependencies:
-    "@grpc/grpc-js" "1.9.6"
+    "@grpc/grpc-js" "^1.9.14"
     "@logdna/tail-file" "^2.0.6"
     "@opentelemetry/api" "^1.2.0"
     "@opentelemetry/exporter-zipkin" "^1.6.0"
@@ -523,9 +523,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=12.12.47", "@types/node@>=13.7.0":
-  version "20.11.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.10.tgz#6c3de8974d65c362f82ee29db6b5adf4205462f9"
-  integrity sha512-rZEfe/hJSGYmdfX9tvcPMYeYPW2sNl50nsw4jZmRcaG0HIAb0WYEpsB05GOb53vjqpyE9GUhlDQ4jLSoB5q9kg==
+  version "20.11.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.13.tgz#188263ee2c8d590e181d3f5bfa7e485a932957cb"
+  integrity sha512-5G4zQwdiQBSWYTDAH1ctw2eidqdhMJaNsiIDKHFr55ihz5Trl2qqR8fdrT732yPBho5gkNxXm67OxWFBqX9aPg==
   dependencies:
     undici-types "~5.26.4"
 
