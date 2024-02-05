@@ -23,6 +23,7 @@ export const DEFAULT_PERMISSIONS = [
   'cloudkms.cryptoKeys.setIamPolicy',
   'cloudkms.locations.get',
   'cloudkms.locations.list',
+  'compute.regions.list',
   'iam.serviceAccountKeys.create',
   'iam.serviceAccountKeys.delete',
   'iam.serviceAccountKeys.disable',
