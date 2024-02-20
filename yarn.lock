@@ -305,10 +305,10 @@
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
-"@pulumi/github@^5.20.0":
-  version "5.26.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-5.26.0.tgz#9331c68f7f332b534b1bcc438a5003a02cd18c3e"
-  integrity sha512-4n+GxMbZedRTlG5C1bAYHJXr/OYU5QZ0Y2P5W9WG55EnKT29bzevk/o7XgR36wbt1hqejSe8F5E1hiltUK2aCg==
+"@pulumi/github@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.0.0.tgz#2e49e302729da0ee33ccdabfb416263258e7355e"
+  integrity sha512-9zzFZ+tkV2zBhrHOC8G67lDEH4z02ik3wb6pgQhrqHUFJOXcWGpMsg0+EOy0rkBC00Wh3pkzBGCfIS1617P0cw==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
