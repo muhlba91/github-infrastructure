@@ -475,9 +475,9 @@
     read-package-json "^2.0.13"
 
 "@pulumi/github@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.0.0.tgz#2e49e302729da0ee33ccdabfb416263258e7355e"
-  integrity sha512-9zzFZ+tkV2zBhrHOC8G67lDEH4z02ik3wb6pgQhrqHUFJOXcWGpMsg0+EOy0rkBC00Wh3pkzBGCfIS1617P0cw==
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.0.1.tgz#cb14032740152794c86db6867db9b9596e0fc20b"
+  integrity sha512-3o5HnV8lENnbvRXAMUiVC9RHZNfxZoufNjNohM+7Dc4qXq02w0Mw1Z1AIm70Y1mWA6gITMO6yJRAf36yKqKuVg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
@@ -728,9 +728,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=12.12.47", "@types/node@>=13.7.0":
-  version "20.11.24"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.24.tgz#cc207511104694e84e9fb17f9a0c4c42d4517792"
-  integrity sha512-Kza43ewS3xoLgCEpQrsT+xRo/EJej1y0kVYGiLFE1NEODXGzTfwiC6tXTLMQskn1X4/Rjlh0MQUvx9W+L9long==
+  version "20.11.25"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.25.tgz#0f50d62f274e54dd7a49f7704cc16bfbcccaf49f"
+  integrity sha512-TBHyJxk2b7HceLVGFcpAUjsa5zIdsPWlR6XHfyGzd0SFu+/NFgQgMAl96MSDZgQDvJAvV6BKsFOrt6zIL09JDw==
   dependencies:
     undici-types "~5.26.4"
 
