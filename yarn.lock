@@ -475,9 +475,9 @@
     read-package-json "^2.0.13"
 
 "@pulumi/github@^6.0.0":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.0.1.tgz#cb14032740152794c86db6867db9b9596e0fc20b"
-  integrity sha512-3o5HnV8lENnbvRXAMUiVC9RHZNfxZoufNjNohM+7Dc4qXq02w0Mw1Z1AIm70Y1mWA6gITMO6yJRAf36yKqKuVg==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.1.0.tgz#301006c034cf47f4847d262b6556f476b38211c9"
+  integrity sha512-zSN0bT80T/QPhWRheJBhQxikBGSfPbRa9VKBzPSlGHNcsptxZRpZLyjw7MDr7IDne9QfzfG5VE+HSZEtmMlS4Q==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
@@ -2044,7 +2044,14 @@ has-unicode@^2.0.1:
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
   integrity sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==
 
-hasown@^2.0.0, hasown@^2.0.1:
+hasown@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz#003eaf91be7adc372e84ec59dc37252cedb80003"
+  integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
+  dependencies:
+    function-bind "^1.1.2"
+
+hasown@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/hasown/-/hasown-2.0.1.tgz#26f48f039de2c0f8d3356c223fb8d50253519faa"
   integrity sha512-1/th4MHjnwncwXsIW6QMzlvYL9kG5e/CpVvLRZe4XPa8TOUNbCELqmvhDmnkNsAjwaG4+I8gJJL0JBvTTLO9qA==
