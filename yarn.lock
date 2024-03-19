@@ -461,9 +461,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.25.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.25.1.tgz#2b4a616e9a6f16dacc4b3c9cbdef671bacf5daf8"
-  integrity sha512-LHMD6+sU5nYx56rSB+eDMs4nDqHeJ44BvS7WSW0xh3PfD8uvGrklVATOsL7n76/ng5EXtlvhwoQ1DyHL0dGQDQ==
+  version "6.27.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.27.0.tgz#faf06ac4d37e2efe59b6725ccd0a604b8c9ba3c1"
+  integrity sha512-KZeOX1e/ZeFF0c+ImzscTQiM23Rx7pRtG4UGciINMmFiGqFRvoF/mPAb1Ln1+5Lzk2C62OHyb5m052pVJEcebg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     builtin-modules "3.0.0"
@@ -734,9 +734,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "20.11.28"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.28.tgz#4fd5b2daff2e580c12316e457473d68f15ee6f66"
-  integrity sha512-M/GPWVS2wLkSkNHVeLkrF2fD5Lx5UC4PxA0uZcKc6QqbIQUJyW1jVjueJYi1z8n0I5PxYrtpnPnWglE+y9A0KA==
+  version "20.11.29"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.29.tgz#431253cede34f392d6aaf7acad427b9c23aa60f6"
+  integrity sha512-P99thMkD/1YkCvAtOd6/zGedKNA0p2fj4ZpjCzcNiSCBWgm3cNRTBfa/qjFnsKkkojxu4vVLtWpesnZ9+ap+gA==
   dependencies:
     undici-types "~5.26.4"
 
