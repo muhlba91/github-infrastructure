@@ -471,9 +471,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.14.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.14.1.tgz#783553e5ad2e5f7d50bc4c316a39b4feac1ba290"
-  integrity sha512-25rnSJutjeggArI2ymDDZmfj0vsXQkvUKPoN+xYMUj2CKKMCOvGJQUIWc/I4A2djNDZSw3apopA/BkHSXwHPHA==
+  version "7.15.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.15.0.tgz#810d2d3afe29a2a1c77242636463a4c3b9d9bee8"
+  integrity sha512-laRDAjRSxLyLM1RPxpPp7jF3WQ2LUFO9A/cnSfnn5cspcQjW+jwSkME6WZ+dgYTZDyeoGX2+lKlPUt6H1EkEbw==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -3508,9 +3508,9 @@ supports-preserve-symlinks-flag@^1.0.0:
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
 tar@^6.1.11, tar@^6.1.2:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-6.2.0.tgz#b14ce49a79cb1cd23bc9b016302dea5474493f73"
-  integrity sha512-/Wo7DcT0u5HUV486xg675HtjNd3BXZ6xDbzsCUZPt5iw8bTQ63bP0Raut3mvro9u+CUyq7YQd8Cx55fsZXxqLQ==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-6.2.1.tgz#717549c541bc3c2af15751bea94b1dd068d4b03a"
+  integrity sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==
   dependencies:
     chownr "^2.0.0"
     fs-minipass "^2.0.0"
