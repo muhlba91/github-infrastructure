@@ -1509,9 +1509,9 @@ eslint-plugin-eslint-comments@^3.2.0:
     ignore "^5.0.5"
 
 eslint-plugin-functional@^6.0.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.2.0.tgz#61c5d16216c4ec8bb40229216fddf82b80615f5e"
-  integrity sha512-8/c7rnqQL0e2Pu33InHLlSnMgP8Gq9AlsS7J4D6aIIjAU2w2TnBNTFcs16rYQLGUoBrTmcmLb8QEnezr69zBuA==
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.2.2.tgz#6c3a1476f87f0cb2023c74e82ae94b7dcdb46d6b"
+  integrity sha512-ro3lhWYLO2bN6hcEejLFK6D/sdFDMv7z8RcOqw/NVUoF5BnvMwgb1W2GjHuYAkC3RTeBOX8SGksJYWuAsjsDkA==
   dependencies:
     "@typescript-eslint/utils" "^7.3.1"
     deepmerge-ts "^5.1.0"
