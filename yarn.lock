@@ -529,10 +529,10 @@
     typescript "~3.8.3"
     upath "^1.1.0"
 
-"@pulumi/pulumiservice@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.17.0.tgz#f99bfb349ae30a7e8c1dedc77131c8953dd35556"
-  integrity sha512-gwvbu5mt+nqGk6AL4s8deGNvo4WYXk7o3g90xhZjg5ie1xvhKqcKxxWFb24CZwxE1kpciEWjU6soP3kUa4d42g==
+"@pulumi/pulumiservice@^0.18.0":
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.18.1.tgz#4d8bc6dbb04f619960e666c55f47649395eee27e"
+  integrity sha512-Hjg9rYUX85Qcib3hvWvbA3I+dvn9FL1EwrW1XxcWnWKD2cxFR9TtIoCvwDKTEMC/eg4P2P3jx6GdUgGIRKDqUg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
