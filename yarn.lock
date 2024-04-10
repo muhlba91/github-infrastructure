@@ -207,9 +207,9 @@
     semver "^7.3.5"
 
 "@npmcli/git@^5.0.0":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@npmcli/git/-/git-5.0.4.tgz#d18c50f99649e6e89e8b427318134f582498700c"
-  integrity sha512-nr6/WezNzuYUppzXRaYu/W4aT5rLxdXqEFupbh6e/ovlYFQ8hpu1UUPV3Ir/YTl+74iXl2ZOMlGzudh9ZPUchQ==
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@npmcli/git/-/git-5.0.5.tgz#b4758b3993f078bd6d73356b8bdd0306f48fd3cb"
+  integrity sha512-x8hXItC8OFOwdgERzRIxg0ic1lQqW6kSZFFQtZTCNYOeGb9UqzVcod02TYljI9UBl4RtfcyQ0A7ygmcGFvEqWw==
   dependencies:
     "@npmcli/promise-spawn" "^7.0.0"
     lru-cache "^10.0.1"
@@ -259,9 +259,9 @@
   integrity sha512-gp8pRXC2oOxu0DUE1/M3bYtb1b3/DbJ5aM113+XJBgfXdussRAsX0YOrOhdd8WvnAR6auDBvJomGAkLKA5ydxA==
 
 "@npmcli/package-json@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@npmcli/package-json/-/package-json-5.0.0.tgz#77d0f8b17096763ccbd8af03b7117ba6e34d6e91"
-  integrity sha512-OI2zdYBLhQ7kpNPaJxiflofYIpkNLi+lnGdzqUOfRmCF3r2l1nadcjtCYMJKv/Utm/ZtlffaUuTiAktPHbc17g==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@npmcli/package-json/-/package-json-5.0.1.tgz#c26ca69e89d4dd22d71ceee1db7949e40654a862"
+  integrity sha512-WdwGsRP/do+94IXEgfD/oGGVn0VDS+wYM8MoXU5tJ+02Ke8ePSobMwnfcCHAfcvU/pFwZxyZYWaJdOBsqXRAbA==
   dependencies:
     "@npmcli/git" "^5.0.0"
     glob "^10.2.2"
@@ -476,9 +476,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.17.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.17.0.tgz#f98cb6874e6a81ff75a1f853c73d6fb354445a56"
-  integrity sha512-MEeXVl+gkOt6YWLYB41lvB5mH8kytmyQxmVsFN8Dex4BQbds8JqdZXKc+pWznUcM+DCp8asMEEiknsEAXNZlWQ==
+  version "7.18.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.18.0.tgz#ad8af96355e812a46a63e76071c2985883b309e8"
+  integrity sha512-moMIRAKwUdbTlM4vtgeGbQkNCmdUUInWDmZgF25/Lu+5prFxJ8i5LP1eobMjxXtBy8y5mDfOlc43o+engYXDvA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -734,9 +734,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "20.12.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.5.tgz#74c4f31ab17955d0b5808cdc8fd2839526ad00b3"
-  integrity sha512-BD+BjQ9LS/D8ST9p5uqBxghlN+S42iuNxjsUGjeZobe/ciXzk2qb1B6IXc6AnRLS+yFJRpN2IPEHMzwspfDJNw==
+  version "20.12.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.7.tgz#04080362fa3dd6c5822061aa3124f5c152cff384"
+  integrity sha512-wq0cICSkRLVaf3UGLMGItu/PtdY7oaXaI/RVU+xliKVOtRna3PRY57ZDfztpDL0n11vfymMUnXv8QwYCO7L1wg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -3408,9 +3408,9 @@ socks-proxy-agent@^8.0.3:
     socks "^2.7.1"
 
 socks@^2.7.1:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/socks/-/socks-2.8.1.tgz#22c7d9dd7882649043cba0eafb49ae144e3457af"
-  integrity sha512-B6w7tkwNid7ToxjZ08rQMT8M9BJAf8DKx8Ft4NivzH0zBUfd6jldGcisJn/RLgxcX3FPNDdNQCUEMMT79b+oCQ==
+  version "2.8.3"
+  resolved "https://registry.yarnpkg.com/socks/-/socks-2.8.3.tgz#1ebd0f09c52ba95a09750afe3f3f9f724a800cb5"
+  integrity sha512-l5x7VUUWbjVFbafGLxPWkYsHIhEvmF85tbIeFZWc8ZPtoMyybuEhL7Jye/ooC4/d48FgOjSJXgsF/AJPYCW8Zw==
   dependencies:
     ip-address "^9.0.5"
     smart-buffer "^4.2.0"
