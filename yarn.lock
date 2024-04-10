@@ -229,9 +229,9 @@
     npm-normalize-package-bin "^3.0.0"
 
 "@npmcli/map-workspaces@^3.0.2":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@npmcli/map-workspaces/-/map-workspaces-3.0.4.tgz#15ad7d854292e484f7ba04bc30187a8320dba799"
-  integrity sha512-Z0TbvXkRbacjFFLpVpV0e2mheCh+WzQpcqL+4xp49uNJOxOnIAPZyXtUxZ5Qn3QBTGKA11Exjd9a5411rBrhDg==
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@npmcli/map-workspaces/-/map-workspaces-3.0.6.tgz#27dc06c20c35ef01e45a08909cab9cb3da08cea6"
+  integrity sha512-tkYs0OYnzQm6iIRdfy+LcLBjcKuQCeE5YLb8KnrIlutJfheNaPvPpgoFEyEFgbjzl5PLZ3IA/BWAwRU0eHuQDA==
   dependencies:
     "@npmcli/name-from-folder" "^2.0.0"
     glob "^10.2.2"
@@ -259,9 +259,9 @@
   integrity sha512-gp8pRXC2oOxu0DUE1/M3bYtb1b3/DbJ5aM113+XJBgfXdussRAsX0YOrOhdd8WvnAR6auDBvJomGAkLKA5ydxA==
 
 "@npmcli/package-json@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@npmcli/package-json/-/package-json-5.0.1.tgz#c26ca69e89d4dd22d71ceee1db7949e40654a862"
-  integrity sha512-WdwGsRP/do+94IXEgfD/oGGVn0VDS+wYM8MoXU5tJ+02Ke8ePSobMwnfcCHAfcvU/pFwZxyZYWaJdOBsqXRAbA==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@npmcli/package-json/-/package-json-5.0.2.tgz#9bf4a04d669d1743b358338eba5a19504e89b057"
+  integrity sha512-LmW+tueGSK+FCM3OpcKtwKKo3igpefh6HHiw23sGd8OdJ8l0GrfGfVdGOFVtJRMaXVnvI1RUdEPlB9VUln5Wbw==
   dependencies:
     "@npmcli/git" "^5.0.0"
     glob "^10.2.2"
@@ -466,9 +466,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.29.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.29.0.tgz#8a45090681382fecd5b07d647cf1f33d6b361a4d"
-  integrity sha512-279dsWASXEapFfk668+x/fqUJ9MkCfQ2eitYvwqqZKpiLXuH2LpeaN17EMoJHqtVAbol0rFERouO9n2D9dQP1g==
+  version "6.29.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.29.1.tgz#c3715fb154cdd1b77b9bd52cd453efd6ec988f19"
+  integrity sha512-2TdzaRQRLvOld1fp8hINEh23n0JOX6lC1qp+9h+hT8wCEIt5a+RjA6Z/zpyGrB2cFTguo1J0C2Mb+WtULvw0Yg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     builtin-modules "3.0.0"
