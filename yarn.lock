@@ -161,9 +161,9 @@
     socks-proxy-agent "^8.0.3"
 
 "@npmcli/arborist@^7.3.1":
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-7.4.1.tgz#1562c347e41e60939b4a2139cd3a16842de1e92e"
-  integrity sha512-5/+bbRol8fvhyebwjqzmwjToAvTOR+k/hzAGFcGlV8k94H1PISNVyOGeSQl6MOMuxPo3BMMYVa39NZp2eNyzUQ==
+  version "7.4.2"
+  resolved "https://registry.yarnpkg.com/@npmcli/arborist/-/arborist-7.4.2.tgz#deb6eb3d88ab6913f0efeb4ebca64151d091d331"
+  integrity sha512-13flK0DTIhG7VEmPtoKFoi+88hIjuZxuZAvnHUTthIFql1Kc51VlsMRpbJPIcDEZHaHkILwFjHRXtCUYdFWvAQ==
   dependencies:
     "@isaacs/string-locale-compare" "^1.1.0"
     "@npmcli/fs" "^3.1.0"
@@ -174,6 +174,7 @@
     "@npmcli/node-gyp" "^3.0.0"
     "@npmcli/package-json" "^5.0.0"
     "@npmcli/query" "^3.1.0"
+    "@npmcli/redact" "^1.1.0"
     "@npmcli/run-script" "^7.0.2"
     bin-links "^4.0.1"
     cacache "^18.0.0"
@@ -466,9 +467,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.29.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.29.1.tgz#c3715fb154cdd1b77b9bd52cd453efd6ec988f19"
-  integrity sha512-2TdzaRQRLvOld1fp8hINEh23n0JOX6lC1qp+9h+hT8wCEIt5a+RjA6Z/zpyGrB2cFTguo1J0C2Mb+WtULvw0Yg==
+  version "6.30.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.30.0.tgz#03ae7347dc2560cf177963d870dc5c08af5bf098"
+  integrity sha512-MmJpyh9qXvAvw3xA5v7BKCDo9gYBvS10VTsPhNYp/0gHAKf+MoLwyCxVbu45LcTG7Muk84JCQUVxCguWqeeC1Q==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     builtin-modules "3.0.0"
