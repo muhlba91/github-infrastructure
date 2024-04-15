@@ -1510,14 +1510,14 @@ eslint-plugin-eslint-comments@^3.2.0:
     ignore "^5.0.5"
 
 eslint-plugin-functional@^6.0.0:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.4.1.tgz#119e8345fe96c267bcc33e6ee49e3801b5b04cd3"
-  integrity sha512-V+FAQoOI8l1rgDABDS7Olbpg6m+ahPglQGK+6y/l7zPxC1Ko7LH3Nf9cI6kL9sR0+nDHVH6YFiyWqFrn57079A==
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.5.0.tgz#3ede8b0d29b1662d5579a4cac0daabfbeb783f8e"
+  integrity sha512-4XM5xDd4Zesc2eb33nYfOTYGqpiVhmn5nOZvts0XcEfKLaC2gT/4uG1Oov0N9sd/0ixxKxqvFFDdopHzQDctCA==
   dependencies:
     "@typescript-eslint/utils" "^7.3.1"
     deepmerge-ts "^5.1.0"
     escape-string-regexp "^4.0.0"
-    is-immutable-type "^2.0.4"
+    is-immutable-type "^3.1.0"
     semver "^7.6.0"
     ts-api-utils "^1.3.0"
 
@@ -2183,15 +2183,14 @@ is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3:
   dependencies:
     is-extglob "^2.1.1"
 
-is-immutable-type@^2.0.4:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/is-immutable-type/-/is-immutable-type-2.1.0.tgz#e6f5e1b71849c3413871f5a68f4e123be185c881"
-  integrity sha512-Qyp4cea6pqaAhCHb97xHjAKMRotn7tI2uwxf5u8n/6FMCB/RpVFBiIalWltwnnWoO4Z3fb7Ih9TVacvymE2bvg==
+is-immutable-type@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/is-immutable-type/-/is-immutable-type-3.1.0.tgz#8a2dfcf9aa6c289805846ea8e4efa0b5ac038116"
+  integrity sha512-EIAsgCk/4tEohdqKa5iGf1+IwoRYV/81Fe1awSspgobMxOmmxTZslvkH/PAtSKtR2NDFXGVkZZNqiLQA37GKBQ==
   dependencies:
     "@typescript-eslint/type-utils" "^7.2.0"
     ts-api-utils "^1.3.0"
     ts-declaration-location "^1.0.0"
-    type-to-string "^2.0.0"
 
 is-lambda@^1.0.1:
   version "1.0.1"
@@ -3620,11 +3619,6 @@ type-fest@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.20.2.tgz#1bf207f4b28f91583666cb5fbd327887301cd5f4"
   integrity sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==
-
-type-to-string@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/type-to-string/-/type-to-string-2.0.0.tgz#4bac8bd25ae19b3d50fc3cbcd7fe42d2800882fe"
-  integrity sha512-tQhiWuq8+FkAYEAQ+Po1VPwzUhPVOXupzsVxZ/n9hN6oP92KXOpf4CFX0wclYa7QsrP4eBUIMydYJyv3ttRVRA==
 
 typed-array-buffer@^1.0.2:
   version "1.0.2"
