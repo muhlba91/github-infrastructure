@@ -1,0 +1,22 @@
+---
+name: muehlbachler-hashicorp-vault-infrastructure
+description: "Infrastructure for Personal Hashicorp Vault"
+visibility: public
+protected: true
+topics:
+  - services
+  - infrastructure
+  - pulumi
+  - vault
+
+rulesets:
+  branch:
+    enabled: false
+
+# disable all permissions to avoid the chicken-egg problem
+# we only manage the repository settings here
+# everything else is managed manually
+accessPermissions:
+  pulumi: false
+  doppler: false
+  tailscale: false
