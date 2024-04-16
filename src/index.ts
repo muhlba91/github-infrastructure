@@ -6,15 +6,25 @@ import { configureGoogleProjects } from './lib/google';
 import { configurePulumi } from './lib/pulumi';
 import { configureTailscale } from './lib/tailscale';
 import { getOrDefault } from './lib/util/get_or_default';
+import { configureVaultStores } from './lib/vault';
 
 export = async () => {
-  createRepositories();
+  const githubRepositories = createRepositories();
 
   const dopplerEnvironments = configureDoppler();
-  const pulumis = configurePulumi(dopplerEnvironments);
-  const tailscales = configureTailscale(dopplerEnvironments);
-  const projects = configureGoogleProjects(dopplerEnvironments);
-  const accounts = configureAwsAccounts(dopplerEnvironments);
+  const vaultStores = configureVaultStores(githubRepositories);
+  const pulumis = vaultStores.apply((stores) =>
+    configurePulumi(dopplerEnvironments, stores),
+  );
+  const tailscales = vaultStores.apply((stores) =>
+    configureTailscale(dopplerEnvironments, stores),
+  );
+  const projects = vaultStores.apply((stores) =>
+    configureGoogleProjects(dopplerEnvironments, stores),
+  );
+  const accounts = vaultStores.apply((stores) =>
+    configureAwsAccounts(dopplerEnvironments, stores),
+  );
 
   return {
     google: {
@@ -34,6 +44,9 @@ export = async () => {
     doppler: {
       projects: Object.keys(dopplerEnvironments),
     },
+    vault: {
+      projects: vaultStores.apply((stores) => Object.keys(stores)),
+    },
     repositories: Object.fromEntries(
       repositories.map((repository) => [
         repository.name,
@@ -45,7 +58,11 @@ export = async () => {
           ),
           aws: repository.accessPermissions?.aws?.account != undefined,
           pulumi: getOrDefault(repository.accessPermissions?.pulumi, false),
-          doppler: getOrDefault(repository.accessPermissions?.doppler, true),
+          doppler: getOrDefault(repository.accessPermissions?.doppler, false),
+          vault: getOrDefault(
+            repository.accessPermissions?.vault?.enabled,
+            true,
+          ),
           tailscale: getOrDefault(
             repository.accessPermissions?.tailscale,
             false,

@@ -8,12 +8,14 @@ import { createProject } from './project';
 
 /**
  * Creates all Doppler projects.
+ *
+ * @returns {StringMap<doppler.Environment>} all Doppler projects
  */
 export const configureDoppler = (): StringMap<doppler.Environment> => {
   return Object.fromEntries(
     repositories
       .filter((repository) =>
-        getOrDefault(repository.accessPermissions?.doppler, true),
+        getOrDefault(repository.accessPermissions?.doppler, false),
       )
       .map((repository) => [repository.name, createProject(repository)]),
   );

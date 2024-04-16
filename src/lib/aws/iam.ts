@@ -1,5 +1,6 @@
 import * as aws from '@pulumi/aws';
 import { interpolate, Output } from '@pulumi/pulumi';
+import * as vault from '@pulumi/vault';
 import * as doppler from '@pulumiverse/doppler';
 
 import { AwsRepositoryAccountData } from '../../model/data/aws';
@@ -7,6 +8,8 @@ import { StringMap } from '../../model/map';
 import { commonLabels, repositoriesConfig } from '../configuration';
 import { writeToDoppler } from '../util/doppler/secret';
 import { createRandomString } from '../util/random';
+import { writeToVault } from '../util/vault/secret';
+import { vaultProvider } from '../vault';
 
 /**
  * Creates IAM for an AWS account.
@@ -15,12 +18,14 @@ import { createRandomString } from '../util/random';
  * @param {Output<string | undefined>} identityProviderArn the identity provider ARN if created
  * @param {StringMap<aws.Provider>} providers the providers for all projects
  * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
+ * @param {StringMap<vault.Mount>} vaultStores the vault stores
  */
 export const createAccountIam = (
   account: AwsRepositoryAccountData,
   identityProviderArn: Output<string | undefined>,
   providers: StringMap<aws.Provider>,
   dopplerEnvironments: StringMap<doppler.Environment>,
+  vaultStores: StringMap<vault.Mount>,
 ) => {
   const labels = {
     ...commonLabels,
@@ -113,5 +118,17 @@ export const createAccountIam = (
     'AWS_REGION',
     Output.create(account.region),
     dopplerEnvironments[account.repository],
+  );
+
+  writeToVault(
+    'aws',
+    ciRole.arn.apply((ciRoleArn) =>
+      JSON.stringify({
+        identity_role_arn: ciRoleArn,
+        region: account.region,
+      }),
+    ),
+    vaultProvider,
+    vaultStores[account.repository],
   );
 };

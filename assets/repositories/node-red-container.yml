@@ -13,3 +13,5 @@ rulesets:
 
 accessPermissions:
   doppler: false
+  vault:
+    enabled: false

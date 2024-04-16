@@ -15,6 +15,9 @@ rulesets:
 
 accessPermissions:
   tailscale: true
+  doppler: false
+  vault:
+    enabled: true
   google:
     region: europe-west4
     project: tuxnet-385112

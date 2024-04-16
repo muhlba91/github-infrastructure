@@ -1,6 +1,7 @@
 import * as github from '@pulumi/github';
 
 import { RepositoryConfig } from '../../model/config/repository';
+import { StringMap } from '../../model/map';
 import {
   allowRepositoryDeletion,
   repositories,
@@ -16,10 +17,15 @@ import { createRepositoryRulesets } from './ruleset';
 /**
  * Creates all GitHub repositories.
  *
- * @returns {string[]} the configured repositories
+ * @returns {StringMap<github.Repository>} the configured repositories
  */
-export const createRepositories = (): string[] =>
-  repositories.map(createRepository);
+export const createRepositories = (): StringMap<github.Repository> =>
+  Object.fromEntries(
+    repositories.map((repository) => [
+      repository.name,
+      createRepository(repository),
+    ]),
+  );
 
 /**
  * Creates a GitHub repository.
@@ -27,7 +33,7 @@ export const createRepositories = (): string[] =>
  * @param {RepositoryConfig} config the repository configuration
  * @returns {string} the configured repository
  */
-const createRepository = (config: RepositoryConfig): string => {
+const createRepository = (config: RepositoryConfig): github.Repository => {
   const owner = repositoriesConfig.owner;
   const repo = new github.Repository(
     `github-repo-${owner}-${config.name}`,
@@ -89,5 +95,5 @@ const createRepository = (config: RepositoryConfig): string => {
     createRepositoryProject(owner, config.name, repo);
   }
 
-  return config.name;
+  return repo;
 };

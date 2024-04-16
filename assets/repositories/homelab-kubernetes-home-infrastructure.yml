@@ -15,6 +15,9 @@ rulesets:
 
 accessPermissions:
   pulumi: true
+  doppler: false
+  vault:
+    enabled: true
   tailscale: true
   aws:
     region: eu-west-1

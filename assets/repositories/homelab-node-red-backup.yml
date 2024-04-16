@@ -10,3 +10,8 @@ topics:
 rulesets:
   branch:
     enabled: false
+
+accessPermissions:
+  doppler: false
+  vault:
+    enabled: true

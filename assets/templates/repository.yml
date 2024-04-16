@@ -47,10 +47,11 @@ rulesets:
     allowBypassIntegrations: [] # list of integration ids
 
 # optional cloud access permissions to setup
-# secrets are stored in the Doppler project
-# attention: the Doppler project must be linked manually to the GitHub repository
+# secrets are stored in the Doppler project and/or in Vault
+# if using Vault, a GitHub Actions secret is created with the Vault role name for JWT authentication
 accessPermissions:
   doppler: true # creates Doppler projects
+  vault: true # creates Vault secrets
   pulumi: true # creates a Pulumi access token
   tailscale: true # sets the Tailscale OAuth secrets
   google:

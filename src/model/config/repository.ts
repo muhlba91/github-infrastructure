@@ -60,8 +60,17 @@ export type RepositoryAccessPermissionsConfig = {
   readonly pulumi?: boolean;
   readonly tailscale?: boolean;
   readonly doppler?: boolean;
+  readonly vault?: RepositoryVaultAccessPermissionsConfig;
   readonly google?: RepositoryGoogleAccessConfig;
   readonly aws?: RepositoryAwsAccessConfig;
+};
+
+/**
+ * Defines repository access permissions config.
+ */
+export type RepositoryVaultAccessPermissionsConfig = {
+  readonly enabled: boolean;
+  readonly address: string;
 };
 
 /**

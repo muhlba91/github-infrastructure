@@ -1,5 +1,6 @@
 import * as gcp from '@pulumi/gcp';
-import { interpolate, Output, Resource } from '@pulumi/pulumi';
+import { all, interpolate, Output, Resource } from '@pulumi/pulumi';
+import * as vault from '@pulumi/vault';
 import * as doppler from '@pulumiverse/doppler';
 
 import {
@@ -10,6 +11,8 @@ import { StringMap } from '../../model/map';
 import { repositoriesConfig } from '../configuration';
 import { writeToDoppler } from '../util/doppler/secret';
 import { createRandomString } from '../util/random';
+import { writeToVault } from '../util/vault/secret';
+import { vaultProvider } from '../vault';
 
 import { DEFAULT_PERMISSIONS } from '.';
 
@@ -20,6 +23,7 @@ import { DEFAULT_PERMISSIONS } from '.';
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
  * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool
  * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
+ * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @param {Resource[]} dependencies the Pulumi dependencies
  * @returns {gcp.serviceaccount.Account} the created service account
  */
@@ -28,6 +32,7 @@ export const createProjectIam = (
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
   dopplerEnvironments: StringMap<doppler.Environment>,
+  vaultStores: StringMap<vault.Mount>,
   dependencies: Resource[],
 ): gcp.serviceaccount.Account => {
   const ciPostfix = createRandomString(
@@ -129,6 +134,22 @@ export const createProjectIam = (
     'CLOUDSDK_COMPUTE_REGION',
     Output.create(project.region),
     dopplerEnvironments[project.repository],
+  );
+
+  writeToVault(
+    'google-cloud',
+    all([
+      workloadIdentityPool.workloadIdentityProvider.name,
+      ciServiceAccount.email,
+    ]).apply(([workloadIdentityProviderName, serviceAccountEmail]) =>
+      JSON.stringify({
+        workload_identity_provider: workloadIdentityProviderName,
+        ci_service_account: serviceAccountEmail,
+        region: project.region,
+      }),
+    ),
+    vaultProvider,
+    vaultStores[project.repository],
   );
 
   return ciServiceAccount;

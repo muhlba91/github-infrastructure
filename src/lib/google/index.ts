@@ -1,5 +1,6 @@
 import * as gcp from '@pulumi/gcp';
 import { Resource } from '@pulumi/pulumi';
+import * as vault from '@pulumi/vault';
 import * as doppler from '@pulumiverse/doppler';
 
 import { RepositoryConfig } from '../../model/config/repository';
@@ -88,10 +89,12 @@ const DEFAULT_SERVICES = [
  * Creates all Google related infrastructure.
  *
  * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
+ * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @returns {StringMap<string[]>} the configured Google projects
  */
 export const configureGoogleProjects = (
   dopplerEnvironments: StringMap<doppler.Environment>,
+  vaultStores: StringMap<vault.Mount>,
 ): StringMap<string[]> => {
   const providers = Object.fromEntries(
     gcpConfig.projects.map((project) => [
@@ -157,6 +160,7 @@ export const configureGoogleProjects = (
       providers,
       workloadIdentityPools[repositoryProject.name],
       dopplerEnvironments,
+      vaultStores,
       enabledServices,
     ),
   );
@@ -186,6 +190,7 @@ export const configureGoogleProjects = (
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
  * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool to assign permissions for
  * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
+ * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @param {Resource[]} dependencies the Pulumi dependencies
  */
 const configureProject = (
@@ -193,6 +198,7 @@ const configureProject = (
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
   dopplerEnvironments: StringMap<doppler.Environment>,
+  vaultStores: StringMap<vault.Mount>,
   dependencies: Resource[],
 ) => {
   const serviceAccount = createProjectIam(
@@ -200,6 +206,7 @@ const configureProject = (
     providers,
     workloadIdentityPool,
     dopplerEnvironments,
+    vaultStores,
     dependencies,
   );
   if (gcpConfig.allowHmacKeys && project.hmacKey) {
@@ -208,6 +215,7 @@ const configureProject = (
       serviceAccount,
       providers,
       dopplerEnvironments,
+      vaultStores,
       dependencies,
     );
   }

@@ -88,6 +88,17 @@ repositories:
   subscription: the subscription type of the user/organization (e.g. "none")
 ```
 
+### Vault
+
+Vault connection configuration. The token will be retrieved from the corresponding stack's output.
+
+Attention: Vault will only be used if a connection configuration can be created.
+
+```yaml
+vault:
+  address: the URL to the Vault instance
+```
+
 #### Repository YAML
 
 Repositories are defined in YAML format. For each repository to create a YAML file must be created in [assets/repositories/](assets/repositories/).
