@@ -51,7 +51,14 @@ rulesets:
 # if using Vault, a GitHub Actions secret is created with the Vault role name for JWT authentication
 accessPermissions:
   doppler: true # creates Doppler projects
-  vault: true # creates Vault secrets
+  vault:
+    enabled: true # creates Vault secrets
+    address: '' # the Vault address (optional)
+    additionalMounts: # list of additional mounts to provide access to
+      - path: '' # the path to the secret mount
+        permissions: # list of additional permissions for the secret mount
+          - read
+          - list
   pulumi: true # creates a Pulumi access token
   tailscale: true # sets the Tailscale OAuth secrets
   google:

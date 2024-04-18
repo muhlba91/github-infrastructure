@@ -18,6 +18,15 @@ accessPermissions:
   doppler: false
   vault:
     enabled: true
+    additionalMounts:
+      - path: kubernetes-public-services-cluster
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   aws:
     region: eu-west-1
     account: 215622641987

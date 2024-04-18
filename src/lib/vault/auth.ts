@@ -29,6 +29,15 @@ export const createAuth = (
       name: `github-${repository.name}`,
       policy: renderTemplate('assets/vault/policy.hcl.tpl', {
         repository: repository.name,
+        additionalPaths:
+          repository.accessPermissions?.vault?.additionalMounts?.map(
+            (mount) => ({
+              path: mount.path,
+              permissions: mount.permissions
+                .map((permission) => `"${permission}"`)
+                .join(', '),
+            }),
+          ) ?? [],
       }),
     },
     {

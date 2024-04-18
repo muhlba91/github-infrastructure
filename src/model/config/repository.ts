@@ -66,11 +66,21 @@ export type RepositoryAccessPermissionsConfig = {
 };
 
 /**
- * Defines repository access permissions config.
+ * Defines repository vault access permissions config.
  */
 export type RepositoryVaultAccessPermissionsConfig = {
   readonly enabled: boolean;
-  readonly address: string;
+  readonly address?: string;
+  readonly additionalMounts?: readonly RepositoryVaultAdditionalMountAccessPermissionsConfig[];
+};
+
+/**
+ * Defines repository vault additional mount access permissions config.
+ */
+export type RepositoryVaultAdditionalMountAccessPermissionsConfig = {
+  readonly path: string;
+  readonly create?: boolean;
+  readonly permissions: readonly string[];
 };
 
 /**

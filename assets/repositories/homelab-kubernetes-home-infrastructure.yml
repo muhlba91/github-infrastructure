@@ -18,6 +18,15 @@ accessPermissions:
   doppler: false
   vault:
     enabled: true
+    additionalMounts:
+      - path: kubernetes-home-cluster
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   tailscale: true
   aws:
     region: eu-west-1
