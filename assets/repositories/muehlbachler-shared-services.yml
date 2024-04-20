@@ -17,6 +17,15 @@ accessPermissions:
   doppler: false
   vault:
     enabled: true
+    additionalMounts:
+      - path: shared-services
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   aws:
     region: eu-west-1
     account: 215622641987
