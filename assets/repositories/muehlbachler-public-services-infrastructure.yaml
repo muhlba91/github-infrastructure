@@ -16,6 +16,7 @@ rulesets:
 accessPermissions:
   pulumi: true
   doppler: false
+  tailscale: true
   vault:
     enabled: true
     additionalMounts:
