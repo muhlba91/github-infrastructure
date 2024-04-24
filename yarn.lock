@@ -541,10 +541,10 @@
     tmp "^0.2.1"
     upath "^1.1.0"
 
-"@pulumi/pulumiservice@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.19.0.tgz#cc532fe516b4b8d4bb3f2585efaee663533dd1e6"
-  integrity sha512-6XKiwQaqKDOBCODw8LQm16K5dZrcdETZjVV1yyfRnvG3wbSgDTG5peLEAaPZQmdTSmPIse6eAXYX9RuGYLl+0g==
+"@pulumi/pulumiservice@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.20.0.tgz#b8ae8646c9fe309831693e536598e9bd5e849b48"
+  integrity sha512-GAhFHwnIO08KXK7MNsCGlutgP2ya7ThDVCZodGajZUxD0VxIRbJLFby8SwzWCc62SNbKRl7ytOdDsMFCnuwnbg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
