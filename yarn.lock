@@ -556,10 +556,10 @@
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumiverse/doppler@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumiverse/doppler/-/doppler-0.5.0.tgz#2a2bd90439ef1bfd334a14d3720f067bd6b4e8d4"
-  integrity sha512-+kJwC9EsTg8EA+kfZwM1T/L2QLLG27/CFWMnbSGcrJDL5oC1ams44TIEIkn5GfEPMihTM06xNV9P9shTsD0k6A==
+"@pulumiverse/doppler@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@pulumiverse/doppler/-/doppler-0.7.0.tgz#3dd5f4946e887d369ad2982c77676cd9fe04cf74"
+  integrity sha512-e4OEBj9u8aROTOfpM9SoDUyxZLrEfPfvCGb4phfNZ1Z0KTFlFdC/cv4EJ/jE79eW6tuwtm5QBsizgyi4Wfo5RA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
