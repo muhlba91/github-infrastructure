@@ -495,9 +495,9 @@
     "@pulumi/pulumi" "^3.0.0"
 
 "@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
-  version "3.114.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.114.0.tgz#72015dc5e697c51e99892c0b7407489f06bb9b4f"
-  integrity sha512-+GDzWl/Udpw5uRs/DaM4X3Hl8LR4bvdmiHl4PFL9aaSUN+4x3TMIuKsg+IEpfK5apLW34gb3MnIkZZweNcOx5A==
+  version "3.115.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.115.0.tgz#592c77753540f0390d235d2e04669a67ec55c07c"
+  integrity sha512-IqMibjR0bw6acE2kve8Qj/Xud3iX+PbNXLlE+A3oJ9CasPvqVW8EZdr1g5QJp5DfVAn1uSfawwcTkFGY6YVFyQ==
   dependencies:
     "@grpc/grpc-js" "^1.10.1"
     "@logdna/tail-file" "^2.0.6"
@@ -2793,9 +2793,9 @@ npm-pick-manifest@^9.0.0:
     semver "^7.3.5"
 
 npm-registry-fetch@^17.0.0:
-  version "17.0.0"
-  resolved "https://registry.yarnpkg.com/npm-registry-fetch/-/npm-registry-fetch-17.0.0.tgz#b93bd8d55e6e7dc2f9ea6832e8b19922cdf3548f"
-  integrity sha512-JoOpdYqru846tJX96Jn2jyYVpc1TD1o6Oox80rjVIDAZqIsS2n+nNx+/Qd02LlQm/itGhsBgzP1VUKACLQHD+Q==
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/npm-registry-fetch/-/npm-registry-fetch-17.0.1.tgz#c13cfd4c022713f09d23af5fba8b6ec59a17609e"
+  integrity sha512-fLu9MTdZTlJAHUek/VLklE6EpIiP3VZpTiuN7OOMCt2Sd67NCpSEetMaxHHEZiZxllp8ZLsUpvbEszqTFEc+wA==
   dependencies:
     "@npmcli/redact" "^2.0.0"
     make-fetch-happen "^13.0.0"
