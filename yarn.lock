@@ -479,9 +479,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.20.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.20.0.tgz#8f583feeeb15f24469fa5de874bebc95951c17cb"
-  integrity sha512-aD/VcbJENSv8r0evaBdkJaELHhID7xHyYN/r185JJelK6ajo0I73vTPmMraLYr2a4bce/sUikDgcZ3P07ajsXA==
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.21.0.tgz#3220eeb27aad4b877cc303d2235e3246dbe1b234"
+  integrity sha512-/V9QFMWOEg4wwxZ34nfWPy5H28Imqx0YHIaa0KIFm1XfFCjvknGcQs/WCx5Yv/hRb+yUdWV6mFAZ0SpVlEF2Ig==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
