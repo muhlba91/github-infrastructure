@@ -3,15 +3,15 @@ import { StringMap } from '../map';
 /**
  * Defines repositories config.
  */
-export type RepositoriesConfig = {
+export interface RepositoriesConfig {
   readonly owner: string;
   readonly subscription: string;
-};
+}
 
 /**
  * Defines repository config.
  */
-export type RepositoryConfig = {
+export interface RepositoryConfig {
   readonly name: string;
   readonly description: string;
   readonly visibility?: string;
@@ -24,20 +24,20 @@ export type RepositoryConfig = {
   readonly pagesBranch?: string;
   readonly rulesets?: RepositoryRulesetsConfig;
   readonly accessPermissions?: RepositoryAccessPermissionsConfig;
-};
+}
 
 /**
  * Defines repository rulesets config.
  */
-export type RepositoryRulesetsConfig = {
+export interface RepositoryRulesetsConfig {
   readonly branch?: RepositoryRulesetConfig;
   readonly tag?: RepositoryRulesetConfig;
-};
+}
 
 /**
  * Defines repository branch protections config.
  */
-export type RepositoryRulesetConfig = {
+export interface RepositoryRulesetConfig {
   readonly enabled: boolean;
   readonly patterns?: readonly string[];
   readonly restrictCreation?: boolean;
@@ -51,45 +51,45 @@ export type RepositoryRulesetConfig = {
   readonly requiredChecks?: string[];
   readonly allowBypass?: boolean;
   readonly allowBypassIntegrations?: readonly number[];
-};
+}
 
 /**
  * Defines repository access permissions config.
  */
-export type RepositoryAccessPermissionsConfig = {
+export interface RepositoryAccessPermissionsConfig {
   readonly pulumi?: boolean;
   readonly tailscale?: boolean;
   readonly doppler?: boolean;
   readonly vault?: RepositoryVaultAccessPermissionsConfig;
   readonly google?: RepositoryGoogleAccessConfig;
   readonly aws?: RepositoryAwsAccessConfig;
-};
+}
 
 /**
  * Defines repository vault access permissions config.
  */
-export type RepositoryVaultAccessPermissionsConfig = {
+export interface RepositoryVaultAccessPermissionsConfig {
   readonly enabled: boolean;
   readonly address?: string;
   readonly additionalMounts?: readonly RepositoryVaultAdditionalMountAccessPermissionsConfig[];
-};
+}
 
 /**
  * Defines repository vault additional mount access permissions config.
  */
-export type RepositoryVaultAdditionalMountAccessPermissionsConfig = {
+export interface RepositoryVaultAdditionalMountAccessPermissionsConfig {
   readonly path: string;
   readonly create?: boolean;
   readonly permissions: readonly string[];
-};
+}
 
 /**
  * Defines repository common cloud access config.
  */
-export type RepositoryCommonCloudAccessConfig = {
+export interface RepositoryCommonCloudAccessConfig {
   readonly region?: string;
   readonly iamPermissions?: readonly string[];
-};
+}
 
 /**
  * Defines repository Google access config.
@@ -104,10 +104,10 @@ export type RepositoryGoogleAccessConfig = RepositoryCommonCloudAccessConfig & {
 /**
  * Defines repository linked Google access config.
  */
-export type RepositoryGoogleLinkedAccessConfig = {
+export interface RepositoryGoogleLinkedAccessConfig {
   readonly accessLevel: string;
   readonly iamPermissions?: readonly string[];
-};
+}
 
 /**
  * Defines repository AWS access config.

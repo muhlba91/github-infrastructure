@@ -5,7 +5,7 @@ import { StringMap } from '../map';
 /**
  * Defines a Google project for a repository.
  */
-export type GoogleRepositoryProjectData = {
+export interface GoogleRepositoryProjectData {
   readonly repository: string;
   readonly name: string;
   readonly region: string;
@@ -13,20 +13,20 @@ export type GoogleRepositoryProjectData = {
   readonly enabledServices: readonly string[];
   readonly linkedProjects?: StringMap<GoogleRepositoryLinkedProjectData>;
   readonly hmacKey?: boolean;
-};
+}
 
 /**
  * Defines a linked Google project.
  */
-export type GoogleRepositoryLinkedProjectData = {
+export interface GoogleRepositoryLinkedProjectData {
   readonly accessLevel: string;
   readonly iamPermissions?: readonly string[];
-};
+}
 
 /**
  * Defines a Google workload identity pool.
  */
-export type GoogleWorkloadIdentityPoolData = {
+export interface GoogleWorkloadIdentityPoolData {
   readonly workloadIdentityPool: gcp.iam.WorkloadIdentityPool;
   readonly workloadIdentityProvider: gcp.iam.WorkloadIdentityPoolProvider;
-};
+}

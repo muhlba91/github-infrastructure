@@ -6,8 +6,5 @@
  * @param self the array
  * @returns true if this object is the first occurence; false otherwise
  */
-export const uniqueFilter = (
-  value: unknown,
-  index: number,
-  self: Array<unknown>,
-) => self.indexOf(value) === index;
+export const uniqueFilter = (value: unknown, index: number, self: unknown[]) =>
+  self.indexOf(value) === index;
