@@ -479,9 +479,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.21.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.21.1.tgz#d5f09d41157c7de421c066857fac35694b47f259"
-  integrity sha512-HoCS6IxLRC+n4V+45aQdD/VOnbnESN0owMHWCWd/midE0pEHANEFUGa170fkz30yVNrCd89XAdfdntXw5uePAA==
+  version "7.21.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.21.2.tgz#da827e85344766180bb0bc78bab2306065d6fe27"
+  integrity sha512-JE7FTsbAsM8w3DG0PrURVadtJWtd61RY0STmekFdxRFGPRLGgXhheWMsyGxy4G5BHK0LyEUaEtQOERkkBY36Bg==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -1850,15 +1850,15 @@ glob-parent@^6.0.2:
     is-glob "^4.0.3"
 
 glob@^10.2.2, glob@^10.3.10:
-  version "10.3.12"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-10.3.12.tgz#3a65c363c2e9998d220338e88a5f6ac97302960b"
-  integrity sha512-TCNv8vJ+xz4QiqTpfOJA7HvYv+tNIRHKfUWw/q+v2jdgN4ebz+KY9tGx5J4rHP0o84mNP+ApH66HRX8us3Khqg==
+  version "10.3.14"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-10.3.14.tgz#36501f871d373fe197fc5794588d0aa71e69ff68"
+  integrity sha512-4fkAqu93xe9Mk7le9v0y3VrPDqLKHarNi2s4Pv7f2yOvfhWfhc7hRPHC/JyqMqb8B/Dt/eGS4n7ykwf3fOsl8g==
   dependencies:
     foreground-child "^3.1.0"
     jackspeak "^2.3.6"
     minimatch "^9.0.1"
     minipass "^7.0.4"
-    path-scurry "^1.10.2"
+    path-scurry "^1.11.0"
 
 glob@^7.1.1:
   version "7.2.3"
@@ -2555,9 +2555,9 @@ minipass@^5.0.0:
   integrity sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==
 
 "minipass@^5.0.0 || ^6.0.2 || ^7.0.0", minipass@^7.0.2, minipass@^7.0.3, minipass@^7.0.4:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.0.tgz#b545f84af94e567386770159302ca113469c80b8"
-  integrity sha512-oGZRv2OT1lO2UF1zUcwdTb3wqUwI0kBGTgt/T7OdSj6M6N5m3o5uPf0AIW6lVxGGoiWUR7e2AwTE+xiwK8WQig==
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz#f7f85aff59aa22f110b20e27692465cf3bf89481"
+  integrity sha512-UZ7eQ+h8ywIRAW1hIEl2AqdwzJucU/Kp59+8kkZeSvafXhZjul247BvIJjEVFVeON6d7lM46XX1HXCduKAS8VA==
 
 minizlib@^2.1.1, minizlib@^2.1.2:
   version "2.1.2"
@@ -2917,10 +2917,10 @@ path-parse@^1.0.7:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
-path-scurry@^1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/path-scurry/-/path-scurry-1.10.2.tgz#8f6357eb1239d5fa1da8b9f70e9c080675458ba7"
-  integrity sha512-7xTavNy5RQXnsjANvVvMkEjvloOinkAjv/Z6Ildz9v2RinZ4SBKTWFOVRbaF8p0vpHnyjV/UwNDdKuUv6M5qcA==
+path-scurry@^1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/path-scurry/-/path-scurry-1.11.0.tgz#332d64e9726bf667fb348e5a1c71005c09ad741a"
+  integrity sha512-LNHTaVkzaYaLGlO+0u3rQTz7QrHTFOuKyba9JMTQutkmtNew8dw8wOD7mTU/5fCPZzCWpfW0XnQKzY61P0aTaw==
   dependencies:
     lru-cache "^10.2.0"
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
@@ -3014,9 +3014,9 @@ promise-retry@^2.0.1:
     retry "^0.12.0"
 
 protobufjs@^7.2.5:
-  version "7.2.6"
-  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.2.6.tgz#4a0ccd79eb292717aacf07530a07e0ed20278215"
-  integrity sha512-dgJaEDDL6x8ASUZ1YqWciTRrdOuYNzoOf27oHNfdyvKqHr5i0FV7FSLU+aIeFjyFgVxrpTOtQUi0BLLBymZaBw==
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-7.3.0.tgz#a32ec0422c039798c41a0700306a6e305b9cb32c"
+  integrity sha512-YWD03n3shzV9ImZRX3ccbjqLxj7NokGN0V/ESiBV5xWqrommYHYiihuIyavq03pWSGqlyvYUFmfoMKd+1rPA/g==
   dependencies:
     "@protobufjs/aspromise" "^1.1.2"
     "@protobufjs/base64" "^1.1.2"
@@ -3183,7 +3183,12 @@ semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.1.1, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.5.2, semver@^7.5.3, semver@^7.6.0:
+semver@^7.1.1, semver@^7.3.2, semver@^7.3.5, semver@^7.3.7, semver@^7.5.2, semver@^7.5.3:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.2.tgz#1e3b34759f896e8f14d6134732ce798aeb0c6e13"
+  integrity sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==
+
+semver@^7.6.0:
   version "7.6.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.1.tgz#60bfe090bf907a25aa8119a72b9f90ef7ca281b2"
   integrity sha512-f/vbBsu+fOiYt+lmwZV0rVwJScl46HppnOA1ZvIuBWKOTlllpyJ3bfVax76/OrhCH38dyxoDIA8K7uB963IYgA==
