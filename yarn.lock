@@ -469,9 +469,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.34.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.34.0.tgz#638450e9c9191241e2dd238308aa30c95db41384"
-  integrity sha512-Ak6vJzF0wFrt3Iym/CE1Z9UXMhknfxpQBCXF07jb2zReQQg0ng/H30fLM/cw7lzNvrM1b4ru9n2lXZtmtLJdxA==
+  version "6.34.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.34.1.tgz#5285c5834331d741b8dea7307a1aef1b3aebe608"
+  integrity sha512-ZylJZdu6SQmZ99n4XjNTvNnlSXxvRvhzkT1RqdpGNfxFKJu82QMyQbGEJiqIlG6kvBQJWbWztIYPzB2cVsO4oA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     builtin-modules "3.0.0"
@@ -583,9 +583,9 @@
   integrity sha512-JzBqdVIyqm2FRQCulY6nbQzMpJJpSiJ8XXWMhtOX9eKgaXXpfNOF53lzQEjIydlStnd/eFtuC1dW4VYdD93oRg==
 
 "@sigstore/protobuf-specs@^0.3.0", "@sigstore/protobuf-specs@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@sigstore/protobuf-specs/-/protobuf-specs-0.3.1.tgz#7095819fa7c5743efde48a858c37b30fab190a09"
-  integrity sha512-aIL8Z9NsMr3C64jyQzE0XlkEyBLpgEJJFDHLVVStkFV5Q3Il/r/YtY6NJWKQ4cy4AE7spP1IX5Jq7VCAxHHMfQ==
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@sigstore/protobuf-specs/-/protobuf-specs-0.3.2.tgz#5becf88e494a920f548d0163e2978f81b44b7d6f"
+  integrity sha512-c6B0ehIWxMI8wiS/bj6rHMPqeFvngFV7cDU/MY+B16P9Z3Mp9k8L93eYZ7BYzSickzuqAQqAq0V956b3Ju6mLw==
 
 "@sigstore/sign@^2.3.0":
   version "2.3.1"
