@@ -479,9 +479,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.21.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.21.2.tgz#da827e85344766180bb0bc78bab2306065d6fe27"
-  integrity sha512-JE7FTsbAsM8w3DG0PrURVadtJWtd61RY0STmekFdxRFGPRLGgXhheWMsyGxy4G5BHK0LyEUaEtQOERkkBY36Bg==
+  version "7.22.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.22.0.tgz#0f18ebc24844e35f08690e21b4bb5123ba1883b1"
+  integrity sha512-yXaXJH9WreZMqZy5B8Vlib84+a71RrOkLRwEmdOIMYSVSBQU5DAsej6x+SD2z2bCyjOLIj+QMZRCk0U1miD1LA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -744,9 +744,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "20.12.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.11.tgz#c4ef00d3507000d17690643278a60dc55a9dc9be"
-  integrity sha512-vDg9PZ/zi+Nqp6boSOT7plNuthRugEKixDv5sFTIpkE89MmNtEArAShI4mxuX2+UrLEe9pxC1vm2cjm9YlWbJw==
+  version "20.12.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.12.12.tgz#7cbecdf902085cec634fdb362172dfe12b8f2050"
+  integrity sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==
   dependencies:
     undici-types "~5.26.4"
 
