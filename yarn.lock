@@ -544,9 +544,9 @@
   integrity sha512-xfo+yLRM2zVjVEA4p23IjQWzyWl1ZhWOGobsBqRpIarzLvwNH/RAGaoehdxlhx4X92302DrpdIFgTICMN4P38w==
 
 "@pulumi/random@^4.14.0":
-  version "4.16.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/random/-/random-4.16.1.tgz#2d4cccbebbca26611aa6828da9fbcade72b1b84a"
-  integrity sha512-WbjxA7rqOqJkDT4mEltQkJ97GGjCLHJ6e/8r/HRdpoJ4xapfqgAVdt4/dgVtHBsxngglNkauL2uOy/h4Jh1Arg==
+  version "4.16.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/random/-/random-4.16.2.tgz#7bbbd875cdd239e4a4e7aebbda656ac449562381"
+  integrity sha512-jBYLrb2Bfh5WbmhyqTHVGYIOkckRQefDgBgvwdMF6i0NzboOizmjEj6MdN5RyibVMtWN3b7Y0kwKeE8uPIq3qQ==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
@@ -3012,9 +3012,9 @@ possible-typed-array-names@^1.0.0:
   integrity sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==
 
 postcss-selector-parser@^6.0.10:
-  version "6.0.16"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz#3b88b9f5c5abd989ef4e2fc9ec8eedd34b20fb04"
-  integrity sha512-A0RVJrX+IUkVZbW3ClroRWurercFhieevHB38sr2+l9eUClMqome3LmEmnhlNy+5Mr2EYN6B2Kaw9wYdd+VHiw==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.0.tgz#49694cb4e7c649299fea510a29fa6577104bcf53"
+  integrity sha512-UMz42UD0UY0EApS0ZL9o1XnLhSTtvvvLe5Dc2H2O56fvRZi+KulDyf5ctDhhtYJBGKStV2FL1fy6253cmLgqVQ==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
