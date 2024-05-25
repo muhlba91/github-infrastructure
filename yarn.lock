@@ -480,9 +480,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.23.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.23.0.tgz#b9a58e608599b014c48ac42ac5be248bb6a09896"
-  integrity sha512-3FzQ+Uqz6bKoko5n+OtRYO/LE1gae6QrWwCvYTumlO7/X5z/ipYBBJ/gVtI0W/mgRTt58iwh07IlWd6GDfhoBQ==
+  version "7.24.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.24.0.tgz#a4bde95c07a37ea9b3b4823e579b7ec54433d15a"
+  integrity sha512-IaZtIsGncTX9M0tJ/SQVL1Ukvqdiep74JaW+8ZASJIlCrEok2fQe/JzrUp4fdiJEkgfT2oIIdPYmtPh+W1WaWA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -495,7 +495,43 @@
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
+"@pulumi/pulumi@^3.0.0":
+  version "3.117.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.117.0.tgz#0ef4f05c96d3b3362f2aa17f4b46a155cd1152aa"
+  integrity sha512-pF4KF5FpSwckB/Xy0ZlCH6FGHiNUkmC9c4ATW2pjfp2oa0uyEQ+5nQjj/6osX5wWI2Wn+Qsf+9c9ZaZwrwyhnw==
+  dependencies:
+    "@grpc/grpc-js" "^1.10.1"
+    "@logdna/tail-file" "^2.0.6"
+    "@npmcli/arborist" "^7.3.1"
+    "@opentelemetry/api" "^1.2.0"
+    "@opentelemetry/exporter-zipkin" "^1.6.0"
+    "@opentelemetry/instrumentation" "^0.32.0"
+    "@opentelemetry/instrumentation-grpc" "^0.32.0"
+    "@opentelemetry/resources" "^1.6.0"
+    "@opentelemetry/sdk-trace-base" "^1.6.0"
+    "@opentelemetry/sdk-trace-node" "^1.6.0"
+    "@opentelemetry/semantic-conventions" "^1.6.0"
+    "@pulumi/query" "^0.3.0"
+    "@types/google-protobuf" "^3.15.5"
+    "@types/semver" "^7.5.6"
+    "@types/tmp" "^0.2.6"
+    execa "^5.1.0"
+    fdir "^6.1.1"
+    google-protobuf "^3.5.0"
+    got "^11.8.6"
+    ini "^2.0.0"
+    js-yaml "^3.14.0"
+    minimist "^1.2.6"
+    normalize-package-data "^6.0.0"
+    picomatch "^3.0.1"
+    pkg-dir "^7.0.0"
+    require-from-string "^2.0.1"
+    semver "^7.5.2"
+    source-map-support "^0.5.6"
+    tmp "^0.2.1"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@^3.69.0":
   version "3.116.1"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.116.1.tgz#226b662634635105c079fb6f583fa3eea92aefa8"
   integrity sha512-Haweoa0O94MG+czV7+lcYJKunRCBxSz8VoHY23JWoCASWSc3i7/h4U8ejZB88GnrrRRQSihnKVCuz4Mb5Ngm+A==
@@ -688,9 +724,9 @@
     "@types/node" "*"
 
 "@types/express-serve-static-core@^4.17.33":
-  version "4.19.0"
-  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.19.0.tgz#3ae8ab3767d98d0b682cda063c3339e1e86ccfaa"
-  integrity sha512-bGyep3JqPCRry1wq+O5n7oiBgGWmeIJXPjXXCo8EK0u8duZGSYar7cGqd3ML2JUsLGeB7fmc06KYo9fLGWqPvQ==
+  version "4.19.1"
+  resolved "https://registry.yarnpkg.com/@types/express-serve-static-core/-/express-serve-static-core-4.19.1.tgz#57d34698bb580720fd6e3c360d4b2fdef579b979"
+  integrity sha512-ej0phymbFLoCB26dbbq5PGScsf2JAJ4IJHjG10LalgUV36XKTmA4GdA+PVllKvRk0sEKt64X8975qFnkSi0hqA==
   dependencies:
     "@types/node" "*"
     "@types/qs" "*"
@@ -1904,9 +1940,9 @@ glob-parent@^6.0.2:
     is-glob "^4.0.3"
 
 glob@^10.2.2, glob@^10.3.10:
-  version "10.4.0"
-  resolved "https://registry.yarnpkg.com/glob/-/glob-10.4.0.tgz#a6803ea42f6f609900e41f610e1324e292d55cb6"
-  integrity sha512-+K6CicMIL11UEbC3gH/MVxgGG4gJDMu9tPD+nH+d6W3+y2fYuDSbpa2b+EGyvCGvSN/PT/7daJTH25NknJkcIQ==
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-10.4.1.tgz#0cfb01ab6a6b438177bfe6a58e2576f6efe909c2"
+  integrity sha512-2jelhlq3E4ho74ZyVLN03oKdAZVUa6UDZzFLVH1H7dnoax+y9qyaq8zBkfDIggjniU19z0wU18y16jMB2eyVIw==
   dependencies:
     foreground-child "^3.1.0"
     jackspeak "^3.1.2"
