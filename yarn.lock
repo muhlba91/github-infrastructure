@@ -551,9 +551,9 @@
     "@pulumi/pulumi" "^3.0.0"
 
 "@pulumi/vault@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/vault/-/vault-6.1.0.tgz#2120bac7c753209aeceea9853468fbade5d5c673"
-  integrity sha512-doR/+OSjZ6XsMZ1l+8Jie6d7mqpgCVJ4am1BPsQp5RL4zv4TYXSM5nOIWiQ8vEcXS9jQTIM2+KcmUE3tizwEHw==
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/vault/-/vault-6.1.1.tgz#e7ec540cc33649a5f89ad082bb5cb686f351abd7"
+  integrity sha512-NPIu+eYIaQGQpoyN+utNQwXgIe0QC2ftKcr0s/WOEdTEF6f/OOHItKe5axis1uUxjWAXd3G7KnoEqz6eNRTc7w==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
@@ -2315,9 +2315,9 @@ isexe@^3.1.1:
   integrity sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ==
 
 jackspeak@^3.1.2:
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-3.2.5.tgz#70f337b27fa555c2cc85fe24bf4dd6ed4e17907c"
-  integrity sha512-a1hopwtr4NawFIrSmFgufzrN1Qy2BAfMJ0yScJBs/olJhTcctCy3YIDx4hTY2DOTJD1pUMTly80kmlYZxjZr5w==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/jackspeak/-/jackspeak-3.3.0.tgz#65dc7cd87522494fcb2648ec6ca684170e9e1727"
+  integrity sha512-glPiBfKguqA7v8JsXO3iLjJWZ9FV1vNpoI0I9hI9Mnk5yetO9uPLSpiCEmiVijAssv2f54HpvtzvAHfhPieiDQ==
   dependencies:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
