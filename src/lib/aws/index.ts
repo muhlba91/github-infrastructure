@@ -1,7 +1,6 @@
 import * as aws from '@pulumi/aws';
 import { Output } from '@pulumi/pulumi';
 import * as vault from '@pulumi/vault';
-import * as doppler from '@pulumiverse/doppler';
 
 import { RepositoryConfig } from '../../model/config/repository';
 import { AwsRepositoryAccountData } from '../../model/data/aws';
@@ -17,12 +16,10 @@ const DEFAULT_PERMISSIONS = ['iam:*', 's3:*', 'kms:*'];
 /**
  * Creates all AWS related infrastructure.
  *
- * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @return {StringMap<string[]>} the configured AWS accounts
  */
 export const configureAwsAccounts = (
-  dopplerEnvironments: StringMap<doppler.Environment>,
   vaultStores: StringMap<vault.Mount>,
 ): StringMap<string[]> => {
   const providers = Object.fromEntries(
@@ -66,7 +63,6 @@ export const configureAwsAccounts = (
       repositoryAccount,
       providers,
       identityProviderArns[repositoryAccount.id],
-      dopplerEnvironments,
       vaultStores,
     ),
   );
@@ -91,23 +87,15 @@ export const configureAwsAccounts = (
  * @param {AwsRepositoryAccountData} account the AWS account
  * @param {StringMap<aws.Provider>} providers the providers for all projects
  * @param {Output<string>} identityProviderArn the identity provider to assign permission for
- * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {StringMap<vault.Mount>} vaultStores the vault stores
  */
 const configureAccount = (
   account: AwsRepositoryAccountData,
   providers: StringMap<aws.Provider>,
   identityProviderArn: Output<string>,
-  dopplerEnvironments: StringMap<doppler.Environment>,
   vaultStores: StringMap<vault.Mount>,
 ) => {
-  createAccountIam(
-    account,
-    identityProviderArn,
-    providers,
-    dopplerEnvironments,
-    vaultStores,
-  );
+  createAccountIam(account, identityProviderArn, providers, vaultStores);
 };
 
 /**

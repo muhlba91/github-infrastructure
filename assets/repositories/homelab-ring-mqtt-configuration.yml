@@ -14,6 +14,5 @@ rulesets:
     enabled: false
 
 accessPermissions:
-  doppler: false
   vault:
     enabled: false

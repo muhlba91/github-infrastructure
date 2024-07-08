@@ -1,7 +1,6 @@
 import * as gcp from '@pulumi/gcp';
-import { all, interpolate, Output, Resource } from '@pulumi/pulumi';
+import { all, interpolate, Resource } from '@pulumi/pulumi';
 import * as vault from '@pulumi/vault';
-import * as doppler from '@pulumiverse/doppler';
 
 import {
   GoogleRepositoryProjectData,
@@ -9,7 +8,6 @@ import {
 } from '../../model/data/google';
 import { StringMap } from '../../model/map';
 import { repositoriesConfig } from '../configuration';
-import { writeToDoppler } from '../util/doppler/secret';
 import { createRandomString } from '../util/random';
 import { writeToVault } from '../util/vault/secret';
 import { vaultProvider } from '../vault';
@@ -22,7 +20,6 @@ import { DEFAULT_PERMISSIONS } from '.';
  * @param {GoogleRepositoryProjectData} project the Google project
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
  * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool
- * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @param {Resource[]} dependencies the Pulumi dependencies
  * @returns {gcp.serviceaccount.Account} the created service account
@@ -31,7 +28,6 @@ export const createProjectIam = (
   project: GoogleRepositoryProjectData,
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
-  dopplerEnvironments: StringMap<doppler.Environment>,
   vaultStores: StringMap<vault.Mount>,
   dependencies: Resource[],
 ): gcp.serviceaccount.Account => {
@@ -118,22 +114,6 @@ export const createProjectIam = (
       provider: providers[project.name],
       dependsOn: dependencies,
     },
-  );
-
-  writeToDoppler(
-    'GOOGLE_WORKLOAD_IDENTITY_PROVIDER',
-    workloadIdentityPool.workloadIdentityProvider.name,
-    dopplerEnvironments[project.repository],
-  );
-  writeToDoppler(
-    'GOOGLE_WORKLOAD_IDENTITY_SERVICE_ACCOUNT',
-    ciServiceAccount.email,
-    dopplerEnvironments[project.repository],
-  );
-  writeToDoppler(
-    'CLOUDSDK_COMPUTE_REGION',
-    Output.create(project.region),
-    dopplerEnvironments[project.repository],
   );
 
   writeToVault(

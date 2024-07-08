@@ -6,7 +6,7 @@ protected: true
 topics:
   - dns
   - infrastructure
-  - pulumi
+  - cloudventures
 
 rulesets:
   branch:
@@ -14,7 +14,6 @@ rulesets:
 
 accessPermissions:
   pulumi: false
-  doppler: false
   vault:
     enabled: true
   google:

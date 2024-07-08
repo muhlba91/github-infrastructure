@@ -6,7 +6,6 @@ protected: true
 topics:
   - services
   - infrastructure
-  - pulumi
   - vault
 
 rulesets:
@@ -18,7 +17,6 @@ rulesets:
 # everything else is managed manually
 accessPermissions:
   pulumi: false
-  doppler: false
   vault:
     enabled: false
   tailscale: false

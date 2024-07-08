@@ -6,7 +6,6 @@ protected: true
 topics:
   - services
   - infrastructure
-  - pulumi
   - kubernetes
 
 rulesets:
@@ -15,7 +14,6 @@ rulesets:
 
 accessPermissions:
   pulumi: true
-  doppler: false
   tailscale: true
   vault:
     enabled: true

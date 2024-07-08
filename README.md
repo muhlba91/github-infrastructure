@@ -43,7 +43,6 @@ To successfully run, and configure the Pulumi plugins, you need to set a list of
 - `AWS_SECRET_ACCESS_KEY`: the AWS secret access key
 - `CLOUDSDK_COMPUTE_REGION` the Google Cloud (GCP) region
 - `GOOGLE_APPLICATION_CREDENTIALS`: reference to a file containing the Google Cloud (GCP) service account credentials
-- `DOPPLER_TOKEN`: the Doppler token with permissions to manage projects
 - `GITHUB_TOKEN`: the GitHub token with permissions to manage repositories
 
 ---

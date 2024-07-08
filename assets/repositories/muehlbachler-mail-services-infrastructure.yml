@@ -1,19 +1,20 @@
 ---
-name: muehlbachler-global-dns
-description: "muehlbachler: Global DNS entries"
+name: muehlbachler-mail-services-infrastructure
+description: "muehlbachler: Mail Services Infrastructure"
 visibility: public
 protected: true
 topics:
-  - dns
+  - mail
   - infrastructure
-  - muehlbachler
+  - mailcow
 
 rulesets:
   branch:
     enabled: false
 
 accessPermissions:
-  pulumi: false
+  tailscale: true
+  pulumi: true
   vault:
     enabled: true
   google:

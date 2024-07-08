@@ -7,12 +7,12 @@ topics:
   - proxmox
   - proxmox-ve
   - pulumi
+  - pulumi-provider
 
 rulesets:
   branch:
     enabled: false
 
 accessPermissions:
-  doppler: false
   vault:
     enabled: true

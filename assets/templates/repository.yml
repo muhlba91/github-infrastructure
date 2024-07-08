@@ -47,10 +47,8 @@ rulesets:
     allowBypassIntegrations: [] # list of integration ids
 
 # optional cloud access permissions to setup
-# secrets are stored in the Doppler project and/or in Vault
 # if using Vault, a GitHub Actions secret is created with the Vault role name for JWT authentication
 accessPermissions:
-  doppler: true # creates Doppler projects
   vault:
     enabled: true # creates Vault secrets
     address: '' # the Vault address (optional)

@@ -7,13 +7,12 @@ topics:
   - services
   - kubernetes
   - gitops
-  - argocd-applications
+  - fluxcd
 
 rulesets:
   branch:
     enabled: false
 
 accessPermissions:
-  doppler: false
   vault:
     enabled: false

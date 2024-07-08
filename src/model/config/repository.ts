@@ -59,7 +59,6 @@ export interface RepositoryRulesetConfig {
 export interface RepositoryAccessPermissionsConfig {
   readonly pulumi?: boolean;
   readonly tailscale?: boolean;
-  readonly doppler?: boolean;
   readonly vault?: RepositoryVaultAccessPermissionsConfig;
   readonly google?: RepositoryGoogleAccessConfig;
   readonly aws?: RepositoryAwsAccessConfig;

@@ -1,7 +1,6 @@
 import * as gcp from '@pulumi/gcp';
 import { Resource } from '@pulumi/pulumi';
 import * as vault from '@pulumi/vault';
-import * as doppler from '@pulumiverse/doppler';
 
 import { RepositoryConfig } from '../../model/config/repository';
 import {
@@ -88,12 +87,10 @@ const DEFAULT_SERVICES = [
 /**
  * Creates all Google related infrastructure.
  *
- * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @returns {StringMap<string[]>} the configured Google projects
  */
 export const configureGoogleProjects = (
-  dopplerEnvironments: StringMap<doppler.Environment>,
   vaultStores: StringMap<vault.Mount>,
 ): StringMap<string[]> => {
   const providers = Object.fromEntries(
@@ -159,7 +156,6 @@ export const configureGoogleProjects = (
       repositoryProject,
       providers,
       workloadIdentityPools[repositoryProject.name],
-      dopplerEnvironments,
       vaultStores,
       enabledServices,
     ),
@@ -189,7 +185,6 @@ export const configureGoogleProjects = (
  * @param {GoogleRepositoryProjectData} project the Google project
  * @param {StringMap<gcp.Provider>} providers the providers for all projects
  * @param {GoogleWorkloadIdentityPoolData} workloadIdentityPool the workload identity pool to assign permissions for
- * @param {StringMap<doppler.Environment>} dopplerEnvironments the doppler environments
  * @param {StringMap<vault.Mount>} vaultStores the vault stores
  * @param {Resource[]} dependencies the Pulumi dependencies
  */
@@ -197,7 +192,6 @@ const configureProject = (
   project: GoogleRepositoryProjectData,
   providers: StringMap<gcp.Provider>,
   workloadIdentityPool: GoogleWorkloadIdentityPoolData,
-  dopplerEnvironments: StringMap<doppler.Environment>,
   vaultStores: StringMap<vault.Mount>,
   dependencies: Resource[],
 ) => {
@@ -205,7 +199,6 @@ const configureProject = (
     project,
     providers,
     workloadIdentityPool,
-    dopplerEnvironments,
     vaultStores,
     dependencies,
   );
@@ -214,7 +207,6 @@ const configureProject = (
       project,
       serviceAccount,
       providers,
-      dopplerEnvironments,
       vaultStores,
       dependencies,
     );

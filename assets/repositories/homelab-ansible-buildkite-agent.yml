@@ -15,7 +15,6 @@ rulesets:
 
 accessPermissions:
   tailscale: true
-  doppler: false
   vault:
     enabled: true
   google:
