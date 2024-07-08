@@ -19,6 +19,9 @@ accessPermissions:
   google:
     region: europe-west4
     project: muehlbachler-dns
+    linkedProjects:
+      cv-cus-00001-428814:
+        accessLevel: full
     iamPermissions:
       - dns.managedZones.get
       - dns.managedZones.list
