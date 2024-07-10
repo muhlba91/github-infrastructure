@@ -17,9 +17,21 @@ accessPermissions:
   pulumi: true
   vault:
     enabled: true
+    additionalMounts:
+      - path: mail-services
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   google:
     region: europe-west4
     project: muehlbachler-dns
+    linkedProjects:
+      public-services-402810:
+        accessLevel: default
     iamPermissions:
       - dns.managedZones.get
       - dns.managedZones.list
