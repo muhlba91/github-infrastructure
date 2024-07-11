@@ -1543,9 +1543,9 @@ eslint-module-utils@^2.8.0:
     debug "^3.2.7"
 
 eslint-plugin-functional@^6.5.1:
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.6.2.tgz#c3a0c79f36c31f9a76364a88eb40a0331e92d7c0"
-  integrity sha512-A0iuVrwbHxow5+usY1fQZDyoiEvevpnUErvDq/RiOgEHS4bJ02G+rdhiwnY+TzyNlsX8y2o4yv5y3PAv4DM30g==
+  version "6.6.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-functional/-/eslint-plugin-functional-6.6.3.tgz#85b895afb91835c5ffa2eb97f473fd4182aa5228"
+  integrity sha512-sVbbvNvwX3HVkXAykKyoNLv57r4DPF7f1sy+/8j4YtzLYVQPGljMUWv3T6Kd4lwnnjmcKuj0EkIbS+knL6P5jw==
   dependencies:
     "@typescript-eslint/utils" "^7.3.1"
     deepmerge-ts "^5.1.0"
