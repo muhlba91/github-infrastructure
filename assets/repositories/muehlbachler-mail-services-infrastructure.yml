@@ -31,20 +31,21 @@ accessPermissions:
     account: 215622641987
   google:
     region: europe-west4
-    project: muehlbachler-dns
+    project: public-services-402810
     linkedProjects:
-      public-services-402810:
+      muehlbachler-dns:
+        iamPermissions:
+          - dns.managedZones.get
+          - dns.managedZones.list
+          - dns.managedZones.update
+          - dns.projects.get
+          - dns.resourceRecordSets.create
+          - dns.resourceRecordSets.delete
+          - dns.resourceRecordSets.get
+          - dns.resourceRecordSets.list
+          - dns.resourceRecordSets.update
+          - dns.changes.create
+          - dns.changes.get
+          - dns.changes.list
+      root-muehlbachler:
         accessLevel: default
-    iamPermissions:
-      - dns.managedZones.get
-      - dns.managedZones.list
-      - dns.managedZones.update
-      - dns.projects.get
-      - dns.resourceRecordSets.create
-      - dns.resourceRecordSets.delete
-      - dns.resourceRecordSets.get
-      - dns.resourceRecordSets.list
-      - dns.resourceRecordSets.update
-      - dns.changes.create
-      - dns.changes.get
-      - dns.changes.list
