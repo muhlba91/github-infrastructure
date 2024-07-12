@@ -491,13 +491,49 @@
     read-package-json "^2.0.13"
 
 "@pulumi/github@^6.0.0":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.2.2.tgz#b4e5d6d8ce6b1c2c905e0aee1629f42e17895d40"
-  integrity sha512-WWhmgwd0HdboWOpb+qYEvXe68KpjTd6DCdJkyDX8roWelLHtZ4xTGgpAD54joGH7eVtoixLOjc8MiWpbvU6a/g==
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/@pulumi/github/-/github-6.2.3.tgz#8ffc07a39c6fbb1e9f7bca6c34a542943a7fe7d3"
+  integrity sha512-oDS7cxDhnZWu3MzE5Z9zGF0WQ6WAJlwVYrDZQcDELpNAZ1B3CRMBprxvgmKgnZkXQF3uDYp9DIDLwoim2AsMtw==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
+"@pulumi/pulumi@^3.0.0":
+  version "3.124.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.124.0.tgz#520e80c6b0bac41976360aca595e7d79a73633c9"
+  integrity sha512-5ytgK1RQYZD310aj0+RTauBpnB1RVO0j4Ql7tvpioklwRmOclVzTMyeaR2xd02Gpw9iyRwvoWHxgCV0owPdu+w==
+  dependencies:
+    "@grpc/grpc-js" "^1.10.1"
+    "@logdna/tail-file" "^2.0.6"
+    "@npmcli/arborist" "^7.3.1"
+    "@opentelemetry/api" "^1.9"
+    "@opentelemetry/exporter-zipkin" "^1.25"
+    "@opentelemetry/instrumentation" "^0.52"
+    "@opentelemetry/instrumentation-grpc" "^0.52"
+    "@opentelemetry/resources" "^1.25"
+    "@opentelemetry/sdk-trace-base" "^1.25"
+    "@opentelemetry/sdk-trace-node" "^1.25"
+    "@opentelemetry/semantic-conventions" "^1.25"
+    "@pulumi/query" "^0.3.0"
+    "@types/google-protobuf" "^3.15.5"
+    "@types/semver" "^7.5.6"
+    "@types/tmp" "^0.2.6"
+    execa "^5.1.0"
+    fdir "^6.1.1"
+    google-protobuf "^3.5.0"
+    got "^11.8.6"
+    ini "^2.0.0"
+    js-yaml "^3.14.0"
+    minimist "^1.2.6"
+    normalize-package-data "^6.0.0"
+    picomatch "^3.0.1"
+    pkg-dir "^7.0.0"
+    require-from-string "^2.0.1"
+    semver "^7.5.2"
+    source-map-support "^0.5.6"
+    tmp "^0.2.1"
+    upath "^1.1.0"
+
+"@pulumi/pulumi@^3.69.0":
   version "3.123.0"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.123.0.tgz#a5c17279bdd474eb8fa2ab2c0cad20734ae14750"
   integrity sha512-dKQ8KITftj82JesUck0YhuDLw7VBu+gjnrT3xC3EjOlVL3PfVL+aUAowynA5g+huQFs6WaGU8GUbYx7z5GJIiw==
@@ -1130,9 +1166,9 @@ builtin-modules@3.0.0:
   integrity sha512-hMIeU4K2ilbXV6Uv93ZZ0Avg/M91RaKXucQ+4me2Do1txxBDyDZWCBa5bJSLqoNTRpXTLwEzIk1KmloenDDjhg==
 
 cacache@^18.0.0, cacache@^18.0.3:
-  version "18.0.3"
-  resolved "https://registry.yarnpkg.com/cacache/-/cacache-18.0.3.tgz#864e2c18414e1e141ae8763f31e46c2cb96d1b21"
-  integrity sha512-qXCd4rh6I07cnDqh8V48/94Tc/WSfj+o3Gn6NZ0aZovS255bUx8O13uKxRFd2eWG0xgsco7+YItQNPaa5E85hg==
+  version "18.0.4"
+  resolved "https://registry.yarnpkg.com/cacache/-/cacache-18.0.4.tgz#4601d7578dadb59c66044e157d02a3314682d6a5"
+  integrity sha512-B+L5iIa9mgcjLbliir2th36yEwPftrzteHYujzsx3dFP/31GCHcIeS8f5MGd80odLOjaOvSpU3EEAmRQptkxLQ==
   dependencies:
     "@npmcli/fs" "^3.1.0"
     fs-minipass "^3.0.0"
@@ -3021,9 +3057,9 @@ possible-typed-array-names@^1.0.0:
   integrity sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==
 
 postcss-selector-parser@^6.0.10:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.0.tgz#49694cb4e7c649299fea510a29fa6577104bcf53"
-  integrity sha512-UMz42UD0UY0EApS0ZL9o1XnLhSTtvvvLe5Dc2H2O56fvRZi+KulDyf5ctDhhtYJBGKStV2FL1fy6253cmLgqVQ==
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.1.tgz#5be94b277b8955904476a2400260002ce6c56e38"
+  integrity sha512-b4dlw/9V8A71rLIDsSwVmak9z2DuBUB7CA1/wSdelNEzqsjoSPeADTWNO09lpH49Diy3/JIZ2bSPB1dI3LJCHg==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
