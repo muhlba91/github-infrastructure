@@ -498,9 +498,9 @@
     "@pulumi/pulumi" "^3.0.0"
 
 "@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
-  version "3.124.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.124.0.tgz#520e80c6b0bac41976360aca595e7d79a73633c9"
-  integrity sha512-5ytgK1RQYZD310aj0+RTauBpnB1RVO0j4Ql7tvpioklwRmOclVzTMyeaR2xd02Gpw9iyRwvoWHxgCV0owPdu+w==
+  version "3.125.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.125.0.tgz#1a83802dd3220a559fe8f28aaba396ffeb9f6baa"
+  integrity sha512-NrSUA1sEQIu/Qc11laAHzY6yA5GJlYcLyuj7ZYPAHEhUSHwPa6PdhQcZ36xX/RHZlRihLb1vLPyV5ZsQ3VzofQ==
   dependencies:
     "@grpc/grpc-js" "^1.10.1"
     "@logdna/tail-file" "^2.0.6"
@@ -2220,9 +2220,9 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   integrity sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==
 
 is-core-module@^2.13.0:
-  version "2.14.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.14.0.tgz#43b8ef9f46a6a08888db67b1ffd4ec9e3dfd59d1"
-  integrity sha512-a5dFJih5ZLYlRtDc0dZWP7RiKr6xIKzmn/oAYCDvdLThadVgyJwlaoQPmRtMSpz+rk0OGAgIu+TcM9HUF0fk1A==
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.15.0.tgz#71c72ec5442ace7e76b306e9d48db361f22699ea"
+  integrity sha512-Dd+Lb2/zvk9SKy1TGCt1wFJFo/MWBPMX5x7KcvLajWTGuomczdQX61PvY5yK6SVACwpoexWo81IfFyoKY2QnTA==
   dependencies:
     hasown "^2.0.2"
 
