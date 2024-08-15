@@ -534,9 +534,9 @@
     upath "^1.1.0"
 
 "@pulumi/pulumiservice@^0.23.0":
-  version "0.23.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.23.1.tgz#ddebf62e0afa02b8621a4400274b1efd57084ee8"
-  integrity sha512-VaYDx1Xi405MVDT8OWUJpVe7npsQ25MeaGHdwgNmY3j8AJ+LW4re7QZ3lxQghWdS/FpABK9pt3+MXZKoUnD0Qw==
+  version "0.23.2"
+  resolved "https://registry.yarnpkg.com/@pulumi/pulumiservice/-/pulumiservice-0.23.2.tgz#d1db6e2dc6eb642dcd5c8bc18d3dcc2beb1eeeef"
+  integrity sha512-fOWRGRXDOaGgsz21PR5/HcIxhu9nwd9+n7znmHeKU339xukoBOp/Yj2iNsn4z5qAU0C7tJGMkSUMLfHi8YFoOw==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
