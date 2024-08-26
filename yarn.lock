@@ -487,9 +487,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^7.0.0":
-  version "7.37.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.37.0.tgz#bdfc2696de2ae64cb25f0bda9db3a93ebba72158"
-  integrity sha512-uFNpCCo2ROr5NAlfFixebpUmjEsznBVKLFaFPqWahl5hsXvv0pqgwzbX3ojpOvA1zKFXdqdUVYs6Vcnxz68Kmw==
+  version "7.38.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-7.38.0.tgz#54379a5cf2d18c2774d75c648f92ab2c7701fe8e"
+  integrity sha512-UWI0nTqlNf9nrjouNnpBLSXFZBQDBCcrcdmLOWEPuc4Pxm3rwVWxuNq/6o19NoCVVGAjrNnJpbZfJRrqx8wXZQ==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -1192,9 +1192,9 @@ chownr@^2.0.0:
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
 cjs-module-lexer@^1.2.2:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.3.1.tgz#c485341ae8fd999ca4ee5af2d7a1c9ae01e0099c"
-  integrity sha512-a3KdPAANPbNE4ZUv9h6LckSl9zLsYOP4MBmhIPkRaeyybt+r4UghLvq+xw/YwUcC1gqylCkL4rdVs3Lwupjm4Q==
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.4.0.tgz#677de7ed7efff67cc40c9bf1897fea79d41b5215"
+  integrity sha512-N1NGmowPlGBLsOZLPvm48StN04V4YvQRL0i6b7ctrVY3epjP/ct7hFLOItz6pDIvRjwpfPxi52a2UWV2ziir8g==
 
 clean-stack@^2.0.0:
   version "2.2.0"
@@ -1729,9 +1729,9 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 fdir@^6.1.1:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.2.0.tgz#9120f438d566ef3e808ca37864d9dd18e1a4f9b5"
-  integrity sha512-9XaWcDl0riOX5j2kYfy0kKdg7skw3IY6kA4LFT8Tk2yF9UdrADUy8D6AJuBLtf7ISm/MksumwAHE3WVbMRyCLw==
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.3.0.tgz#fcca5a23ea20e767b15e081ee13b3e6488ee0bb0"
+  integrity sha512-QOnuT+BOtivR77wYvCWHfGt9s4Pz1VIMbD463vegT5MLqNXy8rYFT/lPVEqf/bhYeT6qmqrNHhsX+rWwe3rOCQ==
 
 file-entry-cache@^8.0.0:
   version "8.0.0"
