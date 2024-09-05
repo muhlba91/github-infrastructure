@@ -564,10 +564,10 @@
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumiverse/time@^0.0.17":
-  version "0.0.17"
-  resolved "https://registry.yarnpkg.com/@pulumiverse/time/-/time-0.0.17.tgz#70d08f74148662a2136146829b4722858ae67676"
-  integrity sha512-myoIVBBBQ18/RJWr0byDwSewwYYFOVtqGoaf2aiDka8G47JIGlBlVTpN6W8y8h51C0psCmK2Wc9TvZK5/XO/Vw==
+"@pulumiverse/time@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@pulumiverse/time/-/time-0.1.0.tgz#14a919df2b923e5e2f46c07c8e34ba3bb6a9d153"
+  integrity sha512-m01ZNtt4qUW5Kf/250OFSL7mXyznbJOR2OnqznWXZKFTUpSC/Q9rwMR+iCkwxaQFEkZe+N3TvLl75flhd97QEQ==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
