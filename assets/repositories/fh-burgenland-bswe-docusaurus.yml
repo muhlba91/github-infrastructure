@@ -1,0 +1,16 @@
+---
+name: fh-burgenland-bswe-docusaurus
+description: "FH Burgenland - BSWE: Docusaurus demo"
+visibility: public
+protected: true
+topics:
+  - docusaurus
+  - fh-burgenland
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  vault:
+    enabled: false
