@@ -1,0 +1,18 @@
+---
+name: fh-burgenland-bswe-cluster-applications
+description: "FH Burgenland - BSWE: Demo applications running on the Kubernetes cluster"
+visibility: public
+protected: true
+topics:
+  - kubernetes
+  - gitops
+  - argocd
+  - fh-burgenland
+
+rulesets:
+  branch:
+    enabled: false
+
+accessPermissions:
+  vault:
+    enabled: false
