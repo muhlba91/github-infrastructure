@@ -3,11 +3,16 @@ encryptedkey: CiQAu9jGBnemGLIHZTiOWOZS7QKrQajASMeCzGlMKKda7vCvayISSQCKBr5/n4bBxd
 config:
   muehlbachler-github-infrastructure:aws:
     account:
+      "061039787254":
+        externalId:
+          secure: v1:XxAnDVd9b4fGG03E:51/HT7uoqERAEBmT4k33UPDx79XOXU3SHR2EaxCMtuYbu734kY503yq0keaEeqJNtVSRBw==
+        roleArn:
+          secure: v1:W3JI3fcsPDlHXTwh:G6m2Kkg0d9EyQS2s8o8yRe9HZ/4ZRnuVP5qeENrrQKm1evs33ytzZZ5vDNQeymNwKvOtyM2brdOZY0VD2wxr
       "126125163971":
         externalId:
-          secure: v1:cj67N4KedOPg+BUi:e7cribj0FtB5EbAEVGlpmBiMAi9jvvgAkBg2ZKvxdNMaZbjrH1CHZr+aL5Y1QPQlg39F7g==
+          secure: v1:MeqhG3nasObuzWFN:TyyMzIfTahcJ6syJLZroOQV3llDmqnr1uczAdHjzNZlZ9a89BNAJ9UprMDKiGaXKU/rSEw==
         roleArn:
-          secure: v1:SeIy0qBBZ06Czj2p:vqN3jYBsgOAq27ODxgQr9LzLxCa/r5Tmvsz9KKXlcIpZ9wq3lrXppGMQoaLlKL/7PEOh96Ima2Xp0w+gJoq9
+          secure: v1:T/CiB51ACgBiPudz:6jEo6nHYgO8pkfjq1B7dC0ma2wlqYJmRk0JLaK5nqM+bK22T3Wa+s3npNFYIaRAx3v3qeOI3oqSz9ZHc1deD
       "215622641987":
         externalId:
           secure: v1:4xafBxfK/blmaA6m:iVvyVuER1+nYXk+2F78ElchzM5mohZzE1/3yoMBDV57w1f0TJq3H9bGaXonSJfCBKEEbmQ==
