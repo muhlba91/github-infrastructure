@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@pulumi/aws": "^6.4.1",
-    "@pulumi/gcp": "^7.0.0",
+    "@pulumi/gcp": "^8.0.0",
     "@pulumi/github": "^6.0.0",
     "@pulumi/pulumi": "^3.69.0",
     "@pulumi/pulumiservice": "^0.26.0",
