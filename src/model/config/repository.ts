@@ -57,7 +57,6 @@ export interface RepositoryRulesetConfig {
  * Defines repository access permissions config.
  */
 export interface RepositoryAccessPermissionsConfig {
-  readonly pulumi?: boolean;
   readonly tailscale?: boolean;
   readonly vault?: RepositoryVaultAccessPermissionsConfig;
   readonly google?: RepositoryGoogleAccessConfig;

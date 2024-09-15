@@ -16,7 +16,6 @@ rulesets:
 # we only manage the repository settings here
 # everything else is managed manually
 accessPermissions:
-  pulumi: false
   vault:
     enabled: false
   tailscale: false

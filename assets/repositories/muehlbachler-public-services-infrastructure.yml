@@ -13,7 +13,6 @@ rulesets:
     enabled: false
 
 accessPermissions:
-  pulumi: true
   tailscale: true
   vault:
     enabled: true
