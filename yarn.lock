@@ -499,9 +499,9 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^8.0.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.2.0.tgz#30b22ac3582bfa1d5069a529cb94bf59ca017ad7"
-  integrity sha512-KOJFhKpZ1b3PVXcM65TCwXtzednxuCmc0NG1b3wf4z+owHyGtaQAi+3/NbouW2kp6NmaC23LLBs+O8ASv5iEtQ==
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.3.0.tgz#83ce460a4cd4bad6ca97cc54fe00d5690dcb8871"
+  integrity sha512-wodl0zfhGKivxCZCUREPQDU0eMm8Q7m6aMF5pA1Q9Jr1bKTaEsuNN3NCwXgNIpu/G9+qqVbqzU8ajgQwUueliA==
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
     "@types/express" "^4.16.0"
@@ -815,9 +815,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "22.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.6.1.tgz#e531a45f4d78f14a8468cb9cdc29dc9602afc7ac"
-  integrity sha512-V48tCfcKb/e6cVUigLAaJDAILdMP0fUW6BidkPK4GpGjXcfbnoHasCZDwz3N3yVt5we2RHm4XTQCpv0KJz9zqw==
+  version "22.7.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.0.tgz#670aa1874bc836863e5c116f9f2c32416ff27e1f"
+  integrity sha512-MOdOibwBs6KW1vfqz2uKMlxq5xAfAZ98SZjO8e3XnAbFnTJtAspqhWk7hrdSAs9/Y14ZWMiy7/MxMUzAOadYEw==
   dependencies:
     undici-types "~6.19.2"
 
