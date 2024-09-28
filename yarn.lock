@@ -489,11 +489,11 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.53.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.53.0.tgz#66905ce2f433d33ac9126bf7fd7af578d0f56dbf"
-  integrity sha512-K3PbfoMMHwBztzNfYbDnRFdv9DilV0iDd7IwjnN/bXioRwh67DBXejGDnpeyPB+Ogw/D9VkeMVNiGZPrcejIAg==
+  version "6.54.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.54.0.tgz#2c87a04f0f2f4dc225a1dc809a4b835fd9e7803b"
+  integrity sha512-kBiZCN/FE76oKo59150C2ZHc4kwg4U9jwuElyo80bF4y8deAOHBaq5vDBT95TTZqg9vNSAqIr5XWwAc9V5YGxQ==
   dependencies:
-    "@pulumi/pulumi" "^3.0.0"
+    "@pulumi/pulumi" "^3.42.0"
     builtin-modules "3.0.0"
     mime "^2.0.0"
     resolve "^1.7.1"
@@ -514,7 +514,7 @@
   dependencies:
     "@pulumi/pulumi" "^3.0.0"
 
-"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.69.0":
+"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.42.0", "@pulumi/pulumi@^3.69.0":
   version "3.134.1"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.134.1.tgz#4de3ab192b55419fd2cb2f1c59adc8ee382c7fa7"
   integrity sha512-uXUldyEsYbEXkqE3nPfgABnfgnXjQv3YkzkiigeOBzTF2+7rQe7C/9nMnMJHs4k5XMW5183t7bYMU/W4qUUVcA==
@@ -815,9 +815,9 @@
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
 "@types/node@*", "@types/node@>=13.7.0":
-  version "22.7.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.2.tgz#80ed66c0a5025ffa037587fd69a816f29b54e4c7"
-  integrity sha512-866lXSrpGpgyHBZUa2m9YNWqHDjjM0aBTJlNtYaGEw4rqY/dcD7deRVTbBBAJelfA7oaGDbNftXF/TL/A6RgoA==
+  version "22.7.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.4.tgz#e35d6f48dca3255ce44256ddc05dee1c23353fcc"
+  integrity sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==
   dependencies:
     undici-types "~6.19.2"
 
@@ -2246,9 +2246,9 @@ import-fresh@^3.2.1:
     resolve-from "^4.0.0"
 
 import-in-the-middle@^1.8.1:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/import-in-the-middle/-/import-in-the-middle-1.11.0.tgz#a94c4925b8da18256cde3b3b7b38253e6ca5e708"
-  integrity sha512-5DimNQGoe0pLUHbR9qK84iWaWjjbsxiqXnw6Qz64+azRgleqv9k2kTt5fw7QsOpmaGYtuxxursnPPsnTKEx10Q==
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/import-in-the-middle/-/import-in-the-middle-1.11.1.tgz#ccbb9ecc311ab6cea0a116d2d3986ec01c96b2aa"
+  integrity sha512-lGdg70ECFGv/OHQXL/IPhcxkFPeQ7YA4zborlA54XHVr58oM50QNxItRiayHMqj1MspC5Y9zaHf+QHod/gq7Ug==
   dependencies:
     acorn "^8.8.2"
     acorn-import-attributes "^1.9.5"
@@ -3125,9 +3125,9 @@ p-map@^4.0.0:
     aggregate-error "^3.0.0"
 
 package-json-from-dist@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.0.tgz#e501cd3094b278495eb4258d4c9f6d5ac3019f00"
-  integrity sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz#4f1471a010827a86f94cfd9b0727e36d267de505"
+  integrity sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==
 
 pacote@^18.0.0, pacote@^18.0.6:
   version "18.0.6"
