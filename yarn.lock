@@ -489,9 +489,9 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.54.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.54.0.tgz#2c87a04f0f2f4dc225a1dc809a4b835fd9e7803b"
-  integrity sha512-kBiZCN/FE76oKo59150C2ZHc4kwg4U9jwuElyo80bF4y8deAOHBaq5vDBT95TTZqg9vNSAqIr5XWwAc9V5YGxQ==
+  version "6.54.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.54.1.tgz#809900691638669d7f598a8cdcf0c4cc955256bd"
+  integrity sha512-JteNvqH1UtZWK7XL5BcIhGqOpvdjvkZVApDP5IGs2b7yZMGLL+tQP0ZgsL16JotDtJXdpxIIwVO7nkEul8jZvg==
   dependencies:
     "@pulumi/pulumi" "^3.42.0"
     builtin-modules "3.0.0"
@@ -1874,9 +1874,9 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 fdir@^6.1.1:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.3.0.tgz#fcca5a23ea20e767b15e081ee13b3e6488ee0bb0"
-  integrity sha512-QOnuT+BOtivR77wYvCWHfGt9s4Pz1VIMbD463vegT5MLqNXy8rYFT/lPVEqf/bhYeT6qmqrNHhsX+rWwe3rOCQ==
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.0.tgz#8e80ab4b18a2ac24beebf9d20d71e1bc2627dbae"
+  integrity sha512-3oB133prH1o4j/L5lLW7uOCF1PlD+/It2L0eL/iAqWMB91RBbqTewABqxhj0ibBd90EEmWZq7ntIWzVaWcXTGQ==
 
 file-entry-cache@^8.0.0:
   version "8.0.0"
@@ -2246,9 +2246,9 @@ import-fresh@^3.2.1:
     resolve-from "^4.0.0"
 
 import-in-the-middle@^1.8.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/import-in-the-middle/-/import-in-the-middle-1.11.1.tgz#ccbb9ecc311ab6cea0a116d2d3986ec01c96b2aa"
-  integrity sha512-lGdg70ECFGv/OHQXL/IPhcxkFPeQ7YA4zborlA54XHVr58oM50QNxItRiayHMqj1MspC5Y9zaHf+QHod/gq7Ug==
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/import-in-the-middle/-/import-in-the-middle-1.11.2.tgz#dd848e72b63ca6cd7c34df8b8d97fc9baee6174f"
+  integrity sha512-gK6Rr6EykBcc6cVWRSBR5TWf8nn6hZMYSRYqCcHa0l0d1fPK7JSYo6+Mlmck76jIX9aL/IZ71c06U2VpFwl1zA==
   dependencies:
     acorn "^8.8.2"
     acorn-import-attributes "^1.9.5"
