@@ -499,11 +499,11 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^8.0.0":
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.3.1.tgz#f6a76e41d55651ade53e71ad392bc2342677f19c"
-  integrity sha512-CechmXoIJU+zuqoA2O96+4p/9v5h9XxXz9tp3YRs4uSCFuexLaykSv47fj4ji7kab2T+l+y6VGRyCBCke4/Oyw==
+  version "8.4.1"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.4.1.tgz#05e6c03efedb1642a1d3b36c57bec58af6f42ba3"
+  integrity sha512-IWmhVejgNDQdMfinha90KFiiRGBQZCXwi/+HfT80y3VUQ0GuKc4MHcemsw4tJwWGGMtFAqbjvUMmZ7jM86I5Ug==
   dependencies:
-    "@pulumi/pulumi" "^3.0.0"
+    "@pulumi/pulumi" "^3.42.0"
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
