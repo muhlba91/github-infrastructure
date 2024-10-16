@@ -502,11 +502,11 @@
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
 "@pulumi/aws@^6.4.1":
-  version "6.55.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.55.0.tgz#e358678533edfb6a80c729d08847e8c0118e15a5"
-  integrity sha512-7VRhe72xPJqJHciPP1vDDz1ZCM10UTHv9jDsHYlzL1Tk0+1hBpqH4kNENlJ8icO3vGm3NXImKTB1vkvNk3mBlg==
+  version "6.56.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/aws/-/aws-6.56.0.tgz#bd6ab6c3326d7fbe29dcc077a9a0b5c2bbccd5db"
+  integrity sha512-7Huxe+hREqybvVM3wiA8j0aaqg0SZIiz8lHXsX/H45FWiBwMRcwLZoCqt76uVsxAu6EaCxc4LmmsYDcDgPEszA==
   dependencies:
-    "@pulumi/pulumi" "^3.42.0"
+    "@pulumi/pulumi" "^3.136.0"
     builtin-modules "3.0.0"
     mime "^2.0.0"
     resolve "^1.7.1"
