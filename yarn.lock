@@ -512,11 +512,11 @@
     resolve "^1.7.1"
 
 "@pulumi/gcp@^8.0.0":
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.5.0.tgz#70d51f2bb5faf650daf456aea1d7be8e76158475"
-  integrity sha512-SNN88VTtwNboUJ9VADCRSJ0MQiMiYPwX6rvQOgrPy08uC1UCbyI4H4vHpTC8ZaVzL4Vo9pGaRUIZ9s5ZHVEdwQ==
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/@pulumi/gcp/-/gcp-8.6.0.tgz#23980c728e86461e5b80ec895f495e28b7e887c6"
+  integrity sha512-RLf9kBMkfzwb8811jFE7DkL6opgfbCyC2gS6SUeH9eNKaug7Uu4zHE3PNEKyWu0s/w/tiP7rtdQYM+ymZsYj2Q==
   dependencies:
-    "@pulumi/pulumi" "^3.42.0"
+    "@pulumi/pulumi" "^3.136.0"
     "@types/express" "^4.16.0"
     read-package-json "^2.0.13"
 
@@ -527,7 +527,7 @@
   dependencies:
     "@pulumi/pulumi" "^3.136.0"
 
-"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.136.0", "@pulumi/pulumi@^3.42.0", "@pulumi/pulumi@^3.69.0":
+"@pulumi/pulumi@^3.0.0", "@pulumi/pulumi@^3.136.0", "@pulumi/pulumi@^3.69.0":
   version "3.136.1"
   resolved "https://registry.yarnpkg.com/@pulumi/pulumi/-/pulumi-3.136.1.tgz#1ef187cdb3f3b4abf119ae6088e76edb20947ed4"
   integrity sha512-bO+AVYKyf4dFDVSbBRoCiwAVE0JhugwAEv5FmWit+VHE3f9eoy1qrw7t5DmGmAiL2cGCwTpvVEIf4y1N7360ZA==
@@ -1062,10 +1062,15 @@ acorn-walk@^8.1.1:
   dependencies:
     acorn "^8.11.0"
 
-acorn@^8.11.0, acorn@^8.12.0, acorn@^8.4.1, acorn@^8.8.2:
+acorn@^8.11.0, acorn@^8.12.0, acorn@^8.4.1:
   version "8.12.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.12.1.tgz#71616bdccbe25e27a54439e0046e89ca76df2248"
   integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
+
+acorn@^8.8.2:
+  version "8.13.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.13.0.tgz#2a30d670818ad16ddd6a35d3842dacec9e5d7ca3"
+  integrity sha512-8zSiw54Oxrdym50NlZ9sUusyO1Z1ZchgRLWRaK6c86XJFClyCgFKetdowBg5bKxyp/u+CDBJG4Mpp0m3HLZl9w==
 
 agent-base@^7.0.2, agent-base@^7.1.0, agent-base@^7.1.1:
   version "7.1.1"
