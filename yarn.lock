@@ -569,11 +569,11 @@
   integrity sha512-xfo+yLRM2zVjVEA4p23IjQWzyWl1ZhWOGobsBqRpIarzLvwNH/RAGaoehdxlhx4X92302DrpdIFgTICMN4P38w==
 
 "@pulumi/random@^4.14.0":
-  version "4.16.6"
-  resolved "https://registry.yarnpkg.com/@pulumi/random/-/random-4.16.6.tgz#d2d78fe1eb55ccc8b92ca61eeb49ce22acd34f55"
-  integrity sha512-BFjUkkIR8EBQQhIC1kkmwVoFCFTyHqEttZ8L2Myr+1qSNs/wU4roMLd8k/TzPxTIqdDfOFB+37dncdil88Guug==
+  version "4.16.7"
+  resolved "https://registry.yarnpkg.com/@pulumi/random/-/random-4.16.7.tgz#6c787f9d9fddb16f6d7ce2d137dbafd8a83484b3"
+  integrity sha512-lY51FGL6dbD2o37HKqisrlHQH+q2yd+dInEcZR0H78fT33vTjzNHo2rUf89eK0Gb9JjFTCTw/CHC2qtT02MALA==
   dependencies:
-    "@pulumi/pulumi" "^3.0.0"
+    "@pulumi/pulumi" "^3.136.0"
 
 "@pulumi/vault@^6.1.0":
   version "6.3.1"
@@ -1892,9 +1892,9 @@ fastq@^1.6.0:
     reusify "^1.0.4"
 
 fdir@^6.1.1:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.0.tgz#8e80ab4b18a2ac24beebf9d20d71e1bc2627dbae"
-  integrity sha512-3oB133prH1o4j/L5lLW7uOCF1PlD+/It2L0eL/iAqWMB91RBbqTewABqxhj0ibBd90EEmWZq7ntIWzVaWcXTGQ==
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.2.tgz#ddaa7ce1831b161bc3657bb99cb36e1622702689"
+  integrity sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==
 
 file-entry-cache@^8.0.0:
   version "8.0.0"
