@@ -240,7 +240,7 @@ __metadata:
     ts-node: "npm:^10.9.2"
     typedoc: "npm:^0.26.0"
     typescript: "npm:^5.4.5"
-    typescript-eslint: "npm:8.9.0"
+    typescript-eslint: "npm:^8.9.0"
     yaml: "npm:^2.3.2"
   languageName: unknown
   linkType: soft
@@ -5200,7 +5200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:8.9.0":
+"typescript-eslint@npm:^8.9.0":
   version: 8.9.0
   resolution: "typescript-eslint@npm:8.9.0"
   dependencies:
