@@ -12,9 +12,8 @@
     "infrastructure"
   ],
   "scripts": {
-    "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "fix": "run-s fix:*",
+    "build": "tsc -p tsconfig.json",
+    "fix": "run-s fix:prettier fix:lint",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint --fix",
     "lint": "eslint",
@@ -25,6 +24,7 @@
   "engines": {
     "node": ">=20"
   },
+  "packageManager": "yarn@4.5.0",
   "dependencies": {
     "@pulumi/aws": "^6.4.1",
     "@pulumi/gcp": "^8.0.0",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.1.1",
+    "@types/node": "^22.7.6",
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-functional": "^7.0.0",
@@ -50,14 +51,6 @@
     "typescript": "^5.4.5",
     "typescript-eslint": "8.9.0"
   },
-  "files": [
-    "build/main",
-    "!**/*.spec.*",
-    "!**/*.json",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
-  ],
   "prettier": {
     "singleQuote": true
   }

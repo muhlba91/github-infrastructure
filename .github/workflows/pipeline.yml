@@ -25,15 +25,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: |
+          corepack enable
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       - run: |
-          npm install -g yarn
-
-      - run: |
-          yarn install
+          yarn install --immutable
           yarn build
 
       - uses: pulumi/actions@v6
@@ -65,6 +65,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - run: |
+          corepack enable
+
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
@@ -76,10 +79,7 @@ jobs:
           scope: user:muhlba91
 
       - run: |
-          npm install -g yarn
-
-      - run: |
-          yarn install
+          yarn install --immutable
           yarn build
 
       - uses: pulumi/actions@v6
