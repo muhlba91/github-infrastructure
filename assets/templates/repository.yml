@@ -26,10 +26,10 @@ rulesets:
     requireSignedCommits: false
     requireCodeOwnerReview: false
     approvingReviewCount: 0
-    requireLastPushApproval: false
-    requireUpdatedBranchBeforeMerge: false
+    requireLastPushApproval: true
+    requireUpdatedBranchBeforeMerge: true
     requiredChecks: [] # list of check names
-    allowBypass: false
+    allowBypass: true
     allowBypassIntegrations: [] # list of integration ids
   tag:
     enabled: false # required value!
@@ -40,10 +40,10 @@ rulesets:
     requireSignedCommits: false
     requireCodeOwnerReview: false
     approvingReviewCount: 0
-    requireLastPushApproval: false
-    requireUpdatedBranchBeforeMerge: false
+    requireLastPushApproval: true
+    requireUpdatedBranchBeforeMerge: true
     requiredChecks: [] # list of check names
-    allowBypass: false
+    allowBypass: true
     allowBypassIntegrations: [] # list of integration ids
 
 # optional cloud access permissions to setup

@@ -9,7 +9,11 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Build (3.12)
+      - Check the Codebase (3.12, 1.7.1)
 
 accessPermissions:
   vault:

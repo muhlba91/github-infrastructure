@@ -72,7 +72,7 @@ const createRepositoryRuleset = (
       rules: {
         creation: getOrDefault(config.restrictCreation, true),
         deletion: true,
-        nonFastForward: config.allowForcePush,
+        nonFastForward: !getOrDefault(config.allowForcePush, false),
         pullRequest: {
           dismissStaleReviewsOnPush: true,
           requireCodeOwnerReview: getOrDefault(
@@ -89,7 +89,7 @@ const createRepositoryRuleset = (
           ),
           requireLastPushApproval: getOrDefault(
             config.requireLastPushApproval,
-            false,
+            true,
           ),
         },
         requiredDeployments: {
@@ -102,17 +102,18 @@ const createRepositoryRuleset = (
               requiredChecks:
                 config.requiredChecks?.map((check) => ({
                   context: check,
+                  integrationId: 15368, // GitHub Actions
                 })) ?? [],
               strictRequiredStatusChecksPolicy: getOrDefault(
                 config.requireUpdatedBranchBeforeMerge,
-                false,
+                true,
               ),
             }
           : undefined,
-        update: true,
-        updateAllowsFetchAndMerge: true,
+        update: false,
+        updateAllowsFetchAndMerge: false,
       },
-      bypassActors: config.allowBypass
+      bypassActors: getOrDefault(config.allowBypass, true)
         ? [
             {
               actorId: 2, // maintainer
