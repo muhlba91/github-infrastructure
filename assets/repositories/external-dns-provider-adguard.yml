@@ -10,7 +10,13 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Lint Provider (1.23.x, v1.60.3)
+      - Unit Tests (1.23.x)
+      - Lint Dockerfile
+      - Build Provider and Container (1.23.x)
 
 accessPermissions:
   vault:
