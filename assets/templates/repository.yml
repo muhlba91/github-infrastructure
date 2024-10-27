@@ -13,7 +13,7 @@ homepage: ''
 enableDiscussions: false
 enableWiki: false
 createProject: false
-pagesBranch: gh-pages
+pagesBranch: main
 
 # optional branch protections/rulesets
 rulesets:
