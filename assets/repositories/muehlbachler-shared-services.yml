@@ -8,7 +8,12 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - ESLint (20)
+      - Build IaC code (20)
+      - Pulumi Preview (20)
 
 accessPermissions:
   vault:
