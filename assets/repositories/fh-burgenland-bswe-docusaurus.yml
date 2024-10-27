@@ -7,6 +7,8 @@ topics:
   - docusaurus
   - fh-burgenland
 
+pagesBranch: gh-pages
+
 rulesets:
   branch:
     enabled: false

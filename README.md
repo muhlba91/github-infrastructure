@@ -2,6 +2,7 @@
 
 [![Build status](https://img.shields.io/github/actions/workflow/status/muhlba91/github-infrastructure/pipeline.yml?style=for-the-badge)](https://github.com/muhlba91/github-infrastructure/actions/workflows/pipeline.yml)
 [![License](https://img.shields.io/github/license/muhlba91/github-infrastructure?style=for-the-badge)](LICENSE.md)
+[![](https://api.scorecard.dev/projects/github.com/muhlba91/github-infrastructure/badge?style=for-the-badge)](https://scorecard.dev/viewer/?uri=github.com/muhlba91/github-infrastructure)
 
 This repository contains the automation for [GitHub Repositories](https://github.com) with optional Cloud Access using [Pulumi](http://pulumi.com).
 
