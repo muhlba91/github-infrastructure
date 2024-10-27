@@ -14,6 +14,8 @@ import { hasSubscription } from '../util/github/subscription';
 import { createRepositoryProject } from './project';
 import { createRepositoryRulesets } from './ruleset';
 
+const DEFAULT_GITHUB_PAGES_BRANCH = 'gh-pages';
+
 /**
  * Creates all GitHub repositories.
  *
@@ -64,7 +66,7 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
         : {
             buildType: 'workflow',
             source: {
-              branch: config.pagesBranch ?? 'main',
+              branch: config.pagesBranch ?? DEFAULT_GITHUB_PAGES_BRANCH,
               path: '/',
             },
           },

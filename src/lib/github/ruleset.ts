@@ -9,6 +9,9 @@ import { getOrDefault } from '../util/get_or_default';
 const DEFAULT_BRANCH_RULESET_PATTERNS = ['~DEFAULT_BRANCH'];
 const DEFAULT_TAG_RULESET_PATTERNS = [''];
 
+const GITHUB_ACTIONS_INTEGRATION_ID = 15368;
+const GITSTREAM_INTEGRATION_ID = 230441;
+
 /**
  * Creates GitHub repository rulesets.
  *
@@ -97,42 +100,11 @@ const createRepositoryRuleset = (
         },
         requiredLinearHistory: true,
         requiredSignatures: getOrDefault(config.requireSignedCommits, false),
-        requiredStatusChecks: config.requiredChecks
-          ? {
-              requiredChecks:
-                config.requiredChecks?.map((check) => ({
-                  context: check,
-                  integrationId: 15368, // GitHub Actions
-                })) ?? [],
-              strictRequiredStatusChecksPolicy: getOrDefault(
-                config.requireUpdatedBranchBeforeMerge,
-                true,
-              ),
-            }
-          : undefined,
+        requiredStatusChecks: computeRequiredChecks(config),
         update: false,
         updateAllowsFetchAndMerge: false,
       },
-      bypassActors: getOrDefault(config.allowBypass, true)
-        ? [
-            {
-              actorId: 2, // maintainer
-              actorType: 'RepositoryRole',
-              bypassMode: 'pull_request',
-            },
-            {
-              actorId: 5, // admin
-              actorType: 'RepositoryRole',
-              bypassMode: 'always',
-            },
-          ].concat(
-            config.allowBypassIntegrations?.map((integration) => ({
-              actorId: integration,
-              actorType: 'Integration',
-              bypassMode: 'always',
-            })) ?? [],
-          )
-        : [],
+      bypassActors: computeBypassActors(config),
       conditions: {
         refName: {
           excludes: [],
@@ -144,4 +116,106 @@ const createRepositoryRuleset = (
       dependsOn: [repository],
     },
   );
+};
+
+/**
+ * Computes the required checks for a repository ruleset.
+ *
+ * @param {RepositoryRulesetConfig} config the repository ruleset configuration
+ * @returns {github.types.input.RepositoryRulesetRulesRequiredStatusChecks | undefined} the required checks configuration
+ */
+const computeRequiredChecks = (
+  config: RepositoryRulesetConfig,
+):
+  | github.types.input.RepositoryRulesetRulesRequiredStatusChecks
+  | undefined => {
+  if (
+    !config.requiredChecks &&
+    !getOrDefault(config.enableGitstreamIntegration, true)
+  ) {
+    return undefined;
+  }
+
+  const requiredChecks =
+    config.requiredChecks?.map((check) => ({
+      context: check,
+      integrationId: GITHUB_ACTIONS_INTEGRATION_ID,
+    })) ?? [];
+
+  const gitstreamIntegration = getOrDefault(
+    config.enableGitstreamIntegration,
+    true,
+  )
+    ? [
+        {
+          context: 'gitStream.cm',
+          integrationId: GITSTREAM_INTEGRATION_ID,
+        },
+      ]
+    : [];
+
+  return {
+    requiredChecks: requiredChecks
+      .concat(gitstreamIntegration)
+      .sort((a, b) => a.context.localeCompare(b.context)),
+    strictRequiredStatusChecksPolicy: getOrDefault(
+      config.requireUpdatedBranchBeforeMerge,
+      true,
+    ),
+  };
+};
+
+/**
+ * Computes the bypass actors for a repository ruleset.
+ *
+ * @param {RepositoryRulesetConfig} config the repository ruleset configuration
+ * @returns {github.types.input.RepositoryRulesetBypassActor[]} the bypass actors
+ */
+const computeBypassActors = (
+  config: RepositoryRulesetConfig,
+): github.types.input.RepositoryRulesetBypassActor[] => {
+  if (!getOrDefault(config.allowBypass, true)) {
+    return [];
+  }
+
+  const bypassActors = [
+    {
+      actorId: 2, // maintainer
+      actorType: 'RepositoryRole',
+      bypassMode: 'pull_request',
+    },
+    {
+      actorId: 5, // admin
+      actorType: 'RepositoryRole',
+      bypassMode: 'always',
+    },
+  ];
+
+  const bypassIntegrations =
+    config.allowBypassIntegrations?.map((integration) => ({
+      actorId: integration,
+      actorType: 'Integration',
+      bypassMode: 'always',
+    })) ?? [];
+
+  const gitstreamIntegration = getOrDefault(
+    config.enableGitstreamIntegration,
+    true,
+  )
+    ? [
+        {
+          actorId: GITSTREAM_INTEGRATION_ID,
+          actorType: 'Integration',
+          bypassMode: 'always',
+        },
+      ]
+    : [];
+
+  return (
+    getOrDefault(config.allowBypass, true)
+      ? bypassActors.concat(bypassIntegrations)
+      : []
+  )
+    .concat(gitstreamIntegration)
+    .sort((a, b) => a.actorId - b.actorId);
 };

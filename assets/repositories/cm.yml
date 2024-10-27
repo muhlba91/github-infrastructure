@@ -1,0 +1,18 @@
+---
+name: cm
+description: "gitStream.cm Global Configuration"
+visibility: public
+protected: true
+topics:
+  - gitstream
+  - configuration
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - YAMLLint
+
+accessPermissions:
+  vault:
+    enabled: false

@@ -31,6 +31,7 @@ rulesets:
     requiredChecks: [] # list of check names
     allowBypass: true
     allowBypassIntegrations: [] # list of integration ids
+    enableGitstreamIntegration: true # enables gitStream integration on the branch
   tag:
     enabled: false # required value!
     patterns: [] # github/index/DEFAULT_TAG_RULESET_PATTERNS are always protected
