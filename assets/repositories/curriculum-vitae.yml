@@ -8,7 +8,9 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Compile PDF
 
 accessPermissions:
   vault:

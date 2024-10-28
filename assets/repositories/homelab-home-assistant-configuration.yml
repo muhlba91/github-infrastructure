@@ -11,7 +11,13 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Lint YAML
+      - Verify Home Assistant Configuration (stable)
+      - Verify Home Assistant Configuration (beta)
+      - Verify Home Assistant Configuration (dev)
 
 accessPermissions:
   vault:

@@ -9,7 +9,11 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Lint Dockerfile
+      - Build Container Image
 
 accessPermissions:
   vault:
