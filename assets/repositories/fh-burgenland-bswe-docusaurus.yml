@@ -11,7 +11,10 @@ pagesBranch: gh-pages
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Container
 
 accessPermissions:
   vault:
