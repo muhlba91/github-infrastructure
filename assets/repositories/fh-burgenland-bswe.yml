@@ -1,0 +1,24 @@
+---
+name: fh-burgenland-bswe
+description: "FH Burgenland - BSWE: Pet Project"
+visibility: public
+protected: true
+topics:
+  - pet-project
+  - fh-burgenland
+
+rulesets:
+  branch:
+    enabled: true
+    patterns:
+      - refs/heads/sample
+    requiredChecks:
+      - Unit Tests (22)
+      - Check Code (22)
+      - Lint Dockerfile
+      - Build Jar File (22)
+      - Container
+
+accessPermissions:
+  vault:
+    enabled: false
