@@ -10,7 +10,11 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - YAMLLint
+      - Preview
 
 accessPermissions:
   vault:

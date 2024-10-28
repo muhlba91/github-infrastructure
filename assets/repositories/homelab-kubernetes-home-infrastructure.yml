@@ -10,7 +10,14 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - ESLint (20)
+      - Lint YAML
+      - Check the Firehose Processor (3.11, 1.7.1)
+      - Build IaC code (20)
+      - Pulumi Preview (20)
 
 accessPermissions:
   vault:

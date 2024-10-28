@@ -10,8 +10,13 @@ topics:
 
 rulesets:
   branch:
-    enabled: false
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Build Plugin (1.23.x)
+      - Lint Plugin (1.23.x, v1.60.3)
+      - Run Tests (1.23.x)
 
 accessPermissions:
   vault:
-    enabled: true
+    enabled: false
