@@ -51,7 +51,8 @@ export interface RepositoryRulesetConfig {
   readonly requiredChecks?: string[];
   readonly allowBypass?: boolean;
   readonly allowBypassIntegrations?: readonly number[];
-  readonly enableGitstreamIntegration: boolean;
+  readonly enableGitstreamIntegration?: boolean;
+  readonly enableWipIntegration?: boolean;
 }
 
 /**
