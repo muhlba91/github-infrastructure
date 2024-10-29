@@ -11,6 +11,7 @@ const DEFAULT_TAG_RULESET_PATTERNS = [''];
 
 const GITHUB_ACTIONS_INTEGRATION_ID = 15368;
 const GITSTREAM_INTEGRATION_ID = 230441;
+const WIP_INTEGRATION_ID = 3414;
 
 /**
  * Creates GitHub repository rulesets.
@@ -154,9 +155,19 @@ const computeRequiredChecks = (
       ]
     : [];
 
+  const wipIntegration = getOrDefault(config.enableWipIntegration, true)
+    ? [
+        {
+          context: 'WIP',
+          integrationId: WIP_INTEGRATION_ID,
+        },
+      ]
+    : [];
+
   return {
     requiredChecks: requiredChecks
       .concat(gitstreamIntegration)
+      .concat(wipIntegration)
       .sort((a, b) => a.context.localeCompare(b.context)),
     strictRequiredStatusChecksPolicy: getOrDefault(
       config.requireUpdatedBranchBeforeMerge,

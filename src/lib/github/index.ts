@@ -64,12 +64,12 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
       pages: isPrivate(config)
         ? undefined
         : {
-          buildType: 'workflow',
-          source: {
-            branch: config.pagesBranch ?? DEFAULT_GITHUB_PAGES_BRANCH,
-            path: '/',
+            buildType: 'workflow',
+            source: {
+              branch: config.pagesBranch ?? DEFAULT_GITHUB_PAGES_BRANCH,
+              path: '/',
+            },
           },
-        },
       squashMergeCommitMessage: 'COMMIT_MESSAGES',
       squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
       vulnerabilityAlerts: true,

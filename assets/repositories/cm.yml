@@ -11,6 +11,7 @@ rulesets:
   branch:
     enabled: true
     requiredChecks:
+      - Dependency Review
       - YAMLLint
 
 accessPermissions:
