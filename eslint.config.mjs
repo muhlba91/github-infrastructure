@@ -23,7 +23,7 @@ export default tseslint.config(
       "src/**/*.tsx",
     ],
     extends: [
-      eslintFunctional.configs.externalTypescriptRecommended,
+      eslintFunctional.configs.externalTypeScriptRecommended,
       eslintFunctional.configs.lite,
       // eslintFunctional.configs.recommended,
       // eslintFunctional.configs.stylistic,
