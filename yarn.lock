@@ -709,13 +709,13 @@ __metadata:
   linkType: hard
 
 "@pulumi/gcp@npm:^8.0.0":
-  version: 8.6.0
-  resolution: "@pulumi/gcp@npm:8.6.0"
+  version: 8.7.0
+  resolution: "@pulumi/gcp@npm:8.7.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.136.0"
     "@types/express": "npm:^4.16.0"
     read-package-json: "npm:^2.0.13"
-  checksum: 10c0/a936347080060a21364bf2c9975f5544b4d6a3e51939947c550bfc5fd0ea59dae84dcf48cddc6ad2cec79df76341650c73e3059c9b590321f6b2072fddb1fad9
+  checksum: 10c0/8236a3b1a0e222ab03b4f2a0786aa92e3dc965859ae6c47587a4401ccf994a3cf390fca7a872d20fad315627ba26be3fa8b3143a984d93a274f2b426f9961867
   languageName: node
   linkType: hard
 
