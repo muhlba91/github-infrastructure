@@ -734,11 +734,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/github@npm:^6.0.0":
-  version: 6.3.2
-  resolution: "@pulumi/github@npm:6.3.2"
+  version: 6.4.0
+  resolution: "@pulumi/github@npm:6.4.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.136.0"
-  checksum: 10c0/337e6303ef6e5ec846f731444be726b288580446892840fa283b914bd5e9ef01118ab9476b044a47ccfb87b8c24c839c006aea4be74305c01ee490aa7a4fbd50
+  checksum: 10c0/c88b8d63cb4dd3ed97e9202c82744719891ce7cf39d5dee883e92dce02e40c2e3bb5d4d6b5c37c298208da27f6f9c229c25da2d7bedb049d5db160754bc488d0
   languageName: node
   linkType: hard
 
