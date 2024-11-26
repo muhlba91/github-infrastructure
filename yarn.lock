@@ -711,14 +711,14 @@ __metadata:
   linkType: hard
 
 "@pulumi/aws@npm:^6.4.1":
-  version: 6.60.0
-  resolution: "@pulumi/aws@npm:6.60.0"
+  version: 6.61.0
+  resolution: "@pulumi/aws@npm:6.61.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.136.0"
     builtin-modules: "npm:3.0.0"
     mime: "npm:^2.0.0"
     resolve: "npm:^1.7.1"
-  checksum: 10c0/3d76ff51fa5d7200cac3dbdaffe6d360c3a3309c1e611d0c111dd3182925fd89192093927b7bdc87c509ea50ddbb726f50eff2b77f3d80958e2b68b17b6eb1f2
+  checksum: 10c0/0b14937baaa109a7a260bf9057061e0f66801ff934417c77959e38620208bc107d870dd82157b69d5d5620d7537102e71cb7a12ba04b9941d1a4202e3fd3b503
   languageName: node
   linkType: hard
 
