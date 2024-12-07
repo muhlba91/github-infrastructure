@@ -12,8 +12,8 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Build (3.12)
-      - Check the Codebase (3.12, 1.7.1)
+      - Build (3.13)
+      - Check the Codebase (3.13, 1.8.4)
 
 accessPermissions:
   vault:

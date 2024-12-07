@@ -16,7 +16,7 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Validate HACS
-      - Check the Codebase (3.12, 1.7.1)
+      - Check the Codebase (3.13, 1.8.4)
 
 accessPermissions:
   vault:
