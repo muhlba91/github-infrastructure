@@ -753,7 +753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/pulumi@npm:^3.0.0, @pulumi/pulumi@npm:^3.136.0, @pulumi/pulumi@npm:^3.69.0":
+"@pulumi/pulumi@npm:^3.0.0, @pulumi/pulumi@npm:^3.136.0, @pulumi/pulumi@npm:^3.142.0, @pulumi/pulumi@npm:^3.69.0":
   version: 3.143.0
   resolution: "@pulumi/pulumi@npm:3.143.0"
   dependencies:
@@ -807,11 +807,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/random@npm:^4.14.0":
-  version: 4.16.7
-  resolution: "@pulumi/random@npm:4.16.7"
+  version: 4.16.8
+  resolution: "@pulumi/random@npm:4.16.8"
   dependencies:
-    "@pulumi/pulumi": "npm:^3.136.0"
-  checksum: 10c0/cb859edb91a0293c5e017904311c7a8be56db5bf941c653d25a08252be6f259d3fe87b54a7f69c6697249024cf8e8a40f198b0ae6014a13c92d59acdf57200fd
+    "@pulumi/pulumi": "npm:^3.142.0"
+  checksum: 10c0/7b1d20d5a05b00dfb9f001f89a95dc661f119ffe75afb88aa1bd457103c65f821b5f5d74673d0f9485115ef5fbb88373abe1de0f901a8c08c07ab1eecabbaa1e
   languageName: node
   linkType: hard
 
