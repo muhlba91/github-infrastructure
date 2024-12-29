@@ -825,11 +825,11 @@ __metadata:
   linkType: hard
 
 "@pulumiverse/time@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@pulumiverse/time@npm:0.1.0"
+  version: 0.1.1
+  resolution: "@pulumiverse/time@npm:0.1.1"
   dependencies:
     "@pulumi/pulumi": "npm:^3.0.0"
-  checksum: 10c0/a161af5a655b243a8f87d82411be0b91f351036e02b750626cd7c89aa5de86d1a4f6da4734e735ba09401fae0293a7c36faf5fb74ef54ec75fe92cafcbf6b0d8
+  checksum: 10c0/16ed9800494344c495db9325d012dedbff6c0242944f3a8903dd60552463da3a0059c16562ad1697d7942faf87421eba6270813f249361c122c5bdee2a3ac73b
   languageName: node
   linkType: hard
 
