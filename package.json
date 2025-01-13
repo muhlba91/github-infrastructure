@@ -41,7 +41,7 @@
     "@eslint/compat": "^1.1.1",
     "@types/node": "^22.7.6",
     "eslint": "^9.2.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-functional": "^7.0.0",
     "eslint-plugin-import": "^2.29.1",
     "npm-run-all2": "^7.0.0",
