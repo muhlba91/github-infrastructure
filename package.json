@@ -42,7 +42,7 @@
     "@types/node": "^22.7.6",
     "eslint": "^9.2.0",
     "eslint-config-prettier": "^10.0.0",
-    "eslint-plugin-functional": "^7.0.0",
+    "eslint-plugin-functional": "^8.0.0",
     "eslint-plugin-import": "^2.29.1",
     "npm-run-all2": "^7.0.0",
     "prettier": "^3.2.5",
