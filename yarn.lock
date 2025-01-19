@@ -808,11 +808,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/random@npm:^4.14.0":
-  version: 4.16.8
-  resolution: "@pulumi/random@npm:4.16.8"
+  version: 4.17.0
+  resolution: "@pulumi/random@npm:4.17.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
-  checksum: 10c0/7b1d20d5a05b00dfb9f001f89a95dc661f119ffe75afb88aa1bd457103c65f821b5f5d74673d0f9485115ef5fbb88373abe1de0f901a8c08c07ab1eecabbaa1e
+  checksum: 10c0/9f9df6b470d2b5df097fb2ca41c3ff93a43d8bf25dc24ae8230b114429bba8b82f8b9accf0b08fb24c353933afb2fbabf474f623a7534f1dac7085f62632f3fc
   languageName: node
   linkType: hard
 
