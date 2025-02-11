@@ -73,14 +73,16 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
       squashMergeCommitMessage: 'COMMIT_MESSAGES',
       squashMergeCommitTitle: 'COMMIT_OR_PR_TITLE',
       vulnerabilityAlerts: true,
-      securityAndAnalysis: {
-        secretScanning: {
-          status: 'enabled',
-        },
-        secretScanningPushProtection: {
-          status: 'enabled',
-        },
-      },
+      securityAndAnalysis: isPrivate(config)
+        ? undefined
+        : {
+            secretScanning: {
+              status: 'enabled',
+            },
+            secretScanningPushProtection: {
+              status: 'enabled',
+            },
+          },
     },
     {
       protect: !allowRepositoryDeletion,
