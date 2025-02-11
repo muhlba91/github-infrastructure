@@ -1,0 +1,29 @@
+---
+name: fh-burgenland-bswe-ws2024-2at-backend
+description: "FH Burgenland - BSWE - WS2024 - 2nd Attempt - Weather App - Backend"
+visibility: private
+protected: true
+topics:
+  - reference-project
+  - fh-burgenland
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Unit Tests (23)
+      - Checkstyle (23)
+      - PMD (23)
+      - PiTest (23)
+      - SBOM (23)
+      - Lint Dockerfile
+      - YAMLLint
+      - Spectral Linter
+      - Lint Helm Charts
+      - Build Jar File (23)
+      - Container
+
+accessPermissions:
+  vault:
+    enabled: false
