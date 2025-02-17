@@ -1,0 +1,23 @@
+---
+name: fh-burgenland-bswe-ws2024-2at-frontend
+description: "FH Burgenland - BSWE - WS2024 - 2nd Attempt - Weather App - Frontend"
+visibility: private
+protected: true
+topics:
+  - reference-project
+  - fh-burgenland
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Tests (20)
+      - ESLint (20)
+      - Node Audit (20)
+      - SBOM (23)
+      - Build SPA (20)
+
+accessPermissions:
+  vault:
+    enabled: false
