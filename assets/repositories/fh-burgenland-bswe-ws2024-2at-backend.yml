@@ -20,6 +20,7 @@ rulesets:
       - Lint Dockerfile
       - YAMLLint
       - Spectral Linter
+      - ShellCheck
       - Lint Helm Charts
       - Build Jar File (23)
       - Container
