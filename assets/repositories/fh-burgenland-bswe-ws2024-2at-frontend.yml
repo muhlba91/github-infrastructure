@@ -16,6 +16,7 @@ rulesets:
       - ESLint (20)
       - Node Audit (20)
       - SBOM (23)
+      - ShellCheck
       - Build SPA (20)
 
 accessPermissions:
