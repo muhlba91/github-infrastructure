@@ -14,7 +14,7 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint Provider (1.23.x, v1.60.3)
+      - Lint Provider (1.23.x, v1.64.5)
       - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, go)
       - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, nodejs)
       - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, python)
