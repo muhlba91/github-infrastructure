@@ -28,6 +28,7 @@ rulesets:
     approvingReviewCount: 0
     requireLastPushApproval: true
     requireUpdatedBranchBeforeMerge: true
+    enableMergeQueue: false
     requiredChecks: [] # list of check names
     allowBypass: true
     allowBypassIntegrations: [] # list of integration ids

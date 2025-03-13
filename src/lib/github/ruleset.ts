@@ -104,6 +104,7 @@ const createRepositoryRuleset = (
         requiredStatusChecks: computeRequiredChecks(config),
         update: false,
         updateAllowsFetchAndMerge: false,
+        mergeQueue: computeMergeQueue(config),
       },
       bypassActors: computeBypassActors(config),
       conditions: {
@@ -229,4 +230,28 @@ const computeBypassActors = (
   )
     .concat(gitstreamIntegration)
     .sort((a, b) => a.actorId - b.actorId);
+};
+
+/**
+ * Computes the merge queue configuration for a repository ruleset.
+ *
+ * @param {RepositoryRulesetConfig} config the repository ruleset configuration
+ * @returns {github.types.input.RepositoryRulesetRulesMergeQueue | undefined} the merge queue configuration
+ */
+const computeMergeQueue = (
+  config: RepositoryRulesetConfig,
+): github.types.input.RepositoryRulesetRulesMergeQueue | undefined => {
+  if (!getOrDefault(config.enableMergeQueue, false)) {
+    return undefined;
+  }
+
+  return {
+    checkResponseTimeoutMinutes: 60,
+    groupingStrategy: 'ALLGREEN',
+    maxEntriesToBuild: 5,
+    maxEntriesToMerge: 5,
+    mergeMethod: 'REBASE',
+    minEntriesToMerge: 1,
+    minEntriesToMergeWaitMinutes: 5,
+  };
 };

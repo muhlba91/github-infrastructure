@@ -48,6 +48,7 @@ export interface RepositoryRulesetConfig {
   readonly approvingReviewCount?: number;
   readonly requireLastPushApproval?: boolean;
   readonly requireUpdatedBranchBeforeMerge?: boolean;
+  readonly enableMergeQueue?: boolean;
   readonly requiredChecks?: string[];
   readonly allowBypass?: boolean;
   readonly allowBypassIntegrations?: readonly number[];
