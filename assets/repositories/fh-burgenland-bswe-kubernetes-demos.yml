@@ -1,13 +1,13 @@
 ---
 name: fh-burgenland-bswe-kubernetes-demos
-description: "FH Burgenland - BSWE: Kubernetes Demos"
+description: "Hochschule Burgenland - BSWE: Kubernetes Demos"
 visibility: public
 protected: true
 topics:
   - kubernetes
   - gitops
   - argocd
-  - fh-burgenland
+  - hochschule-burgenland
 
 rulesets:
   branch:

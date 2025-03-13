@@ -1,13 +1,13 @@
 ---
 name: fh-burgenland-bswe-cluster-applications
-description: "FH Burgenland - BSWE: Demo applications running on the Kubernetes cluster"
+description: "Hochschule Burgenland - BSWE: Demo applications running on the Kubernetes cluster"
 visibility: public
 protected: true
 topics:
   - kubernetes
   - gitops
   - argocd
-  - fh-burgenland
+  - hochschule-burgenland
 
 rulesets:
   branch:

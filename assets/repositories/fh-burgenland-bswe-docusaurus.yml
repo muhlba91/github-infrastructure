@@ -1,11 +1,11 @@
 ---
 name: fh-burgenland-bswe-docusaurus
-description: "FH Burgenland - BSWE: Docusaurus demo"
+description: "Hochschule Burgenland - BSWE: Docusaurus demo"
 visibility: public
 protected: true
 topics:
   - docusaurus
-  - fh-burgenland
+  - hochschule-burgenland
 
 pagesBranch: gh-pages
 

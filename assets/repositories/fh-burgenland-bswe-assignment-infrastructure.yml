@@ -1,12 +1,12 @@
 ---
 name: fh-burgenland-bswe-assignment-infrastructure
-description: "FH Burgenland - BSWE: Assignment Infrastructure"
+description: "Hochschule Burgenland - BSWE: Assignment Infrastructure"
 visibility: public
 protected: true
 topics:
   - gitops
   - pulumi
-  - fh-burgenland
+  - hochschule-burgenland
 
 rulesets:
   branch:

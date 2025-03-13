@@ -1,11 +1,11 @@
 ---
 name: fh-burgenland-bswe-ws2024-2at-backend
-description: "FH Burgenland - BSWE - WS2024 - 2nd Attempt - Weather App - Backend"
-visibility: private
+description: "Hochschule Burgenland - BSWE - WS2024 - 2nd Attempt - Weather App - Backend"
+visibility: public
 protected: true
 topics:
   - reference-project
-  - fh-burgenland
+  - hochschule-burgenland
 
 rulesets:
   branch:
