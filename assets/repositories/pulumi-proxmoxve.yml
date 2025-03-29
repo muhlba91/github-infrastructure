@@ -15,11 +15,11 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Lint Provider (1.23.x, v2.0.2)
-      - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, go)
-      - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, nodejs)
-      - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, python)
-      - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, dotnet)
-      - Build SDK (1.23.x, 20.x, 6.0.x, 3.11, 11, java)
+      - Build SDK (1.23.x, 20.x, 8.0.x, 3.11, 11, go)
+      - Build SDK (1.23.x, 20.x, 8.0.x, 3.11, 11, nodejs)
+      - Build SDK (1.23.x, 20.x, 8.0.x, 3.11, 11, python)
+      - Build SDK (1.23.x, 20.x, 8.0.x, 3.11, 11, dotnet)
+      - Build SDK (1.23.x, 20.x, 8.0.x, 3.11, 11, java)
 
 accessPermissions:
   vault:
