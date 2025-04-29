@@ -755,11 +755,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/github@npm:^6.0.0":
-  version: 6.7.0
-  resolution: "@pulumi/github@npm:6.7.0"
+  version: 6.7.1
+  resolution: "@pulumi/github@npm:6.7.1"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
-  checksum: 10c0/09d943be59aa23a2145c4519222ef0dcdce5a307007db31aa1b5cebdfed22fca3cec2a56fe44f38a21cf92ac6ad7661ed0971a20a6b54422aaa66a39ac231da4
+  checksum: 10c0/535ebabdef7bd1b954c1e29e186050c7286b61b827b812c7006aa6ede83a6360a94a77aec34cc10350256390e6516e81c9db3a03d8ef95661a2f37f73fa2fedb
   languageName: node
   linkType: hard
 
