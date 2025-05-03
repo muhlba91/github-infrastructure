@@ -752,12 +752,12 @@ __metadata:
   linkType: hard
 
 "@pulumi/aws@npm:^6.4.1":
-  version: 6.78.0
-  resolution: "@pulumi/aws@npm:6.78.0"
+  version: 6.79.1
+  resolution: "@pulumi/aws@npm:6.79.1"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
     mime: "npm:^2.0.0"
-  checksum: 10c0/a2c30df4655182b00f6f41ef7ee448843e4768e02e0d925fcff95212a01000859fd83721fd94de16b0748d8f9c5b155adb6af5eacaf2b0912357c260966f4487
+  checksum: 10c0/28e2628a6d858b891193d35f0be3717bd6445497f2754e1226d81a27243feddab92694a4b026d964b0ead00faebfa439eb6164749d41221753c69977c6bdb99a
   languageName: node
   linkType: hard
 
