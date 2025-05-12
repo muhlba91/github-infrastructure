@@ -15,7 +15,7 @@ rulesets:
       - Tests (20)
       - ESLint (20)
       - Node Audit (20)
-      - SBOM (23)
+      - SBOM (20)
       - ShellCheck
       - Build SPA (20)
 

@@ -13,9 +13,9 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Build Plugin (1.23.x)
-      - Lint Plugin (1.23.x, v2.0.2)
-      - Run Tests (1.23.x)
+      - Build Plugin (1.24.x)
+      - Lint Plugin (1.24.x, v2.1.6)
+      - Run Tests (1.24.x)
 
 accessPermissions:
   vault:
