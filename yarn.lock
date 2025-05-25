@@ -3950,13 +3950,13 @@ __metadata:
   linkType: hard
 
 "npm-run-all2@npm:^8.0.0":
-  version: 8.0.3
-  resolution: "npm-run-all2@npm:8.0.3"
+  version: 8.0.4
+  resolution: "npm-run-all2@npm:8.0.4"
   dependencies:
     ansi-styles: "npm:^6.2.1"
     cross-spawn: "npm:^7.0.6"
     memorystream: "npm:^0.3.1"
-    minimatch: "npm:^10.0.1"
+    picomatch: "npm:^4.0.2"
     pidtree: "npm:^0.6.0"
     read-package-json-fast: "npm:^4.0.0"
     shell-quote: "npm:^1.7.3"
@@ -3966,7 +3966,7 @@ __metadata:
     npm-run-all2: bin/npm-run-all/index.js
     run-p: bin/run-p/index.js
     run-s: bin/run-s/index.js
-  checksum: 10c0/22773c2144bf0477f2be464043e180c4b37078df63147a374a47b3bac9b5bc5825e7a7253d7b138a2a5e34d2ff13f0fc7cfff4f7d46170405728c373dd733855
+  checksum: 10c0/cfc2987df224e55456629301991b5fa6980cc644d1836fe3c22d74a4508512737d30389795b759bb5d659103e54281c59741ecdc0241cfd2615cb9bffbf7cceb
   languageName: node
   linkType: hard
 
@@ -4251,6 +4251,13 @@ __metadata:
   version: 3.0.1
   resolution: "picomatch@npm:3.0.1"
   checksum: 10c0/70ec738569f1864658378b7abdab8939d15dae0718c1df994eae3346fd33daf6a3c1ff4e0c1a0cd1e2c0319130985b63a2cff34d192f2f2acbb78aca76111736
+  languageName: node
+  linkType: hard
+
+"picomatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "picomatch@npm:4.0.2"
+  checksum: 10c0/7c51f3ad2bb42c776f49ebf964c644958158be30d0a510efd5a395e8d49cb5acfed5b82c0c5b365523ce18e6ab85013c9ebe574f60305892ec3fa8eee8304ccc
   languageName: node
   linkType: hard
 
