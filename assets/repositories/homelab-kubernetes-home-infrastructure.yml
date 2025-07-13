@@ -31,6 +31,14 @@ accessPermissions:
           - update
           - delete
           - list
+      - path: kubernetes-home-cluster-muc
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   tailscale: true
   aws:
     region: eu-west-1
