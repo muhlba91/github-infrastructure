@@ -804,13 +804,13 @@ __metadata:
   linkType: hard
 
 "@pulumi/gcp@npm:^8.0.0":
-  version: 8.37.0
-  resolution: "@pulumi/gcp@npm:8.37.0"
+  version: 8.38.0
+  resolution: "@pulumi/gcp@npm:8.38.0"
   dependencies:
     "@npmcli/package-json": "npm:^6.2.0"
     "@pulumi/pulumi": "npm:^3.142.0"
     "@types/express": "npm:^4.16.0"
-  checksum: 10c0/a4901b7d856aaa4a342ca1eedabba4b73347887a3eabb9d26c663087e7c0c9e32cb60c6655f9145299bd5e691c25efce18df864b2476ae82280fff4264b3ab5c
+  checksum: 10c0/290303205ad7a1f5f9baa7b916cb6e29066f05bde10e68daa31622ea1a11a5dbac778088191b28e1618f0ccc2837bdbf66a4a2fd106b152c1a2109462c46bd90
   languageName: node
   linkType: hard
 
