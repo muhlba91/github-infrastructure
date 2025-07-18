@@ -26,7 +26,7 @@
   },
   "packageManager": "yarn@4.9.2",
   "dependencies": {
-    "@pulumi/aws": "^6.4.1",
+    "@pulumi/aws": "^7.0.0",
     "@pulumi/gcp": "^8.0.0",
     "@pulumi/github": "^6.0.0",
     "@pulumi/pulumi": "^3.69.0",
