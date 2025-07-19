@@ -278,7 +278,7 @@ __metadata:
   resolution: "@muhlba91/github-infrastructure@workspace:."
   dependencies:
     "@eslint/compat": "npm:^1.1.1"
-    "@pulumi/aws": "npm:^6.4.1"
+    "@pulumi/aws": "npm:^7.0.0"
     "@pulumi/gcp": "npm:^8.0.0"
     "@pulumi/github": "npm:^6.0.0"
     "@pulumi/pulumi": "npm:^3.69.0"
@@ -793,13 +793,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/aws@npm:^6.4.1":
-  version: 6.83.0
-  resolution: "@pulumi/aws@npm:6.83.0"
+"@pulumi/aws@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@pulumi/aws@npm:7.0.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
     mime: "npm:^2.0.0"
-  checksum: 10c0/c6749944de72bc769049bf341e759320e3c16d4234bd667afb2346fbc3b771fdcc7f2ee8e6b0aaa74e3880d5de2083ff3b7a09b5db0bc1af4ff24713f6af3351
+  checksum: 10c0/485f0952f502e921a0f1bc4434e624723b6a0651f0b2010b3ced2d41f1a7bbe1effa07912cee576da9d3b46af0bf339bc4a025c85279e22e507e3892588c87e1
   languageName: node
   linkType: hard
 
