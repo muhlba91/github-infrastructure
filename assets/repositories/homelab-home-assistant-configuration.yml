@@ -15,9 +15,9 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Lint YAML
-      - Verify Home Assistant Configuration (stable)
-      - Verify Home Assistant Configuration (beta)
-      - Verify Home Assistant Configuration (dev)
+      - Verify Home Assistant Configuration (stable, vie)
+      - Verify Home Assistant Configuration (beta, vie)
+      - Verify Home Assistant Configuration (dev, vie)
 
 accessPermissions:
   vault:
