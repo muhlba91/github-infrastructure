@@ -12,17 +12,17 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Unit Tests (23)
-      - Checkstyle (23)
-      - PMD (23)
-      - PiTest (23)
-      - SBOM (23)
+      - Unit Tests (24)
+      - Checkstyle (24)
+      - PMD (24)
+      - PiTest (24)
+      - SBOM (24)
       - Lint Dockerfile
       - YAMLLint
       - Spectral Linter
       - ShellCheck
       - Lint Helm Charts
-      - Build Jar File (23)
+      - Build Jar File (24)
       - Container
 
 accessPermissions:
