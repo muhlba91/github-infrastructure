@@ -13,9 +13,9 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - ESLint (20)
-      - Build IaC code (20)
-      - Pulumi Preview (20)
+      - ESLint (24)
+      - Build IaC code (24)
+      - Pulumi Preview (24)
 
 # disable all permissions to avoid the chicken-egg problem
 # we only manage the repository settings here
