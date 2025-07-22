@@ -12,12 +12,12 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Tests (20)
-      - ESLint (20)
-      - Node Audit (20)
-      - SBOM (20)
+      - Tests (24)
+      - ESLint (24)
+      - Node Audit (24)
+      - SBOM (24)
       - ShellCheck
-      - Build SPA (20)
+      - Build SPA (24)
 
 accessPermissions:
   vault:

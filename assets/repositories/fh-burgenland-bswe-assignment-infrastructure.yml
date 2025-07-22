@@ -13,11 +13,11 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - ESLint (20)
+      - ESLint (24)
       - YAMLLint
-      - Build IaC code (20)
-      - Pulumi Preview (20, dev)
-      - Pulumi Preview (20, ws2024)
+      - Build IaC code (24)
+      - Pulumi Preview (24, dev)
+      - Pulumi Preview (24, ws2024)
 
 accessPermissions:
   vault:
