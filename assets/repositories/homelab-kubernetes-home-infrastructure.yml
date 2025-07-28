@@ -39,14 +39,6 @@ accessPermissions:
           - delete
           - list
   tailscale: true
-  aws:
-    region: eu-west-1
-    account: 126125163971
-    iamPermissions:
-      - "glue:*"
-      - "lambda:*"
-      - "firehose:*"
-      - "athena:*"
   google:
     region: europe-west4
     project: tuxnet-385112
