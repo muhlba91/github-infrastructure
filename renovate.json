@@ -8,7 +8,7 @@
     ],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
-    "baseBranches": ["main"],
+    "baseBranchPatterns": ["main"],
     "enabledManagers": ["github-actions", "pre-commit", "npm"],
     "github-actions": {
         "managerFilePatterns": [
