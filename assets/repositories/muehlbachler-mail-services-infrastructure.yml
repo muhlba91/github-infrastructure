@@ -19,7 +19,7 @@ rulesets:
       - Pulumi Preview (24)
 
 accessPermissions:
-  tailscale: true
+  tailscale: false
   vault:
     enabled: true
     additionalMounts:
