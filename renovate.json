@@ -28,7 +28,8 @@
             ],
             "labels": [
                 "dependencies",
-                "renovate-minor-patch"
+                "renovate-minor-patch",
+                "renovate-automerge"
             ],
             "automerge": true,
             "automergeComment": "Renovate `minor` and `patch` version bumps are merged automatically."
