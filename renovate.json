@@ -1,78 +1,14 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
-        "config:recommended",
-        "helpers:pinGitHubActionDigests",
-        ":dependencyDashboard",
-        ":semanticCommitTypeAll(chore)"
-    ],
-    "prHourlyLimit": 0,
-    "prConcurrentLimit": 0,
-    "configMigration": true,
-    "assignAutomerge": true,
-    "automergeStrategy": "rebase",
-    "automergeType": "pr",
-    "platformAutomerge": true,
-    "baseBranchPatterns": [
-        "main"
-    ],
-    "labels": [
-        "dependencies"
-    ],
-    "packageRules": [
-        {
-            "matchUpdateTypes": [
-                "patch",
-                "digest"
-            ],
-            "labels": [
-                "dependencies",
-                "renovate-patch"
-            ],
-            "automerge": true
-        },
-        {
-            "matchUpdateTypes": [
-                "minor"
-            ],
-            "labels": [
-                "dependencies",
-                "renovate-minor"
-            ],
-            "automerge": true
-        },
-        {
-            "matchUpdateTypes": [
-                "major"
-            ],
-            "labels": [
-                "dependencies",
-                "renovate-major"
-            ]
-        }
+        "github>muhlba91/renovate-config",
+        "github>muhlba91/renovate-config:automerge(patch)",
+        "github>muhlba91/renovate-config:automerge(minor)",
+        "github>muhlba91/renovate-config:automerge(major)"
     ],
     "enabledManagers": [
         "github-actions",
         "pre-commit",
         "npm"
-    ],
-    "github-actions": {
-        "managerFilePatterns": [
-            "/^(workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/",
-            "/(^|/)action\\.ya?ml$/"
-        ]
-    },
-    "pre-commit": {
-        "enabled": true,
-        "managerFilePatterns": [
-            "/(^|/)\\.pre-commit-config\\.ya?ml$/"
-        ]
-    },
-    "npm": {
-        "managerFilePatterns": [
-            "/(^|/)package\\.json$/"
-        ],
-        "rollbackPrs": true,
-        "versioning": "npm"
-    }
+    ]
 }
