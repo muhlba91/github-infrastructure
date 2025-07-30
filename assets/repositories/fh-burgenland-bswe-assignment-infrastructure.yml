@@ -17,6 +17,7 @@ rulesets:
       - YAMLLint
       - Build IaC code (24)
       - Pulumi Preview (24, dev)
+      - Pulumi Preview (24, ws2025)
 
 accessPermissions:
   vault:
