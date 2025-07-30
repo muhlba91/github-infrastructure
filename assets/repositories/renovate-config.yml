@@ -1,0 +1,18 @@
+---
+name: renovate-config
+description: "Renovate Global Configuration"
+visibility: public
+protected: true
+topics:
+  - renovate
+  - configuration
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+
+accessPermissions:
+  vault:
+    enabled: false
