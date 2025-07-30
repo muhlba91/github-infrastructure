@@ -13,9 +13,9 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - ESLint (24, vie)
+      - ESLint (24)
       - Lint YAML
-      - Build IaC code (24, vie)
+      - Build IaC code (24)
       - Pulumi Preview (24, vie)
 
 accessPermissions:
