@@ -17,6 +17,7 @@ rulesets:
       - Lint YAML
       - Build IaC code (24)
       - Pulumi Preview (24, vie)
+      - Pulumi Preview (24, muc)
 
 accessPermissions:
   vault:
