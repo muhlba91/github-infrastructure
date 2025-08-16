@@ -18,6 +18,9 @@ rulesets:
       - Verify Home Assistant Configuration (stable, vie)
       - Verify Home Assistant Configuration (beta, vie)
       - Verify Home Assistant Configuration (dev, vie)
+      - Verify Home Assistant Configuration (stable, muc)
+      - Verify Home Assistant Configuration (beta, muc)
+      - Verify Home Assistant Configuration (dev, muc)
 
 accessPermissions:
   vault:
