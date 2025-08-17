@@ -19,7 +19,6 @@ rulesets:
       - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, nodejs)
       - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, python)
       - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, dotnet)
-      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, java)
 
 accessPermissions:
   vault:
