@@ -14,12 +14,12 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint Provider (1.24.x, v2.1.6)
-      - Build SDK (1.24.x, 24, 8.0.x, 3.11, 11, go)
-      - Build SDK (1.24.x, 24, 8.0.x, 3.11, 11, nodejs)
-      - Build SDK (1.24.x, 24, 8.0.x, 3.11, 11, python)
-      - Build SDK (1.24.x, 24, 8.0.x, 3.11, 11, dotnet)
-      - Build SDK (1.24.x, 24, 8.0.x, 3.11, 11, java)
+      - Lint Provider (1.25.x, v2.4.0)
+      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, go)
+      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, nodejs)
+      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, python)
+      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, dotnet)
+      - Build SDK (1.25.x, 24, 8.0.x, 3.11, 11, java)
 
 accessPermissions:
   vault:
