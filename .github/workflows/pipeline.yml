@@ -38,6 +38,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
+        with:
+          organization: muhlba91
+          requested-token-type: urn:pulumi:token-type:access_token:personal
+          scope: user:muhlba91
+
       - run: |
           yarn install --immutable
           yarn build
@@ -54,7 +60,8 @@ jobs:
           AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           GITHUB_TOKEN: "${{ secrets.GH_PAT_TOKEN }}"
-          PULUMI_ACCESS_TOKEN: "${{ secrets.PULUMI_ACCESS_TOKEN }}"
+          OAUTH_CLIENT_ID: "${{ secrets.OAUTH_CLIENT_ID }}"
+          OAUTH_CLIENT_SECRET: "${{ secrets.OAUTH_CLIENT_SECRET }}"
 
   deploy:
     runs-on: ubuntu-latest
@@ -106,3 +113,5 @@ jobs:
           AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
           AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           GITHUB_TOKEN: "${{ secrets.GH_PAT_TOKEN }}"
+          OAUTH_CLIENT_ID: "${{ secrets.OAUTH_CLIENT_ID }}"
+          OAUTH_CLIENT_SECRET: "${{ secrets.OAUTH_CLIENT_SECRET }}"
