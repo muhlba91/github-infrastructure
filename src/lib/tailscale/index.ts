@@ -1,8 +1,9 @@
-import { Output } from '@pulumi/pulumi';
+import { all } from '@pulumi/pulumi';
+import * as tailscale from '@pulumi/tailscale';
 import * as vault from '@pulumi/vault';
 
 import { StringMap } from '../../model/map';
-import { repositories, tailscaleConfig } from '../configuration';
+import { repositories } from '../configuration';
 import { writeToVault } from '../util/vault/secret';
 import { vaultProvider } from '../vault';
 
@@ -34,12 +35,20 @@ const configureRepository = (
   repository: string,
   vaultStores: StringMap<vault.Mount>,
 ) => {
+  const oauthClient = new tailscale.OauthClient(
+    `tailscale-oauth-client-${repository}`,
+    {
+      description: repository.substring(0, 50),
+      scopes: ['all'],
+    },
+  );
+
   writeToVault(
     'tailscale',
-    Output.create(
+    all([oauthClient.id, oauthClient.key]).apply(([id, key]) =>
       JSON.stringify({
-        oauth_client_id: tailscaleConfig.oauth.id,
-        oauth_secret: tailscaleConfig.oauth.secret,
+        oauth_client_id: id,
+        oauth_secret: key,
       }),
     ),
     vaultProvider,

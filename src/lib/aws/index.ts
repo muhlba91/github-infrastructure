@@ -26,10 +26,12 @@ export const configureAwsAccounts = (
     Object.entries(awsConfig.account).map(([account, config]) => [
       account,
       new aws.Provider(`aws-provider-${account}`, {
-        assumeRoles: [{
-          roleArn: config.roleArn,
-          externalId: config.externalId,
-        }],
+        assumeRoles: [
+          {
+            roleArn: config.roleArn,
+            externalId: config.externalId,
+          },
+        ],
       }),
     ]),
   );

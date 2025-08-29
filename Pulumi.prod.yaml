@@ -36,11 +36,6 @@ config:
   muehlbachler-github-infrastructure:repositories:
     owner: muhlba91
     subscription: none
-  muehlbachler-github-infrastructure:tailscale:
-    oauth:
-      id: kGsogi3CNTRL
-      secret:
-        secure: v1:s2Lw0DJpYtmYOaso:uPg3xGV1/YBcTMl2q5r0nwpTar4w5L0rygPhckELDJQKgnWwjg2p7tS2noH8SPPB8QDAIoGm6pfYctlUsX3y24CMVt0Fh/XdwWdY
   muehlbachler-github-infrastructure:vault:
     address: https://vault.platform.muehlbachler.io:8200
     enabled: true
