@@ -274,6 +274,7 @@ __metadata:
     "@pulumi/github": "npm:^6.0.0"
     "@pulumi/pulumi": "npm:^3.69.0"
     "@pulumi/random": "npm:^4.14.0"
+    "@pulumi/tailscale": "npm:^0.21.1"
     "@pulumi/vault": "npm:^7.0.0"
     "@pulumiverse/time": "npm:^0.1.0"
     "@types/node": "npm:^22.7.6"
@@ -864,6 +865,15 @@ __metadata:
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
   checksum: 10c0/376ee235caca1567dd183ab7bb2c8122a8c2246dda1ed900c35506de84247926fd554ee5ce66cc8f53bbfef222c4276c2cea23f3a081df390fe687e162432137
+  languageName: node
+  linkType: hard
+
+"@pulumi/tailscale@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "@pulumi/tailscale@npm:0.21.1"
+  dependencies:
+    "@pulumi/pulumi": "npm:^3.142.0"
+  checksum: 10c0/26fb2765afb7a813ba88c2a176e93ce4df852c7b70a74d292013142bbcff7f480040ade1c257617ebd7a3ad4031eebdaf56b0cd0ec48842c1da49881a67daea0
   languageName: node
   linkType: hard
 
