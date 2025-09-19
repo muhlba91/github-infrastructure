@@ -281,7 +281,7 @@ __metadata:
   dependencies:
     "@eslint/compat": "npm:^1.1.1"
     "@pulumi/aws": "npm:^7.0.0"
-    "@pulumi/gcp": "npm:^8.0.0"
+    "@pulumi/gcp": "npm:^9.0.0"
     "@pulumi/github": "npm:^6.0.0"
     "@pulumi/pulumi": "npm:^3.69.0"
     "@pulumi/random": "npm:^4.14.0"
@@ -806,14 +806,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pulumi/gcp@npm:^8.0.0":
-  version: 8.41.1
-  resolution: "@pulumi/gcp@npm:8.41.1"
+"@pulumi/gcp@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@pulumi/gcp@npm:9.0.0"
   dependencies:
     "@npmcli/package-json": "npm:^6.2.0"
     "@pulumi/pulumi": "npm:^3.142.0"
     "@types/express": "npm:^4.16.0"
-  checksum: 10c0/6413a9baaa1edb79bb77ddbe1f9ebf5899659cc6c245bbdeac7051229eb517eae29ba507f5c6267a10370f0583ac8e0f4460186799af4595a23b14dbec46b0a5
+  checksum: 10c0/62abfb988ebb7c8eeeef47ed285b5bd2b64a440273077a1d45fce1a4c775d670526439f18ee449f9a4618080fd75e6d7cb74592283fb0f858f44cf6f4aafca99
   languageName: node
   linkType: hard
 
