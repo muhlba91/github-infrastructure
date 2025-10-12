@@ -1,5 +1,5 @@
 ---
-name: muehlbachler-hashicorp-vault-infrastructure
+name: muehlbachler-core-infrastructure
 description: "Personal Core Infrastructure"
 visibility: public
 protected: true

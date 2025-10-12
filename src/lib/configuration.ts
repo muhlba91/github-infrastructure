@@ -28,11 +28,11 @@ export const allowRepositoryDeletion =
 
 export const repositories = parseRepositoriesFromFiles('./assets/repositories');
 
-const vaultStack = new StackReference(
-  `${getOrganization()}/muehlbachler-hashicorp-vault-infrastructure/${environment}`,
+const coreStack = new StackReference(
+  `${getOrganization()}/muehlbachler-core-infrastructure/${environment}`,
 );
-const vaultStackVault = vaultStack.getOutput('vault');
-export const vaultConnectionConfig = vaultStackVault.apply((output) => ({
+const coreStackVault = coreStack.getOutput('vault');
+export const vaultConnectionConfig = coreStackVault.apply((output) => ({
   address: vaultConfig.address,
   token: output?.keys?.rootToken as string,
 }));
