@@ -3,6 +3,7 @@ name: external-dns-provider-adguard
 description: "External DNS webhook provider for Adguard"
 visibility: public
 protected: true
+enableDiscussions: true
 topics:
   - external-dns
   - kubernetes

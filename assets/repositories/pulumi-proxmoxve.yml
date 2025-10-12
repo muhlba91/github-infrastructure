@@ -3,6 +3,7 @@ name: pulumi-proxmoxve
 description: "A Pulumi provider for creating and managing Proxmox VE resources"
 visibility: public
 protected: true
+enableDiscussions: true
 topics:
   - proxmox
   - proxmox-ve

@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-hashicorp-vault-infrastructure
-description: "Infrastructure for Personal Hashicorp Vault"
+description: "Personal Core Infrastructure"
 visibility: public
 protected: true
 topics:

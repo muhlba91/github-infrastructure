@@ -3,6 +3,7 @@ name: onyx-homeassistant-integration
 description: "Home Assistant integration (HACS) for Hella's ONYX.CENTER appliance"
 visibility: public
 protected: true
+enableDiscussions: true
 topics:
   - homeassistant
   - onyx

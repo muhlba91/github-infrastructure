@@ -3,6 +3,7 @@ name: onyx-client
 description: "Python Client for Hella's ONYX.CENTER API"
 visibility: public
 protected: true
+enableDiscussions: true
 topics:
   - onyx
   - hella
