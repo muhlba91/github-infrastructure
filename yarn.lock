@@ -875,11 +875,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/random@npm:^4.14.0":
-  version: 4.18.3
-  resolution: "@pulumi/random@npm:4.18.3"
+  version: 4.18.4
+  resolution: "@pulumi/random@npm:4.18.4"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
-  checksum: 10c0/376ee235caca1567dd183ab7bb2c8122a8c2246dda1ed900c35506de84247926fd554ee5ce66cc8f53bbfef222c4276c2cea23f3a081df390fe687e162432137
+  checksum: 10c0/f2e6dcee4a6b3221a6cf39b5b5d4adef0fcde69e765709c3d40f566f97dabe06015e84d3c190f35f78e9d83f88a732abef981f1de4780b755bb6054b66cdc0a1
   languageName: node
   linkType: hard
 
