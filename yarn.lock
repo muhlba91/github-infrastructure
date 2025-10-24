@@ -801,12 +801,12 @@ __metadata:
   linkType: hard
 
 "@pulumi/aws@npm:^7.0.0":
-  version: 7.9.1
-  resolution: "@pulumi/aws@npm:7.9.1"
+  version: 7.10.0
+  resolution: "@pulumi/aws@npm:7.10.0"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
     mime: "npm:^2.0.0"
-  checksum: 10c0/6e603bb561f18440f2d6643674e24e84a6aaf2daa07ef4f09040ba04744f316a4fc70e44986fa7aca12c7a03e95fa2e9fcd17b364de5c6a82a0c99d88eaa24cb
+  checksum: 10c0/d4026bb44c3603ec4a7e0ea2f79006830d2b95f6eefab82664f7ebdd882a712d09305e9b185b8b797dce5dbc950a67eef09bda6f442a965c68d3ac0e3cf9070f
   languageName: node
   linkType: hard
 
