@@ -21,6 +21,7 @@ export const writeToGitHubActionsSecret = (
           repository: repositoryName,
           secretName: key,
           plaintextValue: value,
+          destroyOnDrift: false,
         },
         {
           dependsOn: [repository],
