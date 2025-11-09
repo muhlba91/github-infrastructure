@@ -1,4 +1,5 @@
 import * as github from '@pulumi/github';
+import { RunError } from '@pulumi/pulumi';
 
 import { RepositoryConfig } from '../../model/config/repository';
 import { StringMap } from '../../model/map';
@@ -6,6 +7,7 @@ import {
   allowRepositoryDeletion,
   repositories,
   repositoriesConfig,
+  stack,
 } from '../configuration';
 import { getOrDefault } from '../util/get_or_default';
 import { isPrivate } from '../util/github/repository';
@@ -36,9 +38,24 @@ export const createRepositories = (): StringMap<github.Repository> =>
  * @returns {string} the configured repository
  */
 const createRepository = (config: RepositoryConfig): github.Repository => {
+  const manageLifecycle = getOrDefault(config.manageLifecycle, true);
+
   const owner = repositoriesConfig.owner;
+  const resourceName = `github-repo-${owner}-${config.name}`;
+
+  if (!manageLifecycle) {
+    stack.getOutput('repositories').apply((repos) => {
+      if (!repos[config.name]) {
+        // eslint-disable-next-line functional/no-throw-statements
+        throw new RunError(
+          `[ERROR] repository '${config.name}' is not imported yet! Please import it using the following command and re-run Pulumi: pulumi import github:index/repository:Repository ${resourceName} ${owner}/${config.name}`,
+        );
+      }
+    });
+  }
+
   const repo = new github.Repository(
-    `github-repo-${owner}-${config.name}`,
+    resourceName,
     {
       name: config.name,
       description: config.description,
@@ -53,8 +70,7 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
       allowSquashMerge: false,
       allowUpdateBranch: true,
       archived: false,
-      archiveOnDestroy: config.protected,
-      autoInit: false,
+      archiveOnDestroy: manageLifecycle ? config.protected : false,
       deleteBranchOnMerge: true,
       hasDownloads: true,
       hasIssues: true,
@@ -85,8 +101,8 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
           },
     },
     {
-      protect: !allowRepositoryDeletion,
-      retainOnDelete: !allowRepositoryDeletion,
+      protect: manageLifecycle || !allowRepositoryDeletion,
+      retainOnDelete: manageLifecycle || !allowRepositoryDeletion,
       ignoreChanges: ['securityAndAnalysis', 'template'],
     },
   );

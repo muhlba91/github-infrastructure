@@ -14,6 +14,7 @@ export interface RepositoriesConfig {
 export interface RepositoryConfig {
   readonly name: string;
   readonly description: string;
+  readonly manageLifecycle?: boolean;
   readonly visibility?: string;
   readonly protected?: boolean;
   readonly topics?: readonly string[];

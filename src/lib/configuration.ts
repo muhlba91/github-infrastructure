@@ -1,6 +1,7 @@
 import {
   Config,
   getOrganization,
+  getProject,
   getStack,
   StackReference,
 } from '@pulumi/pulumi';
@@ -14,6 +15,9 @@ import { getOrDefault } from './util/get_or_default';
 import { parseRepositoriesFromFiles } from './util/repository';
 
 export const environment = getStack();
+export const stack = new StackReference(
+  `${getOrganization()}/${getProject()}/${environment}`,
+);
 
 const config = new Config();
 export const repositoriesConfig =

@@ -27,8 +27,10 @@ export const configureVaultStores = (
   githubRepositories: StringMap<github.Repository>,
 ): Output<StringMap<vault.Mount>> =>
   hasVaultConnection.apply((hasConnection) => {
-    const repos = (hasConnection ? repositories : []).filter((repository) =>
-      getOrDefault(repository.accessPermissions?.vault?.enabled, true),
+    const repos = (hasConnection ? repositories : []).filter(
+      (repository) =>
+        getOrDefault(repository.manageLifecycle, true) &&
+        getOrDefault(repository.accessPermissions?.vault?.enabled, true),
     );
 
     repos

@@ -4,6 +4,7 @@ name: repository
 description: description
 
 # optional repository settings
+manageLifecycle: true # whether to manage the repository's entire lifecycle, or just the configuration
 visibility: public
 protected: false # protection ensures this repository cannot be deleted; if it were, it will be archived
 topics: []
