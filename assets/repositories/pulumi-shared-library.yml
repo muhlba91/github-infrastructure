@@ -13,4 +13,7 @@ topics:
 rulesets:
   branch:
     enabled: true
-    requiredChecks: []
+    requiredChecks:
+      - Dependency Review
+      - Lint (1.25.x, v2.6.1)
+      - Unit Tests (1.25.x)
