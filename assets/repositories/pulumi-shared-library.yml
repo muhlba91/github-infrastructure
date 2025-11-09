@@ -1,0 +1,16 @@
+---
+name: pulumi-shared-library
+description: "Shared library for Pulumi infrastructure automation."
+manageLifecycle: false # we only manage the repository configuration here
+visibility: public
+protected: true
+topics:
+  - infrastructure
+  - automation
+  - pulumi
+  - shared-library
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks: []
