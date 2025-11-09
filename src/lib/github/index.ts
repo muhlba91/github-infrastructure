@@ -5,6 +5,7 @@ import { RepositoryConfig } from '../../model/config/repository';
 import { StringMap } from '../../model/map';
 import {
   allowRepositoryDeletion,
+  ignoreUnmanagedRepositories,
   repositories,
   repositoriesConfig,
   stack,
@@ -43,12 +44,12 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
   const owner = repositoriesConfig.owner;
   const resourceName = `github-repo-${owner}-${config.name}`;
 
-  if (!manageLifecycle) {
+  if (!manageLifecycle && !ignoreUnmanagedRepositories) {
     stack.getOutput('repositories').apply((repos) => {
       if (!repos[config.name]) {
         // eslint-disable-next-line functional/no-throw-statements
         throw new RunError(
-          `[ERROR] repository '${config.name}' is not imported yet! Please import it using the following command and re-run Pulumi: pulumi import github:index/repository:Repository ${resourceName} ${owner}/${config.name}`,
+          `[ERROR] repository '${config.name}' is not imported yet! Please import it using the following command and re-run Pulumi with IGNORE_UNMANAGED_REPOSITORIES="true": pulumi import github:index/repository:Repository ${resourceName} ${config.name}`,
         );
       }
     });
@@ -70,7 +71,7 @@ const createRepository = (config: RepositoryConfig): github.Repository => {
       allowSquashMerge: false,
       allowUpdateBranch: true,
       archived: false,
-      archiveOnDestroy: manageLifecycle ? config.protected : false,
+      archiveOnDestroy: config.protected,
       deleteBranchOnMerge: true,
       hasDownloads: true,
       hasIssues: true,

@@ -41,10 +41,9 @@ export = async () => {
             false,
           ),
           aws: repository.accessPermissions?.aws?.account != undefined,
-          vault: getOrDefault(
-            repository.accessPermissions?.vault?.enabled,
-            true,
-          ),
+          vault:
+            getOrDefault(repository.manageLifecycle, true) &&
+            getOrDefault(repository.accessPermissions?.vault?.enabled, true),
           tailscale: getOrDefault(
             repository.accessPermissions?.tailscale,
             false,

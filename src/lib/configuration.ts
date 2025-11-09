@@ -30,6 +30,12 @@ export const allowRepositoryDeletion =
   getOrDefault(process.env.ALLOW_REPOSITORY_DELETION?.toLowerCase(), 'false') ==
   'true';
 
+export const ignoreUnmanagedRepositories =
+  getOrDefault(
+    process.env.IGNORE_UNMANAGED_REPOSITORIES?.toLowerCase(),
+    'false',
+  ) == 'true';
+
 export const repositories = parseRepositoriesFromFiles('./assets/repositories');
 
 const coreStack = new StackReference(
