@@ -14,7 +14,7 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint Provider (1.25.x, v2.4.0)
+      - Lint Provider (1.25.x, v2.6.2)
       - Unit Tests (1.25.x)
       - Lint Dockerfile
       - Build Provider and Container (1.25.x)
