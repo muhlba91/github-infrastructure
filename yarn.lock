@@ -831,11 +831,11 @@ __metadata:
   linkType: hard
 
 "@pulumi/github@npm:^6.0.0":
-  version: 6.9.0
-  resolution: "@pulumi/github@npm:6.9.0"
+  version: 6.9.1
+  resolution: "@pulumi/github@npm:6.9.1"
   dependencies:
     "@pulumi/pulumi": "npm:^3.142.0"
-  checksum: 10c0/1a9f44b58536b5294867c8c57f1af24625b41e30cb9bfbf4e3539a3442cbb14c52637127450d0febc95c685402e6ffdbfd7f5335ee8aa12892d3522577a46baa
+  checksum: 10c0/468b79fe8713992aecb9fe7e7d5612151dc798289a1d07c5949ab4dacb69ab8a4c814059c1d221a6be3dcb21c34c8af51a30d2d39063e10a81161471361d09fa
   languageName: node
   linkType: hard
 
