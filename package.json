@@ -31,7 +31,7 @@
     "@pulumi/github": "^6.0.0",
     "@pulumi/pulumi": "^3.69.0",
     "@pulumi/random": "^4.14.0",
-    "@pulumi/tailscale": "^0.22.0",
+    "@pulumi/tailscale": "^0.23.0",
     "@pulumi/vault": "^7.0.0",
     "@pulumiverse/time": "^0.1.0",
     "@types/nunjucks": "^3.2.6",
