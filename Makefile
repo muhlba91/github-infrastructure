@@ -13,7 +13,7 @@ fix::
 
 .PHONY: test
 test::
-	go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h -covermode atomic -coverprofile=covprofile github.com/muhlba91/muehlbachler-shared-services/pkg/...
+	go test -v -tags=all -parallel ${TESTPARALLELISM} -timeout 2h -covermode atomic -coverprofile=covprofile github.com/muhlba91/github-infrastructure/pkg/...
 
 .PHONY: coverage
 coverage::
