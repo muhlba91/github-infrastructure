@@ -7,9 +7,9 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
-	"github.com/pulumi/pulumi-gcp/sdk/v6/go/gcp/storage"
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/serviceaccount"
+	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/storage"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
