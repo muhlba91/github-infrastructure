@@ -16,6 +16,6 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - YAMLLint
-      - ESLint (24)
-      - Build IaC code (24)
-      - Pulumi Preview (24)
+      - Lint (1.25.x, v2.6.1)
+      - Unit Tests (1.25.x)
+      - Pulumi Preview (1.25.x)
