@@ -1,6 +1,0 @@
-{
-  "releaseCommitMessageFormat": "chore(release): release {{currentTag}} [release]",
-  "tagPrefix": "v",
-  "packageFiles": [],
-  "header": "# Changelog\n\n"
-}

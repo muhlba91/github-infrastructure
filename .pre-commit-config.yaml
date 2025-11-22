@@ -7,30 +7,35 @@ repos:
         stages:
           - commit-msg
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
+      - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-json
+        exclude: .eslintrc.json|node_modules/*
       - id: check-merge-conflict
       - id: check-symlinks
       - id: check-toml
       - id: check-xml
+      - id: check-yaml
       - id: detect-aws-credentials
-        args: ["--allow-missing-credentials"]
+        args: [
+            "--allow-missing-credentials"
+        ]
       - id: detect-private-key
-      - id: end-of-file-fixer
-  #      - id: no-commit-to-branch
-  #        args: [
-  #            "--branch",
-  #            "main",
-  #            "--branch",
-  #            "next"
-  #        ]
+        exclude: node_modules/*
+#      - id: no-commit-to-branch
+#        args: [
+#            "--branch",
+#            "main",
+#            "--branch",
+#            "next"
+#        ]
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.28.0
+    rev: v8.29.1
     hooks:
       - id: gitleaks
-  - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.32.0
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v2.6.2
     hooks:
-      - id: eslint
+      - id: golangci-lint

@@ -18,25 +18,22 @@ jobs:
       id-token: write
       contents: read
     strategy:
-      max-parallel: 12
+      max-parallel: 4
       matrix:
-        node-version: ["24"]
+        go-version: [1.25.x]
 
     steps:
       - uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           fetch-depth: 0
 
-      - run: |
-          corepack enable
-
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      - uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6.1.0
         with:
-          node-version: ${{ matrix.node-version }}
+          go-version: "${{ matrix.go-version }}"
 
       - uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
         with:
@@ -72,25 +69,22 @@ jobs:
     needs:
       - preview
     strategy:
-      max-parallel: 12
+      max-parallel: 4
       matrix:
-        node-version: ["24"]
+        go-version: [1.25.x]
 
     steps:
       - uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
         with:
           egress-policy: audit
 
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
         with:
           fetch-depth: 0
 
-      - run: |
-          corepack enable
-
-      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+      - uses: actions/setup-go@4dc6199c7b1a012772edbd06daecab0f50c9053c # v6.1.0
         with:
-          node-version: ${{ matrix.node-version }}
+          go-version: "${{ matrix.go-version }}"
 
       - uses: pulumi/auth-actions@1c89817aab0c66407723cdef72b05266e7376640 # v1.0.1
         with:
@@ -98,11 +92,7 @@ jobs:
           requested-token-type: urn:pulumi:token-type:access_token:personal
           scope: user:muhlba91
 
-      - run: |
-          yarn install --immutable
-          yarn build
-
-      - uses: pulumi/actions@8582a9e8cc630786854029b4e09281acd6794b58 # v6.6.1
+      - uses: pulumi/actions@d7ceb0215da5a14ec84f50b703365ddf0194a9c8 # v6.6.0
         with:
           command: up
           stack-name: prod

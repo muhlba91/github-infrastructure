@@ -10,18 +10,17 @@ This repository contains the automation for [GitHub Repositories](https://github
 
 ## Requirements
 
-- [NodeJS](https://nodejs.org/en), and [yarn](https://yarnpkg.com)
+- [Go](https://golang.org/dl/)
 - [Pulumi](https://www.pulumi.com/docs/install/)
 
 ## Creating the Infrastructure
 
-To create the repositories, a [Pulumi Stack](https://www.pulumi.com/docs/concepts/stack/) with the correct configuration needs to exists.
+To create the services, a [Pulumi Stack](https://www.pulumi.com/docs/concepts/stack/) with the correct configuration needs to exists.
 
 The stack can be deployed via:
 
 ```bash
-yarn install
-yarn build; pulumi up
+pulumi up
 ```
 
 ## Destroying the Infrastructure
@@ -29,8 +28,7 @@ yarn build; pulumi up
 The entire infrastructure can be destroyed via:
 
 ```bash
-yarn install
-yarn build; pulumi destroy
+pulumi destroy
 ```
 
 **Attention**: you must set `ALLOW_REPOSITORY_DELETION="true"` as an environment variable to be able to delete repositories!
@@ -110,4 +108,4 @@ The format is described in the [template](assets/templates/repository.yml).
 ## Continuous Integration and Automations
 
 - [GitHub Actions](https://docs.github.com/en/actions) are linting, and verifying the code.
-- [Renovate Bot](https://github.com/renovatebot/renovate) is updating NodeJS packages, and GitHub Actions.
+- [Renovate Bot](https://github.com/renovatebot/renovate) is updating Go modules, and GitHub Actions.
