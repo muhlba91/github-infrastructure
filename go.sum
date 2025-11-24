@@ -151,6 +151,8 @@ github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20251121181042-ccf989f6e7ad h1:6BVhYdyNU1nVstGVcAV+OdfM3cC2wswKV/mc6mzm4Kw=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20251121181042-ccf989f6e7ad/go.mod h1:aljyhZAKaTR9icfFOl+Wu8g7NpIHYheoKn/RYw9nbbc=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20251124104739-a3049028d33c h1:J6BGAcynWKJnjAwFQL5ZkmXWmpcSnj2xUDAbMDBgClo=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20251124104739-a3049028d33c/go.mod h1:aljyhZAKaTR9icfFOl+Wu8g7NpIHYheoKn/RYw9nbbc=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
