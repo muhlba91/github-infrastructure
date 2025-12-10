@@ -3,7 +3,7 @@ module github.com/muhlba91/github-infrastructure
 go 1.25.3
 
 require (
-	github.com/muhlba91/pulumi-shared-library v0.0.0-20251205203541-c0b46d57675b
+	github.com/muhlba91/pulumi-shared-library v0.0.0-20251210072645-fe670cb7a028
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.13.0
 	github.com/pulumi/pulumi-gcp/sdk/v9 v9.6.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.9.1
