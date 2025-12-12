@@ -1,0 +1,20 @@
+---
+name: homelab-documentation
+description: "Homelab: Documentation"
+visibility: public
+protected: true
+topics:
+  - homelab
+  - documentation
+  - hugo
+
+pagesBranch: gh-pages
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks: [] # TODO: add required checks when CI is set up
+
+accessPermissions:
+  vault:
+    enabled: false
