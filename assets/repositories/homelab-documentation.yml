@@ -8,6 +8,7 @@ topics:
   - documentation
   - hugo
 
+homepage: https://muhlba91.github.io/homelab-documentation/
 pagesBranch: gh-pages
 
 rulesets:
