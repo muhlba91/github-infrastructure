@@ -31,9 +31,6 @@ accessPermissions:
           - update
           - delete
           - list
-  aws:
-    region: eu-west-1
-    account: 215622641987
   google:
     region: europe-west4
     project: public-services-402810

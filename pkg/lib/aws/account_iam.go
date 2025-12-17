@@ -128,6 +128,7 @@ func createRole(ctx *pulumi.Context,
 		},
 	})
 
+	// FIXME: move to shared library
 	role, rErr := iam.NewRole(
 		ctx,
 		fmt.Sprintf("aws-iam-role-ci-%s-%s", *account.Repository, *account.ID),
@@ -153,6 +154,7 @@ func createRole(ctx *pulumi.Context,
 			},
 		},
 	})
+	// FIXME: move to shared library
 	policy, pErr := iam.NewPolicy(
 		ctx,
 		fmt.Sprintf("aws-iam-role-ci-policy-%s-%s", *account.Repository, *account.ID),
@@ -171,6 +173,7 @@ func createRole(ctx *pulumi.Context,
 		return nil, pErr
 	}
 
+	// FIXME: move to shared library
 	_, paErr := iam.NewRolePolicyAttachment(
 		ctx,
 		fmt.Sprintf("aws-iam-role-ci-policy-attachment-%s-%s", *account.Repository, *account.ID),
