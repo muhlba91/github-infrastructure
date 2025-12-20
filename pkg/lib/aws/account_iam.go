@@ -128,6 +128,7 @@ func createRole(ctx *pulumi.Context,
 		},
 	})
 
+	//nolint:godox // TODO is required
 	// FIXME: move to shared library
 	role, rErr := iam.NewRole(
 		ctx,
@@ -154,6 +155,7 @@ func createRole(ctx *pulumi.Context,
 			},
 		},
 	})
+	//nolint:godox // TODO is required
 	// FIXME: move to shared library
 	policy, pErr := iam.NewPolicy(
 		ctx,
@@ -173,6 +175,7 @@ func createRole(ctx *pulumi.Context,
 		return nil, pErr
 	}
 
+	//nolint:godox // TODO is required
 	// FIXME: move to shared library
 	_, paErr := iam.NewRolePolicyAttachment(
 		ctx,
