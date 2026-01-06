@@ -7,7 +7,7 @@ require (
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.15.0
 	github.com/pulumi/pulumi-gcp/sdk/v9 v9.7.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.10.0
-	github.com/pulumi/pulumi-tailscale/sdk v0.23.0
+	github.com/pulumi/pulumi-tailscale/sdk v0.24.0
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.6.0
 	github.com/pulumi/pulumi/sdk/v3 v3.214.1
 	github.com/rs/zerolog v1.34.0
