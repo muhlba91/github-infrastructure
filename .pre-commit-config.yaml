@@ -32,10 +32,10 @@ repos:
 #            "next"
 #        ]
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.29.1
+    rev: v8.30.0
     hooks:
       - id: gitleaks
   - repo: https://github.com/golangci/golangci-lint
-    rev: v2.6.2
+    rev: v2.8.0
     hooks:
       - id: golangci-lint
