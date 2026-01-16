@@ -9,7 +9,7 @@ require (
 	github.com/pulumi/pulumi-github/sdk/v6 v6.10.1
 	github.com/pulumi/pulumi-tailscale/sdk v0.24.0
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.6.0
-	github.com/pulumi/pulumi/sdk/v3 v3.215.0
+	github.com/pulumi/pulumi/sdk/v3 v3.216.0
 	github.com/rs/zerolog v1.34.0
 	gopkg.in/yaml.v3 v3.0.1
 )
