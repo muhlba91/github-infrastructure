@@ -3,9 +3,9 @@ module github.com/muhlba91/github-infrastructure
 go 1.25.3
 
 require (
-	github.com/muhlba91/pulumi-shared-library v0.0.0-20260202233917-6d7a3a77d814
+	github.com/muhlba91/pulumi-shared-library v0.0.0-20260204042416-3b7d40754720
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.16.0
-	github.com/pulumi/pulumi-gcp/sdk/v9 v9.10.0
+	github.com/pulumi/pulumi-gcp/sdk/v9 v9.11.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.11.0
 	github.com/pulumi/pulumi-tailscale/sdk v0.24.0
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.6.0
