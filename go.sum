@@ -236,6 +236,8 @@ github.com/pulumi/pulumi-random/sdk/v4 v4.19.1 h1:MUr4+gUQy+wqhoHsuhXO6ypT40KhU9
 github.com/pulumi/pulumi-random/sdk/v4 v4.19.1/go.mod h1:AJpJvPU3qJaq02VUui3rMZHchvVpTvVuVp0lbCeEE50=
 github.com/pulumi/pulumi-tailscale/sdk v0.24.0 h1:PYyXyTEqMSbX4iRohxt842KtvavVIkqwKzIcObpMtiQ=
 github.com/pulumi/pulumi-tailscale/sdk v0.24.0/go.mod h1:wOTsll/QlKSAA4dv1GsOMdT6LF1HcsLfWfta5ygfpWA=
+github.com/pulumi/pulumi-tailscale/sdk v0.25.0 h1:Y/W9euPQS40ig/bQV9pzZv9jc2VZw+60nox0g7XQjaI=
+github.com/pulumi/pulumi-tailscale/sdk v0.25.0/go.mod h1:qKKO+2ugqlKlQzhiXAtjIcjB9gT7ZiGVkMnR+lJXaF4=
 github.com/pulumi/pulumi-vault/sdk/v7 v7.6.0 h1:mJ/dg2po+gkIUXlCKDW2L7ctPEVSZGJRm3ldlx7KeBo=
 github.com/pulumi/pulumi-vault/sdk/v7 v7.6.0/go.mod h1:4D1bRLKqJZhj0gzoJ2BcLH75lfDrCGzrJIrIG1crdBc=
 github.com/pulumi/pulumi/sdk/v3 v3.215.0 h1:XZMiv9aSE1pD3kW4JpA53cy7mFflbJYn1fFKH1NMIAY=
