@@ -70,9 +70,19 @@ accessPermissions:
       project-id:
         accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set
         iamPermissions: [] # list of additional permissions for the service account
-    iamPermissions: [] # list of additional permissions for the service account; google/index/DEFAULT_PERMISSIONS are default permissions
-    enabledServices: [] # list of additional services to enable in the project(s); google/index/DEFAULT_SERVICES are the default services
+    iamPermissions: [] # list of additional permissions for the service account; pkg/lib/google/defaults/defaultPermissions are default permissions
+    enabledServices: [] # list of additional services to enable in the project(s); pkg/lib/google/defaults/defaultServices are the default services
   aws:
     region: eu-west-1 # if not set, aws.defaultRegion is used
     account: 0 # the default account id
-    iamPermissions: [] # list of additional permission for the service account; aws/index/DEFAULT_PERMISSIONS are the default permissions
+    iamPermissions: [] # list of additional permission for the service account; pkg/lib/aws/defaults/defaultPermissions are the default permissions
+  scaleway:
+    organizationId: '' # if not set, scaleway.organizationId is used
+    region: fr-par # if not set, scaleway.defaultRegion is used
+    zone: fr-par-1 # if not set, scaleway.defaultZone is used
+    project: '' # the default project name
+    linkedProjects: # a map of linked project ids with the access configuration
+      project-name:
+        accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set
+        iamPermissions: [] # list of additional permissions for the application
+    iamPermissions: [] # list of additional permission for the application; pkg/lib/scaleway/defaults/defaultProjectPermissions are the default permissions

@@ -9,6 +9,7 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	ghRepos "github.com/muhlba91/github-infrastructure/pkg/lib/github/repositories"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/google"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/scaleway"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/tailscale"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/vault"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
@@ -20,7 +21,7 @@ import (
 // main is the entry point of the Pulumi program.
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		repositoriesConfig, awsConfig, gcpConfig, vaultConfig, repos, err := config.LoadConfig(ctx)
+		repositoriesConfig, awsConfig, gcpConfig, scalewayConfig, vaultConfig, repos, err := config.LoadConfig(ctx)
 		if err != nil {
 			return err
 		}
@@ -57,9 +58,20 @@ func main() {
 			return accounts
 		})
 
+		scalewayAllowedProjects := slices.Collect(maps.Keys(scalewayConfig.Projects))
+		slices.Sort(scalewayAllowedProjects)
+		scalewayProjects := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
+			projects, _ := scaleway.Configure(ctx, repos, stores, scalewayConfig)
+			return projects
+		})
+
 		ctx.Export("google", pulumi.ToMap(map[string]any{
 			"allowed":    googleAllowedProjects,
 			"configured": googleProjects,
+		}))
+		ctx.Export("scaleway", pulumi.ToMap(map[string]any{
+			"allowed":    scalewayAllowedProjects,
+			"configured": scalewayProjects,
 		}))
 		ctx.Export("aws", pulumi.ToMap(map[string]any{
 			"allowed":    awsAllowedAccounts,

@@ -13,6 +13,7 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/google"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
+	"github.com/muhlba91/github-infrastructure/pkg/model/config/scaleway"
 	vaultConf "github.com/muhlba91/github-infrastructure/pkg/model/config/vault"
 	vaultData "github.com/muhlba91/github-infrastructure/pkg/model/vault"
 	"github.com/muhlba91/github-infrastructure/pkg/util"
@@ -43,7 +44,7 @@ var (
 // ctx: The Pulumi context.
 func LoadConfig(
 	ctx *pulumi.Context,
-) (*repositories.Config, *aws.Config, *google.Config, *vaultConf.Config, []*repository.Config, error) {
+) (*repositories.Config, *aws.Config, *google.Config, *scaleway.Config, *vaultConf.Config, []*repository.Config, error) {
 	Environment = ctx.Stack()
 	Stack, _ = pulumi.NewStackReference(
 		ctx,
@@ -62,6 +63,9 @@ func LoadConfig(
 	var gcpConfig google.Config
 	cfg.RequireObject("google", &gcpConfig)
 
+	var scalewayConfig scaleway.Config
+	cfg.RequireObject("scaleway", &scalewayConfig)
+
 	var vaultConfig vaultConf.Config
 	cfg.RequireObject("vault", &vaultConfig)
 
@@ -77,7 +81,7 @@ func LoadConfig(
 		nil,
 	)
 	if sErr != nil {
-		return nil, nil, nil, nil, nil, sErr
+		return nil, nil, nil, nil, nil, nil, sErr
 	}
 	cStackVault := coreStack.GetOutput(pulumi.String("vault"))
 	HasVaultConnection = cStackVault.ApplyT(func(vaultConn any) bool { //nolint:errcheck // no error possible
@@ -98,10 +102,10 @@ func LoadConfig(
 
 	repos, rErr := util.ParseRepositoriesFromFiles("./assets/repositories")
 	if rErr != nil {
-		return nil, nil, nil, nil, nil, rErr
+		return nil, nil, nil, nil, nil, nil, rErr
 	}
 
-	return &repositoriesConfig, &awsConfig, &gcpConfig, &vaultConfig, repos, nil
+	return &repositoriesConfig, &awsConfig, &gcpConfig, &scalewayConfig, &vaultConfig, repos, nil
 }
 
 // CommonLabels returns a map of common labels to be used across resources.

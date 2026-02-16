@@ -10,4 +10,6 @@ type AccessPermissionsConfig struct {
 	Google *GoogleAccessConfig `yaml:"google,omitempty"`
 	// Aws defines the AWS access config.
 	Aws *AwsAccessConfig `yaml:"aws,omitempty"`
+	// Scaleway defines the Scaleway access config.
+	Scaleway *ScalewayAccessConfig `yaml:"scaleway,omitempty"`
 }

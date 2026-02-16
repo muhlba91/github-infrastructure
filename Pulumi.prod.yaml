@@ -39,3 +39,10 @@ config:
   muehlbachler-github-infrastructure:vault:
     address: https://vault.platform.muehlbachler.io:8200
     enabled: true
+  muehlbachler-github-infrastructure:scaleway:
+    defaultRegion: fr-par
+    defaultZone: fr-par-1
+    organizationID: 2535e3b0-5c19-476b-8c0b-8a2a5bfac7c3
+    projects:
+      tuxnet: b47e1b1d-8201-4e51-9ce0-9d39678751a6
+      public-services: d3291e99-319b-43db-9703-b67dc3e10cbb
