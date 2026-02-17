@@ -83,7 +83,7 @@ func createProjectIAM(ctx *pulumi.Context,
 			"region":                     *project.Region,
 		})
 
-		_, err := secret.Write(ctx, &secret.WriteArgs{
+		_, err := secret.Create(ctx, &secret.CreateOptions{
 			Path:  path,
 			Key:   "google-cloud",
 			Value: pulumi.String(value),

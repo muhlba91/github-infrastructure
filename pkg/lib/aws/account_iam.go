@@ -71,7 +71,7 @@ func createAccountIAM(ctx *pulumi.Context,
 			"region":            *account.Region,
 		})
 
-		_, err := secret.Write(ctx, &secret.WriteArgs{
+		_, err := secret.Create(ctx, &secret.CreateOptions{
 			Path:  path,
 			Key:   "aws",
 			Value: pulumi.String(value),

@@ -38,7 +38,7 @@ func ConfigureStores(
 		repos, additionalMounts := filterRepositories(repositories)
 
 		for path := range additionalMounts {
-			_, addErr := store.Create(ctx, path, &store.CreateArgs{
+			_, addErr := store.Create(ctx, path, &store.CreateOptions{
 				Path:        pulumi.String(path),
 				Description: pulumi.String("Secrets for: " + path),
 				PulumiOptions: []pulumi.ResourceOption{
@@ -53,7 +53,7 @@ func ConfigureStores(
 
 		repositoryMounts := make(map[string]*vault.Mount)
 		for _, repository := range repos {
-			mount, stErr := store.Create(ctx, repository.Name, &store.CreateArgs{
+			mount, stErr := store.Create(ctx, repository.Name, &store.CreateOptions{
 				Path: pulumi.String(fmt.Sprintf("github-%s", repository.Name)),
 				Description: pulumi.String(
 					fmt.Sprintf("GitHub repository: %s/%s", *repositoriesConfig.Owner, repository.Name),

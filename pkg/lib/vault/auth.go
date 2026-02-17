@@ -137,7 +137,7 @@ func createSecrets(
 			"path":    "github",
 		})
 
-		_, _ = vaultSecret.Write(ctx, &vaultSecret.WriteArgs{
+		_, _ = vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
 			Path:  path,
 			Key:   "vault",
 			Value: pulumi.String(value),
@@ -152,17 +152,17 @@ func createSecrets(
 		return nil
 	})
 
-	ghSecret.Write(ctx, &ghSecret.WriteArgs{
+	ghSecret.Create(ctx, &ghSecret.CreateOptions{
 		Key:        "VAULT_ADDR",
 		Value:      pulumi.String(*vaultAddr),
 		Repository: githubRepository,
 	})
-	ghSecret.Write(ctx, &ghSecret.WriteArgs{
+	ghSecret.Create(ctx, &ghSecret.CreateOptions{
 		Key:        "VAULT_ROLE",
 		Value:      jwtRole.RoleName,
 		Repository: githubRepository,
 	})
-	ghSecret.Write(ctx, &ghSecret.WriteArgs{
+	ghSecret.Create(ctx, &ghSecret.CreateOptions{
 		Key:        "VAULT_PATH",
 		Value:      pulumi.String("github"),
 		Repository: githubRepository,

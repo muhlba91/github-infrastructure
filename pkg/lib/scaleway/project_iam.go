@@ -70,7 +70,7 @@ func createProjectIAM(ctx *pulumi.Context,
 			"project_id":      *scalewayConfig.Projects[*project.Name],
 		})
 
-		_, err := secret.Write(ctx, &secret.WriteArgs{
+		_, err := secret.Create(ctx, &secret.CreateOptions{
 			Path:  path,
 			Key:   "scaleway",
 			Value: pulumi.String(value),
@@ -159,7 +159,7 @@ func createApplication(
 ) (*scwmodel.Application, error) {
 	return application.CreateApplication(
 		ctx,
-		&application.CreateApplicationArgs{
+		&application.CreateOptions{
 			Name:             fmt.Sprintf("scw-iam-application-ci-%s-%s", *project.Repository, *project.Name),
 			DefaultProjectID: pulumi.String(*scalewayConfig.Projects[*project.Name]),
 			Description: pulumi.String(

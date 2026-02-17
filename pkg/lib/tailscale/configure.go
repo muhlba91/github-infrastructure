@@ -50,7 +50,7 @@ func Configure(
 					"oauth_client_id": id,
 					"oauth_secret":    key,
 				})
-				_, _ = vaultSecret.Write(ctx, &vaultSecret.WriteArgs{
+				_, _ = vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
 					Path:  path,
 					Key:   "tailscale",
 					Value: pulumi.String(value),

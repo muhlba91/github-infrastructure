@@ -50,7 +50,7 @@ func createHMACKey(ctx *pulumi.Context,
 			"secret_access_key": secretKey,
 		})
 
-		_, vErr := secret.Write(ctx, &secret.WriteArgs{
+		_, vErr := secret.Create(ctx, &secret.CreateOptions{
 			Path:  path,
 			Key:   "google-cloud-storage",
 			Value: pulumi.String(value),
