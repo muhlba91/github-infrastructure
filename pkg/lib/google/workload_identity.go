@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/iam"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // ConfigureWorkloadIdentityPools sets up Workload Identity Pools for the given Google Cloud projects.
@@ -36,6 +37,8 @@ func ConfigureWorkloadIdentityPools(ctx *pulumi.Context,
 			enabledServices[repositoryProject],
 		)
 		if oErr != nil {
+			log.Err(oErr).
+				Msgf("[google][workload-identity] error creating Workload Identity Pool for project: %s", repositoryProject)
 			return nil, oErr
 		}
 		workloadIdentities[repositoryProject] = oidc
@@ -63,6 +66,8 @@ func createProjectGitHubOidc(ctx *pulumi.Context,
 		},
 	)
 	if ppErr != nil {
+		log.Err(ppErr).
+			Msgf("[google][workload-identity] error creating random string for Workload Identity Pool postfix for project: %s", project)
 		return nil, ppErr
 	}
 	poolPostfix, _ := poolPostfixRes.Text.ApplyT(strings.ToLower).(pulumi.StringOutput)
@@ -76,6 +81,7 @@ func createProjectGitHubOidc(ctx *pulumi.Context,
 			Project:                pulumi.StringPtr(project),
 		}, pulumi.Provider(provider), pulumi.DependsOn(enabledServices))
 	if pErr != nil {
+		log.Err(pErr).Msgf("[google][workload-identity] error creating Workload Identity Pool for project: %s", project)
 		return nil, pErr
 	}
 
@@ -98,6 +104,8 @@ func createProjectGitHubOidc(ctx *pulumi.Context,
 			Project: pulumi.StringPtr(project),
 		}, pulumi.Provider(provider), pulumi.DependsOn([]pulumi.Resource{pool}))
 	if prErr != nil {
+		log.Err(prErr).
+			Msgf("[google][workload-identity] error creating Workload Identity Provider for project: %s", project)
 		return nil, prErr
 	}
 

@@ -9,6 +9,7 @@ import (
 	ghUtils "github.com/muhlba91/github-infrastructure/pkg/util/github"
 	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 
 	libRepo "github.com/muhlba91/pulumi-shared-library/pkg/lib/github/repository"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
@@ -31,6 +32,7 @@ func Create(
 	for _, repo := range repositories {
 		ghRepo, err := create(ctx, repo, repositoriesConfig)
 		if err != nil {
+			log.Err(err).Msgf("[github][repository] error creating GitHub repository: %s", repo.Name)
 			return nil, err
 		}
 		repos[repo.Name] = ghRepo
@@ -82,6 +84,8 @@ func create(
 		AllowRepositoryDeletion: manageLifecycle || !config.AllowRepositoryDeletion,
 	})
 	if err != nil {
+		log.Err(err).
+			Msgf("[github][repository] error creating GitHub repository resource for repository: %s", repository.Name)
 		return nil, err
 	}
 
@@ -89,6 +93,8 @@ func create(
 		repository.Rulesets.Branch.Enabled {
 		rsErr := createRuleset(ctx, fmt.Sprintf("branch-%s-%s", *owner, repository.Name), repository, repo)
 		if rsErr != nil {
+			log.Err(rsErr).
+				Msgf("[github][repository] error creating branch ruleset for repository: %s", repository.Name)
 			return nil, rsErr
 		}
 	}

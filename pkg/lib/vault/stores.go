@@ -46,7 +46,7 @@ func ConfigureStores(
 				},
 			})
 			if addErr != nil {
-				log.Err(addErr).Msgf("error creating vault store for additional mount: %s", path)
+				log.Err(addErr).Msgf("[vault][store] error creating vault store for additional mount: %s", path)
 				return nil
 			}
 		}
@@ -63,7 +63,7 @@ func ConfigureStores(
 				},
 			})
 			if stErr != nil {
-				log.Err(stErr).Msgf("error creating vault store for repository: %s", repository.Name)
+				log.Err(stErr).Msgf("[vault][store] error creating vault store for repository: %s", repository.Name)
 				return nil
 			}
 
@@ -76,7 +76,7 @@ func ConfigureStores(
 				vaultConfig,
 			)
 			if err != nil {
-				log.Err(err).Msgf("error creating vault authentication")
+				log.Err(err).Msgf("[vault][store] error creating vault authentication")
 				return nil
 			}
 

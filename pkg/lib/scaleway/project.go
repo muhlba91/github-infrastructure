@@ -6,6 +6,7 @@ import (
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	scw "github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway"
+	"github.com/rs/zerolog/log"
 )
 
 // configureProject sets up Scaleway project resources based on the provided configuration.
@@ -28,6 +29,7 @@ func configureProject(ctx *pulumi.Context,
 		provider,
 	)
 	if saErr != nil {
+		log.Err(saErr).Msgf("[scaleway][project] error configuring IAM for Scaleway project: %s", *project.Name)
 		return saErr
 	}
 

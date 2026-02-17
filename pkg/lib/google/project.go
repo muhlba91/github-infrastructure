@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // configureProject sets up Google Cloud project resources based on the provided configuration.
@@ -35,12 +36,15 @@ func configureProject(ctx *pulumi.Context,
 		provider,
 	)
 	if saErr != nil {
+		log.Err(saErr).Msgf("[google][project] error configuring IAM for Google Cloud project: %s", *project.Name)
 		return saErr
 	}
 
 	if defaults.GetOrDefault(gcpConfig.AllowHMACKeys, false) && defaults.GetOrDefault(project.HMACKey, false) {
 		hmacErr := createHMACKey(ctx, project, serviceAccount, vaultStore, provider)
 		if hmacErr != nil {
+			log.Err(hmacErr).
+				Msgf("[google][project] error creating HMAC key for service account in project: %s", *project.Name)
 			return hmacErr
 		}
 	}

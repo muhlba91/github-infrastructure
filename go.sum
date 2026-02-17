@@ -147,10 +147,8 @@ github.com/muesli/cancelreader v0.2.2 h1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELU
 github.com/muesli/cancelreader v0.2.2/go.mod h1:3XuTXfFS2VjM+HTLZY9Ak0l6eUKfijIfMUZ4EgX0QYo=
 github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc=
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260216151650-96b7bbbb6d87 h1:4aKYb3SWH8DNh3kbEcesm7kA7Cp1gOmCYeO6jVFdg/M=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260216151650-96b7bbbb6d87/go.mod h1:zTEmU0RxjOlfBS3RmpMqGac/w/QKT6cLpfBOEZeziSQ=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260217113726-d831223c4813 h1:KVLMjVkc7YR8+lztxWrnH+zD9vc0ArKgxDOz5/H3L2o=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260217113726-d831223c4813/go.mod h1:avRe3H3LmksqE1yspBXT2eBLYpJ8dQgoEH+MQ3z+Cs4=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260217162515-b8240c94e63a h1:zp4skboEg8PInoPDOpxkutlKP7vV4C9cZE7UwfIlNjw=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260217162515-b8240c94e63a/go.mod h1:avRe3H3LmksqE1yspBXT2eBLYpJ8dQgoEH+MQ3z+Cs4=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
@@ -180,6 +178,8 @@ github.com/pulumi/pulumi-gcp/sdk/v9 v9.11.0 h1:LT2cBMXC24JquXHC+alB9Z9woZYmqLbip
 github.com/pulumi/pulumi-gcp/sdk/v9 v9.11.0/go.mod h1:smEQ5m3WlWyiAT1Y/dJit9w/kQpecCrLocK+msMM9aM=
 github.com/pulumi/pulumi-github/sdk/v6 v6.12.1 h1:4f5F6//J6KRlHJfeRljS8ypaTX956Ys8yxiyXjRepT8=
 github.com/pulumi/pulumi-github/sdk/v6 v6.12.1/go.mod h1:Sxhf/sjqiLG/3AjgkLbI6UptVgUVnZ0nocln+X67ptg=
+github.com/pulumi/pulumi-gitlab/sdk/v9 v9.8.2 h1:3kkDvRp1q747VQ70fGdpfcxMuJn3J8liy+YjRCFrybs=
+github.com/pulumi/pulumi-gitlab/sdk/v9 v9.8.2/go.mod h1:DznX8XAcv9WKcPqPoTFWqumlPMirvmbbUruH+aufgoI=
 github.com/pulumi/pulumi-random/sdk/v4 v4.19.1 h1:MUr4+gUQy+wqhoHsuhXO6ypT40KhU9j/2DT05YU9KIg=
 github.com/pulumi/pulumi-random/sdk/v4 v4.19.1/go.mod h1:AJpJvPU3qJaq02VUui3rMZHchvVpTvVuVp0lbCeEE50=
 github.com/pulumi/pulumi-tailscale/sdk v0.26.0 h1:vVLU13QvIPaXFRT+DTJYdkqYotbOxEUlNZOuEhFFZk4=

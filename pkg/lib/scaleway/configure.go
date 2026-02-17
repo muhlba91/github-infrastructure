@@ -37,6 +37,8 @@ func Configure(ctx *pulumi.Context,
 			providers[*repositoryProject.Name],
 		)
 		if pErr != nil {
+			log.Err(pErr).
+				Msgf("[scaleway][configure] error configuring Scaleway project for repository: %s", *repositoryProject.Repository)
 			return nil, pErr
 		}
 

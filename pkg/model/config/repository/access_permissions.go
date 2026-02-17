@@ -2,6 +2,7 @@ package repository
 
 // AccessPermissionsConfig defines access permissions config.
 type AccessPermissionsConfig struct {
+	GitLab *GitLabAccessConfig `yaml:"gitlab,omitempty"`
 	// Tailscale indicates whether to enable Tailscale access.
 	Tailscale *bool `yaml:"tailscale,omitempty"`
 	// Vault defines the vault access permissions config.

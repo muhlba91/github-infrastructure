@@ -14,6 +14,7 @@ import (
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // createAccountIAM creates AWS IAM roles for Continuous Integration for the specified repository account.
@@ -45,6 +46,8 @@ func createAccountIAM(ctx *pulumi.Context,
 		},
 	)
 	if ciPfErr != nil {
+		log.Err(ciPfErr).
+			Msgf("[aws][iam] error creating random string for AWS IAM role postfix for repository: %s", *account.Repository)
 		return nil, ciPfErr
 	}
 
@@ -59,6 +62,7 @@ func createAccountIAM(ctx *pulumi.Context,
 		provider,
 	)
 	if rErr != nil {
+		log.Err(rErr).Msgf("[aws][iam] error creating AWS IAM role for repository: %s", *account.Repository)
 		return nil, rErr
 	}
 
@@ -103,6 +107,7 @@ func createRole(ctx *pulumi.Context,
 	ciPostfix pulumi.StringOutput,
 	provider *aws.Provider,
 ) (*iam.Role, error) {
+	//nolint:gosec // false positive, this is not a hardcoded secret but a condition for the OIDC token
 	roleDoc, _ := json.Marshal(map[string]any{
 		"Version": "2012-10-17",
 		"Statement": []map[string]any{
@@ -142,6 +147,7 @@ func createRole(ctx *pulumi.Context,
 		pulumi.Provider(provider),
 	)
 	if rErr != nil {
+		log.Err(rErr).Msgf("[aws][iam] error creating AWS IAM role for repository: %s", *account.Repository)
 		return nil, rErr
 	}
 
@@ -172,6 +178,7 @@ func createRole(ctx *pulumi.Context,
 		}),
 	)
 	if pErr != nil {
+		log.Err(pErr).Msgf("[aws][iam] error creating AWS IAM policy for repository: %s", *account.Repository)
 		return nil, pErr
 	}
 
@@ -191,6 +198,7 @@ func createRole(ctx *pulumi.Context,
 		}),
 	)
 	if paErr != nil {
+		log.Err(paErr).Msgf("[aws][iam] error attaching AWS IAM policy to role for repository: %s", *account.Repository)
 		return nil, paErr
 	}
 

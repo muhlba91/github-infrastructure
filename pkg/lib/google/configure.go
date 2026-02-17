@@ -33,6 +33,7 @@ func Configure(ctx *pulumi.Context,
 
 	enabledServices, enableErr := EnableProjectServices(ctx, googleRepositoryProjects, gcpConfig, providers)
 	if enableErr != nil {
+		log.Err(enableErr).Msg("[google][configure] error enabling Google Cloud services for repository projects")
 		return nil, enableErr
 	}
 
@@ -43,6 +44,8 @@ func Configure(ctx *pulumi.Context,
 		enabledServices,
 	)
 	if wiErr != nil {
+		log.Err(wiErr).
+			Msg("[google][configure] error configuring Google Cloud Workload Identity Pools for repository projects")
 		return nil, wiErr
 	}
 
@@ -58,6 +61,8 @@ func Configure(ctx *pulumi.Context,
 			providers[*repositoryProject.Name],
 		)
 		if pErr != nil {
+			log.Err(pErr).
+				Msgf("[google][configure] error configuring Google Cloud resources for repository project: %s", *repositoryProject.Name)
 			return nil, pErr
 		}
 

@@ -6,6 +6,7 @@ import (
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // configureAccount sets up AWS resources for a specific repository account.
@@ -33,6 +34,8 @@ func configureAccount(ctx *pulumi.Context,
 			provider,
 		)
 		if err != nil {
+			log.Err(err).
+				Msgf("[aws][account] error configuring AWS IAM for repository account: %s", *account.Repository)
 			return err
 		}
 

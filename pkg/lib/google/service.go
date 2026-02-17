@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/projects"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // EnableProjectServices enables the specified services for the given Google Cloud projects.
@@ -42,6 +43,7 @@ func EnableProjectServices(ctx *pulumi.Context,
 		services := slices.Collect(maps.Keys(svcsMap))
 		enabled, psErr := enableForProject(ctx, project, services, providers[project])
 		if psErr != nil {
+			log.Err(psErr).Msgf("[google][service] error enabling services for Google Cloud project: %s", project)
 			return nil, psErr
 		}
 		enabledServices[project] = enabled
@@ -70,6 +72,8 @@ func enableForProject(ctx *pulumi.Context,
 				Service: pulumi.String(service),
 			}, pulumi.Provider(provider))
 		if err != nil {
+			log.Err(err).
+				Msgf("[google][service] error enabling service %s for Google Cloud project: %s", service, project)
 			return nil, err
 		}
 		enabledServices = append(enabledServices, svc)

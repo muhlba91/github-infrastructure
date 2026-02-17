@@ -15,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	scw "github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway"
 	"github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway/iam"
+	"github.com/rs/zerolog/log"
 )
 
 // createProjectIAM creates IAM roles and service accounts for Continuous Integration in the specified Scaleway project.
@@ -41,6 +42,7 @@ func createProjectIAM(ctx *pulumi.Context,
 		provider,
 	)
 	if saErr != nil {
+		log.Err(saErr).Msgf("[scaleway][iam] error creating application for Scaleway project: %s", *project.Name)
 		return nil, saErr
 	}
 
@@ -53,6 +55,7 @@ func createProjectIAM(ctx *pulumi.Context,
 		provider,
 	)
 	if rErr != nil {
+		log.Err(rErr).Msgf("[scaleway][iam] error creating IAM policies for Scaleway project: %s", *project.Name)
 		return nil, rErr
 	}
 
@@ -139,6 +142,7 @@ func createCIPolicies(
 			},
 		)
 		if polErr != nil {
+			log.Err(polErr).Msgf("[scaleway][iam] error creating IAM policy for Scaleway project: %s", projName)
 			return polErr
 		}
 	}

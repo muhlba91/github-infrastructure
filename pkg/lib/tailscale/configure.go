@@ -11,6 +11,7 @@ import (
 	tsProvider "github.com/pulumi/pulumi-tailscale/sdk/go/tailscale"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // maxOauthDescriptionLength defines the maximum length for the Tailscale OAuth client description.
@@ -37,6 +38,8 @@ func Configure(
 			},
 		)
 		if oErr != nil {
+			log.Err(oErr).
+				Msgf("[tailscale][configure] error creating Tailscale OAuth client for repository: %s", *repository)
 			return nil, oErr
 		}
 

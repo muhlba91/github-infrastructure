@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // ConfigureIdentityProviders sets up identity providers for AWS accounts associated with the repositories.
@@ -33,6 +34,8 @@ func ConfigureIdentityProviders(ctx *pulumi.Context,
 			providers[repositoryAccount],
 		)
 		if oErr != nil {
+			log.Err(oErr).
+				Msgf("[aws][identity-provider] error creating AWS IAM Identity Provider for account: %s", repositoryAccount)
 			return nil, oErr
 		}
 		identityArns[repositoryAccount] = oidc
@@ -66,6 +69,7 @@ func createAccountGitHubOidc(ctx *pulumi.Context,
 		pulumi.Provider(provider),
 	)
 	if err != nil {
+		log.Err(err).Msgf("[aws][identity-provider] error creating AWS IAM Identity Provider for account: %s", account)
 		return nil, err
 	}
 

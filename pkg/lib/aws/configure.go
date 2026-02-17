@@ -36,6 +36,7 @@ func Configure(ctx *pulumi.Context,
 		providers,
 	)
 	if ipErr != nil {
+		log.Err(ipErr).Msg("[aws][configure] error configuring AWS IAM Identity Providers")
 		return nil, ipErr
 	}
 

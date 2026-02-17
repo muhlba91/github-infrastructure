@@ -53,6 +53,9 @@ rulesets:
 # optional cloud access permissions to setup
 # if using Vault, a GitHub Actions secret is created with the Vault role name for JWT authentication
 accessPermissions:
+  gitlab:
+    group: '' # the GitLab group ID or full path to create the access token for
+    scopes: [] # list of GitLab scopes to create an access token with
   vault:
     enabled: true # creates Vault secrets
     address: '' # the Vault address (optional)

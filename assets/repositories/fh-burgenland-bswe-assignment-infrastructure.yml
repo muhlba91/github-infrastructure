@@ -22,6 +22,10 @@ rulesets:
 accessPermissions:
   vault:
     enabled: true
+  gitlab:
+    group: hochschule-burgenland-bswe
+    scopes:
+      - api
   aws:
     region: eu-west-1
     account: "061039787254"

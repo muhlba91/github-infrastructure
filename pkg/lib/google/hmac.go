@@ -12,6 +12,7 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/storage"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // createHMACKey creates an HMAC key for the specified Google Cloud project and stores it in Vault.
@@ -37,6 +38,7 @@ func createHMACKey(ctx *pulumi.Context,
 		pulumi.DependsOn([]pulumi.Resource{serviceAccount}),
 	)
 	if err != nil {
+		log.Err(err).Msgf("[google][hmac] error creating HMAC key for Google Cloud project: %s", *project.Name)
 		return err
 	}
 

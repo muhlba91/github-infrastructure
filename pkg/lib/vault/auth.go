@@ -16,6 +16,7 @@ import (
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault/jwt"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // defaultTokenTTL is the default time-to-live for Vault tokens issued to GitHub repositories.
@@ -38,6 +39,7 @@ func createAuth(
 ) (*jwt.AuthBackendRole, error) {
 	perr := createPolicy(ctx, repository)
 	if perr != nil {
+		log.Err(perr).Msgf("[vault][auth] error creating Vault policy for repository: %s", repository.Name)
 		return nil, perr
 	}
 
@@ -68,6 +70,8 @@ func createAuth(
 		pulumi.Provider(config.VaultProvider),
 	)
 	if abrErr != nil {
+		log.Err(abrErr).
+			Msgf("[vault][auth] error creating Vault JWT auth backend role for repository: %s", repository.Name)
 		return nil, abrErr
 	}
 
@@ -100,6 +104,7 @@ func createPolicy(ctx *pulumi.Context, repository *repository.Config) error {
 		"additionalPaths": additionalPaths,
 	})
 	if prError != nil {
+		log.Err(prError).Msgf("[vault][auth] error rendering Vault policy template for repository: %s", repository.Name)
 		return prError
 	}
 
@@ -108,6 +113,7 @@ func createPolicy(ctx *pulumi.Context, repository *repository.Config) error {
 		Policy: pulumi.String(policy),
 	}, pulumi.Provider(config.VaultProvider))
 	if polErr != nil {
+		log.Err(polErr).Msgf("[vault][auth] error creating Vault policy for repository: %s", repository.Name)
 		return polErr
 	}
 

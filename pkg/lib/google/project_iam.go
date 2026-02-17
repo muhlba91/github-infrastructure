@@ -15,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/serviceaccount"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // createProjectIAM creates IAM roles and service accounts for Continuous Integration in the specified Google Cloud project.
@@ -42,6 +43,8 @@ func createProjectIAM(ctx *pulumi.Context,
 		},
 	)
 	if ciPfErr != nil {
+		log.Err(ciPfErr).
+			Msgf("[google][iam] error creating random string for Google Cloud IAM role postfix for project: %s", *project.Name)
 		return nil, ciPfErr
 	}
 	ciPostfix, _ := ciPostfixRes.Text.ApplyT(strings.ToLower).(pulumi.StringOutput)
@@ -53,6 +56,7 @@ func createProjectIAM(ctx *pulumi.Context,
 
 	ciRoles, rErr := createCIRoles(ctx, project, &gcpProjects, &truncatedRepository, ciPostfix, provider)
 	if rErr != nil {
+		log.Err(rErr).Msgf("[google][iam] error creating Google Cloud IAM roles for project: %s", *project.Name)
 		return nil, rErr
 	}
 
@@ -68,6 +72,8 @@ func createProjectIAM(ctx *pulumi.Context,
 		provider,
 	)
 	if saErr != nil {
+		log.Err(saErr).
+			Msgf("[google][iam] error creating Google Cloud IAM service account for project: %s", *project.Name)
 		return nil, saErr
 	}
 
@@ -140,6 +146,7 @@ func createCIRoles(
 			pulumi.Provider(provider),
 		)
 		if roleErr != nil {
+			log.Err(roleErr).Msgf("[google][iam] error creating Google Cloud IAM role for project: %s", projName)
 			return nil, roleErr
 		}
 
@@ -187,6 +194,8 @@ func createServiceAccount(
 		pulumi.Provider(provider),
 	)
 	if saErr != nil {
+		log.Err(saErr).
+			Msgf("[google][iam] error creating Google Cloud IAM service account for project: %s", *project.Name)
 		return nil, saErr
 	}
 
@@ -206,6 +215,7 @@ func createServiceAccount(
 			}),
 		)
 		if mbrErr != nil {
+			log.Err(mbrErr).Msgf("[google][iam] error assigning IAM role to service account for project: %s", projName)
 			return nil, mbrErr
 		}
 	}
@@ -232,6 +242,8 @@ func createServiceAccount(
 		}),
 	)
 	if bindErr != nil {
+		log.Err(bindErr).
+			Msgf("[google][iam] error creating IAM binding for service account in project: %s", *project.Name)
 		return nil, bindErr
 	}
 

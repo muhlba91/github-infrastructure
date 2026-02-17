@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+	"github.com/rs/zerolog/log"
 
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/google"
@@ -81,6 +82,7 @@ func LoadConfig(
 		nil,
 	)
 	if sErr != nil {
+		log.Err(sErr).Msg("[config] error referencing core infrastructure stack for vault configuration")
 		return nil, nil, nil, nil, nil, nil, sErr
 	}
 	cStackVault := coreStack.GetOutput(pulumi.String("vault"))
@@ -102,6 +104,7 @@ func LoadConfig(
 
 	repos, rErr := util.ParseRepositoriesFromFiles("./assets/repositories")
 	if rErr != nil {
+		log.Err(rErr).Msg("[config] error parsing repository configurations from files")
 		return nil, nil, nil, nil, nil, nil, rErr
 	}
 

@@ -8,6 +8,7 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/lib/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	ghRepos "github.com/muhlba91/github-infrastructure/pkg/lib/github/repositories"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/gitlab"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/google"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/scaleway"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/tailscale"
@@ -26,11 +27,13 @@ func main() {
 			return err
 		}
 
+		// repositories
 		githubRepositories, ghErr := ghRepos.Create(ctx, repos, repositoriesConfig)
 		if ghErr != nil {
 			return ghErr
 		}
 
+		// vault stores
 		vaultStores := vault.ConfigureStores(ctx, repos, githubRepositories, repositoriesConfig, vaultConfig)
 		vaultStores.ApplyT(func(stores any) error {
 			if stores == nil {
@@ -39,11 +42,19 @@ func main() {
 			return nil
 		})
 
+		// gitlab access
+		gitlabs := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) []string {
+			gl, _ := gitlab.Configure(ctx, repos, stores)
+			return gl
+		})
+
+		// tailscale access
 		tailscales := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) []*string {
 			ts, _ := tailscale.Configure(ctx, repos, stores)
 			return ts
 		})
 
+		// google cloud
 		googleAllowedProjects := gcpConfig.Projects
 		slices.Sort(googleAllowedProjects)
 		googleProjects := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
@@ -51,6 +62,7 @@ func main() {
 			return projects
 		})
 
+		// aws accounts
 		awsAllowedAccounts := slices.Collect(maps.Keys(awsConfig.Account))
 		slices.Sort(awsAllowedAccounts)
 		awsAccounts := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
@@ -58,6 +70,7 @@ func main() {
 			return accounts
 		})
 
+		// scaleway projects
 		scalewayAllowedProjects := slices.Collect(maps.Keys(scalewayConfig.Projects))
 		slices.Sort(scalewayAllowedProjects)
 		scalewayProjects := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
@@ -65,6 +78,13 @@ func main() {
 			return projects
 		})
 
+		// outputs
+		ctx.Export("gitlab", pulumi.ToMap(map[string]any{
+			"tokens": gitlabs,
+		}))
+		ctx.Export("tailscale", pulumi.ToMap(map[string]any{
+			"clients": tailscales,
+		}))
 		ctx.Export("google", pulumi.ToMap(map[string]any{
 			"allowed":    googleAllowedProjects,
 			"configured": googleProjects,
@@ -76,9 +96,6 @@ func main() {
 		ctx.Export("aws", pulumi.ToMap(map[string]any{
 			"allowed":    awsAllowedAccounts,
 			"configured": awsAccounts,
-		}))
-		ctx.Export("tailscale", pulumi.ToMap(map[string]any{
-			"clients": tailscales,
 		}))
 		ctx.Export("vault", pulumi.ToMap(map[string]any{
 			"projects": vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) []string {
@@ -98,6 +115,9 @@ func exportRepositories(ctx *pulumi.Context, repos []*repository.Config) {
 	repositories := make(map[string]map[string]any)
 	for _, repo := range repos {
 		repositories[repo.Name] = make(map[string]any)
+		repositories[repo.Name]["gitlab"] = repo.AccessPermissions != nil &&
+			repo.AccessPermissions.GitLab != nil &&
+			len(repo.AccessPermissions.GitLab.Scopes) > 0
 		repositories[repo.Name]["google"] = repo.AccessPermissions != nil &&
 			repo.AccessPermissions.Google != nil &&
 			repo.AccessPermissions.Google.Project != nil
