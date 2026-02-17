@@ -158,3 +158,4 @@ jobs:
           SCW_PROJECT_ID: "${{ secrets.SCW_PROJECT_ID }}"
           SCW_DEFAULT_REGION: "${{ secrets.SCW_DEFAULT_REGION }}"
           SCW_DEFAULT_ZONE: "${{ secrets.SCW_DEFAULT_ZONE }}"
+          GITLAB_TOKEN: "${{ secrets.GITLAB_TOKEN }}"
