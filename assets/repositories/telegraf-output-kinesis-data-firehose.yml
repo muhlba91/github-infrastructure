@@ -14,7 +14,7 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Build Plugin (1.25.x)
-      - Lint Plugin (1.25.x, v2.6.2)
+      - Lint Plugin (1.25.x)
       - Run Tests (1.25.x)
 
 accessPermissions:

@@ -147,8 +147,6 @@ github.com/muesli/cancelreader v0.2.2 h1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELU
 github.com/muesli/cancelreader v0.2.2/go.mod h1:3XuTXfFS2VjM+HTLZY9Ak0l6eUKfijIfMUZ4EgX0QYo=
 github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc=
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260216145605-dffa65f09af1 h1:n8DwyusPJo6j1HO3i/CdfblUIbgN6j6Rf2KnvvVXCQY=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20260216145605-dffa65f09af1/go.mod h1:zTEmU0RxjOlfBS3RmpMqGac/w/QKT6cLpfBOEZeziSQ=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260216151650-96b7bbbb6d87 h1:4aKYb3SWH8DNh3kbEcesm7kA7Cp1gOmCYeO6jVFdg/M=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260216151650-96b7bbbb6d87/go.mod h1:zTEmU0RxjOlfBS3RmpMqGac/w/QKT6cLpfBOEZeziSQ=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
