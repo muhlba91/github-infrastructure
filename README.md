@@ -37,12 +37,24 @@ pulumi destroy
 
 To successfully run, and configure the Pulumi plugins, you need to set a list of environment variables. Alternatively, refer to the used Pulumi provider's configuration documentation.
 
+- `ALLOW_REPOSITORY_DELETION`: set to `true` to allow repository deletion
+- `IGNORE_UNMANAGED_REPOSITORIES`: set to `true` to skip repositories not defined in `assets/repositories/`
 - `AWS_REGION`: the AWS region to use
 - `AWS_ACCESS_KEY_ID`: the AWS secret key
 - `AWS_SECRET_ACCESS_KEY`: the AWS secret access key
-- `CLOUDSDK_COMPUTE_REGION` the Google Cloud (GCP) region
+- `CLOUDSDK_COMPUTE_REGION`: the Google Cloud (GCP) region
 - `GOOGLE_APPLICATION_CREDENTIALS`: reference to a file containing the Google Cloud (GCP) service account credentials
+- `SCW_ACCESS_KEY`: the Scaleway access key
+- `SCW_SECRET_KEY`: the Scaleway secret key
+- `SCW_ORGANIZATION_ID`: the Scaleway organization ID
+- `SCW_PROJECT_ID`: the Scaleway project ID
+- `SCW_DEFAULT_REGION`: the Scaleway default region
+- `SCW_DEFAULT_ZONE`: the Scaleway default zone
 - `GITHUB_TOKEN`: the GitHub token with permissions to manage repositories
+- `GITLAB_TOKEN`: the GitLab token with permissions to manage access
+- `PULUMI_ACCESS_TOKEN`: the Pulumi access token
+- `OAUTH_CLIENT_ID`: Tailscale OAuth client ID
+- `OAUTH_CLIENT_SECRET`: Tailscale OAuth client secret
 
 ---
 
@@ -86,6 +98,18 @@ repositories:
   subscription: the subscription type of the user/organization (e.g. "none")
 ```
 
+### Scaleway
+
+Scaleway configuration is based on each allowed project.
+
+```yaml
+scaleway:
+  defaultRegion: the default region for every project
+  defaultZone: the default zone for every project
+  organizationID: the Scaleway organization ID
+  projects: a map containing all allowed project identifiers
+```
+
 ### Vault
 
 Vault connection configuration. The token will be retrieved from the corresponding stack's output.
@@ -95,6 +119,7 @@ Attention: Vault will only be used if a connection configuration can be created.
 ```yaml
 vault:
   address: the URL to the Vault instance
+  enabled: whether Vault integration is enabled
 ```
 
 #### Repository YAML
