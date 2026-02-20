@@ -17,7 +17,6 @@ rulesets:
       - Lint (1.25.x)
       - Unit Tests (1.25.x)
       - Pulumi Preview (1.25.x, dev)
-      - Pulumi Preview (1.25.x, ws2025)
 
 accessPermissions:
   vault:
