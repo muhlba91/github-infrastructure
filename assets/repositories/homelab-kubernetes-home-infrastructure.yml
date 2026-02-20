@@ -13,11 +13,11 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - YAMLLint
+      - YAML Lint
       - Lint (1.25.x)
       - Unit Tests (1.25.x)
       - Pulumi Preview (1.25.x, vie)
-      - Pulumi Preview (1.25.x, muc)
+      # - Pulumi Preview (1.25.x, muc)
 
 accessPermissions:
   vault:
