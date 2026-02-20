@@ -23,7 +23,7 @@ accessPermissions:
   vault:
     enabled: true
   gitlab:
-    group: hochschule-burgenland-bswe
+    group: hochschule-burgenland-bswe/swm2
     scopes:
       - api
   aws:
