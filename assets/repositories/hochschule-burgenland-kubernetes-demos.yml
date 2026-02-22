@@ -1,6 +1,6 @@
 ---
-name: fh-burgenland-bswe-kubernetes-demos
-description: "Hochschule Burgenland - BSWE: Kubernetes Demos"
+name: hochschule-burgenland-kubernetes-demos
+description: "Hochschule Burgenland: Kubernetes Demos"
 visibility: public
 protected: true
 topics:
