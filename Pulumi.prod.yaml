@@ -46,3 +46,5 @@ config:
     projects:
       tuxnet: b47e1b1d-8201-4e51-9ce0-9d39678751a6
       public-services: d3291e99-319b-43db-9703-b67dc3e10cbb
+      cv-cus-00001: 2a09a88c-6e1b-4229-b5a7-c5d9483a90cc
+      dns-management: bc87ca3f-e096-46cc-b849-fef5cb361511

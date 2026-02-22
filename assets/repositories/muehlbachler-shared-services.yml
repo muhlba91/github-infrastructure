@@ -39,3 +39,11 @@ accessPermissions:
     linkedProjects:
       muehlbachler-dns:
         accessLevel: default
+  scaleway:
+    project: public-services
+    iamPermissions:
+      - RelationalDatabasesFullAccess
+    linkedProjects:
+      dns-management:
+        iamPermissions:
+          - DomainsDNSFullAccess

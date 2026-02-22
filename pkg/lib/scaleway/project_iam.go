@@ -3,6 +3,7 @@ package scaleway
 import (
 	"encoding/json"
 	"fmt"
+	"slices"
 
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	scalewayConf "github.com/muhlba91/github-infrastructure/pkg/model/config/scaleway"
@@ -34,6 +35,7 @@ func createProjectIAM(ctx *pulumi.Context,
 	for linkedProject := range project.LinkedProjects {
 		scalewayProjects = append(scalewayProjects, linkedProject)
 	}
+	slices.Sort(scalewayProjects)
 
 	application, saErr := createApplication(
 		ctx,
@@ -46,7 +48,7 @@ func createProjectIAM(ctx *pulumi.Context,
 		return nil, saErr
 	}
 
-	rErr := createCIPolicies(
+	rErr := createCIPolicy(
 		ctx,
 		project,
 		application.Application.ID().ToStringOutput(),
@@ -87,14 +89,14 @@ func createProjectIAM(ctx *pulumi.Context,
 	return application, nil
 }
 
-// createCIPolicies creates custom IAM policies for Continuous Integration in the specified Scaleway projects.
+// createCIPolicy creates a custom IAM policy for Continuous Integration in the specified Scaleway projects.
 // ctx: Pulumi context for resource management.
 // project: The repository project configuration.
-// applicationId: The ID of the application for which the policies are being created.
+// applicationId: The ID of the application for which the policy is being created.
 // scalewayProjects: List of Scaleway project IDs to create policies in.
 // scalewayConfig: Scaleway configuration details.
 // provider: Scaleway provider configured for the specific project.
-func createCIPolicies(
+func createCIPolicy(
 	ctx *pulumi.Context,
 	project *scalewayModel.RepositoryProject,
 	applicationID pulumi.StringOutput,
@@ -102,6 +104,13 @@ func createCIPolicies(
 	scalewayConfig *scalewayConf.Config,
 	provider *scw.Provider,
 ) error {
+	rules := []iam.PolicyRuleInput{
+		&iam.PolicyRuleArgs{
+			OrganizationId:     pulumi.String(*project.OrganizationID),
+			PermissionSetNames: pulumi.ToStringArray(defaultOrganizationPermissions),
+		},
+	}
+
 	for _, projName := range *scalewayProjects {
 		var permissions []string
 		linkedProj, ok := project.LinkedProjects[projName]
@@ -112,39 +121,34 @@ func createCIPolicies(
 			permissions = append(permissions, defaultProjectPermissions...)
 		}
 
-		name := fmt.Sprintf("ci-%s-%s", *project.Repository, projName)
-		_, polErr := policy.Create(
-			ctx,
-			name,
-			&policy.CreateOptions{
-				Name: pulumi.Sprintf("scw-iam-policy-%s", name),
-				Description: pulumi.Sprintf(
-					"Continuous Integration policy for the GitHub repository: %s in project: %s",
-					*project.Repository,
-					projName,
-				),
-				Rules: []iam.PolicyRuleInput{
-					&iam.PolicyRuleArgs{
-						OrganizationId:     pulumi.String(*project.OrganizationID),
-						PermissionSetNames: pulumi.ToStringArray(defaultOrganizationPermissions),
-					},
-					&iam.PolicyRuleArgs{
-						ProjectIds: pulumi.StringArray{
-							pulumi.String(*scalewayConfig.Projects[projName]),
-						},
-						PermissionSetNames: pulumi.ToStringArray(permissions),
-					},
-				},
-				ApplicationID: applicationID,
-				PulumiOptions: []pulumi.ResourceOption{
-					pulumi.Provider(provider),
-				},
+		rules = append(rules, &iam.PolicyRuleArgs{
+			ProjectIds: pulumi.StringArray{
+				pulumi.String(*scalewayConfig.Projects[projName]),
 			},
-		)
-		if polErr != nil {
-			log.Err(polErr).Msgf("[scaleway][iam] error creating IAM policy for Scaleway project: %s", projName)
-			return polErr
-		}
+			PermissionSetNames: pulumi.ToStringArray(permissions),
+		})
+	}
+
+	name := fmt.Sprintf("ci-%s", *project.Repository)
+	_, polErr := policy.Create(
+		ctx,
+		name,
+		&policy.CreateOptions{
+			Name: pulumi.Sprintf("scw-iam-policy-%s", name),
+			Description: pulumi.Sprintf(
+				"Continuous Integration policy for the GitHub repository: %s",
+				*project.Repository,
+			),
+			Rules:         rules,
+			ApplicationID: applicationID,
+			PulumiOptions: []pulumi.ResourceOption{
+				pulumi.Provider(provider),
+			},
+		},
+	)
+	if polErr != nil {
+		log.Err(polErr).Msgf("[scaleway][iam] error creating IAM policy for repository: %s", *project.Repository)
+		return polErr
 	}
 
 	return nil
@@ -161,10 +165,15 @@ func createApplication(
 	scalewayConfig *scalewayConf.Config,
 	provider *scw.Provider,
 ) (*scwmodel.Application, error) {
+	name := fmt.Sprintf("ci-%s-%s", *project.Repository, *project.Name)
+	if len(name) > maxApplicationNameLength {
+		name = name[:maxApplicationNameLength]
+	}
+
 	return application.CreateApplication(
 		ctx,
 		&application.CreateOptions{
-			Name:             fmt.Sprintf("scw-iam-application-ci-%s-%s", *project.Repository, *project.Name),
+			Name:             name,
 			DefaultProjectID: pulumi.String(*scalewayConfig.Projects[*project.Name]),
 			Description: pulumi.String(
 				fmt.Sprintf(
@@ -175,6 +184,7 @@ func createApplication(
 			PulumiOptions: []pulumi.ResourceOption{
 				pulumi.Provider(provider),
 			},
+			Labels: append(commonLabels(), fmt.Sprintf("repository=%s", *project.Repository)),
 		},
 	)
 }

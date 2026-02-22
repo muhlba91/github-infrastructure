@@ -23,3 +23,5 @@ accessPermissions:
     region: europe-west4
     project: tuxnet-385112
     hmacKey: true
+  scaleway:
+    project: tuxnet

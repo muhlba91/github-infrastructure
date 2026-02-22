@@ -46,3 +46,9 @@ accessPermissions:
     linkedProjects:
       muehlbachler-dns:
         accessLevel: default
+  scaleway:
+    project: tuxnet
+    linkedProjects:
+      dns-management:
+        iamPermissions:
+          - DomainsDNSFullAccess

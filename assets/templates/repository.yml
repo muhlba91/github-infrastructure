@@ -8,7 +8,7 @@ manageLifecycle: true # whether to manage the repository's entire lifecycle, or 
 visibility: public
 protected: false # protection ensures this repository cannot be deleted; if it were, it will be archived
 topics: []
-homepage: ''
+homepage: ""
 
 # optional repository features
 enableDiscussions: false
@@ -54,20 +54,20 @@ rulesets:
 # if using Vault, a GitHub Actions secret is created with the Vault role name for JWT authentication
 accessPermissions:
   gitlab:
-    group: '' # the GitLab group ID or full path to create the access token for
+    group: "" # the GitLab group ID or full path to create the access token for
     scopes: [] # list of GitLab scopes to create an access token with
   vault:
     enabled: true # creates Vault secrets
-    address: '' # the Vault address (optional)
+    address: "" # the Vault address (optional)
     additionalMounts: # list of additional mounts to provide access to
-      - path: '' # the path to the secret mount
+      - path: "" # the path to the secret mount
         permissions: # list of additional permissions for the secret mount
           - read
           - list
   tailscale: true # sets the Tailscale OAuth secrets
   google:
     region: europe-west4 # if not set, google.defaultRegion is used
-    project: '' # the default project
+    project: "" # the default project
     hmacKey: false # create Cloud Storage HMAC keys in the default project
     linkedProjects: # a map of linked project ids with the access configuration
       project-id:
@@ -80,10 +80,10 @@ accessPermissions:
     account: 0 # the default account id
     iamPermissions: [] # list of additional permission for the service account; pkg/lib/aws/defaults/defaultPermissions are the default permissions
   scaleway:
-    organizationId: '' # if not set, scaleway.organizationId is used
+    organizationId: "" # if not set, scaleway.organizationId is used
     region: fr-par # if not set, scaleway.defaultRegion is used
     zone: fr-par-1 # if not set, scaleway.defaultZone is used
-    project: '' # the default project name
+    project: "" # the default project name
     linkedProjects: # a map of linked project ids with the access configuration
       project-name:
         accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set

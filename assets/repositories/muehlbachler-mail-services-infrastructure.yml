@@ -54,3 +54,9 @@ accessPermissions:
           - dns.changes.list
       root-muehlbachler:
         accessLevel: default
+  scaleway:
+    project: public-services
+    linkedProjects:
+      dns-management:
+        iamPermissions:
+          - DomainsDNSFullAccess

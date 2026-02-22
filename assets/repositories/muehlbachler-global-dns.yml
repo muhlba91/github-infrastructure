@@ -35,3 +35,7 @@ accessPermissions:
       - dns.changes.create
       - dns.changes.get
       - dns.changes.list
+  scaleway:
+    project: dns-management
+    iamPermissions:
+      - DomainsDNSFullAccess

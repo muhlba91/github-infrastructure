@@ -39,3 +39,10 @@ accessPermissions:
       - dns.changes.create
       - dns.changes.get
       - dns.changes.list
+  scaleway:
+    project: dns-management
+    iamPermissions:
+      - DomainsDNSFullAccess
+    linkedProjects:
+      cv-cus-00001:
+        accessLevel: full
