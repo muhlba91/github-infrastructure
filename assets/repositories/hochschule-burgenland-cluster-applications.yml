@@ -1,6 +1,6 @@
 ---
-name: fh-burgenland-bswe-cluster-applications
-description: "Hochschule Burgenland - BSWE: Demo applications running on the Kubernetes cluster"
+name: hochschule-burgenland-cluster-applications
+description: "Hochschule Burgenland - Demo applications on the Kubernetes cluster"
 visibility: public
 protected: true
 topics:
