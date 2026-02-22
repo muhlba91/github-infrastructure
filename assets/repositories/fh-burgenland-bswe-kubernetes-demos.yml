@@ -14,7 +14,8 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint
+      - Lint YAML
+      - Lint Terraform
 
 accessPermissions:
   vault:
