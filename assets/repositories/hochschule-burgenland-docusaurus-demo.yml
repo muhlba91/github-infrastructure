@@ -1,6 +1,6 @@
 ---
-name: fh-burgenland-bswe-docusaurus
-description: "Hochschule Burgenland - BSWE: Docusaurus demo"
+name: hochschule-burgenland-docusaurus-demo
+description: "Hochschule Burgenland - Docusaurus Demo"
 visibility: public
 protected: true
 topics:

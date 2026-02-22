@@ -1,5 +1,5 @@
 ---
-name: fh-burgenland-bswe-ws2024-2at-backend
+name: hochschule-burgenland-bswe-ws2024-2at-backend
 description: "Hochschule Burgenland - BSWE - WS2024 - 2nd Attempt - Weather App - Backend"
 visibility: public
 protected: true

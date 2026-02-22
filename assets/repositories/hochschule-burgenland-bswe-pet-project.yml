@@ -1,11 +1,11 @@
 ---
-name: fh-burgenland-bswe
-description: "FH Burgenland - BSWE: Pet Project"
+name: hochschule-burgenland-bswe-pet-project
+description: "Hochschule Burgenland - BSWE: Pet Project"
 visibility: public
 protected: true
 topics:
   - pet-project
-  - fh-burgenland
+  - hochschule-burgenland
 
 rulesets:
   branch:
