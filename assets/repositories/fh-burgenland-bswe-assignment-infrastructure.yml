@@ -14,9 +14,9 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - YAMLLint
-      - Lint (1.25.x)
-      - Unit Tests (1.25.x)
-      - Pulumi Preview (1.25.x, dev)
+      - Lint (1.26.x)
+      - Unit Tests (1.26.x)
+      - Pulumi Preview (1.26.x, dev)
 
 accessPermissions:
   vault:

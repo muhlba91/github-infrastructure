@@ -14,10 +14,10 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint Provider (1.25.x)
-      - Unit Tests (1.25.x)
+      - Lint Provider (1.26.x)
+      - Unit Tests (1.26.x)
       - Lint Dockerfile
-      - Build Provider and Container (1.25.x)
+      - Build Provider and Container (1.26.x)
 
 accessPermissions:
   vault:
