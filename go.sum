@@ -45,6 +45,8 @@ github.com/clipperhouse/uax29/v2 v2.3.0 h1:SNdx9DVUqMoBuBoW3iLOj4FQv3dN5mDtuqwuh
 github.com/clipperhouse/uax29/v2 v2.3.0/go.mod h1:Wn1g7MK6OoeDT0vL+Q0SQLDz/KpfsVRgg6W7ihQeh4g=
 github.com/cloudflare/circl v1.6.1 h1:zqIqSPIndyBh1bjLVVDHMPpVKqp8Su/V+6MeDzzQBQ0=
 github.com/cloudflare/circl v1.6.1/go.mod h1:uddAzsPgqdMAYatqJ0lsjX1oECcQLIlRpzZh3pJrofs=
+github.com/cloudflare/circl v1.6.3 h1:9GPOhQGF9MCYUeXyMYlqTR6a5gTrgR/fBLXvUgtVcg8=
+github.com/cloudflare/circl v1.6.3/go.mod h1:2eXP6Qfat4O/Yhh8BznvKnJ+uzEoTQ6jVKJRn81BiS4=
 github.com/coreos/go-systemd/v22 v22.5.0/go.mod h1:Y58oyj3AT4RCenI/lSvhwexgC+NSVTIJ3seZv2GcEnc=
 github.com/cpuguy83/go-md2man/v2 v2.0.6/go.mod h1:oOW0eioCTA6cOiMLiUPZOpcVxMig6NIQQ7OS05n1F4g=
 github.com/cyphar/filepath-securejoin v0.6.1 h1:5CeZ1jPXEiYt3+Z6zqprSAgSWiggmpVyciv8syjIpVE=
@@ -159,6 +161,8 @@ github.com/muhlba91/pulumi-shared-library v0.0.0-20260225070542-675fde235d59 h1:
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260225070542-675fde235d59/go.mod h1:9PiX8UqTSPn+r499U9nmlhS3A71RoJPcQqQu94Q+M4Y=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260225164717-f2afb30d337b h1:PxuzatQ/uLn6wYnqVjuinaKjKMRhfta4mmdMmuSek+I=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260225164717-f2afb30d337b/go.mod h1:bZQbMAdTBlhArVFugdK5VPQb0g/QdULWWZ9hLv4Cb+Y=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260226070051-9f1204d9140f h1:v1TsImXBJYKVcNajcXzsoHkLayWK8+9vmjgDQctqwO4=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260226070051-9f1204d9140f/go.mod h1:lfSePbLiyrH4M6ySutLKbi1AeDNRNCQS/hISqa0tuos=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
