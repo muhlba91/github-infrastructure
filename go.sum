@@ -197,6 +197,8 @@ github.com/muhlba91/pulumi-shared-library v0.0.0-20260304151817-f6c391692f6c h1:
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260304151817-f6c391692f6c/go.mod h1:oFLkMDBQKxLIVNWWWRdtLtUHvgALVNgr2mnhqyUZQLc=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260305011746-ca35125ffa27 h1:BWE0qqd4nB5M8RivWRsqdOxFRLKtZmvEUyldxf4m2h0=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260305011746-ca35125ffa27/go.mod h1:Cfm+k5A0XlWcUqReP45i8W7NlznP+ABYrm4zjni+jos=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260305082242-d17f547926b8 h1:VQIiA0q70BJeRNuVJ62pgjafo6KxDTJo91lBNAjB30s=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260305082242-d17f547926b8/go.mod h1:3BTRojn+kFldANz/rXvX8zgEusrPivJ3hHno6z5KbxA=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
@@ -240,6 +242,8 @@ github.com/pulumi/pulumi-vault/sdk/v7 v7.7.0 h1:mis+wkmtZyeQ7uGgQb4cKLoscHc+/Bf2
 github.com/pulumi/pulumi-vault/sdk/v7 v7.7.0/go.mod h1:rYsw/ERi7gTdB8vQcLViEc66jTdglNOWmF7/mlAmfdM=
 github.com/pulumi/pulumi/sdk/v3 v3.224.0 h1:z/4vxGI2oO9IY6Jr5pJ5rCCfaF0D9CDMyf71vTvLots=
 github.com/pulumi/pulumi/sdk/v3 v3.224.0/go.mod h1:O6FsKAEKCj3axqPQ6DyMUn/07pN1I2vq9wI1WFEuxnI=
+github.com/pulumi/pulumi/sdk/v3 v3.225.0 h1:I6UJRZmySxVVtJ7fCDE4A6BaHPIy+dzKknSAPNOF+80=
+github.com/pulumi/pulumi/sdk/v3 v3.225.0/go.mod h1:kiwkjulVm9ibqTOcyrZYhaRZsDSxWpzIKPXtCFeffBE=
 github.com/pulumiverse/pulumi-scaleway/sdk v1.43.0 h1:N5b1IBItbLputXjPcWkMrYK74c8lET0c00uJ/asFnDg=
 github.com/pulumiverse/pulumi-scaleway/sdk v1.43.0/go.mod h1:WbizC3eshM1KzuDlTxytK3vRsw6RFOvmnJdayYC3IfI=
 github.com/pulumiverse/pulumi-scaleway/sdk v1.44.0 h1:dx5KJE20d54KKO/lYU3qE84OYEyU7WqpokMMBMPbH9Q=
@@ -356,6 +360,8 @@ golang.org/x/net v0.49.0 h1:eeHFmOGUTtaaPSGNmjBKpbng9MulQsJURQUAfUwY++o=
 golang.org/x/net v0.49.0/go.mod h1:/ysNB2EvaqvesRkuLAyjI1ycPZlQHM3q01F02UY/MV8=
 golang.org/x/net v0.50.0 h1:ucWh9eiCGyDR3vtzso0WMQinm2Dnt8cFMuQa9K33J60=
 golang.org/x/net v0.50.0/go.mod h1:UgoSli3F/pBgdJBHCTc+tp3gmrU4XswgGRgtnwWTfyM=
+golang.org/x/net v0.51.0 h1:94R/GTO7mt3/4wIKpcR5gkGmRLOuE/2hNGeWq/GBIFo=
+golang.org/x/net v0.51.0/go.mod h1:aamm+2QF5ogm02fjy5Bb7CQ0WMt1/WVM7FtyaTLlA9Y=
 golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
 golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
