@@ -1,4 +1,4 @@
-package util //nolint:revive // package name is util
+package util
 
 import (
 	"os"
