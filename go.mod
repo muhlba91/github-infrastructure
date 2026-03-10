@@ -3,7 +3,7 @@ module github.com/muhlba91/github-infrastructure
 go 1.26.0
 
 require (
-	github.com/muhlba91/pulumi-shared-library v0.0.0-20260309180337-31b104e77334
+	github.com/muhlba91/pulumi-shared-library v0.0.0-20260310025054-6b943dc5b5ef
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.21.0
 	github.com/pulumi/pulumi-gcp/sdk/v9 v9.14.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.12.1
@@ -83,7 +83,7 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
 	github.com/pulumi/esc v0.20.0 // indirect
-	github.com/pulumi/pulumi-gitlab/sdk/v9 v9.9.0 // indirect
+	github.com/pulumi/pulumi-gitlab/sdk/v9 v9.10.0 // indirect
 	github.com/pulumi/pulumi-random/sdk/v4 v4.19.1 // indirect
 	github.com/pulumiverse/pulumi-time/sdk v0.1.0 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
