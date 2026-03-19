@@ -187,6 +187,8 @@ github.com/muhlba91/pulumi-shared-library v0.0.0-20260313084422-8137eaaa4d62 h1:
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260313084422-8137eaaa4d62/go.mod h1:SQlCQpsB6LFTnP32m9q4AuGrbUMhjMKeyAlHo/rPQbU=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260316173019-0dd18d4e38ee h1:Ddm0P+a2VnFoLD9MWTE7TYcvUSCTXtGb0Y6d0Oyp8Yo=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260316173019-0dd18d4e38ee/go.mod h1:SQlCQpsB6LFTnP32m9q4AuGrbUMhjMKeyAlHo/rPQbU=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260319071508-3abed99372bd h1:tbP+5NM+Vp6VAh8jZXUcngLJhJ0JiSko9nDSAurpBVs=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260319071508-3abed99372bd/go.mod h1:Hq9DXElSh8PNJI7Mf+RKEDKtP2GpBnxV59rXfChJMT0=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
@@ -418,6 +420,8 @@ google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171 h1:
 google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171/go.mod h1:4Hqkh8ycfw05ld/3BWL7rJOSfebL2Q+DVDeRgYgxUU8=
 google.golang.org/grpc v1.79.1 h1:zGhSi45ODB9/p3VAawt9a+O/MULLl9dpizzNNpq7flY=
 google.golang.org/grpc v1.79.1/go.mod h1:KmT0Kjez+0dde/v2j9vzwoAScgEPx/Bw1CYChhHLrHQ=
+google.golang.org/grpc v1.79.3 h1:sybAEdRIEtvcD68Gx7dmnwjZKlyfuc61Dyo9pGXXkKE=
+google.golang.org/grpc v1.79.3/go.mod h1:KmT0Kjez+0dde/v2j9vzwoAScgEPx/Bw1CYChhHLrHQ=
 google.golang.org/protobuf v1.36.11 h1:fV6ZwhNocDyBLK0dj+fg8ektcVegBBuEolpbTQyBNVE=
 google.golang.org/protobuf v1.36.11/go.mod h1:HTf+CrKn2C3g5S8VImy6tdcUvCska2kB7j23XfzDpco=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
