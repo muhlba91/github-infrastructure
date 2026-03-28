@@ -203,6 +203,8 @@ github.com/muhlba91/pulumi-shared-library v0.0.0-20260327151247-90ccf687d5eb h1:
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260327151247-90ccf687d5eb/go.mod h1:vctrPfOvdS5JQgY4vqDK0ieger/83mLE5KtiEKC1nlA=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260327203641-69f3bd92fe8e h1:6zD6sQ18Cs5C2GUvnwhfZRVkTHVZc5rhyQBirrlgZlc=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260327203641-69f3bd92fe8e/go.mod h1:vctrPfOvdS5JQgY4vqDK0ieger/83mLE5KtiEKC1nlA=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260328051949-0de7b12e89e5 h1:hodvC3h7SJI/QCiChEojlLR5TEBtEn5zjFEicGgVVEo=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260328051949-0de7b12e89e5/go.mod h1:CHDZUNxbjucVp6mh0YHALPY1Z4gHf/vSxThXjBgGKYQ=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
@@ -271,6 +273,8 @@ github.com/rogpeppe/go-internal v1.14.1/go.mod h1:MaRKkUm5W0goXpeCfT7UZI6fk/L7L7
 github.com/rs/xid v1.6.0/go.mod h1:7XoLgs4eV+QndskICGsho+ADou8ySMSjJKDIan90Nz0=
 github.com/rs/zerolog v1.34.0 h1:k43nTLIwcTVQAncfCw4KZ2VY6ukYoZaBPNOE8txlOeY=
 github.com/rs/zerolog v1.34.0/go.mod h1:bJsvje4Z08ROH4Nhs5iH600c3IkWhwp44iRc54W6wYQ=
+github.com/rs/zerolog v1.35.0 h1:VD0ykx7HMiMJytqINBsKcbLS+BJ4WYjz+05us+LRTdI=
+github.com/rs/zerolog v1.35.0/go.mod h1:EjML9kdfa/RMA7h/6z6pYmq1ykOuA8/mjWaEvGI+jcw=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
 github.com/santhosh-tekuri/jsonschema/v5 v5.3.1 h1:lZUw3E0/J3roVtGQ+SCrUrg3ON6NgVqpn3+iol9aGu4=
 github.com/santhosh-tekuri/jsonschema/v5 v5.3.1/go.mod h1:uToXkOrWAZ6/Oc07xWQrPOhJotwFIyu2bBVN41fcDUY=
