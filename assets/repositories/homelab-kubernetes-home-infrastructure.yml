@@ -17,21 +17,12 @@ rulesets:
       - Lint (1.26.x)
       - Unit Tests (1.26.x)
       - Pulumi Preview (1.26.x, vie)
-      # - Pulumi Preview (1.26.x, muc)
 
 accessPermissions:
   vault:
     enabled: true
     additionalMounts:
       - path: kubernetes-home-cluster
-        create: true
-        permissions:
-          - create
-          - read
-          - update
-          - delete
-          - list
-      - path: kubernetes-home-cluster-muc
         create: true
         permissions:
           - create
