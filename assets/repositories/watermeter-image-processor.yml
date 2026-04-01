@@ -1,0 +1,24 @@
+---
+name: watermeter-image-processor
+description: "Image processor for water meter readings"
+visibility: public
+protected: true
+enableDiscussions: true
+topics:
+  - image-processing
+  - water-meter
+  - esphome
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Lint (1.26.x)
+      - Unit Tests (1.26.x)
+      - Lint Dockerfile
+      - Build Processor and Container (1.26.x)
+
+accessPermissions:
+  vault:
+    enabled: false
