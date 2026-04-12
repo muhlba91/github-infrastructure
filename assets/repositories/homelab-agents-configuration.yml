@@ -1,0 +1,20 @@
+---
+name: homelab-agents-configuration
+description: "Homelab: Configuration for Personal Agents/Assistants"
+visibility: public
+protected: true
+topics:
+  - configuration
+  - agents
+  - assistants
+  - homelab
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+
+accessPermissions:
+  vault:
+    enabled: false
