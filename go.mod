@@ -3,13 +3,13 @@ module github.com/muhlba91/github-infrastructure
 go 1.26.0
 
 require (
-	github.com/muhlba91/pulumi-shared-library v0.0.0-20260422055542-d9a20c478dfb
+	github.com/muhlba91/pulumi-shared-library v0.0.0-20260423073901-5d43a28291b9
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.26.0
 	github.com/pulumi/pulumi-gcp/sdk/v9 v9.20.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.12.2
 	github.com/pulumi/pulumi-tailscale/sdk v0.27.1
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.8.0
-	github.com/pulumi/pulumi/sdk/v3 v3.231.0
+	github.com/pulumi/pulumi/sdk/v3 v3.232.0
 	github.com/pulumiverse/pulumi-scaleway/sdk v1.47.0
 	github.com/rs/zerolog v1.35.1
 	gopkg.in/yaml.v3 v3.0.1
@@ -43,7 +43,7 @@ require (
 	github.com/erikgeiser/coninput v0.0.0-20211004153227-1c3628e74d0f // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.8.0 // indirect
-	github.com/go-git/go-git/v5 v5.17.2 // indirect
+	github.com/go-git/go-git/v5 v5.18.0 // indirect
 	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
