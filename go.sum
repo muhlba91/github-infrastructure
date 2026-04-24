@@ -320,6 +320,8 @@ github.com/pulumi/pulumi-gcp/sdk/v9 v9.19.0 h1:6n192YWUJnIc/PIFJAiAHKy+LiqB2GLje
 github.com/pulumi/pulumi-gcp/sdk/v9 v9.19.0/go.mod h1:H1Fnf8QWRx5BrmLovtbE0yT1YCWxOCwUrx8CRWNNOqg=
 github.com/pulumi/pulumi-gcp/sdk/v9 v9.20.0 h1:t1ZU3jqEzHJJp+tf+KqmGzytxr9zmb83LHUVTDN8+Es=
 github.com/pulumi/pulumi-gcp/sdk/v9 v9.20.0/go.mod h1:H1Fnf8QWRx5BrmLovtbE0yT1YCWxOCwUrx8CRWNNOqg=
+github.com/pulumi/pulumi-gcp/sdk/v9 v9.21.0 h1:E5oFyW2+lLoP+FZv6E7KhP7EdUkKmzQVbLUjN7acwiQ=
+github.com/pulumi/pulumi-gcp/sdk/v9 v9.21.0/go.mod h1:H1Fnf8QWRx5BrmLovtbE0yT1YCWxOCwUrx8CRWNNOqg=
 github.com/pulumi/pulumi-github/sdk/v6 v6.12.1 h1:4f5F6//J6KRlHJfeRljS8ypaTX956Ys8yxiyXjRepT8=
 github.com/pulumi/pulumi-github/sdk/v6 v6.12.1/go.mod h1:Sxhf/sjqiLG/3AjgkLbI6UptVgUVnZ0nocln+X67ptg=
 github.com/pulumi/pulumi-github/sdk/v6 v6.12.2 h1:ZO6nW5YRZB9fAEiiFA3UdVSwME7JwTx1hWRwr5+CsM8=
