@@ -160,6 +160,10 @@ github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260426055439-c3b63d7b5db4 h1:ctXy+tH8CpjlsNuMSXgShl9cKcWLsAZjoSMCFl1LxcY=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260426055439-c3b63d7b5db4/go.mod h1:yrFjumYtVyOte28DgWMwGF9hSOeikvLBRGjqg7XLp6c=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260426062143-087d77465fbe h1:RKu8TEu918lgGxi8KoVZUPW7P/+frEqUNjuD/clv0IM=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260426062143-087d77465fbe/go.mod h1:yrFjumYtVyOte28DgWMwGF9hSOeikvLBRGjqg7XLp6c=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260426071614-d1990e0a7f66 h1:pdloapFGI2no3xihFqm0MtRBgmQlu3G1W/nyhUYv7BE=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260426071614-d1990e0a7f66/go.mod h1:yrFjumYtVyOte28DgWMwGF9hSOeikvLBRGjqg7XLp6c=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
