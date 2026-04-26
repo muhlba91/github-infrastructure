@@ -9,7 +9,7 @@ topics:
   - hugo
 
 homepage: https://muhlba91.github.io/homelab-documentation/
-pagesBranch: gh-pages
+enablePages: true
 
 rulesets:
   branch:

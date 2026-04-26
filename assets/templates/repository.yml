@@ -14,7 +14,7 @@ homepage: ""
 enableDiscussions: false
 enableWiki: false
 createProject: false
-pagesBranch: main
+enablePages: true
 
 # optional branch protections/rulesets
 rulesets:

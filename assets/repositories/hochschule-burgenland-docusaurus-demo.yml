@@ -7,7 +7,7 @@ topics:
   - docusaurus
   - hochschule-burgenland
 
-pagesBranch: gh-pages
+enablePages: true
 
 rulesets:
   branch:

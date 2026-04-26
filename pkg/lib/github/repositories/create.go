@@ -78,7 +78,7 @@ func create(
 		EnableWiki:              pulumi.BoolPtr(defaults.GetOrDefault(repository.EnableWiki, false)),
 		Homepage:                pulumi.StringPtr(defaults.GetOrDefault(repository.Homepage, "")),
 		Topics:                  repository.Topics,
-		GitHubPagesBranch:       repository.PagesBranch,
+		EnablePages:             repository.EnablePages,
 		Visibility:              defaults.GetOrDefault(&repository.Visibility, &defVis),
 		Protected:               defaults.GetOrDefault(repository.Protected, false),
 		AllowRepositoryDeletion: manageLifecycle || !config.AllowRepositoryDeletion,

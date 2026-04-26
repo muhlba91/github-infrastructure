@@ -22,8 +22,8 @@ type Config struct {
 	EnableDiscussions *bool `yaml:"enableDiscussions,omitempty"`
 	// CreateProject indicates whether to create a project for the repository.
 	CreateProject *bool `yaml:"createProject,omitempty"`
-	// PagesBranch is the branch used for GitHub Pages.
-	PagesBranch *string `yaml:"pagesBranch,omitempty"`
+	// EnablePages indicates whether to enable GitHub Pages.
+	EnablePages *bool `yaml:"enablePages,omitempty"`
 	// Rulesets defines the repository rulesets config.
 	Rulesets *RulesetsConfig `yaml:"rulesets,omitempty"`
 	// AccessPermissions defines the repository access permissions config.
