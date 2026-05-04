@@ -86,7 +86,9 @@ func main() {
 			"clients": tailscales,
 		}))
 		ctx.Export("google", pulumi.ToMap(map[string]any{
-			"allowed":    googleAllowedProjects,
+			//nolint:goconst // key duplication intentional
+			"allowed": googleAllowedProjects,
+			//nolint:goconst // key duplication intentional
 			"configured": googleProjects,
 		}))
 		ctx.Export("scaleway", pulumi.ToMap(map[string]any{
