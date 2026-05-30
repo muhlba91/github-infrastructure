@@ -8,13 +8,11 @@ topics:
   - kubernetes
   - gitops
   - fluxcd
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Lint
 
 accessPermissions:
   vault:
