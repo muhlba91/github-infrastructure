@@ -306,6 +306,8 @@ github.com/muhlba91/pulumi-shared-library v0.0.0-20260723090508-8ad6ad43088a h1:
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260723090508-8ad6ad43088a/go.mod h1:aVy+eXO+tCxkyTnYAHmVOkfRjlkAhdyXUmSR6u/yX/s=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260723213041-e6f18a79e08f h1:BWBeCoOdVbCOY0OpZdTVh6pNSMSOiPYRFm8qtV77WJU=
 github.com/muhlba91/pulumi-shared-library v0.0.0-20260723213041-e6f18a79e08f/go.mod h1:dX1DuOi3wOOw/2H1ZJlCM0o81nEwrg0j5L+naC2IVuY=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260724022716-ecf82de48a64 h1:dmHAPP4IodEDOgUHZY6EZyyCn9LKjbken1T6czSWETU=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20260724022716-ecf82de48a64/go.mod h1:dX1DuOi3wOOw/2H1ZJlCM0o81nEwrg0j5L+naC2IVuY=
 github.com/onsi/gomega v1.34.1 h1:EUMJIKUjM8sKjYbtxQI9A4z2o+rruxnzNvpknOXie6k=
 github.com/onsi/gomega v1.34.1/go.mod h1:kU1QgUvBDLXBJq618Xvm2LUX6rSAfRaFRTcdOeDLwwY=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
