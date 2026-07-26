@@ -1,0 +1,23 @@
+---
+name: hochschule-burgenland-bswe-director
+description: "Hochschule Burgenland - BSWE - Director"
+visibility: public
+protected: true
+topics:
+  - hochschule-burgenland
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Lint (1.26.x)
+      - Unit Tests (1.26.x)
+      - Spectral Linter
+      - Lint Dockerfile
+      - Lint and Template Helm Chart
+      - Build Director and Container (1.26.x)
+
+accessPermissions:
+  vault:
+    enabled: false
