@@ -5,45 +5,12 @@ visibility: public
 protected: true
 topics:
   - shared-services
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Lint (1.26.x)
-      - Unit Tests (1.26.x)
-      - Pulumi Preview (1.26.x)
 
 accessPermissions:
   vault:
-    enabled: true
-    additionalMounts:
-      - path: shared-services
-        create: true
-        permissions:
-          - create
-          - read
-          - update
-          - delete
-          - list
-  aws:
-    region: eu-west-1
-    account: 215622641987
-    iamPermissions:
-      - "rds:*"
-      - "ec2:*"
-  google:
-    region: europe-west4
-    project: root-muehlbachler
-    linkedProjects:
-      muehlbachler-dns:
-        accessLevel: default
-  scaleway:
-    project: public-services
-    iamPermissions:
-      - RelationalDatabasesFullAccess
-    linkedProjects:
-      dns-management:
-        iamPermissions:
-          - DomainsDNSFullAccess
+    enabled: false
