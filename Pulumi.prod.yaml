@@ -48,3 +48,4 @@ config:
       public-services: d3291e99-319b-43db-9703-b67dc3e10cbb
       cv-cus-00001: 2a09a88c-6e1b-4229-b5a7-c5d9483a90cc
       dns-management: bc87ca3f-e096-46cc-b849-fef5cb361511
+      hochschule-burgenland: 456d64b1-c82a-48c5-af76-3e523b17dda0

@@ -43,3 +43,5 @@ accessPermissions:
       dns-management:
         iamPermissions:
           - DomainsDNSFullAccess
+      hochschule-burgenland:
+        accessLevel: full
