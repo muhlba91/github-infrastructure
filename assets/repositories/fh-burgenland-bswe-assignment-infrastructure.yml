@@ -21,6 +21,15 @@ rulesets:
 accessPermissions:
   vault:
     enabled: true
+    additionalMounts:
+      - path: kubernetes-hochschule-burgenland-cluster
+        create: false
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
   gitlab:
     group: hochschule-burgenland-bswe/swm2
     scopes:
