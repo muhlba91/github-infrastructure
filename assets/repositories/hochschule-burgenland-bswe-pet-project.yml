@@ -13,10 +13,10 @@ rulesets:
     patterns:
       - refs/heads/sample
     requiredChecks:
-      - Unit Tests (24)
-      - Check Code (24)
+      - Unit Tests (26)
+      - Check Code (26)
       - Lint Dockerfile
-      - Build Jar File (24)
+      - Build Jar File (26)
       - Container
 
 accessPermissions:

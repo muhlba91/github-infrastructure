@@ -15,7 +15,10 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Lint YAML
+      - Lint Helm Charts
       - Lint Terraform
+      - Validate Kubernetes Manifests
+      - Validate Helm Templates
 
 accessPermissions:
   vault:
