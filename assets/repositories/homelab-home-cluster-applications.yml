@@ -16,6 +16,7 @@ rulesets:
       - Dependency Review
       - Lint
       - Kubeconform
+      - Shellcheck
 
 accessPermissions:
   vault:
