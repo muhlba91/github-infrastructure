@@ -6,7 +6,7 @@ require (
 	github.com/muhlba91/pulumi-shared-library v0.0.0-20260814061238-83f7dcce7042
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.42.0
 	github.com/pulumi/pulumi-gcp/sdk/v9 v9.34.1
-	github.com/pulumi/pulumi-github/sdk/v6 v6.14.1
+	github.com/pulumi/pulumi-github/sdk/v6 v6.15.0
 	github.com/pulumi/pulumi-tailscale/sdk v0.29.0
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.11.1
 	github.com/pulumi/pulumi/sdk/v3 v3.257.0
