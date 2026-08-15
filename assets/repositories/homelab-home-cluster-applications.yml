@@ -15,8 +15,9 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Lint
-      - Kubeconform
       - Shellcheck
+      - Ruff
+      - Kubeconform
 
 accessPermissions:
   vault:
