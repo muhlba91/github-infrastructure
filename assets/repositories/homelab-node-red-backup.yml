@@ -12,9 +12,9 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Build (3.13)
-      - Checks (3.13, 2.4.1)
-      - Tests (3.13, 2.4.1)
+      - Build (3.14)
+      - Checks (3.14, 2.4.1)
+      - Tests (3.14, 2.4.1)
 
 accessPermissions:
   vault:
