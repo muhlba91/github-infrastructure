@@ -15,6 +15,7 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Lint YAML
+      - Shellcheck
       - Verify Home Assistant Configuration (stable, vie)
       - Verify Home Assistant Configuration (beta, vie)
       - Verify Home Assistant Configuration (dev, vie)
