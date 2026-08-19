@@ -1,0 +1,22 @@
+---
+name: hochschule-burgenland-course-documents
+description: "Hochschule Burgenland - Course Documents"
+visibility: public
+protected: true
+topics:
+  - hochschule-burgenland
+  - course-documents
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Shellcheck
+      - Typstyle
+      - Compile Assignments
+      - Compile Slides
+
+accessPermissions:
+  vault:
+    enabled: false
