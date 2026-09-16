@@ -11,12 +11,12 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint (1.26.x)
-      - Unit Tests (1.26.x)
+      - Lint (1.27.x)
+      - Unit Tests (1.27.x)
       - Spectral Linter
       - Lint Dockerfile
       - Lint and Template Helm Chart
-      - Build Director and Container (1.26.x)
+      - Build Director and Container (1.27.x)
 
 accessPermissions:
   vault:
