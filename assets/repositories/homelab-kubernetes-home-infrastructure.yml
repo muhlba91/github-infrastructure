@@ -16,7 +16,8 @@ rulesets:
       - YAML Lint
       - Lint (1.27.x)
       - Unit Tests (1.27.x)
-      - Pulumi Preview (1.27.x, dev)
+      - Pulumi Preview (1.27.x, vie)
+      - Pulumi Preview (1.27.x, hochschule-burgenland)
 
 accessPermissions:
   vault:
