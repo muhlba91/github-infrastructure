@@ -204,6 +204,8 @@ github.com/pulumiverse/pulumi-scaleway/sdk v1.55.1 h1:YtVWNtWOHEzlQEiO21dp00Ou7c
 github.com/pulumiverse/pulumi-scaleway/sdk v1.55.1/go.mod h1:+FXaMy3p+5127gxC6w2ReTGRObkok874uLeylwsOKfc=
 github.com/pulumiverse/pulumi-scaleway/sdk v1.56.0 h1:DeIVpArCspEB5IchMA7Wqogb+cwMZdVZLgnA/ttOEa8=
 github.com/pulumiverse/pulumi-scaleway/sdk v1.56.0/go.mod h1:+FXaMy3p+5127gxC6w2ReTGRObkok874uLeylwsOKfc=
+github.com/pulumiverse/pulumi-scaleway/sdk v1.56.1 h1:2NfFwMkVrWrfjKPrKb6dHJhFUpiqDys4HwwEOXgMS1o=
+github.com/pulumiverse/pulumi-scaleway/sdk v1.56.1/go.mod h1:+FXaMy3p+5127gxC6w2ReTGRObkok874uLeylwsOKfc=
 github.com/pulumiverse/pulumi-time/sdk v0.1.0 h1:xfi9HKDgV+GgDxQ23oSv9KxC3DQqViGTcMrJICRgJv0=
 github.com/pulumiverse/pulumi-time/sdk v0.1.0/go.mod h1:NUa1zA74DF002WrM6iF111A6UjX9knPpXufVRvBwNyg=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
