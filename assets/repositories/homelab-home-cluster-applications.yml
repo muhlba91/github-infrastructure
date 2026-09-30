@@ -18,6 +18,8 @@ rulesets:
       - Shellcheck
       - Ruff
       - Kubeconform
+      - Flate (vie)
+      - Flate (hochschule-burgenland)
 
 accessPermissions:
   vault:
