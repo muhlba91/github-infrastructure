@@ -5,7 +5,7 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"

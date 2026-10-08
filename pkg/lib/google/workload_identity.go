@@ -7,8 +7,8 @@ import (
 
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/random"
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/iam"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/iam"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )

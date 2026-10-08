@@ -1,7 +1,7 @@
 package google
 
 import (
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/iam"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/iam"
 )
 
 // WorkloadIdentityPool defines a Google workload identity pool.

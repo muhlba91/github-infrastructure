@@ -7,8 +7,8 @@ import (
 
 	googleConf "github.com/muhlba91/github-infrastructure/pkg/model/config/google"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp"
-	"github.com/pulumi/pulumi-gcp/sdk/v9/go/gcp/projects"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
+	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/projects"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
