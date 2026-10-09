@@ -1,0 +1,42 @@
+---
+name: homelab-router-infrastructure
+description: "Homelab: Infrastructure for routers"
+visibility: public
+protected: true
+topics:
+  - networking
+  - infrastructure
+  - homelab
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - YAMLLint
+      - Lint (1.27.x)
+      - Unit Tests (1.27.x)
+      - Pulumi Preview (1.27.x)
+      - Nix Check (lint)
+      - Nix Check (eval)
+      - Nix Check (deploy-schema)
+      - Nix Check (site-fixture-home)
+      - Nix Check (site-fixture-spoke)
+      - Nix Test (deploy-schema)
+      - Nix Test (site-lab-router-001)
+      - Nix Test (site-ovh-bhs-router-001)
+      - Nix Test (site-vie-router-001)
+      - Nix Preview (deploy-schema)
+      - Nix Preview (site-lab-router-001)
+      - Nix Preview (site-ovh-bhs-router-001)
+      - Nix Preview (site-vie-router-001)
+
+accessPermissions:
+  vault:
+    enabled: true
+  tailscale: true
+  google:
+    region: europe-west4
+    project: public-services-402810
+  scaleway:
+    project: tuxnet
