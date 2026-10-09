@@ -26,6 +26,7 @@ rulesets:
       - Nix Test (site-lab-router-001)
       - Nix Test (site-ovh-bhs-router-001)
       - Nix Test (site-vie-router-001)
+      - Nix Build (lab-router-001)
       - Nix Preview (deploy-schema)
       - Nix Preview (site-lab-router-001)
       - Nix Preview (site-ovh-bhs-router-001)
