@@ -23,6 +23,7 @@ rulesets:
       - Nix Check (site-fixture-home)
       - Nix Check (site-fixture-spoke)
       - Nix Test (deploy-schema)
+      - Nix Test (site-site)
       - Nix Test (site-lab-router-001)
       - Nix Test (site-ovh-bhs-router-001)
       - Nix Test (site-vie-router-001)
