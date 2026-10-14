@@ -7,7 +7,7 @@ require (
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.50.0
 	github.com/pulumi/pulumi-gcp/sdk/v10 v10.1.1
 	github.com/pulumi/pulumi-github/sdk/v6 v6.15.0
-	github.com/pulumi/pulumi-tailscale/sdk v0.29.1
+	github.com/pulumi/pulumi-tailscale/sdk v0.29.2
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.13.0
 	github.com/pulumi/pulumi/sdk/v3 v3.268.0
 	github.com/pulumiverse/pulumi-scaleway/sdk v1.58.0
