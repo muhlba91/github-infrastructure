@@ -1,6 +1,6 @@
 ---
 name: homelab-router-infrastructure
-description: "Homelab: Infrastructure for routers"
+description: "Homelab: Router infrastructure"
 visibility: public
 protected: true
 topics:

@@ -1,6 +1,6 @@
 ---
 name: cloudventures-global-dns
-description: "cloudventures: Global DNS entries"
+description: "CloudVentures: Global DNS entries"
 visibility: public
 protected: true
 topics:

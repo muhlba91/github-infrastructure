@@ -1,6 +1,6 @@
 ---
 name: cm
-description: "gitStream.cm Global Configuration"
+description: "gitStream: Global configuration"
 visibility: public
 protected: true
 topics:

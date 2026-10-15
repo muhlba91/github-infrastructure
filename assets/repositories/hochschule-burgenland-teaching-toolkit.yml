@@ -1,0 +1,18 @@
+---
+name: hochschule-burgenland-teaching-toolkit
+description: "Hochschule Burgenland: Agents and skills for teaching"
+visibility: private
+protected: true
+topics:
+  - hochschule-burgenland
+  - agents
+  - skills
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks: []
+
+accessPermissions:
+  vault:
+    enabled: false

@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-public-services-infrastructure
-description: "Infrastructure for Personal Public Services"
+description: "DEPRECATED: Platform: Public services infrastructure"
 visibility: public
 protected: true
 topics:

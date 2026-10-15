@@ -1,6 +1,6 @@
 ---
 name: fh-burgenland-bswe-assignment-infrastructure
-description: "Hochschule Burgenland - BSWE: Assignment Infrastructure"
+description: "Hochschule Burgenland: BSWE - Infrastructure for assignments"
 visibility: public
 protected: true
 topics:

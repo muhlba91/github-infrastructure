@@ -1,6 +1,6 @@
 ---
 name: homelab-ring-mqtt-configuration
-description: "Homelab: Configuration for Ring MQTT"
+description: "Homelab: Ring MQTT configuration"
 visibility: public
 protected: true
 topics:

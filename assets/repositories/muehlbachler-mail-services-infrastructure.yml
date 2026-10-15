@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-mail-services-infrastructure
-description: "muehlbachler: Mail Services Infrastructure"
+description: "Platform: Mail services infrastructure (Mailcow)"
 visibility: public
 protected: true
 topics:

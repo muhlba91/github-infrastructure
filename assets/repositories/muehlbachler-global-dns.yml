@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-global-dns
-description: "muehlbachler: Global DNS entries"
+description: "muehlbachler.io: Global DNS entries"
 visibility: public
 protected: true
 topics:

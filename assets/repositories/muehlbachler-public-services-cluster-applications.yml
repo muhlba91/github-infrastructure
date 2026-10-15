@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-public-services-cluster-applications
-description: "Personal Public Services: Applications running on the Kubernetes public-services-cluster"
+description: "DEPRECATED: Platform: Applications running on the Kubernetes public-services-cluster"
 visibility: public
 protected: true
 topics:

@@ -1,6 +1,6 @@
 ---
 name: homelab-home-assistant-configuration
-description: "Homelab: Configuration for Home Assistant"
+description: "Homelab: Home Assistant configuration"
 visibility: public
 protected: true
 topics:

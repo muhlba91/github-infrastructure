@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-shared-services
-description: "muehlbachler: Shared Services"
+description: "DEPRECATED: Platform: Shared services"
 visibility: public
 protected: true
 topics:

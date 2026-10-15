@@ -1,6 +1,6 @@
 ---
 name: renovate-config
-description: "Renovate Global Configuration"
+description: "Renovate: Global configuration"
 visibility: public
 protected: true
 topics:

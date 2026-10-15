@@ -1,6 +1,6 @@
 ---
 name: homelab-agents-configuration
-description: "Homelab: Configuration for Personal Agents/Assistants"
+description: "Homelab: Personal agents and assistants configuration"
 visibility: public
 protected: true
 topics:

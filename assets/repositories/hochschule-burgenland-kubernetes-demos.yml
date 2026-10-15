@@ -1,6 +1,6 @@
 ---
 name: hochschule-burgenland-kubernetes-demos
-description: "Hochschule Burgenland: Kubernetes Demos"
+description: "Hochschule Burgenland: Kubernetes and GitOps demos (Argo CD)"
 visibility: public
 protected: true
 topics:

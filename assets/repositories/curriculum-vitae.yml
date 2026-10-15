@@ -1,6 +1,6 @@
 ---
 name: curriculum-vitae
-description: "Curriculum Vitae written in LaTeX"
+description: "Curriculum vitae, built as PDF"
 visibility: private
 protected: true
 topics:

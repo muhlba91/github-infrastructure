@@ -1,6 +1,6 @@
 ---
 name: muehlbachler-core-infrastructure
-description: "Personal Core Infrastructure"
+description: "Platform: Core infrastructure (NetBird, Vault, BGP/FRR, ...)"
 manageLifecycle: false # we only manage the repository configuration here
 visibility: public
 protected: true

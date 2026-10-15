@@ -1,6 +1,6 @@
 ---
 name: github-infrastructure
-description: "Automated creation of GitHub Repositories with optional 3rd party accesses."
+description: "GitHub: Automated creation of repositories with optional 3rd party accesses"
 manageLifecycle: false # we only manage the repository configuration here
 visibility: public
 protected: true

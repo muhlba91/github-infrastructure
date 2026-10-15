@@ -1,6 +1,6 @@
 ---
 name: postgresql-pgvecto-container
-description: "A container integrating pgvecto.rs into CloudNativePG's PostgreSQL container"
+description: "A CloudNativePG PostgreSQL container with pgvecto.rs integrated"
 visibility: public
 protected: true
 topics:
