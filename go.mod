@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	github.com/muhlba91/pulumi-shared-library v0.0.0-20261020111954-36e9a482eea6
 	github.com/pulumi/pulumi-aws/sdk/v7 v7.51.1
-	github.com/pulumi/pulumi-gcp/sdk/v10 v10.1.1
+	github.com/pulumi/pulumi-gcp/sdk/v10 v10.2.0
 	github.com/pulumi/pulumi-github/sdk/v6 v6.15.0
 	github.com/pulumi/pulumi-tailscale/sdk v0.29.2
 	github.com/pulumi/pulumi-vault/sdk/v7 v7.14.0
