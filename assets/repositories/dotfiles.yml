@@ -12,6 +12,12 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
+      - Conform
+      - YAMLLint
+      - Shellcheck
+      - Gitleaks
+      - Chezmoi
+      - Brewfile
 
 accessPermissions:
   vault:
