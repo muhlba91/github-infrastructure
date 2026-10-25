@@ -14,10 +14,10 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - YAML Lint
-      - Lint (1.27.x)
-      - Unit Tests (1.27.x)
-      - Pulumi Preview (1.27.x, vie)
-      - Pulumi Preview (1.27.x, hochschule-burgenland)
+      - Lint
+      - Unit Tests
+      - Pulumi Preview (vie)
+      - Pulumi Preview (hochschule-burgenland)
 
 accessPermissions:
   vault:

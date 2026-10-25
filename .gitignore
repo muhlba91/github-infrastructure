@@ -215,3 +215,5 @@ export.json
 gcp-*-key.json
 *.bkp
 
+# mise
+mise.local.toml
