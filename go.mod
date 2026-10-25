@@ -1,6 +1,6 @@
 module github.com/muhlba91/github-infrastructure
 
-go 1.27.0
+go 1.27.3
 
 require (
 	github.com/muhlba91/pulumi-shared-library v0.0.0-20261025015220-489b179f4ef0
