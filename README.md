@@ -10,8 +10,7 @@ This repository contains the automation for [GitHub Repositories](https://github
 
 ## Requirements
 
-- [Go](https://golang.org/dl/)
-- [Pulumi](https://www.pulumi.com/docs/install/)
+- Tools from [mise](https://mise.jdx.dev): Go, golangci-lint and Pulumi, see [Development](#development)
 
 ## Creating the Infrastructure
 
@@ -134,3 +133,7 @@ The format is described in the [template](assets/templates/repository.yml).
 
 - [GitHub Actions](https://docs.github.com/en/actions) are linting, and verifying the code.
 - [Renovate Bot](https://github.com/renovatebot/renovate) is updating Go modules, and GitHub Actions.
+
+## Development
+
+Tool versions (Go, golangci-lint, Pulumi) are managed with [mise](https://mise.jdx.dev): run `mise trust` and `mise install` once, then use the usual commands (`make lint`, `make test`, `go test ./...`).

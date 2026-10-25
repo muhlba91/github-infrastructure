@@ -21,10 +21,6 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    strategy:
-      max-parallel: 4
-      matrix:
-        go-version: [1.27.x]
 
     steps:
       - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
@@ -35,9 +31,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
+
+      # Go comes from mise; setup-go only restores the module cache.
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
-        with:
-          go-version: "${{ matrix.go-version }}"
 
       - uses: pulumi/auth-actions@159c3e431aab767d4519b96f3f784d7d3d725622 # v2.1.1
         with:
@@ -75,10 +72,6 @@ jobs:
       contents: read
     needs:
       - preview
-    strategy:
-      max-parallel: 4
-      matrix:
-        go-version: [1.27.x]
 
     steps:
       - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
@@ -89,9 +82,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+      - uses: jdx/mise-action@82a612c5ab8bcda7cc5db6b7e81a8e7584c3dc6e # v5.2.3
         with:
-          go-version: "${{ matrix.go-version }}"
+          cache: false
 
       - uses: pulumi/auth-actions@159c3e431aab767d4519b96f3f784d7d3d725622 # v2.1.1
         with:

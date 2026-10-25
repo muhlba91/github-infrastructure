@@ -15,5 +15,5 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint (1.27.x)
-      - Unit Tests (1.27.x)
+      - Lint
+      - Unit Tests
