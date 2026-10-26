@@ -1,23 +1,16 @@
 ---
 name: hochschule-burgenland-bswe-ws2024-2at-frontend
-description: "Hochschule Burgenland: BSWE - WS2024 2nd attempt - Weather app frontend"
-visibility: public
+description: "DEPRECATED: Hochschule Burgenland: BSWE - WS2024 2nd attempt - Weather app frontend"
+visibility: private
 protected: true
 topics:
   - reference-project
   - hochschule-burgenland
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Tests (24)
-      - ESLint (24)
-      - Node Audit (24)
-      - SBOM (24)
-      - ShellCheck
-      - Build SPA (24)
 
 accessPermissions:
   vault:

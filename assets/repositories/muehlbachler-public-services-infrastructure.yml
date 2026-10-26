@@ -1,7 +1,7 @@
 ---
 name: muehlbachler-public-services-infrastructure
 description: "DEPRECATED: Platform: Public services infrastructure"
-visibility: public
+visibility: private
 protected: true
 topics:
   - services

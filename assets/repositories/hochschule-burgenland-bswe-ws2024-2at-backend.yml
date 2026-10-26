@@ -1,29 +1,16 @@
 ---
 name: hochschule-burgenland-bswe-ws2024-2at-backend
-description: "Hochschule Burgenland: BSWE - WS2024 2nd attempt - Weather app backend"
-visibility: public
+description: "DEPRECATED: Hochschule Burgenland: BSWE - WS2024 2nd attempt - Weather app backend"
+visibility: private
 protected: true
 topics:
   - reference-project
   - hochschule-burgenland
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Unit Tests (25)
-      - Checkstyle (25)
-      - PMD (25)
-      - PiTest (25)
-      - SBOM (25)
-      - Lint Dockerfile
-      - YAMLLint
-      - Spectral Linter
-      - ShellCheck
-      - Lint Helm Charts
-      - Build Jar File (25)
-      - Container
 
 accessPermissions:
   vault:
