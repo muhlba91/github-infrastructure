@@ -262,6 +262,8 @@ github.com/pulumi/pulumi-tailscale/sdk v0.29.2 h1:9vJ0B8gemt66vY8K1yTvPXc3WNv+sw
 github.com/pulumi/pulumi-tailscale/sdk v0.29.2/go.mod h1:Z7Uc71x0d3X2zSkBsl9IDfFtxJhTvTyyrUFTC6WkyJA=
 github.com/pulumi/pulumi-tailscale/sdk v0.29.3 h1:jZjvRbDrXFKWG2IilETC1qtN2wkVuLZqIYSj3Lmea8g=
 github.com/pulumi/pulumi-tailscale/sdk v0.29.3/go.mod h1:CcGXjBl/vhdDxTSogH+OLpkgiU9UIwyQR3jLf2O5r8I=
+github.com/pulumi/pulumi-tailscale/sdk v0.29.4 h1:VlLM0bOj/yvq40rl+wach4Z4E7AeJxRl11cEqAkBadw=
+github.com/pulumi/pulumi-tailscale/sdk v0.29.4/go.mod h1:CcGXjBl/vhdDxTSogH+OLpkgiU9UIwyQR3jLf2O5r8I=
 github.com/pulumi/pulumi-vault/sdk/v7 v7.13.0 h1:pT0e7R6p8dkzsD2SSZwMLo2bKSbd6nr+Io0BaPg62Vo=
 github.com/pulumi/pulumi-vault/sdk/v7 v7.13.0/go.mod h1:GWny88/VnP3T+M6r3GHM2LD8FI+7BWdcVhMwCTzMEW0=
 github.com/pulumi/pulumi-vault/sdk/v7 v7.13.1 h1:2C+XdNK+p/YXWv/2DMRwXxCJQBXk7PXRfgBJdIsYyTU=
