@@ -42,7 +42,7 @@ jobs:
           requested-token-type: urn:pulumi:token-type:access_token:personal
           scope: user:muhlba91
 
-      - uses: pulumi/actions@8e5e406f4007fca908480587cb9893c07090f58d # v7
+      - uses: pulumi/actions@96c7761824268174e0d2a4e8c7d75671eebd24a7 # v7
         with:
           command: preview
           stack-name: prod
@@ -92,7 +92,7 @@ jobs:
           requested-token-type: urn:pulumi:token-type:access_token:personal
           scope: user:muhlba91
 
-      - uses: pulumi/actions@8e5e406f4007fca908480587cb9893c07090f58d # v7
+      - uses: pulumi/actions@96c7761824268174e0d2a4e8c7d75671eebd24a7 # v7
         with:
           command: up
           stack-name: prod
