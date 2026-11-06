@@ -36,7 +36,7 @@ jobs:
       # Go comes from mise; setup-go only restores the module cache.
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
 
-      - uses: pulumi/auth-actions@159c3e431aab767d4519b96f3f784d7d3d725622 # v2.1.1
+      - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
           organization: muhlba91
           requested-token-type: urn:pulumi:token-type:access_token:personal
@@ -86,7 +86,7 @@ jobs:
         with:
           cache: false
 
-      - uses: pulumi/auth-actions@159c3e431aab767d4519b96f3f784d7d3d725622 # v2.1.1
+      - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
           organization: muhlba91
           requested-token-type: urn:pulumi:token-type:access_token:personal
