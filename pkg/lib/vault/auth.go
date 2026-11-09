@@ -3,7 +3,6 @@ package vault
 import (
 	"encoding/json"
 	"fmt"
-	"strings"
 
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
@@ -41,6 +40,11 @@ func createAuth(
 	if perr != nil {
 		log.Err(perr).Msgf("[vault][auth] error creating Vault policy for repository: %s", repository.Name)
 		return nil, perr
+	}
+
+	if arErr := createAppRoles(ctx, repository); arErr != nil {
+		log.Err(arErr).Msgf("[vault][auth] error creating Vault AppRoles for repository: %s", repository.Name)
+		return nil, arErr
 	}
 
 	vaultAddr := repository.AccessPermissions.Vault.Address
@@ -88,20 +92,26 @@ func createPolicy(ctx *pulumi.Context, repository *repository.Config) error {
 	if repository.AccessPermissions != nil && repository.AccessPermissions.Vault != nil &&
 		repository.AccessPermissions.Vault.AdditionalMounts != nil {
 		for _, mount := range repository.AccessPermissions.Vault.AdditionalMounts {
-			permissions := []string{}
-			for _, permission := range mount.Permissions {
-				permissions = append(permissions, fmt.Sprintf(`"%s"`, permission))
-			}
 			additionalPaths = append(additionalPaths, map[string]string{
-				"path":        mount.Path,
-				"permissions": strings.Join(permissions, ", "),
+				policyPathKey:        mount.Path,
+				policyPermissionsKey: quotePermissions(mount.Permissions),
 			})
 		}
+	}
+
+	roles := []map[string]string{}
+	_, names := appRoles(repository)
+	for _, name := range names {
+		roles = append(roles, map[string]string{
+			"backend": appRoleBackend,
+			"name":    name,
+		})
 	}
 
 	policy, prError := template.Render("assets/vault/policy.hcl.tpl", map[string]any{
 		"repository":      repository.Name,
 		"additionalPaths": additionalPaths,
+		"appRoles":        roles,
 	})
 	if prError != nil {
 		log.Err(prError).Msgf("[vault][auth] error rendering Vault policy template for repository: %s", repository.Name)

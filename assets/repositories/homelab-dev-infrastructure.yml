@@ -1,0 +1,47 @@
+---
+name: homelab-dev-infrastructure
+description: "Homelab: Dev infrastructure"
+visibility: public
+protected: true
+topics:
+  - development
+  - infrastructure
+  - homelab
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - YAMLLint
+      - Lint
+      - Unit Tests
+      - Pulumi Preview
+      - Nix Check (lint)
+      - Nix Check (eval)
+
+accessPermissions:
+  vault:
+    enabled: true
+    appRoles:
+      # the dev machine (Vault Agent); reads all KV mounts, writes nothing
+      dev-infrastructure-hetzner-fra-dev-001:
+        paths:
+          - path: secret/*
+            permissions:
+              - read
+              - list
+          - path: github-*/*
+            permissions:
+              - read
+              - list
+          - path: kubernetes-*/*
+            permissions:
+              - read
+              - list
+  tailscale: true
+  google:
+    region: europe-west4
+    project: tuxnet-385112
+  scaleway:
+    project: tuxnet

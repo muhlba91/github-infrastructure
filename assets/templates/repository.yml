@@ -64,6 +64,16 @@ accessPermissions:
         permissions: # list of additional permissions for the secret mount
           - read
           - list
+    appRoles: # a map of AppRole roles (auth mount 'approle') owned by the repository; each gets a policy of the same name
+      role-name: # the role and policy name (global in Vault)
+        tokenTtl: 3600 # TTL of issued tokens in seconds (optional, default: 1 hour)
+        tokenMaxTtl: 86400 # maximum TTL of issued tokens in seconds (optional, default: 24 hours)
+        paths: # the role's policy: exact Vault paths (globs allowed) and their capabilities
+          - path: ""
+            permissions:
+              - read
+              - list
+      # the repository's CI may read the role ID and create/destroy secret IDs, but cannot change the role or its policy
   tailscale: true # sets the Tailscale OAuth secrets
   google:
     region: europe-west4 # if not set, google.defaultRegion is used
