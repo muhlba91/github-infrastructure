@@ -24,13 +24,9 @@ accessPermissions:
   vault:
     enabled: true
     appRoles:
-      # the dev machine (Vault Agent); reads all KV mounts, writes nothing
+      # the dev machine (Vault Agent); reads the github-* and kubernetes-* KV mounts, writes nothing
       dev-infrastructure-hetzner-fra-dev-001:
         paths:
-          - path: secret/*
-            permissions:
-              - read
-              - list
           # `*` is a glob only at the end of a path: every github-<repo> mount
           - path: github-*
             permissions:
