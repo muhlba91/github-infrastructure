@@ -104,7 +104,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Pulumi Preview
     needs:
-      - conform
       - yamllint
       - lint
       - test
