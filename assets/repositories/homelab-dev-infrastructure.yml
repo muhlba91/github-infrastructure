@@ -31,11 +31,12 @@ accessPermissions:
             permissions:
               - read
               - list
-          - path: github-*/*
+          # `*` is a glob only at the end of a path: every github-<repo> mount
+          - path: github-*
             permissions:
               - read
               - list
-          - path: kubernetes-*/*
+          - path: kubernetes-*
             permissions:
               - read
               - list
