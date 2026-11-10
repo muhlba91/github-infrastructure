@@ -47,6 +47,11 @@ func createAuth(
 		return nil, arErr
 	}
 
+	if trErr := createTokenRoles(ctx, repository); trErr != nil {
+		log.Err(trErr).Msgf("[vault][auth] error creating Vault token roles for repository: %s", repository.Name)
+		return nil, trErr
+	}
+
 	vaultAddr := repository.AccessPermissions.Vault.Address
 	if vaultAddr == nil || *vaultAddr == "" {
 		vaultAddr = vaultConfig.Address

@@ -23,11 +23,18 @@ rulesets:
 accessPermissions:
   vault:
     enabled: true
+    additionalMounts:
+      - path: dev-infrastructure
+        create: true
+        permissions:
+          - create
+          - read
+          - update
+          - delete
+          - list
     appRoles:
-      # the dev machine (Vault Agent); reads the github-* and kubernetes-* KV mounts, writes nothing
       dev-infrastructure-hetzner-fra-dev-001:
         paths:
-          # `*` is a glob only at the end of a path: every github-<repo> mount
           - path: github-*
             permissions:
               - read
@@ -36,9 +43,52 @@ accessPermissions:
             permissions:
               - read
               - list
+          - path: dev-infrastructure/data/gcp-dev-hetzner-fra-dev-001
+            permissions:
+              - read
+          - path: dev-infrastructure/data/pulumi-*
+            permissions:
+              - read
+          - path: auth/token/create/dev-infrastructure-repo-tokens
+            permissions:
+              - create
+              - update
+          - path: auth/approle/role/dev-infrastructure-*
+            permissions:
+              - read
+    tokenRoles:
+      dev-infrastructure-repo-tokens:
+        allowedPoliciesGlobs:
+          - github-*
+        disallowedPolicies:
+          - github-homelab-dev-infrastructure
+        orphan: true
+        tokenTtl: 3600
+        tokenMaxTtl: 14400
   tailscale: true
   google:
     region: europe-west4
     project: tuxnet-385112
+    serviceAccounts:
+      dev-hetzner-fra-dev-001:
+        roles:
+          tuxnet-385112:
+            - roles/iam.serviceAccountTokenCreator
+          public-services-402810:
+            - roles/iam.serviceAccountTokenCreator
+          muehlbachler-dns:
+            - roles/iam.serviceAccountTokenCreator
+        vault:
+          mount: dev-infrastructure
+      dev-mac:
+        roles:
+          tuxnet-385112:
+            - roles/iam.serviceAccountTokenCreator
+          public-services-402810:
+            - roles/iam.serviceAccountTokenCreator
+          muehlbachler-dns:
+            - roles/iam.serviceAccountTokenCreator
+        vault:
+          mount: dev-infrastructure
   scaleway:
     project: tuxnet

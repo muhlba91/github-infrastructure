@@ -14,6 +14,25 @@ type GoogleAccessConfig struct {
 	EnabledServices []string `yaml:"enabledServices,omitempty"`
 	// HMACKey indicates whether to enable HMAC key.
 	HMACKey *bool `yaml:"hmacKey,omitempty"`
+	// ServiceAccounts defines additional service accounts in the default project, keyed by the account ID.
+	ServiceAccounts map[string]GoogleServiceAccountConfig `yaml:"serviceAccounts,omitempty"`
+}
+
+// GoogleServiceAccountConfig defines a service account with predefined roles and a key stored in Vault.
+type GoogleServiceAccountConfig struct {
+	// Roles maps a project ID (one of google.projects) to the predefined roles the account gets in it.
+	Roles map[string][]string `yaml:"roles,omitempty"`
+	// KeyRotationDays rotates the key every this many days (default: never).
+	KeyRotationDays *int `yaml:"keyRotationDays,omitempty"`
+	// Vault defines where the account's key is stored.
+	Vault *GoogleServiceAccountVaultConfig `yaml:"vault,omitempty"`
+}
+
+// GoogleServiceAccountVaultConfig defines where a service account's key is stored in Vault.
+type GoogleServiceAccountVaultConfig struct {
+	// Mount is the KV mount (default: the repository's mount github-<repository>); the key is stored as
+	// gcp-<account ID>, field "credentials" (the key file's JSON).
+	Mount *string `yaml:"mount,omitempty"`
 }
 
 // GoogleLinkedAccessConfig defines Google linked access config.

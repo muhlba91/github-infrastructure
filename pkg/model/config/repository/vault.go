@@ -10,6 +10,10 @@ type VaultAccessPermissionsConfig struct {
 	AdditionalMounts []VaultAdditionalMountAccessPermissionsConfig `yaml:"additionalMounts,omitempty"`
 	// AppRoles defines Vault AppRole roles owned by the repository, keyed by the role and policy name (global in Vault).
 	AppRoles map[string]VaultAppRoleConfig `yaml:"appRoles,omitempty"`
+	// TokenRoles defines Vault token roles (auth/token/roles) owned by the repository, keyed by the role name (global
+	// in Vault). Who may create tokens through a role is decided by the paths of other policies
+	// (auth/token/create/<role>), not here.
+	TokenRoles map[string]VaultTokenRoleConfig `yaml:"tokenRoles,omitempty"`
 }
 
 // VaultAdditionalMountAccessPermissionsConfig defines vault additional mount access permissions config.
@@ -39,4 +43,22 @@ type VaultPathAccessPermissionsConfig struct {
 	Path string `yaml:"path"`
 	// Permissions defines the capabilities on the path.
 	Permissions []string `yaml:"permissions"`
+}
+
+// VaultTokenRoleConfig defines a Vault token role: which policies a token created through it may carry.
+type VaultTokenRoleConfig struct {
+	// AllowedPolicies are exact policy names a token may carry.
+	AllowedPolicies []string `yaml:"allowedPolicies,omitempty"`
+	// AllowedPoliciesGlobs are policy name globs a token may carry (e.g. "github-*").
+	AllowedPoliciesGlobs []string `yaml:"allowedPoliciesGlobs,omitempty"`
+	// DisallowedPolicies are exact policy names a token may never carry (they win over the allowed ones).
+	DisallowedPolicies []string `yaml:"disallowedPolicies,omitempty"`
+	// DisallowedPoliciesGlobs are policy name globs a token may never carry (they win over the allowed ones).
+	DisallowedPoliciesGlobs []string `yaml:"disallowedPoliciesGlobs,omitempty"`
+	// Orphan creates tokens without a parent, so they outlive the token that created them (default: false).
+	Orphan *bool `yaml:"orphan,omitempty"`
+	// TokenTTL is the TTL of issued tokens in seconds (default: 1 hour).
+	TokenTTL *int `yaml:"tokenTtl,omitempty"`
+	// TokenMaxTTL is the maximum TTL of issued tokens in seconds (default: 4 hours).
+	TokenMaxTTL *int `yaml:"tokenMaxTtl,omitempty"`
 }

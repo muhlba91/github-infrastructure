@@ -74,6 +74,15 @@ accessPermissions:
               - read
               - list
       # the repository's CI may read the role ID and create/destroy secret IDs, but cannot change the role or its policy
+    tokenRoles: # a map of token roles (auth/token/roles) owned by the repository; who may use one is granted by other policies (path auth/token/create/<role>)
+      role-name: # the role name (global in Vault)
+        allowedPoliciesGlobs: [] # policy name globs a created token may carry (e.g. 'github-*'); at least one of allowedPolicies/allowedPoliciesGlobs
+        allowedPolicies: [] # exact policy names a created token may carry
+        disallowedPolicies: [] # exact policy names a created token may never carry (wins over the allowed ones)
+        disallowedPoliciesGlobs: [] # policy name globs a created token may never carry
+        orphan: false # created tokens have no parent and outlive the token that created them
+        tokenTtl: 3600 # TTL of created tokens in seconds (optional, default: 1 hour)
+        tokenMaxTtl: 14400 # maximum TTL of created tokens in seconds (optional, default: 4 hours)
   tailscale: true # sets the Tailscale OAuth secrets
   google:
     region: europe-west4 # if not set, google.defaultRegion is used
@@ -85,6 +94,14 @@ accessPermissions:
         iamPermissions: [] # list of additional permissions for the service account
     iamPermissions: [] # list of additional permissions for the service account; pkg/lib/google/defaults/defaultPermissions are default permissions
     enabledServices: [] # list of additional services to enable in the project(s); pkg/lib/google/defaults/defaultServices are the default services
+    serviceAccounts: # a map of additional service accounts in the default project, keyed by the account ID (6-30 characters)
+      account-id:
+        roles: # a map of project ids (google.projects) with the predefined roles the account gets there
+          project-id:
+            - roles/iam.serviceAccountTokenCreator
+        keyRotationDays: 365 # rotate the key every this many days (optional, default: never)
+        vault:
+          mount: "" # the KV mount the key is stored in (default: the repository's mount); key 'gcp-<account-id>', field 'credentials' (the key file's JSON)
   aws:
     region: eu-west-1 # if not set, aws.defaultRegion is used
     account: 0 # the default account id

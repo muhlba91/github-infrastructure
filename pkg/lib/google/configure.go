@@ -66,6 +66,13 @@ func Configure(ctx *pulumi.Context,
 			return nil, pErr
 		}
 
+		saErr := createServiceAccounts(ctx, repositoryProject, vaultStores, providers)
+		if saErr != nil {
+			log.Err(saErr).
+				Msgf("[google][configure] error creating service accounts for repository: %s", *repositoryProject.Repository)
+			return nil, saErr
+		}
+
 		projectRepositoryMapping, prmOk := projects[*repositoryProject.Name]
 		if !prmOk {
 			projectRepositoryMapping = []string{}
@@ -114,15 +121,20 @@ func filterRepositoryByAllowedProjects(
 		return false
 	}
 
-	linkedProjects := repoAccessPermissionsGoogle.LinkedProjects
-	if linkedProjects == nil {
-		return true
-	}
-
-	for project := range linkedProjects {
+	for project := range repoAccessPermissionsGoogle.LinkedProjects {
 		if !slices.Contains(gcpConfig.Projects, project) {
 			log.Error().Msgf("[google][%v] the repository references an unconfigured project", project)
 			return false
+		}
+	}
+
+	for name, account := range repoAccessPermissionsGoogle.ServiceAccounts {
+		for project := range account.Roles {
+			if !slices.Contains(gcpConfig.Projects, project) {
+				log.Error().
+					Msgf("[google][%v] the service account %s references an unconfigured project", project, name)
+				return false
+			}
 		}
 	}
 
@@ -180,8 +192,9 @@ func createGoogleRepositoryProjects(
 					repoAccessPermissionsGoogle.EnabledServices,
 					defaultServices...,
 				),
-				LinkedProjects: linkedProjects,
-				HMACKey:        repoAccessPermissionsGoogle.HMACKey,
+				LinkedProjects:  linkedProjects,
+				HMACKey:         repoAccessPermissionsGoogle.HMACKey,
+				ServiceAccounts: repositoryServiceAccounts(repoAccessPermissionsGoogle.ServiceAccounts),
 			}
 		}
 	}

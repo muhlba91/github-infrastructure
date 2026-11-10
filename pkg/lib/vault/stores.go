@@ -18,6 +18,8 @@ import (
 )
 
 // ConfigureStores configures Vault secret stores for the given GitHub repositories.
+// It returns the repositories' mounts keyed by the repository name and the created additional mounts keyed by
+// AdditionalMountKey.
 // ctx: The Pulumi context.
 // repositories: A slice of repository configurations.
 // githubRepositories: A map of GitHub repository resources keyed by repository name.
@@ -37,8 +39,9 @@ func ConfigureStores(
 
 		repos, additionalMounts := filterRepositories(repositories)
 
+		repositoryMounts := make(map[string]*vault.Mount)
 		for path := range additionalMounts {
-			_, addErr := store.Create(ctx, path, &store.CreateOptions{
+			additionalMount, addErr := store.Create(ctx, path, &store.CreateOptions{
 				Path:        pulumi.String(path),
 				Description: pulumi.String("Secrets for: " + path),
 				PulumiOptions: []pulumi.ResourceOption{
@@ -49,9 +52,9 @@ func ConfigureStores(
 				log.Err(addErr).Msgf("[vault][store] error creating vault store for additional mount: %s", path)
 				return nil
 			}
+			repositoryMounts[AdditionalMountKey(path)] = additionalMount
 		}
 
-		repositoryMounts := make(map[string]*vault.Mount)
 		for _, repository := range repos {
 			mount, stErr := store.Create(ctx, repository.Name, &store.CreateOptions{
 				Path: pulumi.String(fmt.Sprintf("github-%s", repository.Name)),
@@ -85,6 +88,13 @@ func ConfigureStores(
 
 		return repositoryMounts
 	})
+}
+
+// AdditionalMountKey returns the key of a created additional mount in the map returned by ConfigureStores (the
+// repositories' mounts are keyed by the repository name, which never contains a colon).
+// path: The mount path.
+func AdditionalMountKey(path string) string {
+	return "mount:" + path
 }
 
 // filterRepositories filters the given repositories to include only those that we want to manage the lifecycle for.
