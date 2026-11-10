@@ -57,8 +57,7 @@ type VaultTokenRoleConfig struct {
 	DisallowedPoliciesGlobs []string `yaml:"disallowedPoliciesGlobs,omitempty"`
 	// Orphan creates tokens without a parent, so they outlive the token that created them (default: false).
 	Orphan *bool `yaml:"orphan,omitempty"`
-	// TokenTTL is the TTL of issued tokens in seconds (default: 1 hour).
-	TokenTTL *int `yaml:"tokenTtl,omitempty"`
-	// TokenMaxTTL is the maximum TTL of issued tokens in seconds (default: 4 hours).
-	TokenMaxTTL *int `yaml:"tokenMaxTtl,omitempty"`
+	// TokenExplicitMaxTTL is the hard maximum TTL of created tokens in seconds (default: 4 hours). Token roles ignore
+	// token_ttl/token_max_ttl: a token lives as long as the creator asks (-ttl), up to this limit.
+	TokenExplicitMaxTTL *int `yaml:"tokenExplicitMaxTtl,omitempty"`
 }

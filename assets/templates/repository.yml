@@ -81,8 +81,7 @@ accessPermissions:
         disallowedPolicies: [] # exact policy names a created token may never carry (wins over the allowed ones)
         disallowedPoliciesGlobs: [] # policy name globs a created token may never carry
         orphan: false # created tokens have no parent and outlive the token that created them
-        tokenTtl: 3600 # TTL of created tokens in seconds (optional, default: 1 hour)
-        tokenMaxTtl: 14400 # maximum TTL of created tokens in seconds (optional, default: 4 hours)
+        tokenExplicitMaxTtl: 14400 # hard maximum TTL of created tokens in seconds (optional, default: 4 hours); token roles have no default TTL: a token lives as long as requested (-ttl), up to this
   tailscale: true # sets the Tailscale OAuth secrets
   google:
     region: europe-west4 # if not set, google.defaultRegion is used

@@ -13,12 +13,9 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-const (
-	// defaultTokenRoleTTL is the default TTL of tokens created through a token role (1 hour).
-	defaultTokenRoleTTL = 60 * 60
-	// defaultTokenRoleMaxTTL is the default maximum TTL of tokens created through a token role (4 hours).
-	defaultTokenRoleMaxTTL = 4 * 60 * 60
-)
+// defaultTokenRoleExplicitMaxTTL is the default hard maximum TTL of tokens created through a token role (4 hours).
+// Vault ignores token_ttl/token_max_ttl on token roles (a token without -ttl would get the system default, 32 days).
+const defaultTokenRoleExplicitMaxTTL = 4 * 60 * 60
 
 // createTokenRoles creates the token roles of the given repository.
 // A token role only limits the policies of the tokens created through it; who may use it is decided by other
@@ -50,8 +47,9 @@ func createTokenRoles(ctx *pulumi.Context, repository *repository.Config) error 
 				DisallowedPoliciesGlobs: pulumi.ToStringArray(role.DisallowedPoliciesGlobs),
 				Orphan:                  pulumi.Bool(defaults.GetOrDefault(role.Orphan, false)),
 				Renewable:               pulumi.Bool(true),
-				TokenTtl:                pulumi.Int(defaults.GetOrDefault(role.TokenTTL, defaultTokenRoleTTL)),
-				TokenMaxTtl:             pulumi.Int(defaults.GetOrDefault(role.TokenMaxTTL, defaultTokenRoleMaxTTL)),
+				TokenExplicitMaxTtl: pulumi.Int(
+					defaults.GetOrDefault(role.TokenExplicitMaxTTL, defaultTokenRoleExplicitMaxTTL),
+				),
 			},
 			pulumi.Provider(config.VaultProvider),
 		)

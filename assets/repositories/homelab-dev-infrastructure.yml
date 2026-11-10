@@ -63,8 +63,8 @@ accessPermissions:
         disallowedPolicies:
           - github-homelab-dev-infrastructure
         orphan: true
-        tokenTtl: 3600
-        tokenMaxTtl: 14400
+        # tokens live as long as requested (-ttl, e.g. 1h), at most 4 hours
+        tokenExplicitMaxTtl: 14400
   tailscale: true
   google:
     region: europe-west4
