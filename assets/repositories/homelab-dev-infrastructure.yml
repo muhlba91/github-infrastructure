@@ -15,10 +15,20 @@ rulesets:
       - Dependency Review
       - YAMLLint
       - Lint
+      - Template Lint
       - Unit Tests
       - Pulumi Preview
       - Nix Check (lint)
       - Nix Check (eval)
+      - Nix Check (deploy-schema)
+      - Nix Check (host-fixture-dev)
+      - Nix Check (host-fixture-minimal)
+      - Nix Test (deploy-schema)
+      - Nix Test (host-host)
+      - Nix Test (host-hetzner-fra-dev-001)
+      - Nix Build (hetzner-fra-dev-001)
+      - Nix Preview (deploy-schema)
+      - Nix Preview (host-hetzner-fra-dev-001)
 
 accessPermissions:
   vault:
