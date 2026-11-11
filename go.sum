@@ -154,12 +154,8 @@ github.com/muesli/cancelreader v0.2.2 h1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELU
 github.com/muesli/cancelreader v0.2.2/go.mod h1:3XuTXfFS2VjM+HTLZY9Ak0l6eUKfijIfMUZ4EgX0QYo=
 github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc=
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261110105748-a6350a47a27a h1:bHXuNRx571OxiiMZb+bBuEpfcdIOySzbh8o67mC3T8Q=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261110105748-a6350a47a27a/go.mod h1:msgi3bajh3Tq2aJcTJFTpaUyBjXWy6dZuWvyYNyXiGQ=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261110143640-f611f1e02a04 h1:X01lr91ssXFd4TwENkFGJHKKGU8zbhlLduiLCKt8gA4=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261110143640-f611f1e02a04/go.mod h1:msgi3bajh3Tq2aJcTJFTpaUyBjXWy6dZuWvyYNyXiGQ=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261111033148-6ffba3bb3b2d h1:pVtVxN6sjYylCQN7z5Dqe6kqYcPWgHn2tMOCp6RjGO0=
-github.com/muhlba91/pulumi-shared-library v0.0.0-20261111033148-6ffba3bb3b2d/go.mod h1:msgi3bajh3Tq2aJcTJFTpaUyBjXWy6dZuWvyYNyXiGQ=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20261111101418-0ad9bb884e63 h1:U2bQHusOp2fBmVE1COBivFWAOejepTVWV+9ccHAu1OM=
+github.com/muhlba91/pulumi-shared-library v0.0.0-20261111101418-0ad9bb884e63/go.mod h1:msgi3bajh3Tq2aJcTJFTpaUyBjXWy6dZuWvyYNyXiGQ=
 github.com/opentracing/basictracer-go v1.1.0 h1:Oa1fTSBvAl8pa3U+IJYqrKm0NALwH9OsgwOqDv4xJW0=
 github.com/opentracing/basictracer-go v1.1.0/go.mod h1:V2HZueSJEp879yv285Aap1BS69fQMD+MNP1mRs6mBQc=
 github.com/opentracing/opentracing-go v1.1.0/go.mod h1:UkNAQd3GIcIGf0SeVgPpRdFStlNbqXla1AfSYxPUl2o=
