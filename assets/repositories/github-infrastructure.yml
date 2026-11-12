@@ -47,7 +47,11 @@ accessPermissions:
       - iam.googleapis.com/workloadIdentityPools.create
       - iam.googleapis.com/workloadIdentityPools.delete
       - iam.googleapis.com/workloadIdentityPools.get
+      - iam.googleapis.com/workloadIdentityPools.getAttestationRules
+      - iam.googleapis.com/workloadIdentityPools.getIamPolicy
       - iam.googleapis.com/workloadIdentityPools.list
+      - iam.googleapis.com/workloadIdentityPools.setAttestationRules
+      - iam.googleapis.com/workloadIdentityPools.setIamPolicy
       - iam.googleapis.com/workloadIdentityPools.undelete
       - iam.googleapis.com/workloadIdentityPools.update
       - iam.roles.create
@@ -65,7 +69,11 @@ accessPermissions:
       - iam.workloadIdentityPools.create
       - iam.workloadIdentityPools.delete
       - iam.workloadIdentityPools.get
+      - iam.workloadIdentityPools.getAttestationRules
+      - iam.workloadIdentityPools.getIamPolicy
       - iam.workloadIdentityPools.list
+      - iam.workloadIdentityPools.setAttestationRules
+      - iam.workloadIdentityPools.setIamPolicy
       - iam.workloadIdentityPools.undelete
       - iam.workloadIdentityPools.update
       - serviceusage.services.disable

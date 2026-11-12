@@ -36,6 +36,21 @@ jobs:
       # Go comes from mise; setup-go only restores the module cache.
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
 
+      # Google credentials from workload identity (the CI identity and secrets are managed by this repository itself)
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GOOGLE_CLOUD_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GOOGLE_CLOUD_CI_SERVICE_ACCOUNT }}
+
+      # the secrets are read by fnox from Google Secret Manager (fnox.toml), the same as on the developer machines
+      - name: Load secrets
+        run: |
+          fnox ci-redact
+          fnox export --format json \
+            | jq -r '.secrets | to_entries[]
+                | if (.value | test("\n")) then error("multi-line value: \(.key)") else "\(.key)=\(.value)" end' \
+            >> "$GITHUB_ENV"
+
       - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
           organization: muhlba91
@@ -47,22 +62,6 @@ jobs:
           command: preview
           stack-name: prod
           refresh: true
-        env:
-          CLOUDSDK_COMPUTE_REGION: "${{ secrets.CLOUDSDK_COMPUTE_REGION }}"
-          GOOGLE_CREDENTIALS: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
-          AWS_REGION: "${{ secrets.AWS_REGION }}"
-          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-          GITHUB_TOKEN: "${{ secrets.GH_PAT_TOKEN }}"
-          OAUTH_CLIENT_ID: "${{ secrets.OAUTH_CLIENT_ID }}"
-          OAUTH_CLIENT_SECRET: "${{ secrets.OAUTH_CLIENT_SECRET }}"
-          SCW_ACCESS_KEY: "${{ secrets.SCW_ACCESS_KEY }}"
-          SCW_SECRET_KEY: "${{ secrets.SCW_SECRET_KEY }}"
-          SCW_ORGANIZATION_ID: "${{ secrets.SCW_ORGANIZATION_ID }}"
-          SCW_PROJECT_ID: "${{ secrets.SCW_PROJECT_ID }}"
-          SCW_DEFAULT_REGION: "${{ secrets.SCW_DEFAULT_REGION }}"
-          SCW_DEFAULT_ZONE: "${{ secrets.SCW_DEFAULT_ZONE }}"
-          GITLAB_TOKEN: "${{ secrets.GITLAB_TOKEN }}"
 
   deploy:
     runs-on: ubuntu-latest
@@ -86,6 +85,21 @@ jobs:
         with:
           cache: false
 
+      # Google credentials from workload identity (the CI identity and secrets are managed by this repository itself)
+      - uses: google-github-actions/auth@7c6bc770dae815cd3e89ee6cdf493a5fab2cc093 # v3.0.0
+        with:
+          workload_identity_provider: ${{ secrets.GOOGLE_CLOUD_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GOOGLE_CLOUD_CI_SERVICE_ACCOUNT }}
+
+      # the secrets are read by fnox from Google Secret Manager (fnox.toml), the same as on the developer machines
+      - name: Load secrets
+        run: |
+          fnox ci-redact
+          fnox export --format json \
+            | jq -r '.secrets | to_entries[]
+                | if (.value | test("\n")) then error("multi-line value: \(.key)") else "\(.key)=\(.value)" end' \
+            >> "$GITHUB_ENV"
+
       - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
           organization: muhlba91
@@ -96,19 +110,3 @@ jobs:
         with:
           command: up
           stack-name: prod
-        env:
-          CLOUDSDK_COMPUTE_REGION: "${{ secrets.CLOUDSDK_COMPUTE_REGION }}"
-          GOOGLE_CREDENTIALS: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
-          AWS_REGION: "${{ secrets.AWS_REGION }}"
-          AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-          AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
-          GITHUB_TOKEN: "${{ secrets.GH_PAT_TOKEN }}"
-          OAUTH_CLIENT_ID: "${{ secrets.OAUTH_CLIENT_ID }}"
-          OAUTH_CLIENT_SECRET: "${{ secrets.OAUTH_CLIENT_SECRET }}"
-          SCW_ACCESS_KEY: "${{ secrets.SCW_ACCESS_KEY }}"
-          SCW_SECRET_KEY: "${{ secrets.SCW_SECRET_KEY }}"
-          SCW_ORGANIZATION_ID: "${{ secrets.SCW_ORGANIZATION_ID }}"
-          SCW_PROJECT_ID: "${{ secrets.SCW_PROJECT_ID }}"
-          SCW_DEFAULT_REGION: "${{ secrets.SCW_DEFAULT_REGION }}"
-          SCW_DEFAULT_ZONE: "${{ secrets.SCW_DEFAULT_ZONE }}"
-          GITLAB_TOKEN: "${{ secrets.GITLAB_TOKEN }}"
