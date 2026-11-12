@@ -181,9 +181,6 @@ func createGoogleRepositoryProjects(
 			}
 
 			enabledServices := slices.Concat(repoAccessPermissionsGoogle.EnabledServices, defaultServices)
-			if defaults.GetOrDefault(repoAccessPermissionsGoogle.SecretManager, false) {
-				enabledServices = append(enabledServices, secretManagerService)
-			}
 
 			googleRepositoryProjects[repository.Name] = &google.RepositoryProject{
 				Repository: &repository.Name,

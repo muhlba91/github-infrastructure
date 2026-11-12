@@ -89,7 +89,7 @@ accessPermissions:
     region: europe-west4 # if not set, google.defaultRegion is used
     project: "" # the default project
     hmacKey: false # create Cloud Storage HMAC keys in the default project
-    secretManager: false # grants the CI service account access to the secrets named '<repository>--<NAME>' in the default project's Secret Manager
+    secretManager: false # grants the CI service account access to the secrets named '<repository>--<NAME>' in the default project's Secret Manager (the API is enabled in all projects by default)
     linkedProjects: # a map of linked project ids with the access configuration
       project-id:
         accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set

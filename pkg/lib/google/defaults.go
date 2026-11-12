@@ -75,4 +75,5 @@ var defaultServices = []string{
 	"storage.googleapis.com",
 	"storage-component.googleapis.com",
 	"compute.googleapis.com",
+	secretManagerService,
 }

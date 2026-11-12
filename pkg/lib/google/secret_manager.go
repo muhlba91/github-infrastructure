@@ -12,7 +12,7 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-// secretManagerService is the Secret Manager API, enabled for repositories with Secret Manager access.
+// secretManagerService is the Secret Manager API, enabled in all projects (defaultServices).
 const secretManagerService = "secretmanager.googleapis.com"
 
 // secretManagerSeparator separates the repository from the name in the secrets' names: <repository>--<NAME>.

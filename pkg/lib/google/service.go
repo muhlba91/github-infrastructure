@@ -28,19 +28,11 @@ func EnableProjectServices(ctx *pulumi.Context,
 	for _, project := range gcpConfig.Projects {
 		svcsMap := make(map[string]bool)
 		for _, repoProject := range googleRepositoryProjects {
-			if *repoProject.Name == project ||
-				slices.Contains(slices.Collect(maps.Keys(repoProject.LinkedProjects)), project) {
-				linkedProject, ok := repoProject.LinkedProjects[project]
-				svcs := append([]string{}, defaultServices...)
-				if repoProject.Name == &project || (ok && linkedProject.AccessLevel == "full") {
-					svcs = repoProject.EnabledServices
-				}
-				for _, svc := range svcs {
-					svcsMap[svc] = true
-				}
+			for _, svc := range projectServices(repoProject, project) {
+				svcsMap[svc] = true
 			}
 		}
-		services := slices.Collect(maps.Keys(svcsMap))
+		services := slices.Sorted(maps.Keys(svcsMap))
 		enabled, psErr := enableForProject(ctx, project, services, providers[project])
 		if psErr != nil {
 			log.Err(psErr).Msgf("[google][service] error enabling services for Google Cloud project: %s", project)
@@ -50,6 +42,25 @@ func EnableProjectServices(ctx *pulumi.Context,
 	}
 
 	return enabledServices, nil
+}
+
+// projectServices returns the services a repository needs in the given project: its own project and linked projects
+// with access level "full" get the repository's services, linked projects with any other access level the default
+// services, and unrelated projects none.
+// repoProject: The repository project configuration.
+// project: The Google Cloud project ID.
+func projectServices(repoProject *google.RepositoryProject, project string) []string {
+	if *repoProject.Name == project {
+		return repoProject.EnabledServices
+	}
+	linkedProject, linked := repoProject.LinkedProjects[project]
+	if !linked {
+		return nil
+	}
+	if linkedProject.AccessLevel == "full" {
+		return repoProject.EnabledServices
+	}
+	return defaultServices
 }
 
 // enableForProject enables the specified services for a given Google Cloud project.

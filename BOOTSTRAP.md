@@ -15,7 +15,8 @@ Created by hand, outside of any repository:
 
 1. **Google Cloud:** the projects listed in the stack configuration (`google.projects`), and in `public-services-402810`
    - the KMS key `europe/infrastructure-encryption/infrastructure-encryption` (Pulumi's secrets provider),
-   - the Secret Manager API enabled (`gcloud services enable secretmanager.googleapis.com --project public-services-402810`).
+   - the Secret Manager API enabled (`gcloud services enable secretmanager.googleapis.com --project public-services-402810`;
+     fnox needs it before the first run, afterwards this program manages it in all configured projects).
 2. **Your Google login** on the Mac: `gcloud auth login` and `gcloud auth application-default login`, with the rights
    this program needs in all configured projects (owner).
 3. **Pulumi Cloud:** the account and `pulumi login` on the Mac.
