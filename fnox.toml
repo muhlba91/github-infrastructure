@@ -1,0 +1,39 @@
+# Secrets for CI and local runs, read with fnox (https://fnox.jdx.dev)
+#
+# This is a bootstrap repository: it creates the repositories, Vault's mounts and the CI identities, so its inputs never
+# come from Vault. Its secrets live in Google Secret Manager in public-services-402810, named
+# `github-infrastructure--<VARIABLE>` (see BOOTSTRAP.md).
+#
+# - CI: Google credentials from workload identity (google-github-actions/auth); the identity is managed by this
+#   repository itself (assets/repositories/github-infrastructure.yml) and passed as GitHub Actions secrets
+#   (GOOGLE_CLOUD_*)
+# - locally (Mac): your Application Default Credentials (`gcloud auth application-default login`); mise sets
+#   FNOX_PROFILE=default here, so the machine's `dev` profile (Vault) is never used
+#
+# run: fnox exec -- pulumi preview --stack prod
+
+if_missing = "error"
+
+[providers.gsm]
+type = "gcp-sm"
+project = "public-services-402810"
+prefix = "github-infrastructure--"
+
+[secrets]
+GITHUB_TOKEN = { provider = "gsm", value = "GITHUB_TOKEN", description = "GitHub token managing the repositories" }
+GITLAB_TOKEN = { provider = "gsm", value = "GITLAB_TOKEN", description = "GitLab token managing access" }
+OAUTH_CLIENT_ID = { provider = "gsm", value = "OAUTH_CLIENT_ID", description = "Tailscale OAuth client" }
+OAUTH_CLIENT_SECRET = { provider = "gsm", value = "OAUTH_CLIENT_SECRET", description = "Tailscale OAuth client" }
+SCW_ACCESS_KEY = { provider = "gsm", value = "SCW_ACCESS_KEY", description = "Scaleway API key of this repository's IAM application" }
+SCW_SECRET_KEY = { provider = "gsm", value = "SCW_SECRET_KEY", description = "Scaleway API key of this repository's IAM application" }
+AWS_ACCESS_KEY_ID = { provider = "gsm", value = "AWS_ACCESS_KEY_ID", description = "AWS access key (management account)" }
+AWS_SECRET_ACCESS_KEY = { provider = "gsm", value = "AWS_SECRET_ACCESS_KEY", description = "AWS access key (management account)" }
+
+# plain configuration, not secret
+AWS_REGION = { default = "eu-west-1" }
+CLOUDSDK_COMPUTE_REGION = { default = "europe-west4" }
+CLOUDSDK_CORE_PROJECT = { default = "public-services-402810" }
+SCW_ORGANIZATION_ID = { default = "2535e3b0-5c19-476b-8c0b-8a2a5bfac7c3" }
+SCW_PROJECT_ID = { default = "2535e3b0-5c19-476b-8c0b-8a2a5bfac7c3" } # the organization's default project (same ID)
+SCW_DEFAULT_REGION = { default = "fr-par" }
+SCW_DEFAULT_ZONE = { default = "fr-par-1" }

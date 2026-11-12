@@ -10,7 +10,7 @@ This repository contains the automation for [GitHub Repositories](https://github
 
 ## Requirements
 
-- Tools from [mise](https://mise.jdx.dev): Go, golangci-lint and Pulumi, see [Development](#development)
+- Tools from [mise](https://mise.jdx.dev): Go, golangci-lint, Pulumi and fnox, see [Development](#development)
 
 ## Creating the Infrastructure
 
@@ -32,9 +32,28 @@ pulumi destroy
 
 **Attention**: you must set `ALLOW_REPOSITORY_DELETION="true"` as an environment variable to be able to delete repositories!
 
+## Secrets
+
+This is a bootstrap repository: it creates the repositories, Vault's mounts and the CI identities, so its inputs never
+come from Vault. The secrets are read with [fnox](https://fnox.jdx.dev) from Google Secret Manager (see
+[`fnox.toml`](fnox.toml)):
+
+- **CI:** Google credentials from workload identity (managed by this repository itself); a step loads the secrets into
+  the job's environment.
+- **Locally:** with your Application Default Credentials (`gcloud auth application-default login`):
+
+  ```bash
+  fnox exec -- pulumi preview --stack prod
+  ```
+
+  Local overrides go into `fnox.local.toml` (gitignored).
+
+The initial bootstrap (what must exist before the first deployment, and how to seed the secrets) is described in
+[BOOTSTRAP.md](BOOTSTRAP.md).
+
 ## Environment Variables
 
-To successfully run, and configure the Pulumi plugins, you need to set a list of environment variables. Alternatively, refer to the used Pulumi provider's configuration documentation.
+To successfully run, and configure the Pulumi plugins, you need to set a list of environment variables (fnox sets them, see [Secrets](#secrets)). Alternatively, refer to the used Pulumi provider's configuration documentation.
 
 - `ALLOW_REPOSITORY_DELETION`: set to `true` to allow repository deletion
 - `IGNORE_UNMANAGED_REPOSITORIES`: set to `true` to skip repositories not defined in `assets/repositories/`
@@ -42,7 +61,7 @@ To successfully run, and configure the Pulumi plugins, you need to set a list of
 - `AWS_ACCESS_KEY_ID`: the AWS secret key
 - `AWS_SECRET_ACCESS_KEY`: the AWS secret access key
 - `CLOUDSDK_COMPUTE_REGION`: the Google Cloud (GCP) region
-- `GOOGLE_APPLICATION_CREDENTIALS`: reference to a file containing the Google Cloud (GCP) service account credentials
+- `CLOUDSDK_CORE_PROJECT`: the Google Cloud (GCP) default project
 - `SCW_ACCESS_KEY`: the Scaleway access key
 - `SCW_SECRET_KEY`: the Scaleway secret key
 - `SCW_ORGANIZATION_ID`: the Scaleway organization ID
@@ -51,7 +70,6 @@ To successfully run, and configure the Pulumi plugins, you need to set a list of
 - `SCW_DEFAULT_ZONE`: the Scaleway default zone
 - `GITHUB_TOKEN`: the GitHub token with permissions to manage repositories
 - `GITLAB_TOKEN`: the GitLab token with permissions to manage access
-- `PULUMI_ACCESS_TOKEN`: the Pulumi access token
 - `OAUTH_CLIENT_ID`: Tailscale OAuth client ID
 - `OAUTH_CLIENT_SECRET`: Tailscale OAuth client secret
 

@@ -19,3 +19,70 @@ rulesets:
       - Lint
       - Unit Tests
       - Pulumi Preview
+
+accessPermissions:
+  vault:
+    enabled: false # bootstrap repository: its inputs never come from Vault (see BOOTSTRAP.md)
+  githubSecrets:
+    enabled: true
+  google:
+    region: europe-west4
+    project: public-services-402810
+    secretManager: true
+    # beyond the defaults: what this program manages in every configured project (custom roles, service accounts,
+    # workload identity pools and providers, services); the same rights in all linked projects. Linked projects use
+    # 'default' with the same list instead of 'full', which would also enable this project's services (Secret Manager)
+    iamPermissions: &ci-permissions
+      - iam.googleapis.com/workloadIdentityPoolProviderKeys.create
+      - iam.googleapis.com/workloadIdentityPoolProviderKeys.delete
+      - iam.googleapis.com/workloadIdentityPoolProviderKeys.get
+      - iam.googleapis.com/workloadIdentityPoolProviderKeys.list
+      - iam.googleapis.com/workloadIdentityPoolProviderKeys.undelete
+      - iam.googleapis.com/workloadIdentityPoolProviders.create
+      - iam.googleapis.com/workloadIdentityPoolProviders.delete
+      - iam.googleapis.com/workloadIdentityPoolProviders.get
+      - iam.googleapis.com/workloadIdentityPoolProviders.list
+      - iam.googleapis.com/workloadIdentityPoolProviders.undelete
+      - iam.googleapis.com/workloadIdentityPoolProviders.update
+      - iam.googleapis.com/workloadIdentityPools.create
+      - iam.googleapis.com/workloadIdentityPools.delete
+      - iam.googleapis.com/workloadIdentityPools.get
+      - iam.googleapis.com/workloadIdentityPools.list
+      - iam.googleapis.com/workloadIdentityPools.undelete
+      - iam.googleapis.com/workloadIdentityPools.update
+      - iam.roles.create
+      - iam.roles.delete
+      - iam.roles.get
+      - iam.roles.list
+      - iam.roles.undelete
+      - iam.roles.update
+      - iam.workloadIdentityPoolProviders.create
+      - iam.workloadIdentityPoolProviders.delete
+      - iam.workloadIdentityPoolProviders.get
+      - iam.workloadIdentityPoolProviders.list
+      - iam.workloadIdentityPoolProviders.undelete
+      - iam.workloadIdentityPoolProviders.update
+      - iam.workloadIdentityPools.create
+      - iam.workloadIdentityPools.delete
+      - iam.workloadIdentityPools.get
+      - iam.workloadIdentityPools.list
+      - iam.workloadIdentityPools.undelete
+      - iam.workloadIdentityPools.update
+      - serviceusage.services.disable
+      - serviceusage.services.enable
+      - serviceusage.services.get
+      - serviceusage.services.list
+      - serviceusage.services.use
+    linkedProjects:
+      root-muehlbachler:
+        accessLevel: default
+        iamPermissions: *ci-permissions
+      tuxnet-385112:
+        accessLevel: default
+        iamPermissions: *ci-permissions
+      muehlbachler-dns:
+        accessLevel: default
+        iamPermissions: *ci-permissions
+      cv-cus-00001-428814:
+        accessLevel: default
+        iamPermissions: *ci-permissions
