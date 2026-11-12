@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"slices"
 
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	googleConf "github.com/muhlba91/github-infrastructure/pkg/model/config/google"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -18,12 +18,12 @@ import (
 // Configure sets up Google Cloud resources based on the provided configuration.
 // ctx: Pulumi context for resource management.
 // repositories: List of repository configurations.
-// vaultStores: Map of Vault mount configurations.
+// stores: The secret stores (see secrets.ConfigureStores).
 // gcpConfig: Google Cloud configuration details.
 // repositoriesConfig: Repository configuration details.
 func Configure(ctx *pulumi.Context,
 	repositories []*repoConf.Config,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 	gcpConfig *googleConf.Config,
 	repositoriesConfig *repositories.Config,
 ) (map[string][]string, error) {
@@ -55,7 +55,7 @@ func Configure(ctx *pulumi.Context,
 			ctx,
 			repositoryProject,
 			workloadIdentities[*repositoryProject.Name],
-			vaultStores[*repositoryProject.Repository],
+			stores[*repositoryProject.Repository],
 			repositoriesConfig,
 			gcpConfig,
 			providers[*repositoryProject.Name],
@@ -66,7 +66,7 @@ func Configure(ctx *pulumi.Context,
 			return nil, pErr
 		}
 
-		saErr := createServiceAccounts(ctx, repositoryProject, vaultStores, providers)
+		saErr := createServiceAccounts(ctx, repositoryProject, stores, providers)
 		if saErr != nil {
 			log.Err(saErr).
 				Msgf("[google][configure] error creating service accounts for repository: %s", *repositoryProject.Repository)
@@ -180,6 +180,11 @@ func createGoogleRepositoryProjects(
 				}
 			}
 
+			enabledServices := slices.Concat(repoAccessPermissionsGoogle.EnabledServices, defaultServices)
+			if defaults.GetOrDefault(repoAccessPermissionsGoogle.SecretManager, false) {
+				enabledServices = append(enabledServices, secretManagerService)
+			}
+
 			googleRepositoryProjects[repository.Name] = &google.RepositoryProject{
 				Repository: &repository.Name,
 				Name:       &project,
@@ -188,12 +193,10 @@ func createGoogleRepositoryProjects(
 					repoAccessPermissionsGoogle.IAMPermissions,
 					defaultPermissions...,
 				),
-				EnabledServices: append(
-					repoAccessPermissionsGoogle.EnabledServices,
-					defaultServices...,
-				),
+				EnabledServices: enabledServices,
 				LinkedProjects:  linkedProjects,
 				HMACKey:         repoAccessPermissionsGoogle.HMACKey,
+				SecretManager:   repoAccessPermissionsGoogle.SecretManager,
 				ServiceAccounts: repositoryServiceAccounts(repoAccessPermissionsGoogle.ServiceAccounts),
 			}
 		}

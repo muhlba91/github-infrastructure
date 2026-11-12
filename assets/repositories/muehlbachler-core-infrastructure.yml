@@ -17,3 +17,30 @@ rulesets:
       - Lint
       - Unit Tests
       - Pulumi Preview
+
+accessPermissions:
+  vault:
+    enabled: false # bootstrap repository: it creates Vault, so it never reads from it
+  githubSecrets:
+    enabled: true
+  google:
+    region: europe-west4
+    project: public-services-402810
+    secretManager: true
+    iamPermissions:
+      - cloudkms.keyRings.getIamPolicy
+      - cloudkms.keyRings.setIamPolicy
+    linkedProjects:
+      muehlbachler-dns:
+        iamPermissions:
+          - dns.managedZones.get
+          - dns.managedZones.list
+          - dns.projects.get
+          - dns.resourceRecordSets.create
+          - dns.resourceRecordSets.delete
+          - dns.resourceRecordSets.get
+          - dns.resourceRecordSets.list
+          - dns.resourceRecordSets.update
+          - dns.changes.create
+          - dns.changes.get
+          - dns.changes.list

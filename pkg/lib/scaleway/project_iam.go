@@ -1,18 +1,16 @@
 package scaleway
 
 import (
-	"encoding/json"
 	"fmt"
 	"slices"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	scalewayConf "github.com/muhlba91/github-infrastructure/pkg/model/config/scaleway"
 	scalewayModel "github.com/muhlba91/github-infrastructure/pkg/model/scaleway"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/scaleway/iam/policy"
-	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	scwmodel "github.com/muhlba91/pulumi-shared-library/pkg/model/scaleway/iam/application"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/scaleway/iam/application"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	scw "github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway"
 	"github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway/iam"
@@ -22,12 +20,12 @@ import (
 // createProjectIAM creates IAM roles and service accounts for Continuous Integration in the specified Scaleway project.
 // ctx: Pulumi context for resource management.
 // project: The repository project configuration.
-// vaultStore: Vault mount configuration.
+// store: The repository's secret store.
 // scalewayConfig: Scaleway configuration details.
 // provider: Scaleway provider configured for the specific project.
 func createProjectIAM(ctx *pulumi.Context,
 	project *scalewayModel.RepositoryProject,
-	vaultStore *vault.Mount,
+	store *secrets.Store,
 	scalewayConfig *scalewayConf.Config,
 	provider *scw.Provider,
 ) (*scwmodel.Application, error) {
@@ -61,30 +59,18 @@ func createProjectIAM(ctx *pulumi.Context,
 		return nil, rErr
 	}
 
-	pulumi.All(vaultStore.Path, application.Key.AccessKey, application.Key.SecretKey).ApplyT(func(all []any) error {
-		path, _ := all[0].(string)
-		accessKey, _ := all[1].(string)
-		secretKey, _ := all[2].(string)
-
-		value, _ := json.Marshal(map[string]string{
-			"access_key":      accessKey,
-			"secret_key":      secretKey,
-			"region":          *project.Region,
-			"zone":            *project.Zone,
-			"organization_id": *project.OrganizationID,
-			"project_id":      *scalewayConfig.Projects[*project.Name],
-		})
-
-		_, err := secret.Create(ctx, &secret.CreateOptions{
-			Path:  path,
-			Key:   "scaleway",
-			Value: pulumi.String(value),
-			PulumiOptions: []pulumi.ResourceOption{
-				pulumi.Provider(config.VaultProvider),
-			},
-		})
-		return err
+	stErr := store.Write(ctx, "scaleway", pulumi.StringMap{
+		"access_key":      application.Key.AccessKey,
+		"secret_key":      application.Key.SecretKey,
+		"region":          pulumi.String(*project.Region),
+		"zone":            pulumi.String(*project.Zone),
+		"organization_id": pulumi.String(*project.OrganizationID),
+		"project_id":      pulumi.String(*scalewayConfig.Projects[*project.Name]),
 	})
+	if stErr != nil {
+		log.Err(stErr).Msgf("[scaleway][iam] error storing Scaleway secrets for project: %s", *project.Name)
+		return nil, stErr
+	}
 
 	return application, nil
 }

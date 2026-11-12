@@ -2,23 +2,20 @@ package google
 
 import (
 	"encoding/base64"
-	"encoding/json"
 	"fmt"
 	"maps"
 	"regexp"
 	"slices"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	libVault "github.com/muhlba91/github-infrastructure/pkg/lib/vault"
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/google/iam/role"
 	gsa "github.com/muhlba91/pulumi-shared-library/pkg/lib/google/iam/serviceaccount"
-	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	rModel "github.com/muhlba91/pulumi-shared-library/pkg/model/rotation"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/serviceaccount"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -49,14 +46,14 @@ func repositoryServiceAccounts(
 
 // createServiceAccounts creates the additional service accounts of a repository in its default project (shared
 // library: account, role members, key): the predefined roles in the configured projects and a key (optionally
-// rotated), stored in Vault as gcp-<account ID> (field "credentials", the key file's JSON).
+// rotated), written to the secret store as gcp-<account ID> (field "credentials", the key file's JSON).
 // ctx: Pulumi context for resource management.
 // project: The repository project configuration.
-// vaultStores: The Vault mounts (repositories by name, created additional mounts by libVault.AdditionalMountKey).
+// stores: The secret stores (see secrets.ConfigureStores).
 // providers: GCP providers by project.
 func createServiceAccounts(ctx *pulumi.Context,
 	project *google.RepositoryProject,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 	providers map[string]*gcp.Provider,
 ) error {
 	for _, name := range slices.Sorted(maps.Keys(project.ServiceAccounts)) {
@@ -122,7 +119,7 @@ func createServiceAccounts(ctx *pulumi.Context,
 			return kErr
 		}
 
-		if vErr := storeServiceAccountKey(ctx, project, name, account, key, vaultStores); vErr != nil {
+		if vErr := storeServiceAccountKey(ctx, project, name, account, key, stores); vErr != nil {
 			log.Err(vErr).Msgf("[google][serviceaccount] error storing key of service account: %s", name)
 			return vErr
 		}
@@ -131,51 +128,35 @@ func createServiceAccounts(ctx *pulumi.Context,
 	return nil
 }
 
-// storeServiceAccountKey stores a service account key in Vault as gcp-<account ID>, field "credentials".
+// storeServiceAccountKey writes a service account key to the secret store as gcp-<account ID>, field "credentials":
+// the repository's store, or only the configured Vault mount.
 // ctx: Pulumi context for resource management.
 // project: The repository project configuration.
 // name: The service account ID.
 // account: The service account configuration.
 // key: The service account key.
-// vaultStores: The Vault mounts (repositories by name, created additional mounts by libVault.AdditionalMountKey).
+// stores: The secret stores (see secrets.ConfigureStores).
 func storeServiceAccountKey(ctx *pulumi.Context,
 	project *google.RepositoryProject,
 	name string,
 	account *google.RepositoryServiceAccount,
 	key *serviceaccount.Key,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 ) error {
-	path := fmt.Sprintf("github-%s", *project.Repository)
-	mount := vaultStores[*project.Repository]
+	store := stores[*project.Repository]
 	if account.VaultMount != nil {
-		path = *account.VaultMount
-		// nil when the mount is not created by this program: it must exist already
-		mount = vaultStores[libVault.AdditionalMountKey(path)]
-	}
-
-	dependsOn := []pulumi.Resource{key}
-	if mount != nil {
-		dependsOn = append(dependsOn, mount)
-	}
-
-	value, _ := key.PrivateKey.ApplyT(func(privateKey string) (string, error) {
-		credentials, err := base64.StdEncoding.DecodeString(privateKey)
-		if err != nil {
-			return "", err
+		store = stores[libVault.AdditionalMountKey(*account.VaultMount)]
+		if store == nil {
+			// not created by this program: it must exist already
+			store = &secrets.Store{VaultPath: *account.VaultMount}
 		}
-		data, err := json.Marshal(map[string]string{"credentials": string(credentials)})
+	}
+
+	credentials, _ := key.PrivateKey.ApplyT(func(privateKey string) (string, error) {
+		data, err := base64.StdEncoding.DecodeString(privateKey)
 		return string(data), err
 	}).(pulumi.StringOutput)
+	secretCredentials, _ := pulumi.ToSecret(credentials).(pulumi.StringOutput)
 
-	secretValue, _ := pulumi.ToSecret(value).(pulumi.StringOutput)
-	_, err := secret.Create(ctx, &secret.CreateOptions{
-		Path:  path,
-		Key:   fmt.Sprintf("gcp-%s", name),
-		Value: secretValue,
-		PulumiOptions: []pulumi.ResourceOption{
-			pulumi.Provider(config.VaultProvider),
-			pulumi.DependsOn(dependsOn),
-		},
-	})
-	return err
+	return store.Write(ctx, fmt.Sprintf("gcp-%s", name), pulumi.StringMap{"credentials": secretCredentials}, key)
 }

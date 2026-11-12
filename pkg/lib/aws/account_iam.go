@@ -4,15 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/random"
-	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/metadata"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -21,13 +21,13 @@ import (
 // ctx: Pulumi context for resource management.
 // account: The repository account configuration.
 // identityProviderArn: ARN of the AWS IAM Identity Provider for GitHub OIDC.
-// vaultStore: Vault mount point for storing secrets.
+// store: The repository's secret store.
 // repositoriesConfig: Configuration for the GitHub repositories.
 // provider: AWS provider configured for the specific account.
 func createAccountIAM(ctx *pulumi.Context,
 	account *awsModel.RepositoryAccount,
 	identityProviderArn string,
-	vaultStore *vault.Mount,
+	store *secrets.Store,
 	repositoriesConfig *repositories.Config,
 	provider *aws.Provider,
 ) (*iam.Role, error) {
@@ -66,25 +66,14 @@ func createAccountIAM(ctx *pulumi.Context,
 		return nil, rErr
 	}
 
-	pulumi.All(vaultStore.Path, role.Arn).ApplyT(func(all []any) error {
-		path, _ := all[0].(string)
-		roleArn, _ := all[1].(string)
-
-		value, _ := json.Marshal(map[string]string{
-			"identity_role_arn": roleArn,
-			"region":            *account.Region,
-		})
-
-		_, err := secret.Create(ctx, &secret.CreateOptions{
-			Path:  path,
-			Key:   "aws",
-			Value: pulumi.String(value),
-			PulumiOptions: []pulumi.ResourceOption{
-				pulumi.Provider(config.VaultProvider),
-			},
-		})
-		return err
+	stErr := store.Write(ctx, "aws", pulumi.StringMap{
+		"identity_role_arn": role.Arn,
+		"region":            pulumi.String(*account.Region),
 	})
+	if stErr != nil {
+		log.Err(stErr).Msgf("[aws][iam] error storing AWS secrets for repository: %s", *account.Repository)
+		return nil, stErr
+	}
 
 	return role, nil
 }

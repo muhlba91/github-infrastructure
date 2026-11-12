@@ -16,6 +16,8 @@ type RepositoryProject struct {
 	LinkedProjects map[string]*RepositoryLinkedProject
 	// HMACKey indicates if HMAC keys are enabled for the project.
 	HMACKey *bool
+	// SecretManager indicates if the CI service account may access the repository's secrets in Secret Manager.
+	SecretManager *bool
 	// ServiceAccounts are additional service accounts in the project, keyed by the account ID.
 	ServiceAccounts map[string]*RepositoryServiceAccount
 }

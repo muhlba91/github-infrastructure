@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"iter"
 	"maps"
+	"strings"
 
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
@@ -57,7 +58,7 @@ func ConfigureStores(
 
 		for _, repository := range repos {
 			mount, stErr := store.Create(ctx, repository.Name, &store.CreateOptions{
-				Path: pulumi.String(fmt.Sprintf("github-%s", repository.Name)),
+				Path: pulumi.String(MountPath(repository.Name)),
 				Description: pulumi.String(
 					fmt.Sprintf("GitHub repository: %s/%s", *repositoriesConfig.Owner, repository.Name),
 				),
@@ -90,11 +91,26 @@ func ConfigureStores(
 	})
 }
 
+// additionalMountKeyPrefix prefixes the keys of created additional mounts in the map returned by ConfigureStores.
+const additionalMountKeyPrefix = "mount:"
+
+// MountPath returns the path of a repository's mount.
+// repository: The repository name.
+func MountPath(repository string) string {
+	return "github-" + repository
+}
+
 // AdditionalMountKey returns the key of a created additional mount in the map returned by ConfigureStores (the
 // repositories' mounts are keyed by the repository name, which never contains a colon).
 // path: The mount path.
 func AdditionalMountKey(path string) string {
-	return "mount:" + path
+	return additionalMountKeyPrefix + path
+}
+
+// AdditionalMountPath returns the path of a created additional mount from its key, and whether the key is one.
+// key: The key in the map returned by ConfigureStores.
+func AdditionalMountPath(key string) (string, bool) {
+	return strings.CutPrefix(key, additionalMountKeyPrefix)
 }
 
 // filterRepositories filters the given repositories to include only those that we want to manage the lifecycle for.

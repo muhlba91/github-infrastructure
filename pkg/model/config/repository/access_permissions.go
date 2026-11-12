@@ -7,6 +7,8 @@ type AccessPermissionsConfig struct {
 	Tailscale *bool `yaml:"tailscale,omitempty"`
 	// Vault defines the vault access permissions config.
 	Vault *VaultAccessPermissionsConfig `yaml:"vault,omitempty"`
+	// GitHubSecrets defines whether secrets are written as GitHub Actions secrets of the repository.
+	GitHubSecrets *GitHubSecretsConfig `yaml:"githubSecrets,omitempty"`
 	// Google defines the Google cloud access config.
 	Google *GoogleAccessConfig `yaml:"google,omitempty"`
 	// Aws defines the AWS access config.

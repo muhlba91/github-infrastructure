@@ -1,10 +1,10 @@
 package aws
 
 import (
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -13,14 +13,14 @@ import (
 // ctx: Pulumi context for resource management.
 // account: AWS repository account configuration.
 // identityProviderArn: ARN of the identity provider associated with the account.
-// vaultStore: Vault mount configuration for secrets management.
+// store: The repository's secret store.
 // repositoriesConfig: Repository configuration details.
 // awsConfig: AWS configuration details.
 // provider: Pulumi AWS provider for resource creation.
 func configureAccount(ctx *pulumi.Context,
 	account *awsModel.RepositoryAccount,
 	identityProviderArn *pulumi.StringOutput,
-	vaultStore *vault.Mount,
+	store *secrets.Store,
 	repositoriesConfig *repositories.Config,
 	provider *aws.Provider,
 ) pulumi.Output {
@@ -29,7 +29,7 @@ func configureAccount(ctx *pulumi.Context,
 			ctx,
 			account,
 			arn,
-			vaultStore,
+			store,
 			repositoriesConfig,
 			provider,
 		)

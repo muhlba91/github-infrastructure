@@ -3,13 +3,14 @@ package aws
 import (
 	"fmt"
 
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
 	awsConf "github.com/muhlba91/github-infrastructure/pkg/model/config/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -17,12 +18,12 @@ import (
 // Configure sets up AWS resources based on the provided configuration.
 // ctx: Pulumi context for resource management.
 // repositories: List of repository configurations.
-// vaultStores: Map of Vault mount configurations.
+// stores: The secret stores (see secrets.ConfigureStores).
 // awsConfig: AWS configuration details.
 // repositoriesConfig: Repository configuration details.
 func Configure(ctx *pulumi.Context,
 	repositories []*repoConf.Config,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 	awsConfig *awsConf.Config,
 	repositoriesConfig *repositories.Config,
 ) (map[string][]string, error) {
@@ -46,7 +47,7 @@ func Configure(ctx *pulumi.Context,
 			ctx,
 			repositoryAccount,
 			identityProviderArns[*repositoryAccount.ID],
-			vaultStores[*repositoryAccount.Repository],
+			stores[*repositoryAccount.Repository],
 			repositoriesConfig,
 			providers[*repositoryAccount.ID],
 		)

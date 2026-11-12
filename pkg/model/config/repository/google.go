@@ -14,6 +14,9 @@ type GoogleAccessConfig struct {
 	EnabledServices []string `yaml:"enabledServices,omitempty"`
 	// HMACKey indicates whether to enable HMAC key.
 	HMACKey *bool `yaml:"hmacKey,omitempty"`
+	// SecretManager grants the CI service account access to the repository's secrets in the default project's Secret
+	// Manager: the secrets named <repository>--<NAME>.
+	SecretManager *bool `yaml:"secretManager,omitempty"`
 	// ServiceAccounts defines additional service accounts in the default project, keyed by the account ID.
 	ServiceAccounts map[string]GoogleServiceAccountConfig `yaml:"serviceAccounts,omitempty"`
 }

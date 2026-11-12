@@ -1,16 +1,14 @@
 package gitlab
 
 import (
-	"encoding/json"
 	"maps"
 	"slices"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/gitlab/groupaccesstoken"
-	vaultSecret "github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -18,11 +16,11 @@ import (
 // Configure sets up GitLab configurations for the specified repositories.
 // ctx: The Pulumi context for resource management.
 // repositories: A slice of repository configurations.
-// vaultStores: A map of Vault mount configurations.
+// stores: The secret stores (see secrets.ConfigureStores).
 func Configure(
 	ctx *pulumi.Context,
 	repositories []*repoConf.Config,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 ) ([]string, error) {
 	repos := filterRepositories(repositories)
 
@@ -43,24 +41,11 @@ func Configure(
 			return nil, tErr
 		}
 
-		pulumi.All(vaultStores[name].Path, token.Token).
-			ApplyT(func(all []any) error {
-				path, _ := all[0].(string)
-				token, _ := all[1].(string)
-
-				value, _ := json.Marshal(map[string]string{
-					"token": token,
-				})
-				_, _ = vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
-					Path:  path,
-					Key:   "gitlab",
-					Value: pulumi.String(value),
-					PulumiOptions: []pulumi.ResourceOption{
-						pulumi.Provider(config.VaultProvider),
-					},
-				})
-				return nil
-			})
+		stErr := stores[name].Write(ctx, "gitlab", pulumi.StringMap{"token": token.Token})
+		if stErr != nil {
+			log.Err(stErr).Msgf("[gitlab][configure] error storing GitLab token for repository: %s", repository.Name)
+			return nil, stErr
+		}
 	}
 
 	return slices.Collect(maps.Keys(repos)), nil

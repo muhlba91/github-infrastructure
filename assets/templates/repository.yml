@@ -82,11 +82,14 @@ accessPermissions:
         disallowedPoliciesGlobs: [] # policy name globs a created token may never carry
         orphan: false # created tokens have no parent and outlive the token that created them
         tokenExplicitMaxTtl: 14400 # hard maximum TTL of created tokens in seconds (optional, default: 4 hours); token roles have no default TTL: a token lives as long as requested (-ttl), up to this
+  githubSecrets:
+    enabled: false # writes the secrets as GitHub Actions secrets (<KEY>_<FIELD>, e.g. GOOGLE_CLOUD_REGION); together with vault, both are written
   tailscale: true # sets the Tailscale OAuth secrets
   google:
     region: europe-west4 # if not set, google.defaultRegion is used
     project: "" # the default project
     hmacKey: false # create Cloud Storage HMAC keys in the default project
+    secretManager: false # grants the CI service account access to the secrets named '<repository>--<NAME>' in the default project's Secret Manager
     linkedProjects: # a map of linked project ids with the access configuration
       project-id:
         accessLevel: default # 'default' OR 'full'; full uses 'iamPermissions' to set

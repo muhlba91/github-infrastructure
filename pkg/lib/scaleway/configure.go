@@ -3,11 +3,12 @@ package scaleway
 import (
 	"fmt"
 
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
 	scalewayConf "github.com/muhlba91/github-infrastructure/pkg/model/config/scaleway"
 	"github.com/muhlba91/github-infrastructure/pkg/model/scaleway"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	scw "github.com/pulumiverse/pulumi-scaleway/sdk/go/scaleway"
 	"github.com/rs/zerolog/log"
@@ -16,11 +17,11 @@ import (
 // Configure sets up Scaleway resources based on the provided configuration.
 // ctx: Pulumi context for resource management.
 // repositories: List of repository configurations.
-// vaultStores: Map of Vault mount configurations.
+// stores: The secret stores (see secrets.ConfigureStores).
 // scalewayConfig: Scaleway configuration details.
 func Configure(ctx *pulumi.Context,
 	repositories []*repoConf.Config,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 	scalewayConfig *scalewayConf.Config,
 ) (map[string][]string, error) {
 	providers := createProviders(ctx, scalewayConfig)
@@ -32,7 +33,7 @@ func Configure(ctx *pulumi.Context,
 		pErr := configureProject(
 			ctx,
 			repositoryProject,
-			vaultStores[*repositoryProject.Repository],
+			stores[*repositoryProject.Repository],
 			scalewayConfig,
 			providers[*repositoryProject.Name],
 		)

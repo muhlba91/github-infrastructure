@@ -1,19 +1,17 @@
 package google
 
 import (
-	"encoding/json"
 	"fmt"
 	"strings"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/random"
-	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
+	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/projects"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/serviceaccount"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -22,13 +20,13 @@ import (
 // ctx: Pulumi context for resource management.
 // project: The repository project configuration.
 // workloadIdentityPool: Workload Identity Pool for the project.
-// vaultStore: Vault mount configuration.
+// store: The repository's secret store.
 // repositoriesConfig: Configuration for the GitHub repositories.
 // provider: GCP provider configured for the specific project.
 func createProjectIAM(ctx *pulumi.Context,
 	project *google.RepositoryProject,
 	workloadIdentityPool *google.WorkloadIdentityPool,
-	vaultStore *vault.Mount,
+	store *secrets.Store,
 	repositoriesConfig *repositories.Config,
 	provider *gcp.Provider,
 ) (*serviceaccount.Account, error) {
@@ -77,28 +75,24 @@ func createProjectIAM(ctx *pulumi.Context,
 		return nil, saErr
 	}
 
-	pulumi.All(vaultStore.Path, workloadIdentityPool.WorkloadIdentityProvider.Name,
-		serviceAccount.Email).ApplyT(func(all []any) error {
-		path, _ := all[0].(string)
-		providerName, _ := all[1].(string)
-		email, _ := all[2].(string)
+	if defaults.GetOrDefault(project.SecretManager, false) {
+		smErr := createSecretManagerAccess(ctx, project, serviceAccount, provider)
+		if smErr != nil {
+			log.Err(smErr).
+				Msgf("[google][iam] error granting Secret Manager access for project: %s", *project.Name)
+			return nil, smErr
+		}
+	}
 
-		value, _ := json.Marshal(map[string]string{
-			"workload_identity_provider": providerName,
-			"ci_service_account":         email,
-			"region":                     *project.Region,
-		})
-
-		_, err := secret.Create(ctx, &secret.CreateOptions{
-			Path:  path,
-			Key:   "google-cloud",
-			Value: pulumi.String(value),
-			PulumiOptions: []pulumi.ResourceOption{
-				pulumi.Provider(config.VaultProvider),
-			},
-		})
-		return err
+	stErr := store.Write(ctx, "google-cloud", pulumi.StringMap{
+		"workload_identity_provider": workloadIdentityPool.WorkloadIdentityProvider.Name,
+		"ci_service_account":         serviceAccount.Email,
+		"region":                     pulumi.String(*project.Region),
 	})
+	if stErr != nil {
+		log.Err(stErr).Msgf("[google][iam] error storing Google Cloud secrets for project: %s", *project.Name)
+		return nil, stErr
+	}
 
 	return serviceAccount, nil
 }

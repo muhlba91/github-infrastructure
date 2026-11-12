@@ -11,6 +11,7 @@ import (
 	"github.com/muhlba91/github-infrastructure/pkg/lib/gitlab"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/google"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/scaleway"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/tailscale"
 	"github.com/muhlba91/github-infrastructure/pkg/lib/vault"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
@@ -43,21 +44,22 @@ func main() {
 		})
 
 		// gitlab access
-		gitlabs := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) []string {
-			gl, _ := gitlab.Configure(ctx, repos, stores)
+		gitlabs := vaultStores.ApplyT(func(mounts map[string]*vaultProvider.Mount) []string {
+			gl, _ := gitlab.Configure(ctx, repos, secrets.ConfigureStores(repos, githubRepositories, mounts))
 			return gl
 		})
 
 		// tailscale access
-		tailscales := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) []*string {
-			ts, _ := tailscale.Configure(ctx, repos, stores)
+		tailscales := vaultStores.ApplyT(func(mounts map[string]*vaultProvider.Mount) []*string {
+			ts, _ := tailscale.Configure(ctx, repos, secrets.ConfigureStores(repos, githubRepositories, mounts))
 			return ts
 		})
 
 		// google cloud
 		googleAllowedProjects := gcpConfig.Projects
 		slices.Sort(googleAllowedProjects)
-		googleProjects := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
+		googleProjects := vaultStores.ApplyT(func(mounts map[string]*vaultProvider.Mount) map[string][]string {
+			stores := secrets.ConfigureStores(repos, githubRepositories, mounts)
 			projects, _ := google.Configure(ctx, repos, stores, gcpConfig, repositoriesConfig)
 			return projects
 		})
@@ -65,7 +67,8 @@ func main() {
 		// aws accounts
 		awsAllowedAccounts := slices.Collect(maps.Keys(awsConfig.Account))
 		slices.Sort(awsAllowedAccounts)
-		awsAccounts := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
+		awsAccounts := vaultStores.ApplyT(func(mounts map[string]*vaultProvider.Mount) map[string][]string {
+			stores := secrets.ConfigureStores(repos, githubRepositories, mounts)
 			accounts, _ := aws.Configure(ctx, repos, stores, awsConfig, repositoriesConfig)
 			return accounts
 		})
@@ -73,7 +76,8 @@ func main() {
 		// scaleway projects
 		scalewayAllowedProjects := slices.Collect(maps.Keys(scalewayConfig.Projects))
 		slices.Sort(scalewayAllowedProjects)
-		scalewayProjects := vaultStores.ApplyT(func(stores map[string]*vaultProvider.Mount) map[string][]string {
+		scalewayProjects := vaultStores.ApplyT(func(mounts map[string]*vaultProvider.Mount) map[string][]string {
+			stores := secrets.ConfigureStores(repos, githubRepositories, mounts)
 			projects, _ := scaleway.Configure(ctx, repos, stores, scalewayConfig)
 			return projects
 		})
@@ -133,6 +137,9 @@ func exportRepositories(ctx *pulumi.Context, repos []*repository.Config) {
 			repo.AccessPermissions != nil &&
 			repo.AccessPermissions.Vault != nil &&
 			defaults.GetOrDefault(repo.AccessPermissions.Vault.Enabled, true)
+		repositories[repo.Name]["githubSecrets"] = repo.AccessPermissions != nil &&
+			repo.AccessPermissions.GitHubSecrets != nil &&
+			defaults.GetOrDefault(repo.AccessPermissions.GitHubSecrets.Enabled, false)
 		repositories[repo.Name]["tailscale"] = repo.AccessPermissions != nil &&
 			defaults.GetOrDefault(repo.AccessPermissions.Tailscale, false)
 	}

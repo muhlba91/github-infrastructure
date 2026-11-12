@@ -1,15 +1,13 @@
 package tailscale
 
 import (
-	"encoding/json"
 	"fmt"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
+
 	repoConf "github.com/muhlba91/github-infrastructure/pkg/model/config/repository"
-	vaultSecret "github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/defaults"
 	tsProvider "github.com/pulumi/pulumi-tailscale/sdk/go/tailscale"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
@@ -20,11 +18,11 @@ const maxOauthDescriptionLength = 50
 // Configure sets up Tailscale configurations for the specified repositories.
 // ctx: The Pulumi context for resource management.
 // repositories: A slice of repository configurations.
-// vaultStores: A map of Vault mount configurations.
+// stores: The secret stores (see secrets.ConfigureStores).
 func Configure(
 	ctx *pulumi.Context,
 	repositories []*repoConf.Config,
-	vaultStores map[string]*vault.Mount,
+	stores map[string]*secrets.Store,
 ) ([]*string, error) {
 	repos := filterRepositories(repositories)
 
@@ -43,26 +41,15 @@ func Configure(
 			return nil, oErr
 		}
 
-		pulumi.All(vaultStores[*repository].Path, oauthClient.ID().ToStringOutput(), oauthClient.Key).
-			ApplyT(func(all []any) error {
-				path, _ := all[0].(string)
-				id, _ := all[1].(string)
-				key, _ := all[2].(string)
-
-				value, _ := json.Marshal(map[string]string{
-					"oauth_client_id": id,
-					"oauth_secret":    key,
-				})
-				_, _ = vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
-					Path:  path,
-					Key:   "tailscale",
-					Value: pulumi.String(value),
-					PulumiOptions: []pulumi.ResourceOption{
-						pulumi.Provider(config.VaultProvider),
-					},
-				})
-				return nil
-			})
+		stErr := stores[*repository].Write(ctx, "tailscale", pulumi.StringMap{
+			"oauth_client_id": oauthClient.ID().ToStringOutput(),
+			"oauth_secret":    oauthClient.Key,
+		})
+		if stErr != nil {
+			log.Err(stErr).
+				Msgf("[tailscale][configure] error storing Tailscale OAuth client for repository: %s", *repository)
+			return nil, stErr
+		}
 	}
 
 	return repos, nil

@@ -1,30 +1,27 @@
 package google
 
 import (
-	"encoding/json"
 	"fmt"
 
-	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
+	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	"github.com/muhlba91/github-infrastructure/pkg/model/google"
-	"github.com/muhlba91/pulumi-shared-library/pkg/lib/vault/secret"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/serviceaccount"
 	"github.com/pulumi/pulumi-gcp/sdk/v10/go/gcp/storage"
-	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/rs/zerolog/log"
 )
 
-// createHMACKey creates an HMAC key for the specified Google Cloud project and stores it in Vault.
+// createHMACKey creates an HMAC key for the specified Google Cloud project and writes it to the secret store.
 // ctx: Pulumi context for resource management.
 // project: Google Cloud project details.
 // serviceAccount: Service account associated with the HMAC key.
-// vaultStore: Vault mount where the HMAC key will be stored.
+// store: The repository's secret store.
 // provider: GCP provider for resource creation.
 func createHMACKey(ctx *pulumi.Context,
 	project *google.RepositoryProject,
 	serviceAccount *serviceaccount.Account,
-	vaultStore *vault.Mount,
+	store *secrets.Store,
 	provider *gcp.Provider,
 ) error {
 	key, err := storage.NewHmacKey(
@@ -42,26 +39,8 @@ func createHMACKey(ctx *pulumi.Context,
 		return err
 	}
 
-	pulumi.All(vaultStore.Path, key.AccessId, key.Secret).ApplyT(func(all []any) error {
-		path, _ := all[0].(string)
-		accessID, _ := all[1].(string)
-		secretKey, _ := all[2].(string)
-
-		value, _ := json.Marshal(map[string]string{
-			"access_key_id":     accessID,
-			"secret_access_key": secretKey,
-		})
-
-		_, vErr := secret.Create(ctx, &secret.CreateOptions{
-			Path:  path,
-			Key:   "google-cloud-storage",
-			Value: pulumi.String(value),
-			PulumiOptions: []pulumi.ResourceOption{
-				pulumi.Provider(config.VaultProvider),
-			},
-		})
-		return vErr
+	return store.Write(ctx, "google-cloud-storage", pulumi.StringMap{
+		"access_key_id":     key.AccessId,
+		"secret_access_key": key.Secret,
 	})
-
-	return nil
 }
