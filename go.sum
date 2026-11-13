@@ -186,6 +186,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/pulumi-aws/sdk/v7 v7.54.0 h1:p2SWcmsC3lotHTDp9rW+fomFBmBDW9LPmpJgTtHx3FI=
 github.com/pulumi/pulumi-aws/sdk/v7 v7.54.0/go.mod h1:KYttMyRXXTvk/DO4D07yJb3dFzsmloqqUPoaJ1Ocl/Y=
+github.com/pulumi/pulumi-aws/sdk/v7 v7.55.0 h1:Y4298KjPEe/8eIctEqMLmPuOluWp4NNeUF0Gf+RkIoQ=
+github.com/pulumi/pulumi-aws/sdk/v7 v7.55.0/go.mod h1:KYttMyRXXTvk/DO4D07yJb3dFzsmloqqUPoaJ1Ocl/Y=
 github.com/pulumi/pulumi-cloud-sdk/go v1.20261104.0 h1:mK5CX2LbIOL+hBJhWxu/F75mhBP9L9n3bBYDC4xr+eo=
 github.com/pulumi/pulumi-cloud-sdk/go v1.20261104.0/go.mod h1:NPA79X6Wmyr5zNKd+N+RiVJN8duwIrRmIaed8HCL9EM=
 github.com/pulumi/pulumi-gcp/sdk/v10 v10.2.0 h1:ALvxfepuXd6oTN64HazxrsMmzNW3utecWiDX9hGk5LU=
