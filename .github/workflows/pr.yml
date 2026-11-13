@@ -153,3 +153,5 @@ jobs:
           stack-name: prod
           comment-on-pr: true
           refresh: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

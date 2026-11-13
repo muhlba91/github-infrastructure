@@ -62,6 +62,8 @@ jobs:
           command: preview
           stack-name: prod
           refresh: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     runs-on: ubuntu-latest
@@ -110,3 +112,6 @@ jobs:
         with:
           command: up
           stack-name: prod
+          refresh: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
