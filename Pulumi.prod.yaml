@@ -37,7 +37,7 @@ config:
     owner: muhlba91
     subscription: none
   muehlbachler-github-infrastructure:vault:
-    address: https://vault.platform.muehlbachler.io:8200
+    address: https://vault.platform.muehlbachler.io
     enabled: true
   muehlbachler-github-infrastructure:scaleway:
     defaultRegion: fr-par
