@@ -1,0 +1,23 @@
+---
+name: recording-transcriber
+description: "Transcripts with named speakers, protocol and agenda from recordings, using Gemini in Google Colab"
+visibility: public
+protected: true
+enableDiscussions: true
+topics:
+  - transcription
+  - speaker-diarization
+  - colab
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Build
+      - Checks
+      - Tests
+
+accessPermissions:
+  vault:
+    enabled: false
