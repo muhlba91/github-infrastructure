@@ -1,19 +1,16 @@
 ---
 name: node-red-container
-description: "An opinionated Node-RED container"
+description: "DEPRECATED: An opinionated Node-RED container"
 visibility: public
 protected: true
 topics:
   - node-red
   - container
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Lint Dockerfile
-      - Build Container Image
 
 accessPermissions:
   vault:
