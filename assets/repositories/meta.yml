@@ -1,0 +1,17 @@
+---
+name: meta
+description: "Meta: Cross-repository initiatives and tracking"
+visibility: public
+protected: true
+topics:
+  - meta
+  - tracking
+  - homelab
+
+rulesets:
+  branch:
+    enabled: true
+
+accessPermissions:
+  vault:
+    enabled: false
