@@ -30,8 +30,4 @@ type RulesetConfig struct {
 	AllowBypass *bool `yaml:"allowBypass,omitempty"`
 	// AllowBypassIntegrations defines the integrations that are allowed to bypass the ruleset.
 	AllowBypassIntegrations []int `yaml:"allowBypassIntegrations,omitempty"`
-	// EnableGitstreamIntegration indicates whether to enable the Gitstream integration.
-	EnableGitstreamIntegration *bool `yaml:"enableGitstreamIntegration,omitempty"`
-	// EnableWipIntegration indicates whether to enable the WIP integration.
-	EnableWipIntegration *bool `yaml:"enableWipIntegration,omitempty"`
 }

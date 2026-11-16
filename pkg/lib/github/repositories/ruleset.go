@@ -37,7 +37,6 @@ func createRuleset(
 		AllowBypassIntegrations:  repository.Rulesets.Branch.AllowBypassIntegrations,
 		UpdatedBranchBeforeMerge: repository.Rulesets.Branch.RequireUpdatedBranchBeforeMerge,
 		RequiredChecks:           repository.Rulesets.Branch.RequiredChecks,
-		WIPIntegration:           repository.Rulesets.Branch.EnableWipIntegration,
 		DeleteOnDestroy:          &delOnDestroy,
 	})
 	return err
