@@ -1,0 +1,23 @@
+---
+name: style-guide
+description: "Coding, documentation and writing style as rules and agent skills"
+visibility: public
+protected: true
+topics:
+  - style-guide
+  - coding-style
+  - agent-skills
+  - documentation
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Conform
+      - Lint
+      - Rules and Digests
+
+accessPermissions:
+  vault:
+    enabled: false
