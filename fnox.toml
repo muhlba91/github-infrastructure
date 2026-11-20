@@ -42,5 +42,5 @@ SCW_DEFAULT_ZONE = { default = "fr-par-1" }
 # short-lived AWS credentials of the CI role for fnox exec (not used by fnox export, i.e. not in CI)
 [leases.aws]
 type = "command"
-create_command = "fnox-aws-lease"
+create_command = "$HOME/.config/fnox/aws-lease.sh"
 duration = "1h"
