@@ -25,6 +25,11 @@ accessPermissions:
     enabled: false # bootstrap repository: its inputs never come from Vault (see BOOTSTRAP.md)
   githubSecrets:
     enabled: true
+  aws:
+    region: eu-west-1
+    account: 454228071914 # management account: the CI role assumes the roles in aws.account
+    iamPermissions:
+      - sts:AssumeRole
   google:
     region: europe-west4
     project: public-services-402810

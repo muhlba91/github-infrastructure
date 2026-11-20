@@ -9,6 +9,8 @@
 #   (GOOGLE_CLOUD_*)
 # - locally (Mac): your Application Default Credentials (`gcloud auth application-default login`); mise sets
 #   FNOX_PROFILE=default here, so the machine's `dev` profile (Vault) is never used
+# - AWS: CI assumes the repository's CI role by OIDC (configure-aws-credentials); locally the `aws` lease assumes the same
+#   role from your IAM Identity Center login (`aws sso login --profile ci-assume`)
 #
 # run: fnox exec -- pulumi preview --stack prod
 
@@ -26,8 +28,7 @@ OAUTH_CLIENT_ID = { provider = "gsm", value = "OAUTH_CLIENT_ID", description = "
 OAUTH_CLIENT_SECRET = { provider = "gsm", value = "OAUTH_CLIENT_SECRET", description = "Tailscale OAuth client" }
 SCW_ACCESS_KEY = { provider = "gsm", value = "SCW_ACCESS_KEY", description = "Scaleway API key of this repository's IAM application" }
 SCW_SECRET_KEY = { provider = "gsm", value = "SCW_SECRET_KEY", description = "Scaleway API key of this repository's IAM application" }
-AWS_ACCESS_KEY_ID = { provider = "gsm", value = "AWS_ACCESS_KEY_ID", description = "AWS access key (management account)" }
-AWS_SECRET_ACCESS_KEY = { provider = "gsm", value = "AWS_SECRET_ACCESS_KEY", description = "AWS access key (management account)" }
+AWS_IDENTITY_ROLE_ARN = { provider = "gsm", value = "AWS_IDENTITY_ROLE_ARN", description = "ARN of this repository's AWS CI role (management account)" }
 
 # plain configuration, not secret
 AWS_REGION = { default = "eu-west-1" }
@@ -37,3 +38,9 @@ SCW_ORGANIZATION_ID = { default = "2535e3b0-5c19-476b-8c0b-8a2a5bfac7c3" }
 SCW_PROJECT_ID = { default = "2535e3b0-5c19-476b-8c0b-8a2a5bfac7c3" } # the organization's default project (same ID)
 SCW_DEFAULT_REGION = { default = "fr-par" }
 SCW_DEFAULT_ZONE = { default = "fr-par-1" }
+
+# short-lived AWS credentials of the CI role for fnox exec (not used by fnox export, i.e. not in CI)
+[leases.aws]
+type = "command"
+create_command = "fnox-aws-lease"
+duration = "1h"

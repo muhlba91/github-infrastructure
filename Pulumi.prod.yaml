@@ -24,6 +24,8 @@ config:
         roleArn:
           secure: v1:TppRHLMrB2OmDhj6:ZJZYcUedIZknmQLgxSMHSy5w01rVHLekFSHM4bRzUdqr7JeDlFjaB7ncrChcsu2n1BFFRaZ9UPdWqHv1m3o0
     defaultRegion: eu-west-1
+    sso:
+      organizationId: o-syahvlxift
   muehlbachler-github-infrastructure:google:
     allowHmacKeys: true
     defaultRegion: europe-west4

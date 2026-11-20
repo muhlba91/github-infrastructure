@@ -3,6 +3,7 @@ package aws
 import (
 	"github.com/muhlba91/github-infrastructure/pkg/lib/secrets"
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
+	awsConf "github.com/muhlba91/github-infrastructure/pkg/model/config/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -22,6 +23,7 @@ func configureAccount(ctx *pulumi.Context,
 	identityProviderArn *pulumi.StringOutput,
 	store *secrets.Store,
 	repositoriesConfig *repositories.Config,
+	sso *awsConf.SSO,
 	provider *aws.Provider,
 ) pulumi.Output {
 	return identityProviderArn.ApplyT(func(arn string) error {
@@ -31,6 +33,7 @@ func configureAccount(ctx *pulumi.Context,
 			arn,
 			store,
 			repositoriesConfig,
+			sso,
 			provider,
 		)
 		if err != nil {

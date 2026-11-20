@@ -40,7 +40,7 @@ come from Vault. The secrets are read with [fnox](https://fnox.jdx.dev) from Goo
 
 - **CI:** Google credentials from workload identity (managed by this repository itself); a step loads the secrets into
   the job's environment.
-- **Locally:** with your Application Default Credentials (`gcloud auth application-default login`):
+- **Locally:** with your Application Default Credentials (`gcloud auth application-default login`) and, for AWS, your IAM Identity Center login (`aws sso login --profile ci-assume`):
 
   ```bash
   fnox exec -- pulumi preview --stack prod
@@ -58,8 +58,7 @@ To successfully run, and configure the Pulumi plugins, you need to set a list of
 - `ALLOW_REPOSITORY_DELETION`: set to `true` to allow repository deletion
 - `IGNORE_UNMANAGED_REPOSITORIES`: set to `true` to skip repositories not defined in `assets/repositories/`
 - `AWS_REGION`: the AWS region to use
-- `AWS_ACCESS_KEY_ID`: the AWS secret key
-- `AWS_SECRET_ACCESS_KEY`: the AWS secret access key
+- `AWS_IDENTITY_ROLE_ARN`: the ARN of this repository's AWS CI role; CI assumes it by OIDC, the `aws` lease in `fnox.toml` assumes it locally and provides `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_SESSION_TOKEN`
 - `CLOUDSDK_COMPUTE_REGION`: the Google Cloud (GCP) region
 - `CLOUDSDK_CORE_PROJECT`: the Google Cloud (GCP) default project
 - `SCW_ACCESS_KEY`: the Scaleway access key
@@ -92,6 +91,9 @@ aws:
     <ACCOUNT_ID>:
       roleArn: the IAM role ARN to assume with correct permissions
       externalId: the the ExternalID property to assume the role
+  sso: optional, the IAM Identity Center permission set the CI roles trust for local runs
+    organizationId: the ID of the AWS Organization (required for the trust to be created)
+    permissionSetName: the name of the permission set, defaults to ci-assume
 ```
 
 ### Google Cloud

@@ -8,6 +8,7 @@ import (
 
 	"github.com/muhlba91/github-infrastructure/pkg/lib/config"
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
+	awsConf "github.com/muhlba91/github-infrastructure/pkg/model/config/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/random"
 	"github.com/muhlba91/pulumi-shared-library/pkg/util/metadata"
@@ -23,12 +24,14 @@ import (
 // identityProviderArn: ARN of the AWS IAM Identity Provider for GitHub OIDC.
 // store: The repository's secret store.
 // repositoriesConfig: Configuration for the GitHub repositories.
+// sso: The IAM Identity Center configuration trusted by the role, nil for none.
 // provider: AWS provider configured for the specific account.
 func createAccountIAM(ctx *pulumi.Context,
 	account *awsModel.RepositoryAccount,
 	identityProviderArn string,
 	store *secrets.Store,
 	repositoriesConfig *repositories.Config,
+	sso *awsConf.SSO,
 	provider *aws.Provider,
 ) (*iam.Role, error) {
 	tags := config.CommonLabels()
@@ -59,6 +62,7 @@ func createAccountIAM(ctx *pulumi.Context,
 		tags,
 		truncatedRepository,
 		ciPostfix.Text,
+		sso,
 		provider,
 	)
 	if rErr != nil {
@@ -86,6 +90,7 @@ func createAccountIAM(ctx *pulumi.Context,
 // tags: Tags to be applied to the IAM role.
 // truncatedRepository: Truncated name of the repository for naming purposes.
 // ciPostfix: Random postfix for ensuring unique role names.
+// sso: The IAM Identity Center configuration trusted by the role, nil for none.
 // provider: AWS provider configured for the specific account.
 func createRole(ctx *pulumi.Context,
 	account *awsModel.RepositoryAccount,
@@ -94,33 +99,10 @@ func createRole(ctx *pulumi.Context,
 	tags map[string]string,
 	truncatedRepository string,
 	ciPostfix pulumi.StringOutput,
+	sso *awsConf.SSO,
 	provider *aws.Provider,
 ) (*iam.Role, error) {
-	//nolint:gosec // false positive, this is not a hardcoded secret but a condition for the OIDC token
-	roleDoc, _ := json.Marshal(map[string]any{
-		"Version": "2012-10-17",
-		"Statement": []map[string]any{
-			{
-				"Effect": "Allow",
-				"Action": "sts:AssumeRoleWithWebIdentity",
-				"Principal": map[string]any{
-					"Federated": identityProviderArn,
-				},
-				"Condition": map[string]any{
-					"StringEquals": map[string]any{
-						"token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-					},
-					"StringLike": map[string]any{
-						"token.actions.githubusercontent.com:sub": fmt.Sprintf(
-							"repo:%s/%s:*",
-							*repositoriesConfig.Owner,
-							*account.Repository,
-						),
-					},
-				},
-			},
-		},
-	})
+	roleDoc, _ := json.Marshal(trustPolicy(identityProviderArn, *repositoriesConfig.Owner, *account.Repository, sso))
 
 	//nolint:godox // TODO is required
 	// FIXME: move to shared library

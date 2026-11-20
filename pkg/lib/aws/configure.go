@@ -49,6 +49,7 @@ func Configure(ctx *pulumi.Context,
 			identityProviderArns[*repositoryAccount.ID],
 			stores[*repositoryAccount.Repository],
 			repositoriesConfig,
+			awsConfig.SSO,
 			providers[*repositoryAccount.ID],
 		)
 

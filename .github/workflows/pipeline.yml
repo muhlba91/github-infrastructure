@@ -51,6 +51,12 @@ jobs:
                 | if (.value | test("\n")) then error("multi-line value: \(.key)") else "\(.key)=\(.value)" end' \
             >> "$GITHUB_ENV"
 
+      # AWS credentials from the repository's CI role by OIDC (the role is managed by this repository itself)
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.AWS_IDENTITY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
       - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
           organization: muhlba91
@@ -102,6 +108,12 @@ jobs:
             | jq -r '.secrets | to_entries[]
                 | if (.value | test("\n")) then error("multi-line value: \(.key)") else "\(.key)=\(.value)" end' \
             >> "$GITHUB_ENV"
+
+      # AWS credentials from the repository's CI role by OIDC (the role is managed by this repository itself)
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.AWS_IDENTITY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
 
       - uses: pulumi/auth-actions@273044cc19e63ea565285da8edd4e059126a0bdb # v2.1.2
         with:
