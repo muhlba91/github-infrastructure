@@ -1,0 +1,27 @@
+---
+name: postgresql-vchord-extension-container
+description: "A CloudNativePG extension image providing vchord for PostgreSQL"
+visibility: public
+protected: true
+topics:
+  - postgresql
+  - vchord
+  - cloudnative-pg
+  - container
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Conform
+      - Lint Dockerfile
+      - Scan Secrets
+      - Lint Shell
+      - Lint YAML
+      - Lint Markdown
+      - Build and Test Container Image (18)
+
+accessPermissions:
+  vault:
+    enabled: false
