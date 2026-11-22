@@ -1,6 +1,6 @@
 ---
 name: postgresql-pgvecto-container
-description: "A CloudNativePG PostgreSQL container with pgvecto.rs integrated"
+description: "DEPRECATED: A CloudNativePG PostgreSQL container with vchord integrated"
 visibility: public
 protected: true
 topics:
@@ -8,14 +8,11 @@ topics:
   - pgvecto-rs
   - cloudnative-pg
   - container
+  - deprecated
 
 rulesets:
   branch:
     enabled: true
-    requiredChecks:
-      - Dependency Review
-      - Lint Dockerfile
-      - Build Container Image
 
 accessPermissions:
   vault:
