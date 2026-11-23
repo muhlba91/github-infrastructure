@@ -10,8 +10,9 @@ import (
 	awsModel "github.com/muhlba91/github-infrastructure/pkg/model/aws"
 	awsConf "github.com/muhlba91/github-infrastructure/pkg/model/config/aws"
 	"github.com/muhlba91/github-infrastructure/pkg/model/config/repositories"
+	libPolicy "github.com/muhlba91/pulumi-shared-library/pkg/lib/aws/iam/policy"
+	libRole "github.com/muhlba91/pulumi-shared-library/pkg/lib/aws/iam/role"
 	"github.com/muhlba91/pulumi-shared-library/pkg/lib/random"
-	"github.com/muhlba91/pulumi-shared-library/pkg/util/metadata"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -104,18 +105,21 @@ func createRole(ctx *pulumi.Context,
 ) (*iam.Role, error) {
 	roleDoc, _ := json.Marshal(trustPolicy(identityProviderArn, *repositoriesConfig.Owner, *account.Repository, sso))
 
-	//nolint:godox // TODO is required
-	// FIXME: move to shared library
-	role, rErr := iam.NewRole(
+	role, rErr := libRole.Create(
 		ctx,
-		fmt.Sprintf("aws-iam-role-ci-%s-%s", *account.Repository, *account.ID),
-		&iam.RoleArgs{
+		fmt.Sprintf("ci-%s-%s", *account.Repository, *account.ID),
+		&libRole.CreateOptions{
 			Name:             pulumi.Sprintf("ci-%s-%s", truncatedRepository, ciPostfix),
 			Description:      pulumi.String(fmt.Sprintf("GitHub Repository: %s", *account.Repository)),
 			AssumeRolePolicy: pulumi.String(roleDoc),
-			Tags:             metadata.LabelsToStringMap(tags),
+			Labels:           tags,
+			PulumiOptions: []pulumi.ResourceOption{
+				pulumi.Provider(provider),
+				pulumi.Aliases([]pulumi.Alias{
+					{Name: pulumi.String(fmt.Sprintf("aws-iam-role-ci-%s-%s", *account.Repository, *account.ID))},
+				}),
+			},
 		},
-		pulumi.Provider(provider),
 	)
 	if rErr != nil {
 		log.Err(rErr).Msgf("[aws][iam] error creating AWS IAM role for repository: %s", *account.Repository)
@@ -132,41 +136,53 @@ func createRole(ctx *pulumi.Context,
 			},
 		},
 	})
-	//nolint:godox // TODO is required
-	// FIXME: move to shared library
-	policy, pErr := iam.NewPolicy(
+	policy, pErr := libPolicy.Create(
 		ctx,
-		fmt.Sprintf("aws-iam-role-ci-policy-%s-%s", *account.Repository, *account.ID),
-		&iam.PolicyArgs{
+		fmt.Sprintf("ci-%s-%s", *account.Repository, *account.ID),
+		&libPolicy.CreateOptions{
 			Name:        pulumi.Sprintf("ci-%s-%s", truncatedRepository, ciPostfix),
 			Description: pulumi.String(fmt.Sprintf("GitHub Repository: %s", *account.Repository)),
 			Policy:      pulumi.String(policyDoc),
-			Tags:        metadata.LabelsToStringMap(tags),
+			Labels:      tags,
+			PulumiOptions: []pulumi.ResourceOption{
+				pulumi.Provider(provider),
+				pulumi.DependsOn([]pulumi.Resource{
+					role,
+				}),
+				pulumi.Aliases([]pulumi.Alias{
+					{
+						Name: pulumi.String(
+							fmt.Sprintf("aws-iam-role-ci-policy-%s-%s", *account.Repository, *account.ID),
+						),
+					},
+				}),
+			},
 		},
-		pulumi.Provider(provider),
-		pulumi.DependsOn([]pulumi.Resource{
-			role,
-		}),
 	)
 	if pErr != nil {
 		log.Err(pErr).Msgf("[aws][iam] error creating AWS IAM policy for repository: %s", *account.Repository)
 		return nil, pErr
 	}
 
-	//nolint:godox // TODO is required
-	// FIXME: move to shared library
-	_, paErr := iam.NewRolePolicyAttachment(
+	_, paErr := libRole.CreateRolePolicyAttachment(
 		ctx,
-		fmt.Sprintf("aws-iam-role-ci-policy-attachment-%s-%s", *account.Repository, *account.ID),
-		&iam.RolePolicyAttachmentArgs{
+		fmt.Sprintf("ci-%s-%s", *account.Repository, *account.ID),
+		&libRole.CreateRolePolicyAttachmentOptions{
 			Role:      role.Name,
 			PolicyArn: policy.Arn,
+			PulumiOptions: []pulumi.ResourceOption{
+				pulumi.Provider(provider),
+				pulumi.DependsOn([]pulumi.Resource{
+					role,
+					policy,
+				}),
+				pulumi.Aliases([]pulumi.Alias{
+					{Name: pulumi.String(
+						fmt.Sprintf("aws-iam-role-ci-policy-attachment-%s-%s", *account.Repository, *account.ID),
+					)},
+				}),
+			},
 		},
-		pulumi.Provider(provider),
-		pulumi.DependsOn([]pulumi.Resource{
-			role,
-			policy,
-		}),
 	)
 	if paErr != nil {
 		log.Err(paErr).Msgf("[aws][iam] error attaching AWS IAM policy to role for repository: %s", *account.Repository)

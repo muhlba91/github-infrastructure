@@ -84,7 +84,11 @@ func createAuth(
 		return nil, abrErr
 	}
 
-	createSecrets(ctx, mount, jwtRole, githubRepository, vaultAddr)
+	scErr := createSecrets(ctx, mount, jwtRole, githubRepository, vaultAddr)
+	if scErr != nil {
+		log.Err(scErr).Msgf("[vault][auth] error creating secrets for repository: %s", repository.Name)
+		return nil, scErr
+	}
 
 	return jwtRole, nil
 }
@@ -147,7 +151,7 @@ func createSecrets(
 	jwtRole *jwt.AuthBackendRole,
 	githubRepository *github.Repository,
 	vaultAddr *string,
-) {
+) error {
 	pulumi.All(mount.Path, jwtRole.RoleName).ApplyT(func(all []any) error {
 		path, _ := all[0].(string)
 		roleName, _ := all[1].(string)
@@ -158,7 +162,7 @@ func createSecrets(
 			"path":    "github",
 		})
 
-		_, _ = vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
+		_, vsErr := vaultSecret.Create(ctx, &vaultSecret.CreateOptions{
 			Path:  path,
 			Key:   "vault",
 			Value: pulumi.String(value),
@@ -169,23 +173,50 @@ func createSecrets(
 				}),
 			},
 		})
+		if vsErr != nil {
+			log.Err(vsErr).Msgf("[vault][auth] error creating Vault secret for the role: %s", roleName)
+		}
 
-		return nil
+		return vsErr
 	})
 
-	ghSecret.Create(ctx, &ghSecret.CreateOptions{
-		Key:        "VAULT_ADDR",
-		Value:      pulumi.String(*vaultAddr),
+	actionsSecrets := []struct {
+		key   string
+		value pulumi.StringInput
+	}{
+		{key: "VAULT_ADDR", value: pulumi.String(*vaultAddr)},
+		{key: "VAULT_ROLE", value: jwtRole.RoleName},
+		{key: "VAULT_PATH", value: pulumi.String("github")},
+	}
+	for _, actionsSecret := range actionsSecrets {
+		asErr := createActionsSecret(ctx, githubRepository, actionsSecret.key, actionsSecret.value)
+		if asErr != nil {
+			return asErr
+		}
+	}
+
+	return nil
+}
+
+// createActionsSecret creates a GitHub Actions secret for the given repository.
+// ctx: The Pulumi context.
+// githubRepository: The GitHub repository resource.
+// key: The name of the secret.
+// value: The value of the secret.
+func createActionsSecret(
+	ctx *pulumi.Context,
+	githubRepository *github.Repository,
+	key string,
+	value pulumi.StringInput,
+) error {
+	_, ghErr := ghSecret.Create(ctx, &ghSecret.CreateOptions{
+		Key:        key,
+		Value:      value,
 		Repository: githubRepository,
 	})
-	ghSecret.Create(ctx, &ghSecret.CreateOptions{
-		Key:        "VAULT_ROLE",
-		Value:      jwtRole.RoleName,
-		Repository: githubRepository,
-	})
-	ghSecret.Create(ctx, &ghSecret.CreateOptions{
-		Key:        "VAULT_PATH",
-		Value:      pulumi.String("github"),
-		Repository: githubRepository,
-	})
+	if ghErr != nil {
+		log.Err(ghErr).Msgf("[vault][auth] error creating GitHub Actions secret: %s", key)
+	}
+
+	return ghErr
 }

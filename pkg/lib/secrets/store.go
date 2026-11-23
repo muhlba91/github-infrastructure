@@ -16,6 +16,7 @@ import (
 	"github.com/pulumi/pulumi-github/sdk/v6/go/github"
 	"github.com/pulumi/pulumi-vault/sdk/v7/go/vault"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/rs/zerolog/log"
 )
 
 // nonAlphanumeric matches the characters GitHub doesn't allow in secret names.
@@ -109,12 +110,16 @@ func (s *Store) Write(ctx *pulumi.Context, key string, values pulumi.StringMap, 
 
 	if s.Repository != nil {
 		for _, field := range slices.Sorted(maps.Keys(values)) {
-			ghSecret.Create(ctx, &ghSecret.CreateOptions{
+			_, ghErr := ghSecret.Create(ctx, &ghSecret.CreateOptions{
 				Key:           strings.ToUpper(nonAlphanumeric.ReplaceAllString(key+"_"+field, "_")),
 				Value:         values[field],
 				Repository:    s.Repository,
 				PulumiOptions: []pulumi.ResourceOption{pulumi.DependsOn(dependsOn)},
 			})
+			if ghErr != nil {
+				log.Err(ghErr).Msgf("[secrets][store] error creating GitHub Actions secret for key: %s", key)
+				return ghErr
+			}
 		}
 	}
 
