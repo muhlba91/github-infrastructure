@@ -16,6 +16,7 @@ rulesets:
       - Dependency Review
       - Conform
       - Lint
+      - Actionlint
       - Rules and Digests
 
 accessPermissions:
