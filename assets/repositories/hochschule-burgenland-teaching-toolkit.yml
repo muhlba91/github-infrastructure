@@ -11,7 +11,14 @@ topics:
 rulesets:
   branch:
     enabled: true
-    requiredChecks: []
+    requiredChecks:
+      - Conform
+      - Gitleaks
+      - Lint
+      - Tests
+      - Package Checks
+      - Workbooks
+      - actionlint
 
 accessPermissions:
   vault:
