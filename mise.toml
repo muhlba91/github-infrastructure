@@ -5,10 +5,12 @@ lockfile = true
 lockfile_platforms = ["macos-arm64", "linux-x64", "linux-arm64"]
 
 [tools]
+actionlint = "1.7.12"
 fnox = "v1.50.0"
 go = "1.27.4"
 golangci-lint = "2.15.0"
 pulumi = "3.277.0"
+shellcheck = "0.11.0"
 
 [env]
 # bootstrap repository: never use the developer machines' `dev` fnox profile, which reads from Vault (see BOOTSTRAP.md)
