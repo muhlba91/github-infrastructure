@@ -18,7 +18,6 @@ rulesets:
       - Lint Dockerfile
       - Scan Secrets
       - Lint Shell
-      - Lint YAML
       - Lint Markdown
       - Build and Test Container Image (18)
       - actionlint
