@@ -15,6 +15,7 @@ rulesets:
     requiredChecks:
       - Dependency Review
       - Container
+      - actionlint
 
 accessPermissions:
   vault:
