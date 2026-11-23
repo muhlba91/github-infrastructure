@@ -17,3 +17,4 @@ rulesets:
       - Dependency Review
       - Lint
       - Unit Tests
+      - actionlint

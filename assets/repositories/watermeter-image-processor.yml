@@ -18,6 +18,7 @@ rulesets:
       - Unit Tests
       - Lint Dockerfile
       - Build Processor and Container
+      - actionlint
 
 accessPermissions:
   vault:

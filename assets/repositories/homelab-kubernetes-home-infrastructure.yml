@@ -18,6 +18,7 @@ rulesets:
       - Unit Tests
       - Pulumi Preview (vie)
       - Pulumi Preview (hochschule-burgenland)
+      - actionlint
 
 accessPermissions:
   vault:

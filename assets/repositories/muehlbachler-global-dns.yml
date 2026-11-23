@@ -15,6 +15,7 @@ rulesets:
       - Dependency Review
       - YAMLLint
       - Preview
+      - actionlint
 
 accessPermissions:
   vault:

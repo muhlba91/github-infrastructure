@@ -21,6 +21,7 @@ rulesets:
       - Build SDK (python)
       - Build SDK (dotnet)
       - Build SDK (java)
+      - actionlint
 
 accessPermissions:
   vault:

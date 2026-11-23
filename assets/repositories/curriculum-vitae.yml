@@ -11,6 +11,7 @@ rulesets:
     enabled: true
     requiredChecks:
       - Compile PDF
+      - actionlint
 
 accessPermissions:
   vault:

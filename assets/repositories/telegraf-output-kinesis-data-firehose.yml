@@ -16,6 +16,7 @@ rulesets:
       - Build Plugin
       - Lint Plugin
       - Run Tests
+      - actionlint
 
 accessPermissions:
   vault:

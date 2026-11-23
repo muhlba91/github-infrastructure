@@ -20,6 +20,7 @@ rulesets:
       - Kubeconform
       - Flate (vie)
       - Flate (hochschule-burgenland)
+      - actionlint
 
 accessPermissions:
   vault:

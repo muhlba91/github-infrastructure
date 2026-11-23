@@ -19,6 +19,7 @@ rulesets:
       - Validate HACS
       - Checks
       - Tests
+      - actionlint
 
 accessPermissions:
   vault:

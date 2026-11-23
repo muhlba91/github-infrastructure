@@ -34,6 +34,7 @@ rulesets:
       - Nix Preview (site-ovh-bhs-router-001)
       - Nix Preview (site-hetzner-fra-router-001)
       - Nix Preview (site-vie-router-001)
+      - actionlint
 
 accessPermissions:
   vault:

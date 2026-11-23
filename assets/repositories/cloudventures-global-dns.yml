@@ -16,6 +16,7 @@ rulesets:
       - YAMLLint
       - Preview main
       - Preview cus-00001
+      - actionlint
 
 accessPermissions:
   vault:

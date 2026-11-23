@@ -15,6 +15,7 @@ rulesets:
       - Dependency Review
       - YAML Lint
       - Verify Builds
+      - actionlint
 
 accessPermissions:
   vault:

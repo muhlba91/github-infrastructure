@@ -18,6 +18,7 @@ rulesets:
       - Gitleaks
       - Chezmoi
       - Brewfile
+      - actionlint
 
 accessPermissions:
   vault:

@@ -19,6 +19,7 @@ rulesets:
       - Lint
       - Unit Tests
       - Pulumi Preview
+      - actionlint
 
 accessPermissions:
   vault:

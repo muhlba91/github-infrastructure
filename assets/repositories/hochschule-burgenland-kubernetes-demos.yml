@@ -19,6 +19,7 @@ rulesets:
       - Lint Terraform
       - Validate Kubernetes Manifests
       - Validate Helm Templates
+      - actionlint
 
 accessPermissions:
   vault:

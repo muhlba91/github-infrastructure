@@ -19,6 +19,7 @@ rulesets:
       - Verify Home Assistant Configuration (stable, vie)
       - Verify Home Assistant Configuration (beta, vie)
       - Verify Home Assistant Configuration (dev, vie)
+      - actionlint
 
 accessPermissions:
   vault:

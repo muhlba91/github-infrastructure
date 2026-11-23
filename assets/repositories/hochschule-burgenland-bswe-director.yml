@@ -17,6 +17,7 @@ rulesets:
       - Lint Dockerfile
       - Lint and Template Helm Chart
       - Build Director and Container
+      - actionlint
 
 accessPermissions:
   vault:

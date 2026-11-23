@@ -14,6 +14,7 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
+      - actionlint
 
 accessPermissions:
   vault:

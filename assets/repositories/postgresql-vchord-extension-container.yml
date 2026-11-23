@@ -21,6 +21,7 @@ rulesets:
       - Lint YAML
       - Lint Markdown
       - Build and Test Container Image (18)
+      - actionlint
 
 accessPermissions:
   vault:

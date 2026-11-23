@@ -16,6 +16,7 @@ rulesets:
       - Build
       - Checks
       - Tests
+      - actionlint
 
 accessPermissions:
   vault:
