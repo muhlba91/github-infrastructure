@@ -19,7 +19,7 @@ rulesets:
       - Scan Secrets
       - Lint Shell
       - Lint Markdown
-      - Build and Test Container Image (18)
+      - Build and Test Container Image (19)
       - actionlint
 
 accessPermissions:
