@@ -1,0 +1,28 @@
+---
+name: personal-workflows
+description: "Personal workflows as agent skills, with rules and connector contracts"
+visibility: public
+protected: true
+topics:
+  - personal-workflows
+  - agent-skills
+  - automation
+  - documentation
+
+rulesets:
+  branch:
+    enabled: true
+    requiredChecks:
+      - Dependency Review
+      - Conform
+      - Shellcheck
+      - Markdownlint
+      - Actionlint
+      - Ruff
+      - Rules
+      - Test
+      - Secret Scan
+
+accessPermissions:
+  vault:
+    enabled: false
