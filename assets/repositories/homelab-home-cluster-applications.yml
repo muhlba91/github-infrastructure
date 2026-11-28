@@ -14,13 +14,15 @@ rulesets:
     enabled: true
     requiredChecks:
       - Dependency Review
-      - Lint
+      - YAMLLint
       - Shellcheck
       - Ruff
-      - Kubeconform
+      - Manifests
       - Flate (vie)
       - Flate (hochschule-burgenland)
       - actionlint
+      - Markdownlint
+      - Gitleaks
 
 accessPermissions:
   vault:
